@@ -60,7 +60,7 @@ a {
     font-size: 12px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     p {
         font-size: 12px;
     }
@@ -68,11 +68,7 @@ a {
     a {
         font-size: 10px; /* 增大链接的字体大小 */
     }
-    .simple-button{
-        width: 150px;
-        height: 30px;
-        margin: 10px;
-    }
+
     .page{
         flex-direction: column;
     }
