@@ -5,72 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>&nbsp;</title>
-    <style>
-
-
-        .content {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            font-size: 16px;
-            min-height: 100vh;
-        }
-        .page{
-            justify-content: center;
-            display: flex;
-            flex-direction: row;
-            /*position: absolute;*/
-            /*bottom: 40px;*/
-            /*left: 50%;*/
-            /* 将元素向左移动自身宽度的一半 */
-            /*transform: translateX(-50%);*/
-        }
-
-        .simple-button {
-            width: 200px;
-            height: 40px;
-            color: #424141;
-            background-color: #f3f3f3;
-            font-size: 16px;
-            cursor: pointer;
-            border-radius: 25px;
-            border: 1px solid #d5d5d5;
-            transition: background-color 0.3s ease;
-            margin: 20px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        /* 鼠标悬停时的样式 */
-        .simple-button:hover {
-            background-color: #e0e0e0;
-        }
-        .bottom-info {
-            bottom: 0;
-            left: 0;
-            right: 0;
-            text-align: center;
-            color: #999;
-            margin-bottom: 10px;
-        }
-
-        a {
-            color: #b4b4b4;
-            text-decoration: none;
-            outline: none;
-            font-size: 12px;
-        }
-
-        @media (max-width: 768px) {
-            div {
-                font-size: 14px;
-            }
-            a {
-                font-size: 10px; /* 增大链接的字体大小 */
-            }
-        }
-
-    </style>
+    <link rel="stylesheet" href="/style/post.css">
 </head>
 
 <body>
@@ -81,21 +16,14 @@
     <p>不如干脆什么都不想，</p>
     <p>跟我一起去码头整点薯条。</p>
     <img src="../img/1.jpg" alt="img">
+    <div class="page">
+        <button class="simple-button" onclick="prev()" id="prev">上一篇</button>
+        <button class="simple-button" onclick="next()" id="next">下一篇</button>
+    </div>
 </div>
-<div class="page">
-    <button class="simple-button" onclick="prev()">上一篇</button>
-    <button class="simple-button" onclick="next()">下一篇</button>
-</div>
+
 
 <p class="bottom-info"><a href="https://beian.miit.gov.cn/#/Integrated/index">冀ICP备2022008700号-1</a></p>
 </body>
-<script>
-function prev() {
-    window.location.href = 'index.html';
-}
-function next() {
-    window.location.href = 'index_2.html';
-}
-
-</script>
+<script src="/script/post.js"></script>
 </html>
