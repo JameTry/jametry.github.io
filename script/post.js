@@ -11,12 +11,12 @@ if (postNum == "1") {
 function prev() {
     if (havePrev) {
         addressSplit[addressSplit.length - 1] = parseInt(postNum) - 1;
-        window.location.href = `${address}`;
+        window.location.href = `${addressSplit.join("/")}`;
     }
 }
 
 function next() {
     addressSplit[addressSplit.length - 1] = parseInt(postNum) + 1;
-    window.location.href = `${address}`;
+    window.location.href = `${addressSplit.join("/")}`;
 }
 
