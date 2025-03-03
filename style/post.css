@@ -61,11 +61,19 @@ a {
 }
 
 @media (max-width: 768px) {
-    div {
-        font-size: 13px;
+    p {
+        font-size: 12px;
     }
 
     a {
         font-size: 10px; /* 增大链接的字体大小 */
+    }
+    .simple-button{
+        width: 150px;
+        height: 30px;
+        margin: 10px;
+    }
+    .page{
+        flex-direction: column;
     }
 }
