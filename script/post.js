@@ -9,7 +9,7 @@ if (postNum == "1") {
 
 addressSplit[addressSplit.length - 1] = parseInt(postNum) - 1
 document.getElementById("prev").href = `${addressSplit.join("/")}`;
-addressSplit[addressSplit.length - 1] = parseInt(postNum) + 2;
+addressSplit[addressSplit.length - 1] = parseInt(postNum) + 1;
 document.getElementById("next").href = `${addressSplit.join("/")}`;
 
 
