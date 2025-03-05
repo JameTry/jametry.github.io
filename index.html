@@ -5,77 +5,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>&nbsp;</title>
-    <style>
-
-        .content {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            font-size: 16px;
-            min-height: 100vh;
-        }
-
-        .simple-button {
-            width: 200px;
-            height: 40px;
-            color: #424141;
-            background-color: #f3f3f3;
-            font-size: 16px;
-            cursor: pointer;
-            border-radius: 25px;
-            border: 1px solid #d5d5d5;
-            transition: background-color 0.3s ease;
-            margin: 20px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        /* 鼠标悬停时的样式 */
-        .simple-button:hover {
-            background-color: #e0e0e0;
-        }
-        .bottom-info {
-            bottom: 0;
-            left: 0;
-            right: 0;
-            text-align: center;
-            color: #999;
-            margin-bottom: 10px;
-        }
-
-        a {
-            color: #b4b4b4;
-            text-decoration: none;
-            outline: none;
-            font-size: 12px;
-        }
-
-        @media (max-width: 768px) {
-            div {
-                font-size: 14px;
-            }
-            a {
-                font-size: 10px; /* 增大链接的字体大小 */
-            }
-        }
-
-    </style>
+    <link rel="stylesheet" href="/style/post.css">
 </head>
+<style>
 
+    .in-btn{
+        width: 200px;
+        height: 40px;
+        color: white;
+        background-color: #2b63f8;
+        font-size: 16px;
+        cursor: pointer;
+        border-radius: 25px;
+        border: 1px solid #d5d5d5;
+        transition: background-color 0.3s ease;
+        margin: 20px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .in-btn:hover {
+        background-color: #2451d0;
+        transform: scale(1.05);
+    }
+
+    .bottom-info {
+        bottom: 0;
+        left: 0;
+        right: 0;
+        text-align: center;
+        color: #999;
+        margin-bottom: 10px;
+        position: absolute;
+    }
+
+
+</style>
 <body>
 <div class="content">
-    <h1>WELCOME</h1>
-    <button class="simple-button" onclick="next()">进入</button>
-
+    <h1>故事的开始总是奇妙</h1>
+    <h1>欢迎</h1>
+    <a href="/html/post/1"><button class="simple-button in-btn">进入</button></a>
+    <a href="#"><button class="simple-button" >其他内容</button></a>
 </div>
 
 <p class="bottom-info"><a href="https://beian.miit.gov.cn/#/Integrated/index">冀ICP备2022008700号-1</a></p>
 </body>
-<script>
 
-    function next() {
-        window.location.href = 'html/post/1';
-    }
-
-</script>
 </html>
