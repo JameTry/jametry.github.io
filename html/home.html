@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>&nbsp;</title>
+    <link rel="stylesheet" href="/style/post.css">
+</head>
+<style>
+    .link-content {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 50vw;
+        margin-bottom: 100px;
+    }
+
+    .link-div {
+        position: relative; /* 为伪元素定位准备 */
+        border: 1px solid #e0e0e0;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        display: flex;
+        align-items: center;
+        padding: 15px;
+        margin-bottom: 20px;
+        transition: all 0.3s ease;
+        overflow: hidden; /* 隐藏伪元素溢出 */
+        background: #fff; /* 确保背景不透明 */
+    }
+
+
+    .link-div:hover {
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        transform: translateY(-3px);
+        border-color: transparent; /* 隐藏原始边框 */
+    }
+
+
+    .link-div img {
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        margin-right: 10px;
+    }
+
+    .link-div a {
+        text-decoration: none;
+        color: inherit;
+        display: flex;
+        align-items: center;
+    }
+
+    .link-div p {
+        font-size: 15px;
+        margin: 0;
+    }
+
+
+    .welcome {
+        font-size: 30px;
+        font-weight: bold;
+        animation: breathe 3s ease-in-out infinite;
+
+        /* 渐变文字颜色 */
+        background: linear-gradient(45deg, #002bff, #7a00ff, #ff00c8, #ff0000);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        background-size: 400% 400%;
+    }
+
+    @keyframes breathe {
+        0% {
+            opacity: 0.8;
+            background-position: 0 50%;
+
+        }
+        50% {
+            opacity: 1;
+            background-position: 100% 50%;
+
+        }
+        100% {
+            opacity: 0.8;
+            background-position: 0 50%;
+
+        }
+    }
+</style>
+<body>
+<div class="content">
+    <p class="welcome">欢迎</p>
+    <p>故事的开始总是奇妙</p>
+    <p>无数种巧合形成了必然</p>
+    <p>就像这次一样</p>
+    <p class="separate"></p>
+    <p>我会偶尔在这里发布一些文章</p>
+    <p>给文章想标题是一件痛苦的事情</p>
+    <p>所以我的文章没有标题，网站也是</p>
+    <p>我的邮箱：3525166560@qq.com</p>
+    <p>消息请发送到邮箱</p>
+    <p>然后没想好说什么</p>
+    <p>那就祝你永远能<span style="color: red">平静</span>和<span style="color:red">自由</span>的活着吧</p>
+    <p class="separate"></p>
+    <p>还在等什么？赶快开始吧！</p>
+    <a href="/html/post/1">
+        <button class="simple-button">开始阅读</button>
+    </a>
+    <p class="separate"></p>
+    <p>友链</p>
+    <div class="link-content">
+        <div class="link-div">
+            <a href="#" target="_blank">
+                <img src="/img/1.jpg" alt="头像">
+                <div>
+                    <p class="link-name">网站名</p>
+                    <p class="link-introduce">样例-介绍一下该网站</p>
+                </div>
+            </a>
+        </div>
+
+
+    </div>
+</div>
+
+
+</body>
+</html>
