@@ -9,6 +9,7 @@ html {
     margin: 0;
     padding: 0;
 }
+
 body {
     height: 100%;
     margin: 0;
@@ -31,8 +32,8 @@ body {
     padding: 0;
 }
 
-.content img {
-    max-width: 220px;
+.content-img {
+    max-width: 500px;
     min-width: 220px;
 }
 
@@ -72,6 +73,10 @@ a {
     font-size: 12px;
 }
 
+.separate{
+    border: 1px red solid;
+    width: 10vw;
+}
 @media (orientation: portrait) {
     p {
         font-size: 14px;
@@ -81,7 +86,11 @@ a {
         font-size: 10px; /* 增大链接的字体大小 */
     }
 
-    .page{
+    .page {
         flex-direction: column;
+    }
+
+    .content-img {
+        max-width: 70vw;
     }
 }
