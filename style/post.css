@@ -17,6 +17,7 @@ body {
 
 .content {
     padding-top: 20vh;
+    padding-bottom: 5vh;
     caret-color: transparent;
     display: flex;
     align-items: center;
