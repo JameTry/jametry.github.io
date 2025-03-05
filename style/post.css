@@ -16,9 +16,9 @@ body {
 }
 
 .content {
+    padding-top: 20vh;
     caret-color: transparent;
     display: flex;
-    height: 100%;
     align-items: center;
     flex-direction: column;
     justify-content: center;
