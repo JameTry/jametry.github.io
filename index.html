@@ -36,10 +36,44 @@
         margin-bottom: 10px;
         position: absolute;
     }
+    .scrolling-bg {
+        position: absolute;
+        width: 200%; /* 双倍宽度实现无缝滚动 */
+        height: 100%;
+        background-image: url('/img/1.jpg'); /* 替换你的图片路径 */
+        background-size: auto 100%;
+        animation: slide 50s linear infinite;
+        z-index: -9999;
+    }
+    /* 黑色蒙版样式 */
+    .scrolling-bg::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.1);
+        /* 黑色半透明蒙版，可调整透明度 */
+        z-index: 1;
+        /* 确保蒙版在背景之上 */
+    }
 
+
+
+
+    @keyframes slide {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(-50%); /* 移动背景宽度的50% */
+        }
+    }
 
 </style>
 <body>
+<!--<div class="scrolling-bg"></div>-->
 <div class="content">
     <h1>故事的开始总是奇妙</h1>
     <h1>欢迎</h1>
