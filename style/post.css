@@ -75,7 +75,7 @@ a {
 
 .separate{
     border: 1px red solid;
-    width: 10vw;
+    width: 15vw;
 }
 @media (orientation: portrait) {
     p {
@@ -92,5 +92,8 @@ a {
 
     .content-img {
         max-width: 70vw;
+    }
+    .separate{
+        width: 30vw;
     }
 }
