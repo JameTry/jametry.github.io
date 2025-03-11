@@ -32,6 +32,10 @@ body {
     padding: 0;
 }
 
+.content-text{
+    max-width: 40vw;
+}
+
 .content-img {
     max-width: 500px;
     min-width: 220px;
@@ -95,5 +99,8 @@ a {
     }
     .separate{
         width: 30vw;
+    }
+    .content-text{
+        max-width: 80vw;
     }
 }
