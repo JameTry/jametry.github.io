@@ -64,7 +64,6 @@ body {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* 鼠标悬停时的样式 */
 .simple-button:hover {
     background-color: #e0e0e0;
 }
@@ -87,7 +86,7 @@ a {
     }
 
     a {
-        font-size: 10px; /* 增大链接的字体大小 */
+        font-size: 10px;
     }
 
     .page {
