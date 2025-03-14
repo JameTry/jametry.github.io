@@ -30,6 +30,7 @@ ___  ___        _____             _        _
 
         `)
     }
+
     print();
 </script>
 <style>
@@ -98,6 +99,53 @@ ___  ___        _____             _        _
         background-size: 400% 400%;
     }
 
+    .catalog {
+        flex-direction: column;
+        max-height: 50vh;
+        min-width: 20vw;
+        overflow-y: auto;
+        gap: 8px; /* 添加项目间距 */
+        margin-bottom: 20px;
+        border: 1px solid #e0e0e0;
+        border-radius: 6px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        padding-top: 8px;
+        padding-bottom: 8px;
+    }
+
+    .catalog a {
+        display: block; /* 使a标签作为块级元素 */
+        padding: 12px;
+        background-color: #ffffff;
+        border: 1px solid #e0e0e0;
+        border-radius: 6px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease; /* 添加过渡动画 */
+        text-decoration: none; /* 移除下划线 */
+        margin: 4px 8px; /* 添加左右边距避免阴影被裁剪 */
+    }
+
+    .catalog a:hover {
+        background-color: #f5f9ff;
+        border-color: #4d90fe;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        transform: translateY(-2px); /* 轻微上移效果 */
+        cursor: pointer; /* 鼠标手型 */
+    }
+
+    .catalog a:active {
+        transform: translateY(0); /* 点击时取消位移 */
+    }
+
+    .catalog p {
+        width: 100%;
+        font-size: 16px;
+        color: #333;
+        margin: 0; /* 移除默认段落间距 */
+        padding: 4px 0; /* 添加文字内边距 */
+    }
+
+
     @keyframes breathe {
         0% {
             opacity: 0.8;
@@ -112,7 +160,13 @@ ___  ___        _____             _        _
         100% {
             opacity: 0.8;
             background-position: 0 50%;
+        }
+    }
 
+    @media (orientation: portrait) {
+        .catalog {
+            max-height: 70vh;
+            min-width: 80vw;
         }
     }
 </style>
@@ -131,10 +185,31 @@ ___  ___        _____             _        _
     <p>没想好说些什么</p>
     <p>就祝你永远能<span style="color: red">自由</span>和<span style="color:red">平静</span>的生活吧</p>
     <p class="separate"></p>
-    <p>还在等什么？赶快开始吧！</p>
-    <a href="/html/post/1">
-        <button class="simple-button">开始阅读</button>
-    </a>
+    <p>还在等什么？选个喜欢的标题，赶快开始吧！</p>
+    <div class="catalog">
+        <a href="/html/post/1"><p>时间永不停止流逝</p></a>
+        <a href="/html/post/2"><p>2042年</p></a>
+        <a href="/html/post/3"><p>oiiaioiiiiai</p></a>
+        <a href="/html/post/4"><p>棉花糖般的云朵</p></a>
+        <a href="/html/post/5"><p>不再关心新闻事件</p></a>
+        <a href="/html/post/6"><p>幻想</p></a>
+        <a href="/html/post/7"><p>有个朋友让我帮忙问一下小鸟</p></a>
+        <a href="/html/post/8"><p>日出日落</p></a>
+        <a href="/html/post/9"><p>为什么总是争吵不休呢</p></a>
+        <a href="/html/post/10"><p>坐好吧</p></a>
+        <a href="/html/post/11"><p>我两手拽起衣服的两角</p></a>
+        <a href="/html/post/12"><p>大人们不该整天拿学业压着孩子</p></a>
+        <a href="/html/post/13"><p>乏味枯燥是生活的主旋律</p></a>
+        <a href="/html/post/14"><p>我来世想当个屎壳郎</p></a>
+        <a href="/html/post/15"><p>又一次受伤了</p></a>
+        <a href="/html/post/16"><p>池塘边的桑葚树快该结果了吧</p></a>
+        <a href="/html/post/17"><p>我去</p></a>
+        <a href="/html/post/18"><p>胡思乱想</p></a>
+        <a href="/html/post/19"><p>我想世界上是否存在生活的公式</p></a>
+        <a href="/html/post/20"><p>突然恍惚</p></a>
+        <a href="/html/post/21"><p>如果可以的话</p></a>
+        <a href="/html/post/22"><p>曾经有许多恐怖的想法出现在我的脑海</p></a>
+    </div>
     <p class="separate"></p>
     <p>友链</p>
     <div class="link-content">
@@ -149,7 +224,7 @@ ___  ___        _____             _        _
         </div>
     </div>
     <div id="tcomment"></div>
-    <script src="https://cdn.jsdelivr.net/npm/twikoo@1.6.41/dist/twikoo.min.js" ></script>
+    <script src="https://cdn.jsdelivr.net/npm/twikoo@1.6.41/dist/twikoo.min.js"></script>
     <script>
         twikoo.init({
             envId: 'https://comment.jame.work',
