@@ -36,26 +36,28 @@ ___  ___        _____             _        _
 <style>
     .link-content {
         display: flex;
-        justify-content: space-around;
+        justify-content: center;
         align-items: center;
         flex-direction: row;
         flex-wrap: wrap;
-        width: 50vw;
         margin-bottom: 100px;
+        padding-right: 10vw;
+        padding-left: 10vw;
     }
 
     .link-div {
-        position: relative; /* 为伪元素定位准备 */
+        position: relative;
         border: 1px solid #e0e0e0;
         border-radius: 10px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         display: flex;
         align-items: center;
         padding: 15px;
-        margin-bottom: 20px;
+        margin: 0 10px 20px;
         transition: all 0.3s ease;
-        overflow: hidden; /* 隐藏伪元素溢出 */
-        background: #fff; /* 确保背景不透明 */
+        overflow: hidden;
+        background: #fff;
+        width: 20vw;
     }
 
 
@@ -167,6 +169,12 @@ ___  ___        _____             _        _
         .catalog {
             max-height: 70vh;
             min-width: 80vw;
+        }
+        .link-div{
+            width: 80vw;
+        }
+        .link-content{
+            padding: 0;
         }
     }
 </style>
