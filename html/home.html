@@ -64,7 +64,7 @@ ___  ___        _____             _        _
     .link-div:hover {
         box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
         transform: translateY(-3px);
-        border-color: transparent; /* 隐藏原始边框 */
+        border-color: transparent;
     }
 
 
@@ -93,7 +93,6 @@ ___  ___        _____             _        _
         font-weight: bold;
         animation: breathe 3s ease-in-out infinite;
 
-        /* 渐变文字颜色 */
         background: linear-gradient(45deg, #002bff, #7a00ff, #ff00c8, #ff0000);
         -webkit-background-clip: text;
         background-clip: text;
@@ -106,7 +105,7 @@ ___  ___        _____             _        _
         max-height: 50vh;
         min-width: 20vw;
         overflow-y: auto;
-        gap: 8px; /* 添加项目间距 */
+        gap: 8px;
         margin-bottom: 20px;
         border: 1px solid #e0e0e0;
         border-radius: 6px;
@@ -116,35 +115,35 @@ ___  ___        _____             _        _
     }
 
     .catalog a {
-        display: block; /* 使a标签作为块级元素 */
+        display: block;
         padding: 12px;
         background-color: #ffffff;
         border: 1px solid #e0e0e0;
         border-radius: 6px;
         box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-        transition: all 0.3s ease; /* 添加过渡动画 */
-        text-decoration: none; /* 移除下划线 */
-        margin: 6px 8px; /* 添加左右边距避免阴影被裁剪 */
+        transition: all 0.3s ease;
+        text-decoration: none;
+        margin: 6px 8px;
     }
 
     .catalog a:hover {
         background-color: #f5f9ff;
         border-color: #4d90fe;
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-        transform: translateY(-2px); /* 轻微上移效果 */
-        cursor: pointer; /* 鼠标手型 */
+        transform: translateY(-2px);
+        cursor: pointer;
     }
 
     .catalog a:active {
-        transform: translateY(0); /* 点击时取消位移 */
+        transform: translateY(0);
     }
 
     .catalog p {
         width: 100%;
         font-size: 16px;
         color: #333;
-        margin: 0; /* 移除默认段落间距 */
-        padding: 4px 0; /* 添加文字内边距 */
+        margin: 0;
+        padding: 4px 0;
     }
 
 
