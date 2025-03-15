@@ -27,7 +27,6 @@ body {
 }
 
 .content p {
-    margin-bottom: 14px;
     margin-top: 0;
     padding: 0;
 }
@@ -68,6 +67,15 @@ body {
     background-color: #e0e0e0;
 }
 
+.tips {
+    all: unset;
+    border-left: 4px solid #71b8ff;
+    background-color: rgba(0, 0, 0, 0.05);
+    padding: 10px 15px;
+    margin: 10px 0;
+    color: #333;
+    max-width: 35vw;
+}
 
 a {
     color: #b4b4b4;
@@ -100,6 +108,9 @@ a {
         width: 30vw;
     }
     .content-text{
+        max-width: 80vw;
+    }
+    .tips {
         max-width: 80vw;
     }
 }
