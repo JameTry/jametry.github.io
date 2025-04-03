@@ -188,6 +188,57 @@ ___  ___        _____             _        _
             padding: 0;
         }
     }
+
+    :root {
+        --switch-width: clamp(30px, 6vw, 40px);
+    }
+
+    .switch {
+        position: relative;
+        display: inline-block;
+        width: var(--switch-width);
+        height: calc(var(--switch-width) * 0.566);
+        margin: 10px;
+    }
+
+    .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        transition: .4s;
+        border-radius: 100px;
+    }
+
+    .slider:before {
+        position: absolute;
+        content: "";
+        height: calc(var(--switch-width) * 0.433);
+        width: calc(var(--switch-width) * 0.433);
+        left: calc(var(--switch-width) * 0.0667);
+        bottom: calc(var(--switch-width) * 0.0667);
+        background-color: white;
+        transition: .4s;
+        border-radius: 50%;
+    }
+
+    input:checked + .slider {
+        background-color: #2196F3;
+    }
+
+    input:checked + .slider:before {
+        transform: translateX(calc(var(--switch-width) - (var(--switch-width) * 0.433) - (var(--switch-width) * 0.1334)));
+    }
+
 </style>
 <body>
 <div class="content">
@@ -206,6 +257,10 @@ ___  ___        _____             _        _
     <p>就祝你永远能<span style="color: red">自由</span>和<span style="color:red">平静</span>的生活吧</p>
     <p class="separate"></p>
     <p>还在等什么？选个喜欢的文章，赶快开始吧！</p>
+    <p>新table打开链接: <label class="switch">
+        <input type="checkbox" id="toggleSwitch">
+        <span class="slider"></span>
+    </label></p>
     <div class="catalog">
         <a href="/html/post/32" target="_blank"><p><span>32</span>应是已入深秋</p></a>
         <a href="/html/post/31" target="_blank"><p><span>31</span>傍晚时我坐在天台上</p></a>
@@ -261,6 +316,62 @@ ___  ___        _____             _        _
             el: '#tcomment',
             lang: 'zh-CN',
         })
+    </script>
+    <script>
+        const toggle = document.getElementById('toggleSwitch');
+
+        // 从localStorage加载开关状态
+        const savedState = localStorage.getItem('linkTargetPreference');
+        if (savedState !== null) {
+            toggle.checked = JSON.parse(savedState);
+        }
+
+        // 控制指定目录下的链接打开方式
+        function updateCatalogLinks() {
+            const catalogLinks = document.querySelectorAll('.catalog a');
+            catalogLinks.forEach(link => {
+                if (toggle.checked) {
+                    link.setAttribute('target', '_blank');
+                    link.setAttribute('rel', 'noopener noreferrer');
+                } else {
+                    link.removeAttribute('target');
+                    link.removeAttribute('rel');
+                }
+            });
+        }
+
+        // 初始化应用状态
+        updateCatalogLinks();
+
+        toggle.addEventListener('change', function() {
+            localStorage.setItem('linkTargetPreference', JSON.stringify(this.checked));
+            // 更新链接状态
+            updateCatalogLinks();
+            console.log(`已${this.checked ? '启用' : '关闭'}目录链接新标签页打开`);
+        });
+
+        // 监听目录区域变化（动态添加链接）
+        const catalogObserver = new MutationObserver(mutations => {
+            mutations.forEach(mutation => {
+                if (mutation.addedNodes.length) {
+                    updateCatalogLinks();
+                }
+            });
+        });
+
+        // 只观察目录区域的DOM变化
+        const catalogContainer = document.querySelector('.catalog');
+        if (catalogContainer) {
+            catalogObserver.observe(catalogContainer, {
+                childList: true,
+                subtree: true
+            });
+        }
+
+        // 页面加载完成时提示
+        window.addEventListener('load', () => {
+            console.log('已加载上次保存状态：', toggle.checked ? '新标签页' : '当前页面');
+        });
     </script>
 
 </div>
