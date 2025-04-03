@@ -25,7 +25,7 @@ body {
     padding: 0;
 }
 
-.content-text{
+.content-text {
     max-width: 40vw;
 }
 
@@ -79,13 +79,22 @@ a {
     font-size: 12px;
 }
 
-.separate{
+.separate {
     border: 1px red solid;
     width: 15vw;
 }
+
+.time {
+    border-top: 2px #424242 solid;
+    padding-top: 10px;
+    color: #3f3f3f;
+    font-size: 14px;
+    margin-top: 50px;
+}
+
 @media (orientation: portrait) {
     p {
-        font-size: 14px;
+        font-size: 15px;
     }
 
     a {
@@ -99,13 +108,19 @@ a {
     .content-img {
         max-width: 70vw;
     }
-    .separate{
+
+    .separate {
         width: 30vw;
     }
-    .content-text{
+
+    .content-text {
         max-width: 80vw;
     }
+
     .tips {
         max-width: 80vw;
+    }
+    .time {
+        font-size: 14px;
     }
 }
