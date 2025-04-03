@@ -319,14 +319,11 @@ ___  ___        _____             _        _
     </script>
     <script>
         const toggle = document.getElementById('toggleSwitch');
-
-        // 从localStorage加载开关状态
         const savedState = localStorage.getItem('linkTargetPreference');
         if (savedState !== null) {
             toggle.checked = JSON.parse(savedState);
         }
 
-        // 控制指定目录下的链接打开方式
         function updateCatalogLinks() {
             const catalogLinks = document.querySelectorAll('.catalog a');
             catalogLinks.forEach(link => {
@@ -339,18 +336,12 @@ ___  ___        _____             _        _
                 }
             });
         }
-
-        // 初始化应用状态
         updateCatalogLinks();
-
         toggle.addEventListener('change', function() {
             localStorage.setItem('linkTargetPreference', JSON.stringify(this.checked));
-            // 更新链接状态
             updateCatalogLinks();
-            console.log(`已${this.checked ? '启用' : '关闭'}目录链接新标签页打开`);
         });
 
-        // 监听目录区域变化（动态添加链接）
         const catalogObserver = new MutationObserver(mutations => {
             mutations.forEach(mutation => {
                 if (mutation.addedNodes.length) {
@@ -359,7 +350,6 @@ ___  ___        _____             _        _
             });
         });
 
-        // 只观察目录区域的DOM变化
         const catalogContainer = document.querySelector('.catalog');
         if (catalogContainer) {
             catalogObserver.observe(catalogContainer, {
@@ -367,11 +357,6 @@ ___  ___        _____             _        _
                 subtree: true
             });
         }
-
-        // 页面加载完成时提示
-        window.addEventListener('load', () => {
-            console.log('已加载上次保存状态：', toggle.checked ? '新标签页' : '当前页面');
-        });
     </script>
 
 </div>
