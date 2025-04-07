@@ -79,6 +79,10 @@ body {
     font-size: 12px;
 }
 
+a{
+    color: #b4b4b4;
+}
+
 .separate {
     border: 1px red solid;
     width: 15vw;
