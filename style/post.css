@@ -11,7 +11,7 @@ body {
 }
 
 .content {
-    padding-top: 17vh;
+    padding-top: 14vh;
     caret-color: transparent;
     display: flex;
     align-items: center;
@@ -72,7 +72,7 @@ body {
     font-size: 16px;
 }
 
-a {
+.bottom-info {
     color: #b4b4b4;
     text-decoration: none;
     outline: none;

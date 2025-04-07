@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>&nbsp;</title>
+    <link rel="stylesheet" href="/style/post.css">
+</head>
+<script>
+    function print() {
+        console.log(`
+ _____ _       _____             _        _
+|  _  | |     /  __ \\           | |      (_)
+| | | | |__   | /  \\/ __ _ _ __ | |_ __ _ _ _ __
+| | | | '_ \\  | |    / _\` | '_ \\| __/ _\` | | '_ \\
+\\ \\_/ / | | | | \\__/\\ (_| | |_) | || (_| | | | | |
+ \\___/|_| |_|  \\____/\\__,_| .__/ \\__\\__,_|_|_| |_|
+                          | |
+                          |_|
+___  ___        _____             _        _
+|  \\/  |       /  __ \\           | |      (_)
+| .  . |_   _  | /  \\/ __ _ _ __ | |_ __ _ _ _ __
+| |\\/| | | | | | |    / _\` | '_ \\| __/ _\` | | '_ \\
+| |  | | |_| | | \\__/\\ (_| | |_) | || (_| | | | | |
+\\_|  |_/\\__, |  \\____/\\__,_| .__/ \\__\\__,_|_|_| |_|
+         __/ |             | |
+        |___/              |_|
+
+
+        `)
+    }
+
+    print();
+</script>
+<style>
+    .link-content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin-bottom: 100px;
+        padding-right: 10vw;
+        padding-left: 10vw;
+    }
+
+    .link-div {
+        position: relative;
+        border: 1px solid #e0e0e0;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        display: flex;
+        align-items: center;
+        padding: 15px;
+        margin: 0 10px 20px;
+        transition: all 0.3s ease;
+        overflow: hidden;
+        background: #fff;
+        width: 20vw;
+    }
+
+
+    .link-div:hover {
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        transform: translateY(-3px);
+        border-color: transparent;
+    }
+
+    .link-div img {
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        margin-right: 10px;
+    }
+
+    .link-div a {
+        text-decoration: none;
+        color: inherit;
+        display: flex;
+        align-items: center;
+    }
+
+    .link-div p {
+        font-size: 15px;
+        margin: 0;
+    }
+
+
+
+
+    @keyframes breathe {
+        0% {
+            opacity: 0.8;
+            background-position: 0 50%;
+
+        }
+        50% {
+            opacity: 1;
+            background-position: 100% 50%;
+
+        }
+        100% {
+            opacity: 0.8;
+            background-position: 0 50%;
+        }
+    }
+
+    @media (orientation: portrait) {
+        .catalog {
+            max-height: 70vh;
+            min-width: 80vw;
+        }
+
+        .link-div {
+            width: 80vw;
+        }
+
+        .link-content {
+            padding: 0;
+        }
+    }
+
+    .navbar {
+        display: flex;
+        align-items: center;
+        background-color: #ffffff;
+        padding: 8px 16px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-links {
+        display: flex;
+        gap: 16px;
+        margin-left: 30%;
+        z-index: 99;
+    }
+
+    .nav-links a {
+        text-decoration: none;
+        color: #333;
+        padding: 6px 12px;
+        border-radius: 4px;
+        transition: background 0.3s;
+    }
+
+    .nav-links a:hover {
+        background-color: #e9ecef;
+    }
+
+    .menu-toggle {
+        display: none;
+        font-size: 24px;
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+        .navbar {
+            justify-content: space-between;
+        }
+
+        .nav-links {
+            display: none;
+            flex-direction: column;
+            position: absolute;
+            top: 50px;
+            left: 0;
+            width: 100%;
+            background: #ffffff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 10px 0;
+            margin-left: 0; /* 移动端不留空 */
+        }
+
+        .nav-links a {
+            display: block;
+            padding: 10px 16px;
+        }
+
+        .menu-toggle {
+            display: block;
+        }
+
+        .nav-links.show {
+            display: flex;
+        }
+    }
+</style>
+<body>
+<nav class="navbar">
+    <button class="menu-toggle">☰</button>
+    <div class="nav-links">
+        <a href="/">首页</a>
+        <a href="/html/friend-link">友链</a>
+        <a href="https://www.travellings.cn/go.html">开往</a>
+    </div>
+</nav>
+
+<div class="content">
+    <h3>友链</h3>
+    <div class="link-content">
+        <div class="link-div">
+            <a href="https://wygxmew.github.io/" target="_blank">
+                <img src="https://wygxmew.github.io/favicon.ico" alt="头像">
+                <div>
+                    <p class="link-name">乌云盖雪</p>
+                    <p class="link-introduce">看君终日常安卧，何事纷纷去又回？</p>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div id="tcomment"></div>
+    <div>
+        <p><a class="bottom-info" href="https://beian.miit.gov.cn/#/Integrated/index">冀ICP备2022008700号-1</a>
+        </p>
+    </div>
+    <script>
+        // 移动端导航切换
+        document.querySelector(".menu-toggle").addEventListener("click", function () {
+            document.querySelector(".nav-links").classList.toggle("show");
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/twikoo@1.6.41/dist/twikoo.min.js"></script>
+    <script>
+        twikoo.init({
+            envId: 'https://comment.jame.work',
+            el: '#tcomment',
+            lang: 'zh-CN',
+        })
+    </script>
+
+
+</div>
+
+
+</body>
+</html>
