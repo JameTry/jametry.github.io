@@ -8,23 +8,6 @@
     <link rel="stylesheet" href="/style/post.css">
 </head>
 <style>
-
-
-    @media (orientation: portrait) {
-        .catalog {
-            max-height: 70vh;
-            min-width: 80vw;
-        }
-
-        .link-div {
-            width: 80vw;
-        }
-
-        .link-content {
-            padding: 0;
-        }
-    }
-
     .navbar {
         display: flex;
         align-items: center;
@@ -32,14 +15,12 @@
         padding: 8px 16px;
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     }
-
     .nav-links {
         display: flex;
         gap: 16px;
         margin-left: 30%;
         z-index: 99;
     }
-
     .nav-links a {
         text-decoration: none;
         color: #333;
@@ -47,11 +28,9 @@
         border-radius: 4px;
         transition: background 0.3s;
     }
-
     .nav-links a:hover {
         background-color: #e9ecef;
     }
-
     .menu-toggle {
         display: none;
         font-size: 24px;
@@ -60,11 +39,38 @@
         cursor: pointer;
     }
 
+
+    .card {
+        max-width: 500px;
+        min-width: 500px;
+        margin: 20px auto;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        background: white;
+        position: relative;
+    }
+
+    .card-content-text {
+        font-size: 16px;
+        color: #333;
+        line-height: 1.6;
+        margin-bottom: 30px; /* 为时间留出空间 */
+    }
+
+    .published-time {
+        position: absolute;
+        bottom: 10px;
+        right: 15px;
+        font-size: 13px;
+        color: #999;
+        font-style: italic;
+    }
+
     @media (max-width: 768px) {
         .navbar {
             justify-content: space-between;
         }
-
         .nav-links {
             display: none;
             flex-direction: column;
@@ -77,18 +83,20 @@
             padding: 10px 0;
             margin-left: 0; /* 移动端不留空 */
         }
-
         .nav-links a {
             display: block;
             padding: 10px 16px;
         }
-
         .menu-toggle {
             display: block;
         }
-
         .nav-links.show {
             display: flex;
+        }
+
+        .card {
+            max-width: 80vw;
+            min-width: 80vw;
         }
     }
 </style>
@@ -99,39 +107,29 @@
         <a href="/">首页</a>
         <a href="/html/about">关于</a>
         <a href="/html/friend-link">友链</a>
+        <a href="/html/easy-talks">说说</a>
         <a target="_blank" href="https://www.travellings.cn/go.html">开往</a>
     </div>
 </nav>
 
-<div class="content">
-    <h3>关于</h3>
-    <div class="content-text" style="margin-bottom: 50px">
-        <p>我偶尔会在这里发布一些文字，类似诗歌？类似小说？或什么文体也不是。</p>
-        <p>想标题和名字是一件痛苦的事情，所以随笔都没有标题，如同网站一样。</p>
+<div class="content" style="padding-top: 10vh">
+    <h2>说说</h2>
+    <div class="card">
+        <div class="card-content-text">
+            111
+        </div>
+        <div class="published-time">2024-03-20</div>
     </div>
-    <div id="tcomment"></div>
-    <div>
-        <p><a class="bottom-info" href="https://beian.miit.gov.cn/#/Integrated/index">冀ICP备2022008700号-1</a>
-        </p>
-    </div>
-    <script>
-        // 移动端导航切换
-        document.querySelector(".menu-toggle").addEventListener("click", function () {
-            document.querySelector(".nav-links").classList.toggle("show");
-        });
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/twikoo@1.6.41/dist/twikoo.min.js"></script>
-    <script>
-        twikoo.init({
-            envId: 'https://comment.jame.work',
-            el: '#tcomment',
-            lang: 'zh-CN',
-        })
-    </script>
 
+    <p style="font-size: 13px;color: #3f3f3f;margin-top: 40px">没有更多啦</p>
 
 </div>
-
+<script>
+    // 移动端导航切换
+    document.querySelector(".menu-toggle").addEventListener("click", function () {
+        document.querySelector(".nav-links").classList.toggle("show");
+    });
+</script>
 
 </body>
 </html>
