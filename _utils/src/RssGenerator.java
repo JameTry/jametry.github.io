@@ -32,7 +32,7 @@ public class RssGenerator {
         for (File file : htmlDir.listFiles((d, name) -> name.endsWith(".html"))) {
             Document doc = Jsoup.parse(file, "UTF-8");
             String title = escapeXml(doc.select("p:first-of-type").text().trim());
-
+            title = title.length() > 20? title.substring(0, 20) + "..." : title;
             Elements paragraphs = doc.select("p");
             StringBuilder content = new StringBuilder();
             for (Element p : paragraphs) {
@@ -62,8 +62,7 @@ public class RssGenerator {
 
             // 处理其他字段...
             Date pubDate = INPUT_DATE.parse(jsonObject.getString("publishedTime"));
-            String talkId = file.getName().replace(".json", "");
-            String link = SITE_URL + "talks?talk=" + talkId;
+            String link = SITE_URL + "easy-talk/talks/" + file.getName();
 
             // 构建 RSS 条目
             items.add(new RssItem(title, "<p>" + rawContent + "</p>", pubDate, link, TYPE_STATUS));
@@ -75,8 +74,8 @@ public class RssGenerator {
         // 构建 RSS
         StringBuilder rss = new StringBuilder()
                 .append("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<rss version=\"2.0\">\n<channel>\n")
-                .append("<title>随想录</title>\n<link>").append(SITE_URL).append("</link>\n")
-                .append("<description>文章与说说的合集</description>\n");
+                .append("<title>随笔</title>\n<link>").append(SITE_URL).append("</link>\n")
+                .append("<description>随笔与说说的合集</description>\n");
 
         for (RssItem item : items) {
             rss.append("<item>\n")

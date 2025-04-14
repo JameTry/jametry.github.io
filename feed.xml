@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0">
 <channel>
-<title>随想录</title>
+<title>随笔</title>
 <link>https://jame.work/</link>
-<description>文章与说说的合集</description>
+<description>随笔与说说的合集</description>
 <item>
 <title>刮大风了，说是有10级，本来周六约朋友出...</title>
-<link>https://jame.work/talks?talk=3</link>
+<link>https://jame.work/easy-talk/talks/3.json</link>
 <description>
 <![CDATA[<p>
 <p>刮大风了，说是有10级，本来周六约朋友出去玩，但因为风取消了。我倒是觉得越是恶劣天气越该出门，大雨大雪大风，平时想见这种天气都见不到，它来了反而躲在家里，虽然也确实该考虑安全的问题。</p>
@@ -17,12 +17,12 @@
 </p>]]>
 </description>
 <pubDate>12 Apr 2025 00:00:00 CST</pubDate>
-<guid>https://jame.work/talks?talk=3</guid>
+<guid>https://jame.work/easy-talk/talks/3.json</guid>
 <category>说说</category>
 </item>
 <item>
 <title>写点东西吧，也算第一篇真正的说说。 最近...</title>
-<link>https://jame.work/talks?talk=2</link>
+<link>https://jame.work/easy-talk/talks/2.json</link>
 <description>
 <![CDATA[<p>
 <p>写点东西吧，也算第一篇真正的说说。</p>
@@ -32,7 +32,7 @@
 </p>]]>
 </description>
 <pubDate>10 Apr 2025 00:00:00 CST</pubDate>
-<guid>https://jame.work/talks?talk=2</guid>
+<guid>https://jame.work/easy-talk/talks/2.json</guid>
 <category>说说</category>
 </item>
 <item>
@@ -67,16 +67,16 @@
 </item>
 <item>
 <title>今天新增了说说功能，具体实现？感谢神奇又...</title>
-<link>https://jame.work/talks?talk=1</link>
+<link>https://jame.work/easy-talk/talks/1.json</link>
 <description>
 <![CDATA[<p>今天新增了说说功能，具体实现？感谢神奇又伟大的ChatGPT吧。</p>]]>
 </description>
 <pubDate>08 Apr 2025 00:00:00 CST</pubDate>
-<guid>https://jame.work/talks?talk=1</guid>
+<guid>https://jame.work/easy-talk/talks/1.json</guid>
 <category>说说</category>
 </item>
 <item>
-<title>应是已入深秋，一个风和日丽的下午，我闲来无事在公园溜达，秋风萧瑟，一阵风过，哗啦啦卷起地上的落叶，风声，树叶摩擦声音过后，听见稚嫩的声音：快踢给我，该我踢了！砰的一声，不知是他劲大还是风吹的原因，踢的老远了，一会听见呼哧呼哧的喘息：“你踢的太远了，我们不和你玩了，走，咱俩玩去”。</title>
+<title>应是已入深秋，一个风和日丽的下午，我闲来...</title>
 <link>https://jame.work/html/post/32</link>
 <description>
 <![CDATA[<p>应是已入深秋，一个风和日丽的下午，我闲来无事在公园溜达，秋风萧瑟，一阵风过，哗啦啦卷起地上的落叶，风声，树叶摩擦声音过后，听见稚嫩的声音：快踢给我，该我踢了！砰的一声，不知是他劲大还是风吹的原因，踢的老远了，一会听见呼哧呼哧的喘息：“你踢的太远了，我们不和你玩了，走，咱俩玩去”。</p>
@@ -600,7 +600,7 @@
 <category>随笔</category>
 </item>
 <item>
-<title>有个朋友让我帮忙问一下小鸟：“从26楼跳下去疼吗”</title>
+<title>有个朋友让我帮忙问一下小鸟：“从26楼跳...</title>
 <link>https://jame.work/html/post/7</link>
 <description>
 <![CDATA[<p>有个朋友让我帮忙问一下小鸟：“从26楼跳下去疼吗”</p>
