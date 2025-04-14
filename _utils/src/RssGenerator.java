@@ -75,7 +75,7 @@ public class RssGenerator {
         // 构建 RSS
         StringBuilder rss = new StringBuilder()
                 .append("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<rss version=\"2.0\">\n<channel>\n")
-                .append("<title>随笔</title>\n<link>").append(SITE_URL).append("</link>\n")
+                .append("<title>Jame</title>\n<link>").append(SITE_URL).append("</link>\n")
                 .append("<description>随笔与说说的合集</description>\n");
 
         for (RssItem item : items) {
