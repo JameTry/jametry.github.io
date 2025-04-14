@@ -9,6 +9,7 @@ import java.nio.charset.StandardCharsets;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
+
 public class RssGenerator {
     // 配置常量
     private static final String POSTS_DIR = "D:\\project\\jametry.github.io\\html\\post";
