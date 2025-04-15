@@ -3,6 +3,7 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import com.alibaba.fastjson.JSONObject;
+
 import java.io.File;
 import java.io.FileWriter;
 import java.nio.charset.StandardCharsets;
@@ -33,7 +34,7 @@ public class RssGenerator {
         for (File file : htmlDir.listFiles((d, name) -> name.endsWith(".html"))) {
             Document doc = Jsoup.parse(file, "UTF-8");
             String title = escapeXml(doc.select("p:first-of-type").text().trim());
-            title = title.length() > 20? title.substring(0, 20) + "..." : title;
+            title = title.length() > 20 ? title.substring(0, 20) + "..." : title;
             Elements paragraphs = doc.select("p");
             StringBuilder content = new StringBuilder();
             for (Element p : paragraphs) {
@@ -76,8 +77,11 @@ public class RssGenerator {
         StringBuilder rss = new StringBuilder()
                 .append("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<rss version=\"2.0\">\n<channel>\n")
                 .append("<title>Jame</title>\n<link>").append(SITE_URL).append("</link>\n")
-                .append("<description>随笔与说说的合集</description>\n");
+                .append("<description>随笔与说说的合集</description>\n")
 
+                .append("<lastBuildDate>")
+                .append(OUTPUT_DATE.format(new Date()))  // 使用当前时间作为最后更新时间
+                .append("</lastBuildDate>\n");
         for (RssItem item : items) {
             rss.append("<item>\n")
                     .append("<title>").append(item.title).append("</title>\n")
