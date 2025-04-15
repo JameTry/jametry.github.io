@@ -20,7 +20,10 @@ public class RssGenerator {
 
     // 日期格式
     private static final SimpleDateFormat INPUT_DATE = new SimpleDateFormat("yyyy年MM月dd日");
-    private static final SimpleDateFormat OUTPUT_DATE = new SimpleDateFormat("dd MMM yyyy HH:mm:ss z", Locale.SIMPLIFIED_CHINESE);
+    static {
+        INPUT_DATE.setTimeZone(TimeZone.getTimeZone("Asia/Shanghai"));
+    }
+    private static final SimpleDateFormat OUTPUT_DATE = new SimpleDateFormat("EEE, dd MMM yyyy HH:mm:ss z", Locale.US);
     static {
         OUTPUT_DATE.setTimeZone(TimeZone.getTimeZone("GMT")); // 强制GMT时区
     }
