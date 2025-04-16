@@ -45,6 +45,7 @@ public class RssGenerator {
             for (Element p : paragraphs) {
                 content.append("<p>").append(p.text()).append("</p>");
             }
+            content=new StringBuilder(escapeXml(content.toString()));
 
             String timeStr = doc.select("div.time").text().split(" ")[0];
             Date pubDate = INPUT_DATE.parse(timeStr);
@@ -72,7 +73,7 @@ public class RssGenerator {
             String link = SITE_URL + "easy-talk/talks/" + file.getName();
 
             // 构建 RSS 条目
-            items.add(new RssItem(title, "<p>" + rawContent + "</p>", pubDate, link, TYPE_STATUS));
+            items.add(new RssItem(title,  escapeXml(rawContent) , pubDate, link, TYPE_STATUS));
         }
 
         // 按时间排序
