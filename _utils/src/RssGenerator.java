@@ -20,17 +20,10 @@ public class RssGenerator {
 
     // 日期格式
     private static final SimpleDateFormat INPUT_DATE = new SimpleDateFormat("yyyy年MM月dd日");
-
     static {
         INPUT_DATE.setTimeZone(TimeZone.getTimeZone("Asia/Shanghai"));
     }
-
-    private static final SimpleDateFormat OUTPUT_DATE = new SimpleDateFormat("EEE, dd MMM yyyy HH:mm:ss z", Locale.US);
-
-    static {
-        OUTPUT_DATE.setTimeZone(TimeZone.getTimeZone("GMT")); // 强制GMT时区
-    }
-
+    private static final SimpleDateFormat OUTPUT_DATE = new SimpleDateFormat("EEE, dd MMM yyyy HH:mm:ss +0800", Locale.US);
     // 定义类型常量
     private static final String TYPE_ARTICLE = "随笔";
     private static final String TYPE_STATUS = "说说";
@@ -49,7 +42,6 @@ public class RssGenerator {
             for (Element p : paragraphs) {
                 content.append("<p>").append(p.text()).append("</p>");
             }
-//            content=new StringBuilder(escapeXml(content.toString()));
 
             String timeStr = doc.select("div.time").text().split(" ")[0];
             Date pubDate = INPUT_DATE.parse(timeStr);
@@ -70,13 +62,14 @@ public class RssGenerator {
 
             // 生成标题（纯文本截取）
             String title = plainText.length() > 20 ? plainText.substring(0, 20) + "..." : plainText;
+            title = escapeXml(title); // 转义 XML 特殊字符
 
             // 处理其他字段...
             Date pubDate = INPUT_DATE.parse(jsonObject.getString("publishedTime"));
             String link = SITE_URL + "easy-talk/talks/" + file.getName();
 
             // 构建 RSS 条目
-            items.add(new RssItem(title, rawContent, pubDate, link, TYPE_STATUS));
+            items.add(new RssItem(title, "<p>" + rawContent + "</p>", pubDate, link, TYPE_STATUS));
         }
 
         // 按时间排序
