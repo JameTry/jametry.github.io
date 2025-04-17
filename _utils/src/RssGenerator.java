@@ -13,8 +13,8 @@ import java.util.*;
 
 public class RssGenerator {
     // 配置常量D:\project\mytext\jametry.github.io\easy-talk
-    private static final String POSTS_DIR = "D:\\project\\jametry.github.io\\html\\post";
-    private static final String STATUSES_DIR = "D:\\project\\jametry.github.io\\easy-talk\\talks";
+    private static final String POSTS_DIR = "D:\\project\\mytext\\jametry.github.io\\html\\post";
+    private static final String STATUSES_DIR = "D:\\project\\mytext\\jametry.github.io\\easy-talk\\talks";
     private static final String SITE_URL = "https://jame.work/";
     private static final String RSS_FILE = "feed.xml";
 
