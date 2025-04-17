@@ -44,7 +44,7 @@ body {
 
 .simple-button {
     caret-color: transparent;
-    width: 200px;
+    width: 150px;
     height: 40px;
     color: #424141;
     background-color: #f3f3f3;
@@ -53,7 +53,7 @@ body {
     border-radius: 25px;
     border: 1px solid #d5d5d5;
     transition: background-color 0.3s ease;
-    margin: 20px;
+    margin: 15px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
