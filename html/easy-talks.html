@@ -76,10 +76,31 @@
 
     /* 发表时间 */
     .published-time {
-        font-size: 12px;
-        color: #888;
-        text-align: right;
+        color: #5b5b5b;
     }
+
+    .card-footer {
+        display: flex; /* 弹性布局实现同行显示 */
+        justify-content: space-between; /* 两端对齐，时间居左，阅读全文居右 */
+        align-items: center; /* 垂直居中 */
+        padding: 8px 0; /* 上下内边距 */
+        font-size: 14px;
+        color: #888;
+    }
+
+    /* 阅读全文链接样式 */
+    .read-more {
+        color: #337ab7; /* 蓝色链接色 */
+        text-decoration: none; /* 移除下划线 */
+        cursor: pointer; /* 鼠标悬停显示指针 */
+        padding-right: 1rem;
+    }
+
+    .read-more:hover {
+        text-decoration: underline; /* 悬停下划线 */
+    }
+
+
     @media (max-width: 768px) {
         .navbar {
             justify-content: space-between;
@@ -174,12 +195,21 @@
                 const response = await fetch(url);
                 if (!response.ok) throw new Error("请求失败");
                 const data = await response.json();
-
+                let showDone = true;
+                if (data.content.length > 150) {
+                    showDone = false;
+                    data.content = data.content.slice(0, 300) + "......"
+                }
+                let talksUrl = `/html/talks/${currentNumber}`;
                 let card = document.createElement("div");
                 card.className = "card";
                 card.innerHTML = `
                         <div class="card-content-text">${data.content}</div>
-                        <div class="published-time">${data.publishedTime}</div>
+                          <div class="card-footer">
+                            <div class="published-time">${data.publishedTime}</div>
+                            <a href="${talksUrl}" class="read-more">${showDone ? '阅读原文' : '阅读全文'}</a>
+                          </div>
+
                     `;
                 container.appendChild(card);
 
