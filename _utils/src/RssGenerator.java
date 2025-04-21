@@ -13,8 +13,8 @@ import java.util.*;
 
 public class RssGenerator {
     // 配置常量D:\project\mytext\jametry.github.io\easy-talk
-    private static final String POSTS_DIR = "D:\\project\\mytext\\jametry.github.io\\html\\post";
-    private static final String STATUSES_DIR = "D:\\project\\mytext\\jametry.github.io\\easy-talk\\talks";
+    private static String POSTS_DIR = "\\html\\post";
+    private static String STATUSES_DIR = "\\easy-talk\\talks";
     private static final String SITE_URL = "https://jame.work/";
     private static final String RSS_FILE = "feed.xml";
 
@@ -28,12 +28,17 @@ public class RssGenerator {
     private static final String TYPE_ARTICLE = "随笔";
     private static final String TYPE_STATUS = "说说";
 
-    public static void main(String[] args) throws Exception {
+    public static void run(String projectPath) throws Exception {
+        POSTS_DIR = projectPath + POSTS_DIR;
+        STATUSES_DIR = projectPath + STATUSES_DIR;
         List<RssItem> items = new ArrayList<>();
 
         // 处理 HTML 文章（类型：文章）
         File htmlDir = new File(POSTS_DIR);
         for (File file : htmlDir.listFiles((d, name) -> name.endsWith(".html"))) {
+            if(file.getName().equals("0.html")){
+                continue;
+            }
             Document doc = Jsoup.parse(file, "UTF-8");
             String title = escapeXml(doc.select("p:first-of-type").text().trim());
             title = title.length() > 20 ? title.substring(0, 20) + "..." : title;
@@ -66,7 +71,7 @@ public class RssGenerator {
 
             // 处理其他字段...
             Date pubDate = INPUT_DATE.parse(jsonObject.getString("publishedTime"));
-            String link = SITE_URL + "easy-talk/talks/" + file.getName();
+            String link = SITE_URL + "html/talks/" +  file.getName().replace(".json", "");
 
             // 构建 RSS 条目
             items.add(new RssItem(title, "<p>" + rawContent + "</p>", pubDate, link, TYPE_STATUS));
