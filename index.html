@@ -34,128 +34,16 @@ ___  ___        _____             _        _
     print();
 </script>
 <style>
-    .catalog {
-        flex-direction: column;
-        overflow-y: auto;
-        gap: 8px;
-        margin-bottom: 20px;
-    }
-
-    .catalog a {
-        display: block;
-        padding: 5px;
-        background-color: #ffffff;
-        border: 1px solid #e0e0e0;
-        border-radius: 6px;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-        transition: all 0.3s ease;
+    a {
         text-decoration: none;
-        margin: 10px;
     }
 
-    .catalog a:hover {
-        background-color: #f5f9ff;
-        border-color: #4d90fe;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-        transform: translateY(-2px);
-        cursor: pointer;
+    a:hover {
+        color: #4d90fe;
     }
 
-    .catalog a:active {
-        transform: translateY(0);
-    }
-
-    .catalog p {
-        width: 100%;
-        font-size: 16px;
-        color: #333;
-        margin: 0;
-        padding: 4px 0;
-    }
-
-    .catalog span {
-        display: inline-block;
-        padding: 2px 6px;
-        color: white;
-        border-radius: 4px;
-        font-size: 12px;
-        font-weight: bold;
-        margin: 3px;
-        background-color: #73A6FF;
-    }
-
-    @keyframes breathe {
-        0% {
-            opacity: 0.8;
-            background-position: 0 50%;
-
-        }
-        50% {
-            opacity: 1;
-            background-position: 100% 50%;
-
-        }
-        100% {
-            opacity: 0.8;
-            background-position: 0 50%;
-        }
-    }
-
-    @media (orientation: portrait) {
-        .catalog {
-            max-height: 70vh;
-            min-width: 80vw;
-        }
-    }
-
-    :root {
-        --switch-width: clamp(30px, 6vw, 40px);
-    }
-
-    .switch {
-        position: relative;
-        display: inline-block;
-        width: var(--switch-width);
-        height: calc(var(--switch-width) * 0.566);
-        margin: 10px;
-    }
-
-    .switch input {
-        opacity: 0;
-        width: 0;
-        height: 0;
-    }
-
-    .slider {
-        position: absolute;
-        cursor: pointer;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: #ccc;
-        transition: .4s;
-        border-radius: 100px;
-    }
-
-    .slider:before {
-        position: absolute;
-        content: "";
-        height: calc(var(--switch-width) * 0.433);
-        width: calc(var(--switch-width) * 0.433);
-        left: calc(var(--switch-width) * 0.0667);
-        bottom: calc(var(--switch-width) * 0.0667);
-        background-color: white;
-        transition: .4s;
-        border-radius: 50%;
-    }
-
-    input:checked + .slider {
-        background-color: #2196F3;
-    }
-
-    input:checked + .slider:before {
-        transform: translateX(calc(var(--switch-width) - (var(--switch-width) * 0.433) - (var(--switch-width) * 0.1334)));
+    li p{
+        margin-bottom: 2px;
     }
 
     .navbar {
@@ -224,11 +112,18 @@ ___  ___        _____             _        _
         .nav-links.show {
             display: flex;
         }
+
+        li p{
+            margin-bottom: 2px;
+        }
+        p a{
+            font-size: 15px;
+        }
     }
 </style>
 <body>
 <nav class="navbar">
-    <button class="menu-toggle">☰</button>
+    <button class="menu-toggle" onclick="document.querySelector('.nav-links').classList.toggle('show');">☰</button>
     <div class="nav-links">
         <a href="/">首页</a>
         <a href="/html/about">关于</a>
@@ -245,51 +140,48 @@ ___  ___        _____             _        _
     <p>无数种巧合形成了必然</p>
     <p>就像这次一样</p>
     <p class="separate"></p>
-    <p>新标签页打开链接: <label class="switch">
-        <input type="checkbox" id="toggleSwitch">
-        <span class="slider"></span>
-    </label></p>
-    <div class="catalog">
-        <a href="/html/post/34" target="_blank"><p><span>34</span>很神奇吧</p></a>
-        <a href="/html/post/33" target="_blank"><p><span>33</span>黄金的锁链把大家拴在一起</p></a>
-        <a href="/html/post/32" target="_blank"><p><span>32</span>应是已入深秋</p></a>
-        <a href="/html/post/31" target="_blank"><p><span>31</span>傍晚时我坐在天台上</p></a>
-        <a href="/html/post/30" target="_blank"><p><span>30</span>3月28，下雪了</p></a>
-        <a href="/html/post/29" target="_blank"><p><span>29</span>哈哈，我已经是个大人啦</p></a>
-        <a href="/html/post/28" target="_blank"><p><span>28</span>下雪啦，下雪啦</p></a>
-        <a href="/html/post/27" target="_blank"><p><span>27</span>我在梦中遇到了一个女孩</p></a>
-        <a href="/html/post/26" target="_blank"><p><span>26</span>齁逼冷的</p></a>
-        <a href="/html/post/25" target="_blank"><p><span>25</span>我不敢尝试去过活想象中的生活</p></a>
-        <a href="/html/post/24" target="_blank"><p><span>24</span>我想来一趟长旅行</p></a>
-        <a href="/html/post/23" target="_blank"><p><span>23</span>我被巫师变成了一只癞蛤蟆</p></a>
-        <a href="/html/post/22" target="_blank"><p><span>22</span>曾经有许多恐怖的想法出现在我的脑海</p></a>
-        <a href="/html/post/21" target="_blank"><p><span>21</span>如果可以的话</p></a>
-        <a href="/html/post/20" target="_blank"><p><span>20</span>突然恍惚</p></a>
-        <a href="/html/post/19" target="_blank"><p><span>19</span>我想世界上是否存在生活的公式</p></a>
-        <a href="/html/post/18" target="_blank"><p><span>18</span>胡思乱想</p></a>
-        <a href="/html/post/17" target="_blank"><p><span>17</span>我去</p></a>
-        <a href="/html/post/16" target="_blank"><p><span>16</span>池塘边的桑葚树快该结果了吧</p></a>
-        <a href="/html/post/15" target="_blank"><p><span>15</span>又一次受伤了</p></a>
-        <a href="/html/post/14" target="_blank"><p><span>14</span>我来世想当个屎壳郎</p></a>
-        <a href="/html/post/13" target="_blank"><p><span>13</span>乏味枯燥是生活的主旋律</p></a>
-        <a href="/html/post/12" target="_blank"><p><span>12</span>大人们不该整天拿学业压着孩子</p></a>
-        <a href="/html/post/11" target="_blank"><p><span>11</span>我两手拽起衣服的两角</p></a>
-        <a href="/html/post/10" target="_blank"><p><span>10</span>坐好吧</p></a>
-        <a href="/html/post/9" target="_blank"><p><span>9</span>为什么总是争吵不休呢</p></a>
-        <a href="/html/post/8" target="_blank"><p><span>8</span>日出日落</p></a>
-        <a href="/html/post/7" target="_blank"><p><span>7</span>有个朋友让我帮忙问一下小鸟</p></a>
-        <a href="/html/post/6" target="_blank"><p><span>6</span>幻想</p></a>
-        <a href="/html/post/5" target="_blank"><p><span>5</span>不再关心新闻事件</p></a>
-        <a href="/html/post/4" target="_blank"><p><span>4</span>棉花糖般的云朵</p></a>
-        <a href="/html/post/3" target="_blank"><p><span>3</span>oiiaioiiiiai</p></a>
-        <a href="/html/post/2" target="_blank"><p><span>2</span>2042年</p></a>
-        <a href="/html/post/1" target="_blank"><p><span>1</span>时间永不停止流逝</p></a>
-    </div>
-
+    <p><a href="/html/post/0" style=" text-decoration: underline;color: #4d90fe">不知道看些什么？先来看看介绍吧。</a></p>
+    <ol reversed>
+        <li><p><a href="/html/post/34">很神奇吧</a></p></li>
+        <li><p><a href="/html/post/33">黄金的锁链把大家拴在一起</a></p></li>
+        <li><p><a href="/html/post/32">应是已入深秋</a></p></li>
+        <li><p><a href="/html/post/31">傍晚时我坐在天台上</a></p></li>
+        <li><p><a href="/html/post/30">3月28，下雪了</a></p></li>
+        <li><p><a href="/html/post/29">哈哈，我已经是个大人啦</a></p></li>
+        <li><p><a href="/html/post/28">下雪啦，下雪啦</a></p></li>
+        <li><p><a href="/html/post/27">我在梦中遇到了一个女孩</a></p></li>
+        <li><p><a href="/html/post/26">齁逼冷的</a></p></li>
+        <li><p><a href="/html/post/25">我不敢尝试去过活想象中的生活</a></p></li>
+        <li><p><a href="/html/post/24">我想来一趟长旅行</a></p></li>
+        <li><p><a href="/html/post/23">我被巫师变成了一只癞蛤蟆</a></p></li>
+        <li><p><a href="/html/post/22">曾经有许多恐怖的想法出现在我的脑海</a></p></li>
+        <li><p><a href="/html/post/21">如果可以的话</a></p></li>
+        <li><p><a href="/html/post/20">突然恍惚</a></p></li>
+        <li><p><a href="/html/post/19">我想世界上是否存在生活的公式</a></p></li>
+        <li><p><a href="/html/post/18">胡思乱想</a></p></li>
+        <li><p><a href="/html/post/17">我去</a></p></li>
+        <li><p><a href="/html/post/16">池塘边的桑葚树快该结果了吧</a></p></li>
+        <li><p><a href="/html/post/15">又一次受伤了</a></p></li>
+        <li><p><a href="/html/post/14">我来世想当个屎壳郎</a></p></li>
+        <li><p><a href="/html/post/13">乏味枯燥是生活的主旋律</a></p></li>
+        <li><p><a href="/html/post/12">大人们不该整天拿学业压着孩子</a></p></li>
+        <li><p><a href="/html/post/11">我两手拽起衣服的两角</a></p></li>
+        <li><p><a href="/html/post/10">坐好吧</a></p></li>
+        <li><p><a href="/html/post/9">为什么总是争吵不休呢</a></p></li>
+        <li><p><a href="/html/post/8">日出日落</a></p></li>
+        <li><p><a href="/html/post/7">有个朋友让我帮忙问一下小鸟</a></p></li>
+        <li><p><a href="/html/post/6">幻想</a></p></li>
+        <li><p><a href="/html/post/5">不再关心新闻事件</a></p></li>
+        <li><p><a href="/html/post/4">棉花糖般的云朵</a></p></li>
+        <li><p><a href="/html/post/3">oiiaioiiiiai</a></p></li>
+        <li><p><a href="/html/post/2">2042年</a></p></li>
+        <li><p><a href="/html/post/1">时间永不停止流逝</a></p></li>
+    </ol>
+    <br><br><br>
     <div id="tcomment"></div>
     <div>
         <p><a class="bottom-info" href="https://beian.miit.gov.cn/#/Integrated/index">冀ICP备2022008700号-1</a>
-        </p>
+        <a class="bottom-info" href="https://icp.gov.moe/?keyword=20250164" target="_blank">萌ICP备20250164号</a> </p>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/twikoo@1.6.41/dist/twikoo.min.js"></script>
@@ -300,57 +192,6 @@ ___  ___        _____             _        _
             lang: 'zh-CN',
         })
     </script>
-    <script>
-        // 移动端导航切换
-        document.querySelector(".menu-toggle").addEventListener("click", function () {
-            document.querySelector(".nav-links").classList.toggle("show");
-        });
-    </script>
-    <script>
-        const toggle = document.getElementById('toggleSwitch');
-        const savedState = localStorage.getItem('linkTargetPreference');
-        if (savedState !== null) {
-            toggle.checked = JSON.parse(savedState);
-        } else {
-            toggle.checked = true;
-        }
-
-        function updateCatalogLinks() {
-            const catalogLinks = document.querySelectorAll('.catalog a');
-            catalogLinks.forEach(link => {
-                if (toggle.checked) {
-                    link.setAttribute('target', '_blank');
-                    link.setAttribute('rel', 'noopener noreferrer');
-                } else {
-                    link.removeAttribute('target');
-                    link.removeAttribute('rel');
-                }
-            });
-        }
-
-        updateCatalogLinks();
-        toggle.addEventListener('change', function () {
-            localStorage.setItem('linkTargetPreference', JSON.stringify(this.checked));
-            updateCatalogLinks();
-        });
-
-        const catalogObserver = new MutationObserver(mutations => {
-            mutations.forEach(mutation => {
-                if (mutation.addedNodes.length) {
-                    updateCatalogLinks();
-                }
-            });
-        });
-
-        const catalogContainer = document.querySelector('.catalog');
-        if (catalogContainer) {
-            catalogObserver.observe(catalogContainer, {
-                childList: true,
-                subtree: true
-            });
-        }
-    </script>
-
 </div>
 
 

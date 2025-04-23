@@ -4,26 +4,39 @@
 <title>Jame</title>
 <link>https://jame.work/</link>
 <description>随笔与说说的合集</description>
-<lastBuildDate>Thu, 17 Apr 2025 20:51:44 +0800</lastBuildDate>
+<lastBuildDate>Mon, 21 Apr 2025 13:58:52 +0800</lastBuildDate>
+<item>
+<title>今天下了小雨。 办公室窗外种着一排刺槐，...</title>
+<link>https://jame.work/html/talks/7</link>
+<description>
+<![CDATA[<p>
+<p>今天下了小雨。</p>
+<p>办公室窗外种着一排刺槐，枝叶紧紧趴在窗户边，雨天中树木都显得更加翠绿。我在接水时看到了窗外的树叶，小小的雨滴打在叶子上，叶子下沉随后又弹起，像是一群青绿色的蚂蚱，一蹦一跳，可爱极了。</p>
+</p>]]>
+</description>
+<pubDate>Fri, 18 Apr 2025 00:00:00 +0800</pubDate>
+<guid>https://jame.work/html/talks/7</guid>
+<category>说说</category>
+</item>
 <item>
 <title>在每周一到周五，都会期待着周五下班的那段...</title>
-<link>https://jame.work/easy-talk/talks/6.json</link>
+<link>https://jame.work/html/talks/6</link>
 <description>
 <![CDATA[<p>
 <p>在每周一到周五，都会期待着周五下班的那段时间，因为那意味着会有两天休息的日子即将到来。</p>
 <p>但当我真正到了周五下班后，回到家中，短暂的兴奋紧接着就是疲惫，甚至有时候还没有回到家，开车在路上时，就好像我今天扛了一车水泥那般累，身体和心理一下被抽走了骨头，随后空虚的感觉便悄然袭来。</p>
 <p>我喜欢周六日，但我却是在周一到周五，在不断增加的期待中最为高兴，特别是周五，周五下午，也就是明天了。</p>
 <p>我发现并不止这一件事情我会变成这样，对于其他很多事情我也是如此。明明非常期待的日子，喜欢的东西，想做的事情，在不断接近的等待中，那段时间我是最开心的，而当我得到后，反而疑惑了，这件事、这个东西值的我这多天的期待吗？或者说我期待它的什么呢？ 并没给我想象中的那种感觉，应该是高兴、兴奋啊，但我得到的只有空虚。</p>
-<p>或许我期待的并不是某一个事物、某个日子，而且期待期待本身，喜欢那种感觉而已。</p>
+<p>或许我期待的并不是某一个事物、某个日子，而是期待“期待”本身，喜欢那种感觉而已。</p>
 </p>]]>
 </description>
 <pubDate>Thu, 17 Apr 2025 00:00:00 +0800</pubDate>
-<guid>https://jame.work/easy-talk/talks/6.json</guid>
+<guid>https://jame.work/html/talks/6</guid>
 <category>说说</category>
 </item>
 <item>
 <title>记录梦。 昨晚又做梦了，梦开始的时候，我...</title>
-<link>https://jame.work/easy-talk/talks/5.json</link>
+<link>https://jame.work/html/talks/5</link>
 <description>
 <![CDATA[<p>
 <p>记录梦。</p>
@@ -42,12 +55,12 @@
 </p>]]>
 </description>
 <pubDate>Wed, 16 Apr 2025 00:00:00 +0800</pubDate>
-<guid>https://jame.work/easy-talk/talks/5.json</guid>
+<guid>https://jame.work/html/talks/5</guid>
 <category>说说</category>
 </item>
 <item>
 <title>记录梦。 昨晚没休息好，睡的有点晚，而且...</title>
-<link>https://jame.work/easy-talk/talks/4.json</link>
+<link>https://jame.work/html/talks/4</link>
 <description>
 <![CDATA[<p>
 <p>记录梦。</p>
@@ -63,12 +76,12 @@
 </p>]]>
 </description>
 <pubDate>Tue, 15 Apr 2025 00:00:00 +0800</pubDate>
-<guid>https://jame.work/easy-talk/talks/4.json</guid>
+<guid>https://jame.work/html/talks/4</guid>
 <category>说说</category>
 </item>
 <item>
 <title>刮大风了，说是有10级，本来周六约朋友出...</title>
-<link>https://jame.work/easy-talk/talks/3.json</link>
+<link>https://jame.work/html/talks/3</link>
 <description>
 <![CDATA[<p>
 <p>刮大风了，说是有10级，本来周六约朋友出去玩，但因为风取消了。我倒是觉得越是恶劣天气越该出门，大雨大雪大风，平时想见这种天气都见不到，它来了反而躲在家里，虽然也确实该考虑安全的问题。</p>
@@ -79,12 +92,12 @@
 </p>]]>
 </description>
 <pubDate>Sat, 12 Apr 2025 00:00:00 +0800</pubDate>
-<guid>https://jame.work/easy-talk/talks/3.json</guid>
+<guid>https://jame.work/html/talks/3</guid>
 <category>说说</category>
 </item>
 <item>
 <title>写点东西吧，也算第一篇真正的说说。 最近...</title>
-<link>https://jame.work/easy-talk/talks/2.json</link>
+<link>https://jame.work/html/talks/2</link>
 <description>
 <![CDATA[<p>
 <p>写点东西吧，也算第一篇真正的说说。</p>
@@ -94,7 +107,7 @@
 </p>]]>
 </description>
 <pubDate>Thu, 10 Apr 2025 00:00:00 +0800</pubDate>
-<guid>https://jame.work/easy-talk/talks/2.json</guid>
+<guid>https://jame.work/html/talks/2</guid>
 <category>说说</category>
 </item>
 <item>
@@ -129,12 +142,12 @@
 </item>
 <item>
 <title>今天新增了说说功能，具体实现？感谢神奇又...</title>
-<link>https://jame.work/easy-talk/talks/1.json</link>
+<link>https://jame.work/html/talks/1</link>
 <description>
 <![CDATA[<p>今天新增了说说功能，具体实现？感谢神奇又伟大的ChatGPT吧。</p>]]>
 </description>
 <pubDate>Tue, 08 Apr 2025 00:00:00 +0800</pubDate>
-<guid>https://jame.work/easy-talk/talks/1.json</guid>
+<guid>https://jame.work/html/talks/1</guid>
 <category>说说</category>
 </item>
 <item>
