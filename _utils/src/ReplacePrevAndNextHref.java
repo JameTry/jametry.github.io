@@ -21,6 +21,9 @@ public class ReplacePrevAndNextHref {
         for (File htmlFile : getAllFiles("D:\\project\\mytext\\jametry.github.io\\html\\post")) {
             // 从文件名提取数字
             String fileName = htmlFile.getName();
+            if (fileName.equals("0.html")) {
+                continue;
+            }
             int currentNumber = Integer.parseInt(fileName.split("\\.")[0]);
 
             // 读取文件内容
