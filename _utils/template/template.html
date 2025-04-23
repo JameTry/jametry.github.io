@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>&nbsp;</title>
+    <link rel="stylesheet" href="/style/post.css">
+</head>
+<body>
+<div class="content">
+    <div class="content-text">
+        <div class="time"></div>
+    </div>
+    <div class="page">
+        <a href="/html/talks/1" id="prev">
+            <button class="simple-button">上一篇</button>
+        </a>
+        <a href="#" onclick="history.back();">
+            <button class="simple-button">返回</button>
+        </a>
+        <a href="/html/talks/3" id="next">
+            <button class="simple-button">下一篇</button>
+        </a>
+    </div>
+    <div id="tcomment"></div>
+    <script src="https://cdn.jsdelivr.net/npm/twikoo@1.6.41/dist/twikoo.min.js"></script>
+    <script>
+        twikoo.init({envId: 'https://comment.jame.work', el: '#tcomment', lang: 'zh-CN',})
+    </script>
+</div>
+</body>
+</html>

@@ -61,8 +61,6 @@
     }
 
 
-
-
     @keyframes breathe {
         0% {
             opacity: 0.8;
@@ -165,7 +163,7 @@
 </style>
 <body>
 <nav class="navbar">
-    <button class="menu-toggle">☰</button>
+    <button class="menu-toggle" onclick="document.querySelector('.nav-links').classList.toggle('show');">☰</button>
     <div class="nav-links">
         <a href="/">首页</a>
         <a href="/html/about">关于</a>
@@ -177,16 +175,17 @@
 </nav>
 
 <div class="content">
-    <h3>友链</h3>
-    <div class="tips">
-        欢迎交换友链，我的网站信息如下 <br>
-        名称：Jame <br>
-        描述：随笔 <br>
-        图片：https://jame.work/avatar.jpg <br>
-        ico：https://jame.work/favicon.ico <br>
-        网址： https://jame.work
+    <div class="content-text">
+        <h3>友链</h3>
+        <p><strong>不患莫己知，求为可知也。</strong></p>
+        <p>欢迎交换友链，我的网站信息如下</p>
+        <p>名称：Jame</p>
+        <p>描述：随笔</p>
+        <p>图片：https://jame.work/avatar.jpg</p>
+        <p>图标：https://jame.work/favicon.ico</p>
+        <p>网址：https://jame.work</p>
     </div>
-    <br>
+
     <div class="link-content">
         <div class="link-div">
             <a href="https://wygxmew.github.io/" target="_blank">
@@ -197,18 +196,21 @@
                 </div>
             </a>
         </div>
+        <div class="link-div">
+            <a href="https://hanis.me" target="_blank">
+                <img src="https://hanis.me/upload/ProfilePic.jpg" alt="头像">
+                <div>
+                    <p class="link-name"><strong>Jason’s Blog</strong></p>
+                    <p class="link-introduce">常年端書，手臂結實。</p>
+                </div>
+            </a>
+        </div>
     </div>
     <div id="tcomment"></div>
     <div>
         <p><a class="bottom-info" href="https://beian.miit.gov.cn/#/Integrated/index">冀ICP备2022008700号-1</a>
-        </p>
+            <a class="bottom-info" href="https://icp.gov.moe/?keyword=20250164" target="_blank">萌ICP备20250164号</a> </p>
     </div>
-    <script>
-        // 移动端导航切换
-        document.querySelector(".menu-toggle").addEventListener("click", function () {
-            document.querySelector(".nav-links").classList.toggle("show");
-        });
-    </script>
     <script src="https://cdn.jsdelivr.net/npm/twikoo@1.6.41/dist/twikoo.min.js"></script>
     <script>
         twikoo.init({

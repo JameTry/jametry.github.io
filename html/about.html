@@ -8,23 +8,6 @@
     <link rel="stylesheet" href="/style/post.css">
 </head>
 <style>
-
-
-    @media (orientation: portrait) {
-        .catalog {
-            max-height: 70vh;
-            min-width: 80vw;
-        }
-
-        .link-div {
-            width: 80vw;
-        }
-
-        .link-content {
-            padding: 0;
-        }
-    }
-
     .navbar {
         display: flex;
         align-items: center;
@@ -91,7 +74,7 @@
 </style>
 <body>
 <nav class="navbar">
-    <button class="menu-toggle">☰</button>
+    <button class="menu-toggle" onclick="document.querySelector('.nav-links').classList.toggle('show');">☰</button>
     <div class="nav-links">
         <a href="/">首页</a>
         <a href="/html/about">关于</a>
@@ -115,7 +98,7 @@
     </div>
     <h3>关于我</h3>
     <div class="content-text" style="margin-bottom: 50px">
-        <div class="tips" style="margin-top: 0;display: inline-block">死了不错，活着也挺好。</div>
+        <p>死了不错，活着也挺好。</p>
         <p>一个普通的人，会因为一朵花、一片云而感到生命的美好，也会时而emo，时而悲伤。</p>
         <p>关于我为什么要写作，网站创建的契机以及写作的契机源于2023年年底的一次emo，当时只是想靠文字发泄一下情感，虽然当时写的那些文章并不在现在的网站上了。</p>
         <p>后来我就用写作来对抗悲伤，当我难过时，就想着“写点东西吧！”，把难过写下来，是怎样难过呢？为什么难过呢？确定了之后就需要想，该怎么表达呢？如何开头、又怎样结尾呢？是直白还是隐喻呢？又使用怎样的修辞手法呢？比喻？排比？拟人？（这句话就是排比哈哈哈）反正当我去干这件事时，就已经忘记了难过，转头沉浸到创作中了。</p>
@@ -126,14 +109,8 @@
     <div id="tcomment"></div>
     <div>
         <p><a class="bottom-info" href="https://beian.miit.gov.cn/#/Integrated/index">冀ICP备2022008700号-1</a>
-        </p>
+            <a class="bottom-info" href="https://icp.gov.moe/?keyword=20250164" target="_blank">萌ICP备20250164号</a> </p>
     </div>
-    <script>
-        // 移动端导航切换
-        document.querySelector(".menu-toggle").addEventListener("click", function () {
-            document.querySelector(".nav-links").classList.toggle("show");
-        });
-    </script>
     <script src="https://cdn.jsdelivr.net/npm/twikoo@1.6.41/dist/twikoo.min.js"></script>
     <script>
         twikoo.init({
