@@ -18,13 +18,11 @@ public class RssGenerator {
     private static final String SITE_URL = "https://jame.work/";
     private static final String RSS_FILE = "feed.xml";
 
-    // 日期格式
     private static final SimpleDateFormat INPUT_DATE = new SimpleDateFormat("yyyy年MM月dd日");
     static {
         INPUT_DATE.setTimeZone(TimeZone.getTimeZone("Asia/Shanghai"));
     }
     private static final SimpleDateFormat OUTPUT_DATE = new SimpleDateFormat("EEE, dd MMM yyyy HH:mm:ss +0800", Locale.US);
-    // 定义类型常量
     private static final String TYPE_ARTICLE = "随笔";
     private static final String TYPE_STATUS = "说说";
 
@@ -33,7 +31,6 @@ public class RssGenerator {
         STATUSES_DIR = projectPath + STATUSES_DIR;
         List<RssItem> items = new ArrayList<>();
 
-        // 处理 HTML 文章（类型：文章）
         File htmlDir = new File(POSTS_DIR);
         for (File file : htmlDir.listFiles((d, name) -> name.endsWith(".html"))) {
             if(file.getName().equals("0.html")){
@@ -55,39 +52,32 @@ public class RssGenerator {
             items.add(new RssItem(title, content.toString(), pubDate, link, TYPE_ARTICLE));
         }
 
-        // 处理 JSON 说说（类型：说说）
         File jsonDir = new File(STATUSES_DIR);
         for (File file : jsonDir.listFiles((d, name) -> name.endsWith(".json"))) {
             String jsonStr = new String(java.nio.file.Files.readAllBytes(file.toPath()), StandardCharsets.UTF_8);
             JSONObject jsonObject = JSONObject.parseObject(jsonStr);
 
-            // 提取原始内容并去除 HTML 标签
             String rawContent = jsonObject.getString("content");
-            String plainText = Jsoup.parse(rawContent).text(); // 去除所有 HTML 标签
+            String plainText = Jsoup.parse(rawContent).text();
 
-            // 生成标题（纯文本截取）
             String title = plainText.length() > 20 ? plainText.substring(0, 20) + "..." : plainText;
-            title = escapeXml(title); // 转义 XML 特殊字符
+            title = escapeXml(title);
 
-            // 处理其他字段...
             Date pubDate = INPUT_DATE.parse(jsonObject.getString("publishedTime"));
             String link = SITE_URL + "html/talks/" +  file.getName().replace(".json", "");
 
-            // 构建 RSS 条目
             items.add(new RssItem(title, "<p>" + rawContent + "</p>", pubDate, link, TYPE_STATUS));
         }
 
-        // 按时间排序
         items.sort((a, b) -> b.pubDate.compareTo(a.pubDate));
 
-        // 构建 RSS
         StringBuilder rss = new StringBuilder()
                 .append("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<rss version=\"2.0\">\n<channel>\n")
                 .append("<title>Jame</title>\n<link>").append(SITE_URL).append("</link>\n")
                 .append("<description>随笔与说说的合集</description>\n")
 
                 .append("<lastBuildDate>")
-                .append(OUTPUT_DATE.format(new Date()))  // 使用当前时间作为最后更新时间
+                .append(OUTPUT_DATE.format(new Date()))
                 .append("</lastBuildDate>\n");
         for (RssItem item : items) {
             rss.append("<item>\n")
@@ -96,7 +86,7 @@ public class RssGenerator {
                     .append("<description><![CDATA[").append(item.content).append("]]></description>\n")
                     .append("<pubDate>").append(OUTPUT_DATE.format(item.pubDate)).append("</pubDate>\n")
                     .append("<guid>").append(item.link).append("</guid>\n")
-                    .append("<category>").append(item.type).append("</category>\n") // 添加类型标签
+                    .append("<category>").append(item.type).append("</category>\n")
                     .append("</item>\n");
         }
 
@@ -108,7 +98,6 @@ public class RssGenerator {
         System.out.println("RSS 生成成功：" + RSS_FILE);
     }
 
-    // XML转义方法（不变）
     private static String escapeXml(String input) {
         return input.replace("&", "&amp;")
                 .replace("<", "&lt;")
@@ -117,7 +106,6 @@ public class RssGenerator {
                 .replace("'", "&apos;");
     }
 
-    // 新增类型字段
     private static class RssItem {
         String title;
         String content;
