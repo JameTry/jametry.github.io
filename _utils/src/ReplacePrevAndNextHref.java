@@ -17,8 +17,9 @@ import java.util.regex.Pattern;
  * @date 2025/4/8 下午 8:52
  */
 public class ReplacePrevAndNextHref {
-    public static void main(String[] args) throws Exception {
-        for (File htmlFile : getAllFiles("D:\\project\\mytext\\jametry.github.io\\html\\post")) {
+    public static void run(String path) throws Exception {
+        path += "\\html\\post";
+        for (File htmlFile : getAllFiles(path)) {
             // 从文件名提取数字
             String fileName = htmlFile.getName();
             if (fileName.equals("0.html")) {
