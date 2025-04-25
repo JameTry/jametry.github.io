@@ -12,7 +12,6 @@ body {
 
 .content {
     padding-top: 17vh;
-    caret-color: transparent;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -21,6 +20,7 @@ body {
 }
 
 .content p {
+    caret-color: transparent;
     margin-top: 0;
     padding: 0;
 }
