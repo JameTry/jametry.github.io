@@ -163,9 +163,11 @@
 
 </div>
 <script>
-    let maxNumber = null;  // 最大的说说编号
-    let currentNumber = null; // 当前加载到的编号
-    const pageSize = 10; // 每次加载 10 条
+    let maxNumber = null;
+    let currentNumber = null;
+    const pageSize = 10;
+    let isLoading = false; // 加锁变量
+
     async function fetchMaxNumber() {
         try {
             const response = await fetch("/easy-talk/info.json");
@@ -178,10 +180,10 @@
         }
     }
 
-    // 加载说说
     async function loadMoreTalks() {
-        if (currentNumber < 1) return;
+        if (currentNumber < 1 || isLoading) return; // 加上isLoading判断
 
+        isLoading = true; // 上锁
         let container = document.getElementById("talks-container");
         let loading = document.getElementById("loading");
 
@@ -198,19 +200,18 @@
                 let showDone = true;
                 if (data.content.length > 150) {
                     showDone = false;
-                    data.content = data.content.slice(0, 300) + "......"
+                    data.content = data.content.slice(0, 300) + "......";
                 }
                 let talksUrl = `/html/talks/${currentNumber}`;
                 let card = document.createElement("div");
                 card.className = "card";
                 card.innerHTML = `
-                        <div class="card-content-text">${data.content}</div>
-                          <div class="card-footer">
-                            <div class="published-time">${data.publishedTime}</div>
-                            <a href="${talksUrl}" class="read-more">${showDone ? '阅读原文' : '阅读全文'}</a>
-                          </div>
-
-                    `;
+                <div class="card-content-text">${data.content}</div>
+                <div class="card-footer">
+                    <div class="published-time">${data.publishedTime}</div>
+                    <a href="${talksUrl}" class="read-more">${showDone ? '阅读原文' : '阅读全文'}</a>
+                </div>
+            `;
                 container.appendChild(card);
 
                 count++;
@@ -227,6 +228,8 @@
         } else {
             loading.style.display = "none";
         }
+
+        isLoading = false; // 解锁
     }
 
     // 监听滚动事件
@@ -235,7 +238,6 @@
         let windowHeight = window.innerHeight;
         let scrollHeight = document.documentElement.scrollHeight;
 
-        // 滚动到底部时加载更多
         if (scrollTop + windowHeight >= scrollHeight - 10) {
             loadMoreTalks();
         }
