@@ -22,6 +22,7 @@ body {
 .content p {
     caret-color: transparent;
     margin-top: 0;
+    margin-bottom: 12px;
     padding: 0;
 }
 
