@@ -103,6 +103,10 @@ a{
     margin-top: 50px;
 }
 
+.twikoo{
+    font-size: 16px;
+}
+
 @media (orientation: portrait) {
     p {
         font-size: 15px;
@@ -129,5 +133,9 @@ a{
     }
     .time {
         font-size: 14px;
+    }
+
+    .twikoo{
+        font-size: 15px;
     }
 }
