@@ -72,16 +72,16 @@ public class JsonToHtmlConverter {
 
         if (index == 1) {
             // 第一个文件，隐藏上一篇
-            filledContent = filledContent.replace("<a href=\"/html/talks/1\" id=\"prev\">", "<a href=\"/html/talks/1\" id=\"prev\" style=\"display: none;\">");
+            filledContent = filledContent.replace("<a href=\"p-prev\" id=\"prev\">", "<a href=\"/html/talks/1\" id=\"prev\" style=\"display: none;\">");
         } else {
-            filledContent = filledContent.replace("/html/talks/1", prevLink);
+            filledContent = filledContent.replace("p-prev", prevLink);
         }
 
         if (index == lastIndex) {
             // 最后一个文件，隐藏下一篇
-            filledContent = filledContent.replace("<a href=\"/html/talks/3\" id=\"next\">", "<a href=\"/html/talks/3\" id=\"next\" style=\"display: none;\">");
+            filledContent = filledContent.replace("<a href=\"p-next\" id=\"next\">", "<a href=\"/html/talks/3\" id=\"next\" style=\"display: none;\">");
         } else {
-            filledContent = filledContent.replace("/html/talks/3", nextLink);
+            filledContent = filledContent.replace("p-next", nextLink);
         }
 
         return filledContent;
