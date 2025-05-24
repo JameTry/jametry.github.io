@@ -8,6 +8,30 @@
     <link rel="stylesheet" href="/style/post.css">
 </head>
 <style>
+
+    /* 新增角标样式 */
+    .corner-ribbon {
+        position: absolute;
+        top: -0px;
+        right: -0px;
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+        z-index: 1;
+    }
+    .corner-ribbon-literature{
+        background: #fa3434;
+        color: white;
+    }
+    .corner-ribbon-technology{
+        background: #2c97ff;
+        color: white;
+    }
+
     .link-content {
         display: flex;
         justify-content: center;
@@ -32,7 +56,7 @@
         transition: all 0.3s ease;
         overflow: hidden;
         background: #fff;
-        width: 20vw;
+        width: 18vw;
     }
 
 
@@ -43,8 +67,8 @@
     }
 
     .link-div img {
-        width: 70px;
-        height: 70px;
+        width: 60px;
+        height: 60px;
         border-radius: 50%;
         margin-right: 10px;
     }
@@ -188,7 +212,9 @@
     </div>
 
     <div class="link-content">
+
         <div class="link-div">
+            <div class="corner-ribbon corner-ribbon-literature">文</div>
             <a href="https://wygxmew.github.io/" target="_blank">
                 <img src="https://wygxmew.github.io/favicon.ico" alt="头像">
                 <div>
@@ -198,11 +224,22 @@
             </a>
         </div>
         <div class="link-div">
+            <div class="corner-ribbon corner-ribbon-literature">文</div>
             <a href="https://hanis.me" target="_blank">
                 <img src="https://hanis.me/upload/ProfilePic.jpg" alt="头像">
                 <div>
                     <p class="link-name"><strong>Jason’s Blog</strong></p>
                     <p class="link-introduce">常年端書，手臂結實。</p>
+                </div>
+            </a>
+        </div>
+        <div class="link-div">
+            <div class="corner-ribbon corner-ribbon-technology">技</div>
+            <a href=" https://blog.leoo.fun" target="_blank">
+                <img src="https://bu.dusays.com/2024/11/11/6731ad4c16396.jpg" alt="头像">
+                <div>
+                    <p class="link-name"><strong>清欲的小窝</strong></p>
+                    <p class="link-introduce">沙雕网友清欲的碎碎念</p>
                 </div>
             </a>
         </div>
