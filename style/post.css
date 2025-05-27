@@ -20,6 +20,7 @@ body {
 }
 
 .content p {
+    line-height:170%;
     caret-color: transparent;
     margin-top: 0;
     margin-bottom: 12px;
