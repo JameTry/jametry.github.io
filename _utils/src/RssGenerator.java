@@ -43,6 +43,7 @@ public class RssGenerator {
             StringBuilder content = new StringBuilder();
             for (Element element : paragraphs0) {
                 content.append("<h3>").append(element.text()).append("</h3>");
+                title=element.text();
             }
             Elements paragraphs = doc.select("p");
             for (Element p : paragraphs) {
