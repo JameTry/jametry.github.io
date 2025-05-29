@@ -39,8 +39,12 @@ public class RssGenerator {
             Document doc = Jsoup.parse(file, "UTF-8");
             String title = escapeXml(doc.select("p:first-of-type").text().trim());
             title = title.length() > 20 ? title.substring(0, 20) + "..." : title;
-            Elements paragraphs = doc.select("p");
+            Elements paragraphs0 = doc.select("h3");
             StringBuilder content = new StringBuilder();
+            for (Element element : paragraphs0) {
+                content.append("<h3>").append(element.text()).append("</h3>");
+            }
+            Elements paragraphs = doc.select("p");
             for (Element p : paragraphs) {
                 content.append("<p>").append(p.text()).append("</p>");
             }
