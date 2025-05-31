@@ -4,14 +4,14 @@
 <title>Jame</title>
 <link>https://jame.work/</link>
 <description>随笔与说说的合集</description>
-<lastBuildDate>Sat, 31 May 2025 23:19:05 +0800</lastBuildDate>
+<lastBuildDate>Sat, 31 May 2025 23:30:57 +0800</lastBuildDate>
 <item>
 <title>——这时我 在遥远的记忆中—— ……嗅到...</title>
 <link>https://jame.work/html/talks/15</link>
 <description>
 <![CDATA[<p>
-<style>@media (orientation: portrait) {  max-width: 90vw;  }  img{border: 1px #d7b5d9 solid;max-width: 30vw;}</style>
-<img src="/img/t-15.png" alt="img">
+<style>#i15 {border: 1px #d7b5d9 solid;max-width: 30vw;}  @media (orientation: portrait) {  #i15{max-width: 80vw;}  }</style>
+<img src="/img/t-15.png" id="i15" alt="img">
 <br>
 <br>
 <p>——这时我</p>
