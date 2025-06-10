@@ -8,11 +8,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * 替换html中a标签中上下章节链接
- * ai！爽！
- * 脚本！爽！
- * 战斗！爽~！
- *
+ * 替换html中a标签中上下章节链接*
  * @author Jame!
  * @date 2025/4/8 下午 8:52
  */
