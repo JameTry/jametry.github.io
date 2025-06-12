@@ -104,6 +104,9 @@ a{
     margin-top: 50px;
 }
 
+.twikoo .tk-submit .el-textarea__inner {
+    min-height: 100px !important;
+}
 
 @media (orientation: portrait) {
     p {
