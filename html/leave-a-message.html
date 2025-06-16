@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>&nbsp;</title>
+    <link rel="stylesheet" href="/style/post.css">
+</head>
+<style>
+    .navbar {
+        display: flex;
+        align-items: center;
+        background-color: #ffffff;
+        padding: 8px 16px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-links {
+        display: flex;
+        gap: 16px;
+        margin-left: 30%;
+        z-index: 99;
+    }
+
+    .nav-links a {
+        text-decoration: none;
+        color: #333;
+        padding: 6px 12px;
+        border-radius: 4px;
+        transition: background 0.3s;
+    }
+
+    .nav-links a:hover {
+        background-color: #e9ecef;
+    }
+
+    .menu-toggle {
+        display: none;
+        font-size: 24px;
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+        .navbar {
+            justify-content: space-between;
+        }
+        .nav-links {
+            display: none;
+            flex-direction: column;
+            position: absolute;
+            top: 50px;
+            left: 0;
+            width: 100%;
+            background: #ffffff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 10px 0;
+            margin-left: 0; /* 移动端不留空 */
+        }
+        .nav-links a {
+            font-size: 14px;
+            display: block;
+            padding: 10px 16px;
+        }
+        .menu-toggle {
+            display: block;
+        }
+        .nav-links.show {
+            display: flex;
+        }
+    }
+</style>
+<body>
+<nav class="navbar">
+    <button class="menu-toggle" onclick="document.querySelector('.nav-links').classList.toggle('show');">☰</button>
+    <div class="nav-links">
+        <a href="/">首页</a>
+        <a href="/html/about">关于</a>
+        <a href="/html/easy-talks">说说</a>
+        <a href="/html/friend-link">友链</a>
+        <a href="/html/leave-a-message">留言</a>
+        <a target="_blank" href="https://jame.work/feed.xml">订阅RSS</a>
+        <a target="_blank" href="https://www.travellings.cn/go.html">开往</a>
+    </div>
+</nav>
+
+<div class="content">
+    <h3>留言</h3>
+    <div class="content-text">
+        <p><span style="font-size: 30px">🐧</span>so....有什么想说的呢？</p>
+        <br>
+        <br>
+        <br>
+        <br>
+    </div>
+    <div id="tcomment"></div>
+    <div>
+        <p><a class="bottom-info" href="https://beian.miit.gov.cn/#/Integrated/index">冀ICP备2022008700号-1</a>
+            <a class="bottom-info" href="https://icp.gov.moe/?keyword=20250164" target="_blank">萌ICP备20250164号</a>
+            <span class="bottom-info"><span id="vercount_value_page_pv">0</span>浏览</span>
+        </p>
+    </div>
+    <script src="https://registry.npmmirror.com/twikoo/1.6.41/files/dist/twikoo.min.js"></script>
+    <script>
+        twikoo.init({
+            envId: 'https://comment.jame.work',
+            el: '#tcomment',
+            lang: 'zh-CN',
+        })
+    </script>
+    <script src="https://cn.vercount.one/js"></script>
+</div>
+
+
+</body>
+</html>
