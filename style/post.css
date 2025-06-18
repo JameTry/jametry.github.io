@@ -38,9 +38,16 @@ body {
 }
 
 
-.content-img {
-    max-width: 35vw;
+
+.content-img-500 {
+    max-width: 500px;
 }
+.content-img-400 {
+    max-width: 400px;
+}
+.content-img-300 {
+     max-width: 300px;
+ }
 
 .page {
     justify-content: center;
@@ -82,7 +89,7 @@ body {
 
 .tips {
     all: unset;
-    border-left: 4px solid #71b8ff;
+    border-left: 4px solid #ff405d;
     background-color: rgba(0, 0, 0, 0.05);
     padding: 10px 15px;
     margin: 10px 0;
@@ -128,7 +135,7 @@ a {
         flex-direction: column;
     }
 
-    .content-img {
+    .content-img-500 {
         max-width: 70vw;
     }
 
