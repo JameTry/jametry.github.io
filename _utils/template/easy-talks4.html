@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>&nbsp;</title>
+    <link rel="stylesheet" href="/style/post.css">
+    <link rel="stylesheet" href="/style/navigation.css">
+</head>
+<style>
+
+
+    .card {
+        max-width: 40vw;
+        min-width: 500px;
+        margin: 20px auto;
+        padding: 18px 20px;
+        border-radius: 12px;
+        background: #fff;
+        box-shadow: 0 5px 12px rgba(0, 0, 0, 0.08);
+        border: 1px solid #f0f0f0;
+        transition: all 0.3s ease-in-out;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+
+
+    .card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    }
+
+
+    .card-content-text {
+        font-size: 16px;
+        color: #333;
+        line-height: 1.6;
+    }
+
+
+    .published-time {
+        color: #cb4a4a;
+    }
+
+    .card-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 8px 0;
+        font-size: 14px;
+        color: #888;
+    }
+
+    .read-more {
+        color: #337ab7;
+        text-decoration: none;
+        cursor: pointer;
+        padding-right: 1rem;
+    }
+
+    .read-more:hover {
+        text-decoration: underline;
+    }
+
+
+    @media (max-width: 768px) {
+         .card {
+            max-width: 80vw;
+            min-width: 80vw;
+        }
+    }
+</style>
+<body>
+<nav class="navbar">
+    <button class="menu-toggle" onclick="document.querySelector('.nav-links').classList.toggle('show');">☰</button>
+    <div class="nav-links">
+        <a href="/">首页</a>
+        <a href="/html/about">关于</a>
+        <a href="/html/easy-talks">说说</a>
+        <a href="/html/friend-link">友链</a>
+        <a href="/html/leave-a-message">留言</a>
+        <a target="_blank" href="https://jame.work/feed.xml">订阅RSS</a>
+        <a target="_blank" href="https://www.travellings.cn/go.html">开往</a>
+    </div>
+</nav>
+
+<div class="content" style="padding-top: 10vh">
+    <h3>说说</h3>
+    <div class="content-text">
+        <p>在这里发一些感想，就当自言自语，记录一下。</p>
+        <p>看看过去的自己所说的一些话，即熟悉而又有点陌生，有种奇妙的感觉。</p>
+    </div>
+    <div id="talks-container"></div>
+    <p id="loading" class="loading" style="font-size: 13px;color: #3f3f3f">加载中...</p>
+
+</div>
+<script>
+    let maxNumber = null;
+    let currentNumber = null;
+    const pageSize = 10;
+    let isLoading = false; // 加锁变量
+
+    async function fetchMaxNumber() {
+        try {
+            const response = await fetch("/easy-talk/info.json");
+            const data = await response.json();
+            maxNumber = data.maxNumber;
+            currentNumber = maxNumber;
+            loadMoreTalks(); // 初次加载
+        } catch (error) {
+            console.error("获取最大说说编号失败:", error);
+        }
+    }
+
+    async function loadMoreTalks() {
+        if (currentNumber < 1 || isLoading) return; // 加上isLoading判断
+
+        isLoading = true; // 上锁
+        let container = document.getElementById("talks-container");
+        let loading = document.getElementById("loading");
+
+        loading.innerText = "加载中...";
+        loading.style.display = "block";
+
+        let count = 0;
+        while (currentNumber >= 1 && count < pageSize) {
+            let url = `/easy-talk/talks/${currentNumber}.json`;
+            try {
+                const response = await fetch(url);
+                if (!response.ok) throw new Error("请求失败");
+                const data = await response.json();
+                let showDone = true;
+                if (data.content.length > 300) {
+                    showDone = false;
+                    data.content = data.content.slice(0, 300) + "......";
+                }
+                let talksUrl = `/html/talks/${currentNumber}`;
+                let card = document.createElement("div");
+                card.className = "card";
+                card.innerHTML = `
+                <div class="card-content-text">${data.content}</div>
+                <div class="card-footer">
+                    <div class="published-time">${data.publishedTime}</div>
+                    <a href="${talksUrl}" class="read-more">${showDone ? '阅读原文' : '阅读全文'}</a>
+                </div>
+            `;
+                container.appendChild(card);
+
+                count++;
+            } catch (error) {
+                console.warn(`获取 ${url} 失败:`, error);
+            }
+
+            currentNumber--;
+        }
+
+        // 处理"没有更多啦"
+        if (currentNumber < 1) {
+            loading.innerText = "没有更多啦";
+        } else {
+            loading.style.display = "none";
+        }
+
+        isLoading = false; // 解锁
+    }
+
+    // 监听滚动事件
+    window.addEventListener("scroll", () => {
+        let scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        let windowHeight = window.innerHeight;
+        let scrollHeight = document.documentElement.scrollHeight;
+
+        if (scrollTop + windowHeight >= scrollHeight - 10) {
+            loadMoreTalks();
+        }
+    });
+
+    // 初始化
+    fetchMaxNumber();
+</script>
+
+</body>
+</html>

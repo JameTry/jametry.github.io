@@ -6,71 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>&nbsp;</title>
     <link rel="stylesheet" href="/style/post.css">
+    <link rel="stylesheet" href="/style/navigation.css">
 </head>
-<style>
-    .navbar {
-        display: flex;
-        align-items: center;
-        background-color: #ffffff;
-        padding: 8px 16px;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    }
 
-    .nav-links {
-        display: flex;
-        gap: 16px;
-        margin-left: 30%;
-        z-index: 99;
-    }
-
-    .nav-links a {
-        text-decoration: none;
-        color: #333;
-        padding: 6px 12px;
-        border-radius: 4px;
-        transition: background 0.3s;
-    }
-
-    .nav-links a:hover {
-        background-color: #e9ecef;
-    }
-
-    .menu-toggle {
-        display: none;
-        font-size: 24px;
-        background: none;
-        border: none;
-        cursor: pointer;
-    }
-
-    @media (max-width: 768px) {
-        .navbar {
-            justify-content: space-between;
-        }
-        .nav-links {
-            display: none;
-            flex-direction: column;
-            position: absolute;
-            top: 50px;
-            left: 0;
-            width: 100%;
-            background: #ffffff;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            padding: 10px 0;
-            margin-left: 0; /* 移动端不留空 */
-        }
-        .nav-links a {
-            font-size: 14px;
-            display: block;
-            padding: 10px 16px;
-        }
-        .menu-toggle {
-            display: block;
-        }
-        .nav-links.show {
-            display: flex;
-        }
-    }
 </style>
 <body>
 <nav class="navbar">
@@ -87,14 +25,16 @@
 </nav>
 
 <div class="content">
-    <h3>留言</h3>
+
     <div class="content-text">
-        <p><span style="font-size: 30px">🐧</span>so....有什么想说的？</p>
+        <h3>留言</h3>
         <br>
-        <br>
-        <br>
-        <br>
+        <p><span style="font-size: 30px">🐧</span>：so....有什么想说的？就在下面留言吧。</p>
     </div>
+    <br>
+    <br>
+    <br>
+    <br>
     <div id="tcomment"></div>
     <div>
         <p><a class="bottom-info" href="https://beian.miit.gov.cn/#/Integrated/index">冀ICP备2022008700号-1</a>

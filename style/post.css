@@ -8,10 +8,16 @@ body {
     height: 100%;
     margin: 0;
     padding: 0;
+    background-color: #fcfcfc;
+}
+
+::selection {
+    background: rgba(64, 126, 255, 0.8);
+    color: #ffffff;
 }
 
 .content {
-    padding-top: 17vh;
+    padding-top: 10vh;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -20,30 +26,30 @@ body {
 }
 
 .content p {
-    line-height:170%;
     caret-color: transparent;
-    margin-top: 0;
-    margin-bottom: 12px;
-    padding: 0;
 }
 
 .content-text {
-    max-width: 40vw;
+    background: white;
+    max-width: 50vw;
+    padding: 80px;
+    border: 2px solid #444;
+    box-shadow: 11px 11px 0 6px rgba(0, 0, 0, 0.3);
 }
 
+
 .content-img {
-    max-width: 350px;
-    min-width: 220px;
+    max-width: 35vw;
 }
 
 .page {
     justify-content: center;
     display: flex;
     flex-direction: row;
-    margin-top: 100px;
+    margin-top: 50px;
 }
 
-.visit{
+.visit {
     margin-bottom: 20px;
     margin-top: 10px;
     font-size: 12px;
@@ -59,14 +65,19 @@ body {
     font-size: 16px;
     cursor: pointer;
     border-radius: 25px;
-    border: 1px solid #d5d5d5;
-    transition: background-color 0.3s ease;
+    border: 2px solid #444;
+    transition: background-color 0.3s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
     margin: 15px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 6px 6px 0 3px rgba(0, 0, 0, 0.3);
+    position: relative; /* 确保transform效果正常 */
 }
 
 .simple-button:hover {
-    background-color: #e0e0e0;
+    transform: translate(3px, 3px);
+    box-shadow: 2px 2px 0 0 rgba(0, 0, 0, 0.3);
+    border: 2px solid #444;;
 }
 
 .tips {
@@ -87,7 +98,7 @@ body {
     font-size: 12px;
 }
 
-a{
+a {
     color: #333;
 }
 
@@ -97,7 +108,7 @@ a{
 }
 
 .time {
-    border-top: 2px #424242 solid;
+    border-top: 2px #407eff solid;
     padding-top: 10px;
     color: #3f3f3f;
     font-size: 14px;
@@ -126,12 +137,17 @@ a{
     }
 
     .content-text {
+        border: none;
+        box-shadow: none;
         max-width: 80vw;
+        padding: 0;
+        background: rgba(0, 0, 0, 0);
     }
 
     .tips {
         max-width: 80vw;
     }
+
     .time {
         font-size: 14px;
     }

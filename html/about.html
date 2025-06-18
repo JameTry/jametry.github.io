@@ -6,71 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>&nbsp;</title>
     <link rel="stylesheet" href="/style/post.css">
+    <link rel="stylesheet" href="/style/navigation.css">
 </head>
 <style>
-    .navbar {
-        display: flex;
-        align-items: center;
-        background-color: #ffffff;
-        padding: 8px 16px;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    }
-
-    .nav-links {
-        display: flex;
-        gap: 16px;
-        margin-left: 30%;
-        z-index: 99;
-    }
-
-    .nav-links a {
-        text-decoration: none;
-        color: #333;
-        padding: 6px 12px;
-        border-radius: 4px;
-        transition: background 0.3s;
-    }
-
-    .nav-links a:hover {
-        background-color: #e9ecef;
-    }
-
-    .menu-toggle {
-        display: none;
-        font-size: 24px;
-        background: none;
-        border: none;
-        cursor: pointer;
-    }
-
-    @media (max-width: 768px) {
-        .navbar {
-            justify-content: space-between;
-        }
-        .nav-links {
-            display: none;
-            flex-direction: column;
-            position: absolute;
-            top: 50px;
-            left: 0;
-            width: 100%;
-            background: #ffffff;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            padding: 10px 0;
-            margin-left: 0; /* 移动端不留空 */
-        }
-        .nav-links a {
-            font-size: 14px;
-            display: block;
-            padding: 10px 16px;
-        }
-        .menu-toggle {
-            display: block;
-        }
-        .nav-links.show {
-            display: flex;
-        }
-    }
 </style>
 <body>
 <nav class="navbar">
@@ -87,18 +25,16 @@
 </nav>
 
 <div class="content">
-    <h3>关于内容</h3>
     <div class="content-text">
+        <h3>关于内容</h3>
         <p>我偶尔会在这里发布一些文字，类似诗歌？类似小说？或什么文体也不是。</p>
         <p>想标题是一件痛苦的事情，<span style="text-decoration: line-through">所以随笔都没有标题</span>（除了系列），如同网站没有Title一样。</p>
-    </div>
-    <h3>关于网站</h3>
-    <div class="content-text">
+        <br><br>
+        <h3>关于网站</h3>
         <p>曾经整过自己的服务器，但就一个博客多少有些大材小用，<span style="text-decoration: line-through">主要是得花钱</span>，到后来使用github page,hugo来搭建博客。 但感觉差点意思，现在越来越喜欢简约的风格，一般简约就意味着简单一些，于是就不再使用框架，直接自己手撸页面放到github page了。</p>
         <p><span style="font-style:italic">该网站前端页面之所以能出现要感谢 ChatGPT、DeepSeek、豆包......它们提供了大部分代码，而我负责提问。</span></p>
-    </div>
-    <h3>关于我</h3>
-    <div class="content-text" style="margin-bottom: 50px">
+        <br><br>
+        <h3>关于我</h3>
         <p>死了不错，活着也挺好。</p>
         <p>一个普通的人，会因为一朵花、一片云而感到生命的美好，也会时而emo，时而悲伤。</p>
         <p>关于我为什么要写作，写作的契机源于2023年年底的一次emo，当时只是想靠文字发泄一下情感，虽然当时写的那些文章并不在现在的网站上了。</p>
@@ -107,6 +43,7 @@
         <p>行啦，叽里呱啦说了一堆，总的来说，只是一个普通的人，嗯，就和你们一样。</p>
         <p>最后祝你能永远自由和平静的生活吧，拜拜。</p>
     </div>
+    <br><br>
     <div id="tcomment"></div>
     <div>
         <p><a class="bottom-info" href="https://beian.miit.gov.cn/#/Integrated/index">冀ICP备2022008700号-1</a>
