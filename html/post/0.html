@@ -9,16 +9,36 @@
 </head>
 <style>
     .content a {
+        position: relative;
+        display: inline-block;
         text-decoration: none;
+        padding: 2px;
+        margin: 2px;
+        color: #000;
+        z-index: 1;
+        border-bottom: 1px solid #407eff;
     }
 
-    .content a:hover {
-        text-decoration: underline;
-        color: #4d90fe;
+    .content a::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(64, 126, 255, 0.4);
+        transform: scaleY(0);
+        transform-origin: bottom;
+        transition: transform 0.3s ease;
+        z-index: -1;
+    }
+
+    .content a:hover::before {
+        transform: scaleY(1);
     }
 
 
-    h4 {
+    h3 {
         margin-bottom: 0;
     }
 
@@ -32,10 +52,11 @@
 <body>
 <div class="content">
     <div class="content-text">
-        <h3>目录</h3>
+        <h2>目录</h2>
         <p>啊，因为没有分类，Tag等能区分类型的东西，于是乎，这个页面就诞生了，为了帮助你可以快速地找到所感兴趣的内容。</p>
         <p>给文章分类是一件纠结的事情，有什么分类和该放到哪个分类下，以及一篇内容可能符合多个分类的情况。所以只能大概准确。</p>
-        <h4>软的？或许很硬。</h4>
+        <br>
+        <h3>软的？或许很硬。</h3>
         <ul>
             <li><a href="/html/post/60">我亲爱的孩子，你为什么一直平静地悲伤</a></li>
             <li><a href="/html/post/58">延绵的大雨要淹死整个城市</a></li>
@@ -53,7 +74,7 @@
             <li><a href="/html/post/8">日出日落</a></li>
         </ul>
         <div class="separate"></div>
-        <h4>《感觉》</h4>
+        <h3>《感觉》</h3>
         <p>有时会有一种感觉，永远记得。</p>
         <ol>
             <li><a href="/html/post/44">感觉（一）</a></li>
@@ -65,7 +86,7 @@
             <li><a href="/html/post/56">感觉（七）</a></li>
         </ol>
         <div class="separate"></div>
-        <h4>失去的，未得到的和不想得到的</h4>
+        <h3>失去的，未得到的和不想得到的</h3>
         <p>直抒胸臆，酣畅淋漓。</p>
         <ul>
             <li><a href="/html/post/22">曾经有许多恐怖的想法出现在我的脑海</a></li>
@@ -79,7 +100,7 @@
             <li><a href="/html/post/29">哈哈，我已经是个大人啦</a></li>
         </ul>
         <div class="separate"></div>
-        <h4>孤独或自由</h4>
+        <h3>孤独或自由</h3>
         <ul>
             <li><a href="/html/post/39">今夜的风儿有些喧嚣</a></li>
             <li><a href="/html/post/5">不再关心新闻事件</a></li>
@@ -90,7 +111,7 @@
             <li><a href="/html/post/7">有个朋友让我帮忙问一下小鸟</a></li>
         </ul>
         <div class="separate"></div>
-        <h4>感想和思考</h4>
+        <h3>感想和思考</h3>
         <p>别说话，我在烧烤。</p>
         <ul>
             <li><a href="/html/post/59">周日夜晚</a></li>
@@ -105,7 +126,7 @@
             <li><a href="/html/post/31">傍晚时我坐在天台上</a></li>
         </ul>
         <div class="separate"></div>
-        <h4>杂项</h4>
+        <h3>杂项</h3>
         <ul>
             <li><a href="/html/post/49">鸟（三）</a></li>
             <li><a href="/html/post/48">鸟（二）</a></li>
