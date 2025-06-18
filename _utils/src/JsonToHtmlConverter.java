@@ -1,8 +1,7 @@
 import com.alibaba.fastjson.JSONObject;
+import sun.net.www.content.image.png;
 
 import java.io.*;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 
 public class JsonToHtmlConverter {
     public static void run(String projectPath) {
@@ -28,6 +27,11 @@ public class JsonToHtmlConverter {
                 JSONObject jsonObject = JSONObject.parseObject(jsonContent);
                 String content = jsonObject.getString("content");
                 String publishedTime = jsonObject.getString("publishedTime");
+                String imgUrl = jsonObject.getString("imgUrl");
+                if (imgUrl != null && !imgUrl.isEmpty()) {
+                    String imgHtml="<img src=\""+imgUrl+"\" class=\"content-img\">";
+                    content=imgHtml+content;
+                }
 
                 // 填充模板
                 String html = fillTemplate(template, content, publishedTime, index, lastIndex);

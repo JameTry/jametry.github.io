@@ -4,7 +4,19 @@
 <title>Jame</title>
 <link>https://jame.work/</link>
 <description>随笔与说说的合集</description>
-<lastBuildDate>Tue, 17 Jun 2025 15:16:05 +0800</lastBuildDate>
+<lastBuildDate>Wed, 18 Jun 2025 17:09:47 +0800</lastBuildDate>
+<item>
+<title>如你所见，今天修改了一下网站样式，这算简...</title>
+<link>https://jame.work/html/talks/17</link>
+<description>
+<![CDATA[<p>
+<p>如你所见，今天修改了一下网站样式，这算简洁吗？应该算吧...</p>
+</p>]]>
+</description>
+<pubDate>Wed, 18 Jun 2025 00:00:00 +0800</pubDate>
+<guid>https://jame.work/html/talks/17</guid>
+<category>说说</category>
+</item>
 <item>
 <title>我亲爱的孩子，你为什么一直平静地悲伤？</title>
 <link>https://jame.work/html/post/60</link>
@@ -26,6 +38,19 @@
 <pubDate>Tue, 17 Jun 2025 00:00:00 +0800</pubDate>
 <guid>https://jame.work/html/post/60</guid>
 <category>随笔</category>
+</item>
+<item>
+<title>午饭后，我扔了一颗花生，花生皮完整的脱落...</title>
+<link>https://jame.work/html/talks/16</link>
+<description>
+<![CDATA[<p>
+<p>午饭后，我扔了一颗花生，花生皮完整的脱落（不是花生壳哦），风把皮吹到了门口的坡上，因为花生皮一头大一头小，然后花生皮就斜着滚动，因为在坡上，慢慢地大的那一头就水平超过了小的那一头，然后再反方向滚动，直到情况和刚刚相反，就这样一直来来回回左滚右滚往下面冲去。</p>
+<p>我看着花生皮搁那来回摇摆笑了出来，然后我又问自己这有什么好笑的呢？不知道，但是就是感觉好笑，也确实好笑，我又一想到自己因为一个花生皮笑了出来，就觉得我和花生皮都好笑，哈哈哈哈哈哈。</p>
+</p>]]>
+</description>
+<pubDate>Tue, 17 Jun 2025 00:00:00 +0800</pubDate>
+<guid>https://jame.work/html/talks/16</guid>
+<category>说说</category>
 </item>
 <item>
 <title>周日夜晚，</title>
@@ -726,19 +751,6 @@
 <category>说说</category>
 </item>
 <item>
-<title>午饭后，我扔了一颗花生，花生皮完整的脱落...</title>
-<link>https://jame.work/html/talks/16</link>
-<description>
-<![CDATA[<p>
-<p>午饭后，我扔了一颗花生，花生皮完整的脱落（不是花生壳哦），风把皮吹到了门口的坡上，因为花生皮一头大一头小，然后花生皮就斜着滚动，因为在坡上，慢慢地大的那一头就水平超过了小的那一头，然后再反方向滚动，直到情况和刚刚相反，就这样一直来来回回左滚右滚往下面冲去。</p>
-<p>我看着花生皮搁那来回摇摆笑了出来，然后我又问自己这有什么好笑的呢？不知道，但是就是感觉好笑，也确实好笑，我又一想到自己因为一个花生皮笑了出来，就觉得我和花生皮都好笑，哈哈哈哈哈哈。</p>
-</p>]]>
-</description>
-<pubDate>Tue, 03 Jun 2025 00:00:00 +0800</pubDate>
-<guid>https://jame.work/html/talks/16</guid>
-<category>说说</category>
-</item>
-<item>
 <title>养花的诀窍。</title>
 <link>https://jame.work/html/post/50</link>
 <description>
@@ -757,8 +769,8 @@
 <link>https://jame.work/html/talks/14</link>
 <description>
 <![CDATA[<p>
-<style>#i15 {border: 1px #d7b5d9 solid;max-width: 100%;}  @media (orientation: portrait) {  #i15{max-width: 80vw;}  }</style>
-<img src="/img/t-15.png" id="i15" alt="img">
+<br>
+<br>
 <br>
 <br>
 <p>——这时我</p>
@@ -1562,7 +1574,9 @@
 <p>但没人愿意吻一只浑身疙瘩、恶心又黏糊糊的癞蛤蟆，</p>
 <p>人们更愿意去吻一只俊俏的小青蛙。</p>
 <p>在夏季的每个夜晚，林中总是传来咕呱咕呱的叫声，</p>
-<p>难道他们也被施了法，变成了癞蛤蟆？</p>]]>
+<p>难道他们也被施了法，变成了癞蛤蟆？</p>
+<p>
+</p>]]>
 </description>
 <pubDate>Sun, 16 Mar 2025 00:00:00 +0800</pubDate>
 <guid>https://jame.work/html/post/23</guid>

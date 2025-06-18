@@ -6,77 +6,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>&nbsp;</title>
     <link rel="stylesheet" href="/style/post.css">
+    <link rel="stylesheet" href="/style/navigation.css">
 </head>
+
 <style>
-    .navbar {
+
+    body {
+        background-color: #fcfcfc;
+    }
+
+    blockquote {
         display: flex;
+        flex-direction: column;
         align-items: center;
-        background-color: #ffffff;
-        padding: 8px 16px;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        gap: 12vw;
+        min-height: 300vh;
+        padding-top: 10vw;
+        padding-bottom: 10vw;
     }
 
-    .nav-links {
-        display: flex;
-        gap: 16px;
-        margin-left: 30%;
-        z-index: 99;
+    cite {
+        margin-top: auto;
+        font-size: clamp(1rem, 4vw, 1.25rem);
     }
 
-    .nav-links a {
-        text-decoration: none;
-        color: #333;
-        padding: 6px 12px;
-        border-radius: 4px;
-        transition: background 0.3s;
+    img {
+        display: block;
+        max-width: 100%;
     }
 
-    .nav-links a:hover {
-        background-color: #e9ecef;
-    }
-
-    .menu-toggle {
-        display: none;
-        font-size: 24px;
-        background: none;
-        border: none;
-        cursor: pointer;
+    .polaroid {
+        max-width: 50vw;
+        position: sticky;
+        top: 10vw;
     }
 
 
     .card {
-        max-width: 40vw;
-        min-width: 500px;
-        margin: 20px auto;
-        padding: 18px 20px;
-        border-radius: 12px;
-        background: #fff;
-        box-shadow: 0 5px 12px rgba(0, 0, 0, 0.08);
-        border: 1px solid #f0f0f0;
-        transition: all 0.3s ease-in-out;
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-        word-wrap: break-word;
-        overflow-wrap: break-word;
+        border: 2px solid #444;
+        background-color: white;
+        position: relative;
+        transition: 0.15s ease;
+        padding: 20px 20px 20px 20px;
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        box-shadow: 11px 11px 0 6px rgba(0, 0, 0, 0.3);
+
     }
 
-
-    .card:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
-    }
-
-
-    .card-content-text {
-        font-size: 16px;
-        color: #333;
-        line-height: 1.6;
-    }
-
-
-    .published-time {
-        color: #5b5b5b;
+    .card-img {
+        height: 400px;
+        width: 50vw;
     }
 
     .card-footer {
@@ -89,56 +70,79 @@
     }
 
     .read-more {
-        color: #337ab7;
+        position: relative;
+        display: inline-block;
         text-decoration: none;
+        padding: 2px;
+        margin: 2px;
+        color: #000;
+        z-index: 1;
+        border-bottom: 1px solid #407eff;
+    }
+
+    .read-more::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(64, 126, 255,0.4);
+        transform: scaleY(0);
+        transform-origin: bottom;
+        transition: transform 0.3s ease;
+        z-index: -1;
+    }
+
+    .read-more:hover::before {
+        transform: scaleY(1);
+    }
+
+    .back-to-top {
+        background-color: white;
+        position: fixed;
+        bottom: 40px;
+        right: 40px;
+        padding: 12px 25px;
+        border-radius: 30px;
         cursor: pointer;
-        padding-right: 1rem;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(20px);
+        transition: all 0.3s ease;
+        box-shadow: 6px 6px 0 3px rgba(0, 0, 0, 0.3);
+        z-index: 999;
+        font-size: 16px;
+        border: 2px solid #444;
     }
 
-    .read-more:hover {
-        text-decoration: underline;
+    .back-to-top.visible {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
     }
 
+    .back-to-top:hover {
+        box-shadow: 2px 2px 0 0 rgba(0, 0, 0, 0.3);
+        transform: translate(3px, 3px);
+        border: 2px solid #444;
+    }
 
     @media (max-width: 768px) {
-        .navbar {
-            justify-content: space-between;
+        .polaroid {
+            max-width: 90vw;
+            top: 10vw;
         }
 
-        .nav-links {
-            display: none;
-            flex-direction: column;
-            position: absolute;
-            top: 50px;
-            left: 0;
+        .card-img {
             width: 100%;
-            background: #ffffff;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            padding: 10px 0;
-            margin-left: 0;
         }
 
-        .nav-links a {
-            font-size: 14px;
-            display: block;
-            padding: 10px 16px;
-        }
-
-        .menu-toggle {
-            display: block;
-        }
-
-        .nav-links.show {
-            display: flex;
-        }
-
-        .card {
-            max-width: 80vw;
-            min-width: 80vw;
-        }
     }
 </style>
+
 <body>
+
 <nav class="navbar">
     <button class="menu-toggle" onclick="document.querySelector('.nav-links').classList.toggle('show');">☰</button>
     <div class="nav-links">
@@ -151,22 +155,48 @@
         <a target="_blank" href="https://www.travellings.cn/go.html">开往</a>
     </div>
 </nav>
-
-<div class="content" style="padding-top: 10vh">
-    <h3>说说</h3>
-    <div class="content-text">
-        <p>在这里发一些感想，就当自言自语，记录一下。</p>
-        <p>看看过去的自己所说的一些话，即熟悉而又有点陌生，有种奇妙的感觉。</p>
-    </div>
-    <div id="talks-container"></div>
-    <p id="loading" class="loading" style="font-size: 13px;color: #3f3f3f">加载中...</p>
-
+<div class="back-to-top" id="backToTop">
+    返回顶部
 </div>
+
+<blockquote id="talks-container">
+    <cite id="loading">没有更多啦</cite>
+</blockquote>
+
+
+<script>
+    // 获取返回顶部按钮
+    const backToTopBtn = document.getElementById('backToTop');
+    const navbar = document.querySelector('.navbar');
+
+    // 监听滚动事件
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+            backToTopBtn.classList.add('visible');
+        } else {
+            backToTopBtn.classList.remove('visible');
+        }
+
+    });
+
+    backToTopBtn.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+</script>
 <script>
     let maxNumber = null;
     let currentNumber = null;
     const pageSize = 10;
-    let isLoading = false; // 加锁变量
+    let isLoading = false;
+
+    function generateRandom() {
+        const num = Math.floor(Math.random() * 81);
+        return (num - 40) / 10;
+    }
+
 
     async function fetchMaxNumber() {
         try {
@@ -174,16 +204,16 @@
             const data = await response.json();
             maxNumber = data.maxNumber;
             currentNumber = maxNumber;
-            loadMoreTalks(); // 初次加载
+            loadMoreTalks();
         } catch (error) {
             console.error("获取最大说说编号失败:", error);
         }
     }
 
     async function loadMoreTalks() {
-        if (currentNumber < 1 || isLoading) return; // 加上isLoading判断
+        if (currentNumber < 1 || isLoading) return;
 
-        isLoading = true; // 上锁
+        isLoading = true;
         let container = document.getElementById("talks-container");
         let loading = document.getElementById("loading");
 
@@ -200,19 +230,28 @@
                 let showDone = true;
                 if (data.content.length > 300) {
                     showDone = false;
-                    data.content = data.content.slice(0, 300) + "......";
+                    data.content = data.content.slice(0, 200) + "......";
                 }
                 let talksUrl = `/html/talks/${currentNumber}`;
                 let card = document.createElement("div");
-                card.className = "card";
-                card.innerHTML = `
-                <div class="card-content-text">${data.content}</div>
-                <div class="card-footer">
-                    <div class="published-time">${data.publishedTime}</div>
-                    <a href="${talksUrl}" class="read-more">${showDone ? '阅读原文' : '阅读全文'}</a>
+                card.className = "polaroid";
+
+                let contentHtml = "";
+                if (data.imgUrl === undefined || data.imgUrl === "") {
+                    contentHtml += `<div class="card" style="transform: rotate(${generateRandom()}deg) translatex(${generateRandom()}vw) translatey(${generateRandom()}vw);">`
+                } else {
+                    contentHtml += `<div class="card card-img" style="transform: rotate(${generateRandom()}deg) translatex(${generateRandom()}vw) translatey(${generateRandom()}vw);background-image: url('${data.imgUrl}')">`
+                }
+                contentHtml += `
+                    ${data.content}
+                    <div class="card-footer">
+                        <div class="published-time">${data.publishedTime}</div>
+                        <a href="${talksUrl}" class="read-more">${showDone ? '阅读原文' : '阅读全文'}</a>
+                    </div>
                 </div>
-            `;
-                container.appendChild(card);
+                `
+                card.innerHTML = contentHtml
+                container.insertBefore(card, loading)
 
                 count++;
             } catch (error) {
@@ -222,28 +261,23 @@
             currentNumber--;
         }
 
-        // 处理"没有更多啦"
         if (currentNumber < 1) {
             loading.innerText = "没有更多啦";
-        } else {
-            loading.style.display = "none";
         }
 
-        isLoading = false; // 解锁
+        isLoading = false;
     }
 
-    // 监听滚动事件
     window.addEventListener("scroll", () => {
         let scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
         let windowHeight = window.innerHeight;
         let scrollHeight = document.documentElement.scrollHeight;
 
-        if (scrollTop + windowHeight >= scrollHeight - 10) {
+        if (scrollTop + windowHeight >= scrollHeight / 2) {
             loadMoreTalks();
         }
     });
 
-    // 初始化
     fetchMaxNumber();
 </script>
 

@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>&nbsp;</title>
     <link rel="stylesheet" href="/style/post.css">
+    <link rel="stylesheet" href="/style/navigation.css">
 </head>
 <style>
 
@@ -34,7 +35,7 @@
     }
     .corner-ribbon-life{
         background: #f6f6f6;
-        color: #441dfe;
+        color: #38C172;
     }
 
     .link-content {
@@ -51,9 +52,9 @@
 
     .link-div {
         position: relative;
-        border: 1px solid #e0e0e0;
+        border: 2px solid #444;
         border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        box-shadow: 6px 6px 0 3px rgba(0, 0, 0, 0.3);
         display: flex;
         align-items: center;
         padding: 15px;
@@ -66,9 +67,9 @@
 
 
     .link-div:hover {
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-        transform: translateY(-3px);
-        border-color: transparent;
+        box-shadow: 2px 2px 0 0 rgba(0, 0, 0, 0.3);
+        transform: translate(3px, 3px);
+        border: 2px solid #444;
     }
 
     .link-div img {
@@ -123,73 +124,6 @@
         }
     }
 
-    .navbar {
-        display: flex;
-        align-items: center;
-        background-color: #ffffff;
-        padding: 8px 16px;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    }
-
-    .nav-links {
-        display: flex;
-        gap: 16px;
-        margin-left: 30%;
-        z-index: 99;
-    }
-
-    .nav-links a {
-        text-decoration: none;
-        color: #333;
-        padding: 6px 12px;
-        border-radius: 4px;
-        transition: background 0.3s;
-    }
-
-    .nav-links a:hover {
-        background-color: #e9ecef;
-    }
-
-    .menu-toggle {
-        display: none;
-        font-size: 24px;
-        background: none;
-        border: none;
-        cursor: pointer;
-    }
-
-    @media (max-width: 768px) {
-        .navbar {
-            justify-content: space-between;
-        }
-
-        .nav-links {
-            display: none;
-            flex-direction: column;
-            position: absolute;
-            top: 50px;
-            left: 0;
-            width: 100%;
-            background: #ffffff;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            padding: 10px 0;
-            margin-left: 0; /* 移动端不留空 */
-        }
-
-        .nav-links a {
-            font-size: 14px;
-            display: block;
-            padding: 10px 16px;
-        }
-
-        .menu-toggle {
-            display: block;
-        }
-
-        .nav-links.show {
-            display: flex;
-        }
-    }
 </style>
 <body>
 <nav class="navbar">
