@@ -120,6 +120,8 @@ a {
 }
 
 .separate {
+    margin-top: 30px;
+    margin-bottom: 30px;
     border: 1px red solid;
     width: 15vw;
 }
