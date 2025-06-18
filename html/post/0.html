@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="/style/post.css">
 </head>
 <style>
-    .content a {
+    .content-text a {
         position: relative;
         display: inline-block;
         text-decoration: none;
@@ -19,7 +19,7 @@
         border-bottom: 1px solid #407eff;
     }
 
-    .content a::before {
+    .content-text a::before {
         content: "";
         position: absolute;
         bottom: 0;
@@ -33,7 +33,7 @@
         z-index: -1;
     }
 
-    .content a:hover::before {
+    .content-text a:hover::before {
         transform: scaleY(1);
     }
 
