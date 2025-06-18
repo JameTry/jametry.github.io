@@ -4,7 +4,6 @@
 }
 
 html {
-    height: 100vh;
     margin: 0;
     padding: 0;
 }
@@ -120,8 +119,8 @@ a {
 }
 
 .separate {
-    margin-top: 30px;
-    margin-bottom: 30px;
+    margin-top: 20px;
+    margin-bottom: 20px;
     border: 1px red solid;
     width: 15vw;
 }
