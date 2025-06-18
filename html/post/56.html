@@ -23,7 +23,7 @@
         right: 0;
         bottom: 0;
         z-index: -1;
-        background-image: radial-gradient(1000px at 50% 100%, #af5a53 0%, #b25f58 50%,#4b559d 150%, #504b9d 250%, #3a4288 350%);
+        /*background-image: radial-gradient(1000px at 50% 100%, #af5a53 0%, #b25f58 50%,#4b559d 150%, #504b9d 250%, #3a4288 350%);*/
         overflow: hidden;
     }
 
@@ -60,6 +60,10 @@
             document.documentElement.scrollHeight
         );
         document.getElementById('bg').style.height = (docHeight) + 'px';
+        const bgDiv = document.getElementById('bg');
+        if (!bgDiv) return;
+        bgDiv.style.backgroundImage =
+            `radial-gradient(${docHeight}px at 50% 100%, #af5a53 0%, #b25f58 10%,#4b559d 40%, #504b9d 70%, #3a4288 100%)`
     }
 
     window.addEventListener('load', setDivHeight);
