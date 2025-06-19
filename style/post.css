@@ -21,7 +21,7 @@ body {
 }
 
 p {
-  line-height: 2.5;
+    caret-color: transparent;
 }
 
 .content {
@@ -31,11 +31,9 @@ p {
     flex-direction: column;
     justify-content: center;
     font-size: 16px;
+    margin-bottom: 30px;
 }
 
-.content p {
-    caret-color: transparent;
-}
 
 .content-text {
     background: white;
@@ -43,6 +41,11 @@ p {
     padding: 80px;
     border: 2px solid #444;
     box-shadow: 11px 11px 0 6px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+}
+.content-text p {
+    line-height: 2.3;
+    font-size: 17px;
 }
 
 
@@ -122,7 +125,7 @@ a {
     margin-top: 20px;
     margin-bottom: 20px;
     border: 1px red solid;
-    width: 15vw;
+    width: 20vw;
 }
 
 .time {
@@ -132,13 +135,16 @@ a {
     font-size: 14px;
     margin-top: 50px;
 }
+.time p{
+    font-size: 14px;
+}
 
 .twikoo .tk-submit .el-textarea__inner {
     min-height: 100px !important;
 }
 
 @media (orientation: portrait) {
-    p {
+    .content-text p {
         font-size: 15px;
     }
 
@@ -155,11 +161,16 @@ a {
     }
 
     .content-text {
-        border: none;
+        border: 1px solid #c5c5c5;
         box-shadow: none;
-        max-width: 80vw;
-        padding: 0;
-        background: rgba(0, 0, 0, 0);
+        max-width: 90vw;
+        padding: 10px;
+        background: white;
+    }
+
+    .content-text p{
+        line-height: 1.8;
+        font-size: 16px;
     }
 
     .tips {

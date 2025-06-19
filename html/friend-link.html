@@ -9,8 +9,6 @@
     <link rel="stylesheet" href="/style/navigation.css">
 </head>
 <style>
-
-    /* 新增角标样式 */
     .corner-ribbon {
         position: absolute;
         top: -0px;
@@ -25,15 +23,18 @@
         font-size: 14px;
         z-index: 1;
     }
-    .corner-ribbon-literature{
+
+    .corner-ribbon-literature {
         background: #f6f6f6;
         color: #fa3434;
     }
-    .corner-ribbon-technology{
+
+    .corner-ribbon-technology {
         background: #f6f6f6;
         color: #2c97ff;
     }
-    .corner-ribbon-life{
+
+    .corner-ribbon-life {
         background: #f6f6f6;
         color: #38C172;
     }
@@ -82,8 +83,6 @@
     .link-div a {
         text-decoration: none;
         color: inherit;
-        display: flex;
-        align-items: center;
     }
 
     .link-div p {
@@ -126,6 +125,7 @@
 
 </style>
 <body>
+<script src="/js/ribbon.min.js"></script>
 <nav class="navbar">
     <button class="menu-toggle" onclick="document.querySelector('.nav-links').classList.toggle('show');">☰</button>
     <div class="nav-links">
@@ -141,7 +141,7 @@
 
 <div class="content">
     <div class="content-text">
-        <h3>友链</h3>
+        <h2>友链</h2>
         <p><strong>不患莫己知，求为可知也。</strong></p>
         <p>欢迎交换友链，我的网站信息如下</p>
         <p>名称：Jame</p>
@@ -151,47 +151,42 @@
     </div>
 
     <div class="link-content">
+        <div class="link-div">
+            <div class="corner-ribbon corner-ribbon-literature">文</div>
+            <img loading="lazy" src="https://wygxmew.github.io/favicon.ico" alt="头像">
+            <div>
+                <h3 class="link-name"><a href="https://wygxmew.github.io/" target="_blank">乌云盖雪</a></h3>
+                <p class="link-introduce">看君终日常安卧，何事纷纷去又回？</p>
+            </div>
+        </div>
 
         <div class="link-div">
             <div class="corner-ribbon corner-ribbon-literature">文</div>
-            <a href="https://wygxmew.github.io/" target="_blank">
-                <img loading="lazy" src="https://wygxmew.github.io/favicon.ico" alt="头像">
-                <div>
-                    <p class="link-name"><strong>乌云盖雪</strong></p>
-                    <p class="link-introduce">看君终日常安卧，何事纷纷去又回？</p>
-                </div>
-            </a>
+            <img loading="lazy" src="https://hanis.me/upload/ProfilePic.jpg" alt="头像">
+            <div>
+                <h3 class="link-name"><a href="https://hanis.me" target="_blank">Jason’s Blog</a></h3>
+                <p class="link-introduce">常年端書，手臂結實。</p>
+            </div>
         </div>
-        <div class="link-div">
-            <div class="corner-ribbon corner-ribbon-literature">文</div>
-            <a href="https://hanis.me" target="_blank">
-                <img loading="lazy" src="https://hanis.me/upload/ProfilePic.jpg" alt="头像">
-                <div>
-                    <p class="link-name"><strong>Jason’s Blog</strong></p>
-                    <p class="link-introduce">常年端書，手臂結實。</p>
-                </div>
-            </a>
-        </div>
+
         <div class="link-div">
             <div class="corner-ribbon corner-ribbon-technology">技</div>
-            <a href=" https://blog.leoo.fun" target="_blank">
-                <img loading="lazy" src="https://bu.dusays.com/2024/11/11/6731ad4c16396.jpg" alt="头像">
-                <div>
-                    <p class="link-name"><strong>清欲的小窝</strong></p>
-                    <p class="link-introduce">沙雕网友清欲的碎碎念</p>
-                </div>
-            </a>
+            <img loading="lazy" src="https://bu.dusays.com/2024/11/11/6731ad4c16396.jpg" alt="头像">
+            <div>
+                <h3 class="link-name"><a href="https://blog.leoo.fun" target="_blank">清欲的小窝</a></h3>
+                <p class="link-introduce">沙雕网友清欲的碎碎念</p>
+            </div>
         </div>
+
         <div class="link-div">
             <div class="corner-ribbon corner-ribbon-life">生</div>
-            <a href="https://vss.plus" target="_blank">
-                <img loading="lazy" src="https://pic.vss.plus/pianke/touxiang3.jpg" alt="头像">
-                <div>
-                    <p class="link-name"><strong>Vss Blog</strong></p>
-                    <p class="link-introduce">用认真生活提升自己</p>
-                </div>
-            </a>
+            <img loading="lazy" src="https://pic.vss.plus/pianke/touxiang3.jpg" alt="头像">
+            <div>
+                <h3 class="link-name"><a href="https://vss.plus" target="_blank">Vss Blog</a></h3>
+                <p class="link-introduce">用认真生活提升自己</p>
+            </div>
         </div>
+
     </div>
     <div id="tcomment"></div>
     <div>
