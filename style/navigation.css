@@ -175,6 +175,10 @@
     transform: scaleY(1);
 }
 
+.twikoo a:hover::before {
+    transform: none;
+}
+
 @media (max-width: 768px) {
     .navbar {
         justify-content: space-between;
