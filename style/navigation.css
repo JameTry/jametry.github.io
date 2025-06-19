@@ -152,7 +152,6 @@
     text-decoration: none;
     padding: 2px;
     margin: 2px;
-    /*color: #000;*/
     z-index: 1;
     border-bottom: 1px solid #407eff;
 }
@@ -176,6 +175,9 @@
 }
 
 .twikoo a:hover::before {
+    transform: none;
+}
+.twikoo a::before {
     transform: none;
 }
 
