@@ -174,12 +174,6 @@
     transform: scaleY(1);
 }
 
-.twikoo a:hover::before {
-    transform: none;
-}
-.twikoo a::before {
-    transform: none;
-}
 
 @media (max-width: 768px) {
     .navbar {
