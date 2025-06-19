@@ -29,7 +29,7 @@ public class JsonToHtmlConverter {
                 String publishedTime = jsonObject.getString("publishedTime");
                 String imgUrl = jsonObject.getString("imgUrl");
                 if (imgUrl != null && !imgUrl.isEmpty()) {
-                    String imgHtml="<img src=\""+imgUrl+"\" class=\"content-img\">";
+                    String imgHtml="<img src=\""+imgUrl+"\" class=\"content-img-500\">";
                     content=imgHtml+content;
                 }
 
