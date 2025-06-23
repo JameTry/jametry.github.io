@@ -164,10 +164,10 @@ a {
     }
 
     .content-text {
-        border: 1px solid #c5c5c5;
-        box-shadow: none;
-        max-width: 90vw;
-        padding: 10px;
+        border: 2px solid #444;
+        box-shadow: 5px 5px 0 6px rgba(0, 0, 0, 0.3);
+        max-width: 80vw;
+        padding: 20px;
         background: white;
     }
 
