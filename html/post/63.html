@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>&nbsp;</title>
+    <link rel="stylesheet" href="/style/post.css">
+</head>
+<style>
+    body{
+        overflow-x: hidden;
+    }
+    .content-text{
+        position: relative;
+    }
+    .content-text:before{
+        content: "🚷";
+        font-size: 300px;
+        position: absolute;
+        opacity: 0.2;
+        top: 20%;
+        left: 40%;
+        overflow: hidden;
+    }
+</style>
+<body>
+<script src="/js/ribbon.min.js"></script>
+<div class="content">
+    <div class="content-text">
+        <p>厌倦解释。</p>
+        <p>跑到傍晚公园偏僻的一角，</p>
+        <p>大声吹奏乐器，</p>
+        <p>大声地、用力地、使劲地吹奏。</p>
+        <br>
+        <p>给自己听、给路过的小鸟听、给花草树木听，</p>
+        <p>但绝对不会让你听。</p>
+        <p>就这样吧。
+        <div class="time">2025年6月23日</div>
+    </div>
+
+    <div class="page">
+        <a href="/html/post/61" id="prev">
+            <button class="simple-button">上一篇</button>
+        </a>
+        <a href="/">
+            <button class="simple-button">首页</button>
+        </a>
+        <a href="/html/post/63" id="next">
+            <button class="simple-button">下一篇</button>
+        </a>
+    </div>
+    <div id="tcomment"></div>
+    <script src="https://registry.npmmirror.com/twikoo/1.6.41/files/dist/twikoo.min.js"></script>
+    <script>
+        twikoo.init({
+            envId: 'https://comment.jame.work',
+            el: '#tcomment',
+            lang: 'zh-CN',
+        })
+    </script>
+    <div class="visit"><span id="vercount_value_page_pv">0</span>浏览</div>
+    <script src="https://cn.vercount.one/js"></script>
+</div>
+
+
+</body>
+
+</html>
