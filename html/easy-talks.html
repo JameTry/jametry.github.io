@@ -147,7 +147,6 @@
 
 <body>
 <script src="/js/ribbon.min.js"></script>
-
 <nav class="navbar">
     <button class="menu-toggle" onclick="document.querySelector('.nav-links').classList.toggle('show');">☰</button>
     <div class="nav-links">
@@ -163,18 +162,13 @@
 <div class="back-to-top" id="backToTop">
     返回顶部
 </div>
-
 <blockquote id="talks-container">
     <cite id="loading">没有更多啦</cite>
 </blockquote>
 
-
 <script>
-    // 获取返回顶部按钮
     const backToTopBtn = document.getElementById('backToTop');
-    const navbar = document.querySelector('.navbar');
 
-    // 监听滚动事件
     window.addEventListener('scroll', () => {
         if (window.scrollY > 300) {
             backToTopBtn.classList.add('visible');
@@ -233,9 +227,9 @@
                 if (!response.ok) throw new Error("请求失败");
                 const data = await response.json();
                 let showDone = true;
-                if (data.content.length > 300) {
+                if (data.content.length > 250) {
                     showDone = false;
-                    data.content = data.content.slice(0, 200) + "......";
+                    data.content = data.content.slice(0, 250) + "......";
                 }
                 let talksUrl = `/html/talks/${currentNumber}`;
                 let card = document.createElement("div");
