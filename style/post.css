@@ -13,7 +13,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: #fcfcfc;
-    font-family: "Trebuchet MS",sans-serif;
+    font-family: "universalSans", "Inter","Inter Fallback",Roboto,Open Sans,Arial,sans-serif,ui-sans-serif,system-ui,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
 }
 
 ::selection {
@@ -46,7 +46,7 @@ p {
 }
 
 .content-text p {
-    line-height: 2.3;
+    line-height: 2;
     font-size: 17px;
 }
 
@@ -92,7 +92,7 @@ p {
     box-shadow 0.2s ease;
     margin: 15px;
     box-shadow: 6px 6px 0 3px rgba(0, 0, 0, 0.3);
-    position: relative; /* 确保transform效果正常 */
+    position: relative;
 }
 
 .simple-button:hover {
@@ -128,6 +128,11 @@ a {
     margin-bottom: 20px;
     border: 1px red solid;
     width: 20vw;
+}
+
+blockquote{
+    border-left: 4px solid #ccc;
+    padding-left: 1em;
 }
 
 .time {
