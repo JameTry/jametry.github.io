@@ -131,11 +131,10 @@ a {
     width: 20vw;
 }
 
-blockquote {
+.tips-2 {
     border-left: 4px solid #7c7c7c;
     padding: 10px 10px 10px 15px;
     background: #f8f7f6;
-
 }
 
 .time {
