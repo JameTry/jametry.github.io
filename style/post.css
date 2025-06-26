@@ -13,7 +13,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: #fcfcfc;
-    font-family: "universalSans", "Inter","Inter Fallback",Roboto,Open Sans,Arial,sans-serif,ui-sans-serif,system-ui,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+    font-family: "universalSans", "Inter", "Inter Fallback", Roboto, Open Sans, Arial, sans-serif, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
 ::selection {
@@ -131,9 +131,11 @@ a {
     width: 20vw;
 }
 
-blockquote{
-    border-left: 4px solid #ccc;
-    padding-left: 1em;
+blockquote {
+    border-left: 4px solid #7c7c7c;
+    padding: 10px 10px 10px 15px;
+    background: #f8f7f6;
+
 }
 
 .time {
@@ -152,7 +154,7 @@ blockquote{
     min-height: 100px !important;
 }
 
-@media (orientation: portrait) {
+@media (max-width: 768px) {
     .page {
         flex-direction: column;
     }
@@ -166,9 +168,11 @@ blockquote{
     }
 
     .content-text {
+        min-width: unset;
+        max-width: 80vw;
+        width: 80vw;
         border: 2px solid #444;
         box-shadow: 5px 5px 0 6px rgba(0, 0, 0, 0.3);
-        width: 80vw;
         padding: 20px;
         background: white;
     }
