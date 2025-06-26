@@ -153,10 +153,6 @@ blockquote{
 }
 
 @media (orientation: portrait) {
-    .content-text p {
-        font-size: 15px;
-    }
-
     .page {
         flex-direction: column;
     }
@@ -179,7 +175,7 @@ blockquote{
 
     .content-text p {
         line-height: 1.8;
-        font-size: 14px;
+        font-size: 15px;
     }
 
     .tips {
