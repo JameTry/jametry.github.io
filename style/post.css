@@ -118,7 +118,7 @@ p {
 .simple-button:hover {
     transform: translate(3px, 3px);
     box-shadow: 2px 2px 0 0 rgba(0, 0, 0, 0.3);
-    border: 2px solid #444;;
+    border: 2px solid var(--text-color);
 }
 
 .tips {
