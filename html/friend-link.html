@@ -7,8 +7,15 @@
     <title>&nbsp;</title>
     <link rel="stylesheet" href="/style/post.css">
     <link rel="stylesheet" href="/style/navigation.css">
+    <script src="/js/changeTheme.js"></script>
 </head>
 <style>
+    :root{
+        --friend-div-border-color: #444;
+    }
+    [data-theme="dark"] {
+        --friend-div-border-color: #c4c4c4;
+    }
     .corner-ribbon {
         position: absolute;
         top: 0;
@@ -53,7 +60,7 @@
 
     .link-div {
         position: relative;
-        border: 2px solid #444;
+        border: 2px solid var(--friend-div-border-color);
         border-radius: 10px;
         box-shadow: 6px 6px 0 3px rgba(0, 0, 0, 0.3);
         display: flex;
@@ -62,7 +69,7 @@
         margin: 0 10px 20px;
         transition: all 0.3s ease;
         overflow: hidden;
-        background: #fff;
+        background: var(--bg-text-color);
         width: 18vw;
     }
 
@@ -73,7 +80,6 @@
     .link-div:hover {
         box-shadow: 2px 2px 0 0 rgba(0, 0, 0, 0.3);
         transform: translate(3px, 3px);
-        border: 2px solid #444;
     }
 
     .link-div img {
@@ -129,6 +135,7 @@
 </style>
 <body>
 <script src="/js/ribbon.min.js"></script>
+
 <nav class="navbar">
     <button class="menu-toggle" onclick="document.querySelector('.nav-links').classList.toggle('show');">☰</button>
     <div class="nav-links">
@@ -139,6 +146,7 @@
         <a href="/html/leave-a-message">留言</a>
         <a target="_blank" href="https://jame.work/feed.xml">订阅RSS</a>
         <a target="_blank" href="https://www.travellings.cn/go.html">开往</a>
+        <a href="#" onclick="toggleTheme()">☀🌙</a>
     </div>
 </nav>
 
