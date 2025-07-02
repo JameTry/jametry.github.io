@@ -1,9 +1,11 @@
 :root{
     --a-hover-bg-color:rgba(64, 126, 255, 0.4);
+    --a-border-color:#407eff;
 }
 
 [data-theme="dark"] {
     --a-hover-bg-color: rgba(64, 126, 255, 0.75);
+    --a-border-color:#82abff;
 }
 
 .navbar {
@@ -106,7 +108,7 @@
     padding: 2px;
     margin: 2px;
     z-index: 1;
-    border-bottom: 1px solid #407eff;
+    border-bottom: 1px solid var(--a-border-color);
 }
 
 .content a::before {
