@@ -10,41 +10,23 @@
 </head>
 <style>
     .content-text a {
+        padding-bottom: 2px;
         position: relative;
-        display: inline-block;
         text-decoration: none;
-        padding: 2px;
-        margin: 2px;
-        z-index: 1;
-        border-bottom: 1px solid #407eff;
+        border-bottom: 1px solid var(--a-blue);
     }
 
-    .content-text a::before {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(64, 126, 255, 0.4);
-        transform: scaleY(0);
-        transform-origin: bottom;
-        transition: transform 0.3s ease;
-        z-index: -1;
+    .content-text a:hover {
+        border-bottom: 1px solid var(--a-red);
     }
-
-    .content-text a:hover::before {
-        transform: scaleY(1);
-    }
-
 
     h3 {
         margin-bottom: 10px;
     }
 
     li{
-        margin-bottom: 2px;
-        margin-top: 2px;
+        margin-bottom: 5px;
+        margin-top: 5px;
     }
 
 
@@ -56,7 +38,7 @@
 
 </style>
 <body>
-<script src="/js/ribbon.min.js"></script>
+
 <div class="content">
     <div class="content-text">
         <h2>目录</h2>
