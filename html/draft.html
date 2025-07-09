@@ -10,6 +10,12 @@
     <script src="/js/changeTheme.js"></script>
 </head>
 <body>
+<style>
+    .content-text div{
+        border-bottom: 2px var(--a-blue) solid;
+        margin: 20px;
+    }
+</style>
 
 <nav class="navbar">
     <button class="menu-toggle" onclick="document.querySelector('.nav-links').classList.toggle('show');">☰</button>
@@ -26,13 +32,11 @@
 
 <div class="content">
     <div class="content-text">
-        <h3>关于内容</h3>
-        <p>我偶尔会在这里发布一些文字，诗歌？小说？什么文体也不是。</p>
-        <br>
-        <h3>关于我</h3>
-        <p>去看看写的东西吧，那些灵魂的介绍信。</p>
-        <br><br><br><br>
-        <p>愿我们永远自由平静地生活。</p>
+        <h3>草稿</h3>
+        <div>
+            <p>浩瀚宇宙吹来的风，</p>
+            <p>不曾在我身旁一刻停留。</p>
+        </div>
     </div>
     <br><br>
     <div id="tcomment"></div>
