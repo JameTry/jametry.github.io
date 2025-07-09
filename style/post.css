@@ -162,6 +162,9 @@ h3{
 .twikoo .tk-submit .el-textarea__inner {
     min-height: 100px !important;
 }
+.twikoo a{
+    border: none !important;
+}
 
 @media (max-width: 768px) {
     .page {
