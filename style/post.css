@@ -42,7 +42,6 @@ body {
     padding: 0;
     background-color: var(--bg-color);
     color: var(--text-color);
-    font-family: Segoe UI, serif;
 }
 
 p {
