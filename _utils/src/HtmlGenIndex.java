@@ -22,13 +22,12 @@ public class HtmlGenIndex {
 
     public static void run(String path) {
         INDEX_FILE = path + INDEX_FILE;
-        INDEX_FILE = path + INDEX_FILE;
         try {
             // 步骤1: 读取并处理所有HTML文件
             List<PostInfo> posts = new ArrayList<>();
             // 定义常量
             // HTML文件所在目录
-            String INPUT_DIR = "\\html\\post";
+            String INPUT_DIR = path+"\\html\\post";
             File dir = new File(INPUT_DIR);
             File[] files = dir.listFiles((d, name) -> name.endsWith(".html"));
 
