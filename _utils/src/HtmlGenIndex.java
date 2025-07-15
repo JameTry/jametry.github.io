@@ -89,7 +89,7 @@ public class HtmlGenIndex {
         int first = -1;
         if (text.length() > 20) {
 
-            first = text.indexOf("”");
+            first = text.indexOf("，");
             if (first == -1) {
                 first = text.indexOf("。");
             }
@@ -97,7 +97,7 @@ public class HtmlGenIndex {
                 first = text.indexOf("：");
             }
             if (first == -1) {
-                first = text.indexOf("，");
+                first =text.indexOf("”");
             }
             if (first != -1) {
                 text = text.substring(0, first);
