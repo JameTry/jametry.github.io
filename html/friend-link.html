@@ -10,78 +10,18 @@
     <script src="/js/changeTheme.js"></script>
 </head>
 <style>
-    :root{
+    :root {
         --friend-div-border-color: #444;
     }
+
     [data-theme="dark"] {
         --friend-div-border-color: #c4c4c4;
     }
-    .corner-ribbon {
-        position: absolute;
-        top: 0;
-        right: 0;
-        width: 24px;
-        height: 24px;
-        font-weight: bold;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 14px;
-        z-index: 1;
-    }
 
-    .corner-ribbon-literature {
-        background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
-        color: #d32f2f;
-    }
-
-    .corner-ribbon-technology {
-        background: linear-gradient(135deg, #96bdff 0%, #c2e9fb 100%);
-        color: #1976d2;
-    }
-
-    .corner-ribbon-life {
-        background: linear-gradient(135deg, #d4fc79 0%, #96e6a1 100%);
-        color: #388e3c;
-    }
-
-    .link-content {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: row;
-        flex-wrap: wrap;
-        margin-bottom: 100px;
-        margin-top: 30px;
-        padding-right: 10vw;
-        padding-left: 10vw;
-    }
-
-    .link-div {
-        position: relative;
-        border: 2px solid var(--friend-div-border-color);
-        /*box-shadow: 6px 6px 0 3px rgba(0, 0, 0, 0.3);*/
-        display: flex;
-        align-items: center;
-        padding: 15px;
-        margin: 0 10px 20px;
-        transition: all 0.3s ease;
-        overflow: hidden;
-        background: var(--bg-text-color);
-        width: 18vw;
-    }
-
-    .link-name{
-        margin-bottom: 5px;
-    }
-
-
-
-    .link-div img {
-        width: 60px;
-        height: 60px;
+    img {
+        width: 50px;
+        height: 50px;
         border-radius: 50%;
-        margin-right: 10px;
     }
 
     .link-div a {
@@ -93,40 +33,6 @@
         font-size: 15px;
         margin: 0;
     }
-
-
-    @keyframes breathe {
-        0% {
-            opacity: 0.8;
-            background-position: 0 50%;
-
-        }
-        50% {
-            opacity: 1;
-            background-position: 100% 50%;
-
-        }
-        100% {
-            opacity: 0.8;
-            background-position: 0 50%;
-        }
-    }
-
-    @media (orientation: portrait) {
-        .catalog {
-            max-height: 70vh;
-            min-width: 80vw;
-        }
-
-        .link-div {
-            width: 80vw;
-        }
-
-        .link-content {
-            padding: 0;
-        }
-    }
-
 </style>
 <body>
 
@@ -138,7 +44,6 @@
         <a href="/html/about">关于</a>
         <a href="/html/easy-talks">说说</a>
         <a href="/html/friend-link">友链</a>
-        <a target="_blank" href="https://jame.work/feed.xml">订阅RSS</a>
         <a target="_blank" href="https://www.travellings.cn/go.html">开往</a>
         <a href="#" onclick="toggleTheme()">明/暗</a>
     </div>
@@ -152,72 +57,42 @@
         <p>描述：随笔</p>
         <p>图标：https://jame.work/favicon.ico</p>
         <p>网址：https://jame.work</p>
-    </div>
-
-    <div class="link-content">
-        <div class="link-div">
-            <div class="corner-ribbon corner-ribbon-literature">文</div>
-            <img loading="lazy" src="https://wygxmew.github.io/favicon.ico" alt="头像">
-            <div>
-                <h3 class="link-name"><a href="https://wygxmew.github.io/" target="_blank">乌云盖雪</a></h3>
-                <p class="link-introduce">看君终日常安卧，何事纷纷去又回？</p>
-            </div>
-        </div>
-
-        <div class="link-div">
-            <div class="corner-ribbon corner-ribbon-literature">文</div>
-            <img loading="lazy" src="https://hanis.me/upload/ProfilePic.jpg" alt="头像">
-            <div>
-                <h3 class="link-name"><a href="https://hanis.me" target="_blank">Jason’s Blog</a></h3>
-                <p class="link-introduce">常年端書，手臂結實。</p>
-            </div>
-        </div>
-        <div class="link-div">
-            <div class="corner-ribbon corner-ribbon-technology">技</div>
-            <img loading="lazy" src="https://bu.dusays.com/2024/11/11/6731ad4c16396.jpg" alt="头像">
-            <div>
-                <h3 class="link-name"><a href="https://blog.leoo.fun" target="_blank">清欲的小窝</a></h3>
-                <p class="link-introduce">沙雕网友清欲的碎碎念</p>
-            </div>
-        </div>
-        <div class="link-div">
-            <div class="corner-ribbon corner-ribbon-life">生</div>
-            <img loading="lazy" src="https://pic.vss.plus/pianke/touxiang3.jpg" alt="头像">
-            <div>
-                <h3 class="link-name"><a href="https://vss.plus" target="_blank">Vss Blog</a></h3>
-                <p class="link-introduce">用认真生活提升自己</p>
-            </div>
-        </div>
-        <div class="link-div">
-            <div class="corner-ribbon corner-ribbon-life">生</div>
-            <img loading="lazy" src="https://img.snowy.moe/head.png" alt="头像">
-            <div>
-                <h3 class="link-name"><a href="https://blog.snowy.moe" target="_blank">雪萌天文台</a></h3>
-                <p class="link-introduce">发现巷子里的那颗星星</p>
-            </div>
-        </div>
-        <div class="link-div">
-            <div class="corner-ribbon corner-ribbon-life">生</div>
-            <img loading="lazy" src="https://nasliangjian.mycloudnas.com:4443/wp-content/uploads/2025/04/0e383817b97bb4b039167eff67c8f529.jpeg" alt="头像">
-            <div>
-                <h3 class="link-name"><a href="https://nasliangjian.mycloudnas.com:4443" target="_blank">James 的小站</a></h3>
-                <p class="link-introduce">分享生活、心情日志、兴趣广泛，80后程序猿。</p>
-            </div>
-        </div>
-        <div class="link-div">
-            <div class="corner-ribbon corner-ribbon-literature">文</div>
-            <div>
-                <h3 class="link-name"><a href="https://www.christianpoet.top" target="_blank">诗译象</a></h3>
-                <p class="link-introduce">诗歌，翻译，圣经随笔，生活随笔，一个小小园地。</p>
-            </div>
-        </div>
-
-
+        <br>
+        <br>
+        <p>
+            <a href="https://wygxmew.github.io/">乌云盖雪</a>
+            <span>看君终日常安卧，何事纷纷去又回？</span>
+        </p>
+        <p>
+            <a href="https://hanis.me">Jason’s Blog</a>
+            <span>常年端書，手臂結實。</span>
+        </p>
+        <p>
+            <a href="https://hanis.me">清欲的小窝</a>
+            <span>沙雕网友清欲的碎碎念</span>
+        </p>
+        <p>
+            <a href="https://vss.plus">Vss Blog</a>
+            <span>用认真生活提升自己</span>
+        </p>
+        <p>
+            <a href="https://blog.snowy.moe">雪萌天文台</a>
+            <span>发现巷子里的那颗星星</span>
+        </p>
+        <p>
+            <a href="https://nasliangjian.mycloudnas.com:4443">James 的小站</a>
+            <span>分享生活、心情日志、兴趣广泛，80后程序猿。</span>
+        </p>
+        <p>
+            <a href="https://www.christianpoet.top">诗译象</a>
+            <span>诗歌，翻译，圣经随笔，生活随笔，一个小小园地。</span>
+        </p>
     </div>
     <div id="tcomment"></div>
     <div>
         <p><a class="bottom-info" href="https://beian.miit.gov.cn/#/Integrated/index">冀ICP备2022008700号-1</a>
             <a class="bottom-info" href="https://icp.gov.moe/?keyword=20250164" target="_blank">萌ICP备20250164号</a>
+            <a class="bottom-info" target="_blank" href="https://jame.work/feed.xml">订阅RSS</a>
             <a class="bottom-info" href="/html/other">杂项</a>
             <span class="bottom-info"><span id="vercount_value_page_pv">0</span>浏览</span>
         </p>
