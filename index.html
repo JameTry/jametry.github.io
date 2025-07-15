@@ -1,15 +1,15 @@
 <!doctype html>
 <html lang="zh-CN">
- <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>&nbsp;</title>
-  <link rel="stylesheet" href="/style/post.css">
-  <link rel="stylesheet" href="/style/navigation.css">
-  <script src="/js/changeTheme.js"></script>
-  <script>
-    function print() {
-        console.log(`
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>&nbsp;</title>
+    <link rel="stylesheet" href="/style/post.css">
+    <link rel="stylesheet" href="/style/navigation.css">
+    <script src="/js/changeTheme.js"></script>
+    <script>
+        function print() {
+            console.log(`
  _____ _       _____             _        _
 |  _  | |     /  __ \\           | |      (_)
 | | | | |__   | /  \\/ __ _ _ __ | |_ __ _ _ _ __
@@ -29,78 +29,79 @@ ___  ___        _____             _        _
 
 
         `)
-    }
+        }
 
-    print();
-</script>
-  <style>
-    .content-text {
-        display: flex;
-        /*align-items: center;*/
-        flex-direction: column;
-        justify-content: center;
-        width: 35%;
-    }
-
-    .publish-time {
-        font-size: 16px;
-    }
-
-    @media (orientation: portrait) {
+        print();
+    </script>
+    <style>
         .content-text {
-            width: 100%;
+            display: flex;
+            /*align-items: center;*/
+            flex-direction: column;
+            justify-content: center;
+            width: 35%;
         }
 
-        ol {
-            padding-left: 40px;
+        .publish-time {
+            font-size: 16px;
         }
-    }
 
-</style>
- </head>
- <body>
-  <nav class="navbar">
-   <button class="menu-toggle" onclick="document.querySelector('.nav-links').classList.toggle('show');">☰</button>
-   <div class="nav-links">
-    <a href="/">首页</a> <a href="/html/about">关于</a> <a href="/html/easy-talks">说说</a> <a href="/html/friend-link">友链</a> <a target="_blank" href="https://www.travellings.cn/go.html">开往</a> <a href="#" onclick="toggleTheme()">明/暗</a>
-   </div>
-  </nav>
-  <div class="content">
-   <div class="content-text">
-    <p><span class="publish-time">25年07月15日</span> <a href="/html/post/25">七年前</a></p>
-    <p><span class="publish-time">25年07月10日</span> <a href="/html/post/24">我知道我想要的是什么了</a></p>
-    <p><span class="publish-time">25年07月03日</span> <a href="/html/post/23">“先生！先生！”我正要出门，他叫住了我</a></p>
-    <p><span class="publish-time">25年06月26日</span> <a href="/html/post/22">罢了罢了</a></p>
-    <p><span class="publish-time">25年06月19日</span> <a href="/html/post/21">我沿着地狱边缘种花</a></p>
-    <p><span class="publish-time">25年06月16日</span> <a href="/html/post/20">周日夜晚</a></p>
-    <p><span class="publish-time">25年06月14日</span> <a href="/html/post/19">延绵的大雨要淹死整个城市</a></p>
-    <p><span class="publish-time">25年06月12日</span> <a href="/html/post/18">一只苍蝇在他面前嗡嗡嗡地飞来飞去</a></p>
-    <p><span class="publish-time">25年06月02日</span> <a href="/html/post/17">养花的诀窍</a></p>
-    <p><span class="publish-time">25年05月09日</span> <a href="/html/post/16">扼杀欲望，停止争吵</a></p>
-    <p><span class="publish-time">25年04月30日</span> <a href="/html/post/15">今夜的风儿有些喧嚣</a></p>
-    <p><span class="publish-time">25年04月28日</span> <a href="/html/post/14">捧起骨灰，收起悲伤</a></p>
-    <p><span class="publish-time">25年04月25日</span> <a href="/html/post/13">我坐在车里在十字路口等待着朋友</a></p>
-    <p><span class="publish-time">25年04月03日</span> <a href="/html/post/12">应是已入深秋</a></p>
-    <p><span class="publish-time">25年03月28日</span> <a href="/html/post/11">3月28，下雪了</a></p>
-    <p><span class="publish-time">25年03月19日</span> <a href="/html/post/10">我在梦中遇到了一个女孩</a></p>
-    <p><span class="publish-time">25年03月16日</span> <a href="/html/post/8">我被巫师变成了一只癞蛤蟆</a></p>
-    <p><span class="publish-time">25年03月16日</span> <a href="/html/post/9">我不敢尝试去过活想象中的生活</a></p>
-    <p><span class="publish-time">25年03月14日</span> <a href="/html/post/7">曾经有许多恐怖的想法出现在我的脑海</a></p>
-    <p><span class="publish-time">25年03月12日</span> <a href="/html/post/6">坐好吧，这样的雨天，虽说灰隆隆一片</a></p>
-    <p><span class="publish-time">25年03月03日</span> <a href="/html/post/5">时间永不停止流逝</a></p>
-    <p><span class="publish-time">24年10月10日</span> <a href="/html/post/4">不再关心新闻事件</a></p>
-    <p><span class="publish-time">24年08月29日</span> <a href="/html/post/3">有个朋友让我帮忙问一下小鸟</a></p>
-    <p><span class="publish-time">24年08月13日</span> <a href="/html/post/2">日出日落，一天又一天</a></p>
-    <p><span class="publish-time">24年04月02日</span> <a href="/html/post/1">如果可以的话</a></p>
-   </div>
-   <br>
-   <br>
-   <br>
-   <div style="padding-right: 10%;padding-left: 10%">
-    <p class="bottom-info" style="margin-bottom: 5px;margin-top: 10px">心有猛虎，嗷嗷待哺。</p>
-    <p><a class="bottom-info" href="https://beian.miit.gov.cn/#/Integrated/index">冀ICP备2022008700号-1</a> <a class="bottom-info" href="https://icp.gov.moe/?keyword=20250164" target="_blank">萌ICP备20250164号</a> <a class="bottom-info" target="_blank" href="https://jame.work/feed.xml">订阅RSS</a> <a class="bottom-info" href="/html/other">杂项</a> <span class="bottom-info"><span id="vercount_value_site_pv">0</span>总访问</span> <span class="bottom-info"><span id="vercount_value_site_uv">0</span>总访客</span></p>
-   </div>
-   <script src="https://cn.vercount.one/js"></script>
-  </div>
- </body>
+        @media (orientation: portrait) {
+            .content-text {
+                width: 100%;
+            }
+
+            ol {
+                padding-left: 40px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+<nav class="navbar">
+    <button class="menu-toggle" onclick="document.querySelector('.nav-links').classList.toggle('show');">☰</button>
+    <div class="nav-links">
+        <a href="/">首页</a> <a href="/html/about">关于</a> <a href="/html/easy-talks">说说</a> <a href="/html/friend-link">友链</a> <a target="_blank" href="https://www.travellings.cn/go.html">开往</a> <a href="#" onclick="toggleTheme()">明/暗</a>
+    </div>
+</nav>
+<div class="content">
+    <div class="content-text">
+        <p><span class="publish-time">25年07月15日</span> <a href="/html/post/25">七年前</a></p>
+        <p><span class="publish-time">25年07月10日</span> <a href="/html/post/24">我知道我想要的是什么了</a></p>
+        <p><span class="publish-time">25年07月03日</span> <a href="/html/post/23">“先生！先生！”我正要出门，他叫住了我</a></p>
+        <p><span class="publish-time">25年06月26日</span> <a href="/html/post/22">罢了罢了</a></p>
+        <p><span class="publish-time">25年06月19日</span> <a href="/html/post/21">我沿着地狱边缘种花</a></p>
+        <p><span class="publish-time">25年06月16日</span> <a href="/html/post/20">周日夜晚</a></p>
+        <p><span class="publish-time">25年06月14日</span> <a href="/html/post/19">延绵的大雨要淹死整个城市</a></p>
+        <p><span class="publish-time">25年06月12日</span> <a href="/html/post/18">一只苍蝇在他面前嗡嗡嗡地飞来飞去</a></p>
+        <p><span class="publish-time">25年06月02日</span> <a href="/html/post/17">养花的诀窍</a></p>
+        <p><span class="publish-time">25年05月09日</span> <a href="/html/post/16">扼杀欲望，停止争吵</a></p>
+        <p><span class="publish-time">25年04月30日</span> <a href="/html/post/15">今夜的风儿有些喧嚣</a></p>
+        <p><span class="publish-time">25年04月28日</span> <a href="/html/post/14">捧起骨灰，收起悲伤</a></p>
+        <p><span class="publish-time">25年04月25日</span> <a href="/html/post/13">我坐在车里在十字路口等待着朋友</a></p>
+        <p><span class="publish-time">25年04月03日</span> <a href="/html/post/12">应是已入深秋</a></p>
+        <p><span class="publish-time">25年03月28日</span> <a href="/html/post/11">3月28，下雪了</a></p>
+        <p><span class="publish-time">25年03月19日</span> <a href="/html/post/10">我在梦中遇到了一个女孩</a></p>
+        <p><span class="publish-time">25年03月16日</span> <a href="/html/post/8">我被巫师变成了一只癞蛤蟆</a></p>
+        <p><span class="publish-time">25年03月16日</span> <a href="/html/post/9">我不敢尝试去过活想象中的生活</a></p>
+        <p><span class="publish-time">25年03月14日</span> <a href="/html/post/7">曾经有许多恐怖的想法出现在我的脑海</a></p>
+        <p><span class="publish-time">25年03月12日</span> <a href="/html/post/6">坐好吧，这样的雨天，虽说灰隆隆一片</a></p>
+        <p><span class="publish-time">25年03月03日</span> <a href="/html/post/5">时间永不停止流逝</a></p>
+        <p><span class="publish-time">24年10月10日</span> <a href="/html/post/4">不再关心新闻事件</a></p>
+        <p><span class="publish-time">24年08月29日</span> <a href="/html/post/3">有个朋友让我帮忙问一下小鸟</a></p>
+        <p><span class="publish-time">24年08月13日</span> <a href="/html/post/2">日出日落，一天又一天</a></p>
+        <p><span class="publish-time">24年04月02日</span> <a href="/html/post/1">如果可以的话</a></p>
+    </div>
+    <br>
+    <br>
+    <br>
+    <div style="padding-right: 10%;padding-left: 10%">
+        <p class="bottom-info" style="margin-bottom: 5px;margin-top: 10px">心有猛虎，嗷嗷待哺。</p>
+        <p><a class="bottom-info" href="https://beian.miit.gov.cn/#/Integrated/index">冀ICP备2022008700号-1</a> <a class="bottom-info" href="https://icp.gov.moe/?keyword=20250164" target="_blank">萌ICP备20250164号</a> <a class="bottom-info" target="_blank" href="https://jame.work/feed.xml">订阅RSS</a> <a class="bottom-info" href="/html/other">杂项</a> <span class="bottom-info"><span class="bottom-info"><span
+                id="vercount_value_site_uv">0</span>总访客</span></p>
+    </div>
+    <script src="https://cn.vercount.one/js"></script>
+</div>
+</body>
 </html>
