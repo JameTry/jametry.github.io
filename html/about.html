@@ -26,10 +26,13 @@
 <div class="content">
     <div class="content-text">
         <p>偶尔在这发布一些文字。</p>
-        <br><br>
+        <p>你可以在这个页面留言。</p>
+        <br><br><br><br>
         <p>愿我们永远自由平静地生活。</p>
+
     </div>
-    <br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br>
+    <div id="tcomment"></div>
     <div>
         <p><a class="bottom-info" href="https://beian.miit.gov.cn/#/Integrated/index">冀ICP备2022008700号-1</a>
             <a class="bottom-info" href="https://icp.gov.moe/?keyword=20250164" target="_blank">萌ICP备20250164号</a>
@@ -39,6 +42,13 @@
         </p>
     </div>
     <script src="https://registry.npmmirror.com/twikoo/1.6.41/files/dist/twikoo.min.js"></script>
+    <script>
+        twikoo.init({
+            envId: 'https://comment.jame.work',
+            el: '#tcomment',
+            lang: 'zh-CN',
+        })
+    </script>
     <script src="https://cn.vercount.one/js"></script>
 </div>
 
