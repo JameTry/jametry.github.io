@@ -1,4 +1,5 @@
 var id;
+let likes=0;
 (function () {
     let currentUrl = window.location.href;
     let strings = currentUrl.split("/");
@@ -6,13 +7,17 @@ var id;
 
     fetch(`https://like.jame.work/like/${id}`)
         .then(res => res.json())
-        .then(data => updateLikeCount(data.likes));
+        .then(data => {
+            likes=data.likes;
+            updateLikeCount(data.likes)
+        });
 })();
 
 let liked = false;
 
 function like() {
     if (liked) {
+        alert("你已经点过赞了")
         return
     }
     fetch(`https://like.jame.work/like/${id}`, {method: 'POST'})
@@ -20,7 +25,9 @@ function like() {
         .then(data => {
             if (data.success){
                 liked = true;
-                updateLikeCount(data.likes);
+                updateLikeCount(likes+1);
+            }else{
+                alert("你已经点过赞了")
             }
         });
 }
