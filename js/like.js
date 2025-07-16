@@ -6,7 +6,7 @@ var id;
 
     fetch(`https://like.jame.work/like/${id}`)
         .then(res => res.json())
-        .then(data => console.log(data.likes));
+        .then(data => updateLikeCount(data.likes));
 })();
 
 let liked = false;
