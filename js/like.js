@@ -25,8 +25,8 @@ function like() {
     fetch(`https://like.jame.work/like/${id}`, {method: 'POST'})
         .then(res => res.json())
         .then(data => {
+            liked = true;
             if (data.success) {
-                liked = true;
                 updateLikeCount(likes + 1);
             } else {
                 alert("你已经点过赞了")
