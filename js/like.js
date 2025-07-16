@@ -18,11 +18,13 @@ function like() {
     fetch(`https://like.jame.work/like/${id}`, {method: 'POST'})
         .then(res => res.json())
         .then(data => {
-            if (data.success) updateLikeCount(data.likes);
+            if (data.success){
+                liked = true;
+                updateLikeCount(data.likes);
+            }
         });
 }
 
 function updateLikeCount(likes) {
-    liked = true;
     document.getElementById('likeNumber').innerHTML = likes;
 }
