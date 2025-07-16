@@ -1,7 +1,8 @@
+var id;
 (function () {
     let currentUrl = window.location.href;
     let strings = currentUrl.split("/");
-    var id = strings[strings.length - 1];
+    id= strings[strings.length - 1];
 
     fetch(`https://like.jame.work/like/${id}`)
         .then(res => res.json())
