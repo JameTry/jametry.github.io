@@ -3,7 +3,7 @@
     let strings = currentUrl.split("/");
     var id = strings[strings.length - 1];
 
-    fetch(`/like/${id}`)
+    fetch(`https://like.jame.work/like/${id}`)
         .then(res => res.json())
         .then(data => console.log(data.likes));
 })();
@@ -14,7 +14,7 @@ function like() {
     if (liked) {
         return
     }
-    fetch(`/like/${id}`, {method: 'POST'})
+    fetch(`https://like.jame.work/like/${id}`, {method: 'POST'})
         .then(res => res.json())
         .then(data => {
             if (data.success) updateLikeCount(data.likes);
