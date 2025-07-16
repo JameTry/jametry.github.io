@@ -8,8 +8,10 @@ let likes=0;
     fetch(`https://like.jame.work/like/${id}`)
         .then(res => res.json())
         .then(data => {
-            likes=data.likes;
-            updateLikeCount(data.likes)
+            if(data.likes instanceof Number){
+                likes=data.likes;
+                updateLikeCount(data.likes)
+            }
         });
 })();
 
