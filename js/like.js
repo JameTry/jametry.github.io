@@ -1,15 +1,15 @@
 var id;
-let likes=0;
+let likes = 0;
 (function () {
     let currentUrl = window.location.href;
     let strings = currentUrl.split("/");
-    id= strings[strings.length - 1];
+    id = strings[strings.length - 1];
 
     fetch(`https://like.jame.work/like/${id}`)
         .then(res => res.json())
         .then(data => {
-            if(data.likes instanceof Number){
-                likes=data.likes;
+            if (typeof data.likes == 'number') {
+                likes = data.likes;
                 updateLikeCount(data.likes)
             }
         });
@@ -25,10 +25,10 @@ function like() {
     fetch(`https://like.jame.work/like/${id}`, {method: 'POST'})
         .then(res => res.json())
         .then(data => {
-            if (data.success){
+            if (data.success) {
                 liked = true;
-                updateLikeCount(likes+1);
-            }else{
+                updateLikeCount(likes + 1);
+            } else {
                 alert("你已经点过赞了")
             }
         });
