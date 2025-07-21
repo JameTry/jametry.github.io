@@ -17,10 +17,10 @@
         justify-content: center;
         align-items: center;
         flex-wrap: wrap;
-        width: 100%;
+        min-width: 80vw;
     }
 
-    .one-text{
+    .one-text {
         display: flex;
         flex-direction: row;
         justify-content: center;
@@ -29,14 +29,25 @@
         width: 100%;
     }
 
-    .one-text div {
-       background-color: var(--tips-bg-color);
+    .one-text > div {
+        background-color: var(--tips-bg-color);
         padding: 20px;
         margin: 20px;
         border-radius: 10px;
+        max-width: 35%;
     }
+
     ul li {
         margin-bottom: 8px;
+    }
+
+
+    @media (max-width: 768px) {
+        .one-text > div {
+            max-width: 100%;
+        }
+
+
     }
 
 </style>
@@ -77,14 +88,9 @@
                 <p><strong>“今天天气对的(❁´◡`❁)”</strong></p>
             </div>
             <div>
-                <p>浩瀚宇宙吹来的风，</p>
-                <p>不曾在我身旁一刻停留。</p>
+                <p>浩瀚宇宙吹来的风，不曾在我身旁一刻停留。</p>
             </div>
-
         </div>
-
-
-
     </div>
 </div>
 
