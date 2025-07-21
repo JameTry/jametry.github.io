@@ -27,7 +27,7 @@ public class HtmlGenIndex {
             List<PostInfo> posts = new ArrayList<>();
             // 定义常量
             // HTML文件所在目录
-            String INPUT_DIR = path+"\\html\\post";
+            String INPUT_DIR = path + "\\html\\post";
             File dir = new File(INPUT_DIR);
             File[] files = dir.listFiles((d, name) -> name.endsWith(".html"));
 
@@ -61,10 +61,18 @@ public class HtmlGenIndex {
         Document doc = Jsoup.parse(file, "UTF-8");
 
         // 提取第一个<p>标签内容
-        Element firstP = doc.select("p").first();
-        if (firstP == null) return null;
+        String content = null;
+        Element h3 = doc.select("h3").first();
+        if (h3 != null) {
+            content = h3.text().trim();
+        }
+        if (content == null || content.isEmpty()) {
+            Element firstP = doc.select("p").first();
+            if (firstP == null) return null;
+            content = firstP.text().trim();
+        }
 
-        String content = firstP.text().trim();
+
         // 去除结尾标点符号
         content = removeTrailingPunctuation(content);
 
@@ -97,7 +105,7 @@ public class HtmlGenIndex {
                 first = text.indexOf("：");
             }
             if (first == -1) {
-                first =text.indexOf("”");
+                first = text.indexOf("”");
             }
             if (first != -1) {
                 text = text.substring(0, first);
