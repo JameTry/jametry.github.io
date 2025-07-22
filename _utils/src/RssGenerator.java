@@ -24,7 +24,6 @@ public class RssGenerator {
     }
     private static final SimpleDateFormat OUTPUT_DATE = new SimpleDateFormat("EEE, dd MMM yyyy HH:mm:ss +0800", Locale.US);
     private static final String TYPE_ARTICLE = "随笔";
-    private static final String TYPE_STATUS = "说说";
 
     public static void run(String projectPath) throws Exception {
         POSTS_DIR = projectPath + POSTS_DIR;
@@ -58,28 +57,28 @@ public class RssGenerator {
         }
 
         File jsonDir = new File(STATUSES_DIR);
-        for (File file : jsonDir.listFiles((d, name) -> name.endsWith(".json"))) {
-            String jsonStr = new String(java.nio.file.Files.readAllBytes(file.toPath()), StandardCharsets.UTF_8);
-            JSONObject jsonObject = JSONObject.parseObject(jsonStr);
-
-            String rawContent = jsonObject.getString("content");
-            String plainText = Jsoup.parse(rawContent).text();
-
-            String title = plainText.length() > 20 ? plainText.substring(0, 20) + "..." : plainText;
-            title = escapeXml(title);
-
-            Date pubDate = INPUT_DATE.parse(jsonObject.getString("publishedTime"));
-            String link = SITE_URL + "html/talks/" +  file.getName().replace(".json", "");
-
-            items.add(new RssItem(title, "<p>" + rawContent + "</p>", pubDate, link, TYPE_STATUS));
-        }
+//        for (File file : jsonDir.listFiles((d, name) -> name.endsWith(".json"))) {
+//            String jsonStr = new String(java.nio.file.Files.readAllBytes(file.toPath()), StandardCharsets.UTF_8);
+//            JSONObject jsonObject = JSONObject.parseObject(jsonStr);
+//
+//            String rawContent = jsonObject.getString("content");
+//            String plainText = Jsoup.parse(rawContent).text();
+//
+//            String title = plainText.length() > 20 ? plainText.substring(0, 20) + "..." : plainText;
+//            title = escapeXml(title);
+//
+//            Date pubDate = INPUT_DATE.parse(jsonObject.getString("publishedTime"));
+//            String link = SITE_URL + "html/talks/" +  file.getName().replace(".json", "");
+//
+//            items.add(new RssItem(title, "<p>" + rawContent + "</p>", pubDate, link, TYPE_STATUS));
+//        }
 
         items.sort((a, b) -> b.pubDate.compareTo(a.pubDate));
 
         StringBuilder rss = new StringBuilder()
                 .append("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<rss version=\"2.0\">\n<channel>\n")
                 .append("<title>Jame</title>\n<link>").append(SITE_URL).append("</link>\n")
-                .append("<description>随笔与说说的合集</description>\n")
+                .append("<description>随笔</description>\n")
 
                 .append("<lastBuildDate>")
                 .append(OUTPUT_DATE.format(new Date()))
