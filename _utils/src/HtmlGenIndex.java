@@ -43,10 +43,7 @@ public class HtmlGenIndex {
                 }
             }
 
-            // 步骤2: 按日期排序（从新到旧）
             Collections.sort(posts, (p1, p2) -> p2.date.compareTo(p1.date));
-
-            // 步骤3: 更新index.html
             updateIndexHtml(posts);
 
             System.out.println("成功更新 " + INDEX_FILE);
@@ -60,7 +57,6 @@ public class HtmlGenIndex {
     private static PostInfo extractPostInfo(File file) throws IOException {
         Document doc = Jsoup.parse(file, "UTF-8");
 
-        // 提取第一个<p>标签内容
         String content = null;
         Element h3 = doc.select("h3").first();
         if (h3 != null) {
