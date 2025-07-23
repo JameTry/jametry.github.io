@@ -69,10 +69,8 @@ public class HtmlGenIndex {
         }
 
 
-        // 去除结尾标点符号
         content = removeTrailingPunctuation(content);
 
-        // 提取日期
         Element timeDiv = doc.select("div.time").first();
         if (timeDiv == null) return null;
 
@@ -88,7 +86,6 @@ public class HtmlGenIndex {
         );
     }
 
-    // 去除结尾标点符号
     private static String removeTrailingPunctuation(String text) {
         int first = -1;
         if (text.length() > 20) {
@@ -114,10 +111,8 @@ public class HtmlGenIndex {
         return text;
     }
 
-    // 解析日期字符串
     private static Date parseDate(String dateStr) {
         try {
-            // 匹配"YYYY年MM月DD日"格式
             Pattern pattern = Pattern.compile("(\\d{4})年(\\d{1,2})月(\\d{1,2})日");
             Matcher matcher = pattern.matcher(dateStr);
             if (matcher.find()) {
@@ -134,7 +129,6 @@ public class HtmlGenIndex {
         return null;
     }
 
-    // 格式化日期为"YY年M月D日"
     private static String formatDate(Date date) {
         SimpleDateFormat sdf = new SimpleDateFormat("yy年MM月dd日");
         return sdf.format(date);
