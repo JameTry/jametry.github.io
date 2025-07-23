@@ -32,7 +32,7 @@ public class RssGenerator {
 
         File htmlDir = new File(POSTS_DIR);
         for (File file : htmlDir.listFiles((d, name) -> name.endsWith(".html"))) {
-            if(file.getName().equals("0.html")){
+            if (file.getName().equals("0.html")) {
                 continue;
             }
             Document doc = Jsoup.parse(file, "UTF-8");
@@ -42,7 +42,7 @@ public class RssGenerator {
             StringBuilder content = new StringBuilder();
             for (Element element : paragraphs0) {
                 content.append("<h3>").append(element.text()).append("</h3>");
-                title=element.text();
+                title = element.text();
             }
             Elements paragraphs = doc.select("p");
             for (Element p : paragraphs) {
