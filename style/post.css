@@ -64,8 +64,10 @@ p {
 }
 
 .content-text p {
-    line-height: 2;
+    line-height: 1.8;
     font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0.08rem;
 }
 
 .content-img-500 {
@@ -187,6 +189,8 @@ h3{
 
     .content-text p {
         line-height: 1.8;
+        font-weight: 500;
+        letter-spacing: 0.05rem;
         font-size: 15px;
     }
 

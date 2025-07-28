@@ -38,11 +38,7 @@
 }
 
 .content a {
-    position: relative;
     text-decoration: none;
-    margin: 2px;
-    padding: 2px 2px 3px;
-    border-bottom: 1px solid var(--a-blue);
 }
 
 .content a:hover {

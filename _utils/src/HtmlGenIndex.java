@@ -130,7 +130,7 @@ public class HtmlGenIndex {
     }
 
     private static String formatDate(Date date) {
-        SimpleDateFormat sdf = new SimpleDateFormat("yy年MM月dd日");
+        SimpleDateFormat sdf = new SimpleDateFormat("yy-MM-dd");
         return sdf.format(date);
     }
 
