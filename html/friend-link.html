@@ -18,20 +18,23 @@
         --friend-div-border-color: #c4c4c4;
     }
 
-    .content-text img {
-        width: 50px;
+    .links p {
+        display: flex;
+        align-items: center;
         height: 50px;
-        border-radius: 50%;
+        margin-bottom: 5px;
+        margin-top: 5px;
     }
 
-    .link-div a {
-        text-decoration: none;
-        color: inherit;
+    .links img {
+        border-radius: 5px;
+        width: 45px;
+        height: 45px;
+        margin-right: 10px;
     }
 
-    .link-div p {
-        font-size: 15px;
-        margin: 0;
+    .links a {
+        margin-right: 10px;
     }
 </style>
 <body>
@@ -51,49 +54,60 @@
 
 <div class="content">
     <div class="content-text">
-        <h3>友链</h3>
+        <h2>友链</h2>
         <p>我的网站信息如下</p>
         <p>名称：Jame</p>
         <p>描述：随笔</p>
         <p>图标：https://jame.work/favicon.ico</p>
         <p>网址：https://jame.work</p>
         <br>
-        <p>收藏</p>
-        <p><a href="https://bedtimepoem.com/" target="_blank">读首诗再睡觉</a><span>分享诗歌的网站</span></p>
+        <h3>收藏</h3>
+        <p><a href="https://bedtimepoem.com/" target="_blank">读首诗再睡觉</a>
+            <span>分享诗歌的网站</span>
+        </p>
         <br>
-        <p>友链</p>
-        <p>
-            <a href="https://wygxmew.github.io/" target="_blank">乌云盖雪</a>
-            <span>看君终日常安卧，何事纷纷去又回？</span>
-        </p>
-        <p>
-            <a href="https://hanis.me" target="_blank">Jason’s Blog</a>
-            <span>常年端書，手臂結實。</span>
-        </p>
-        <p>
-            <a href="https://blog.leoo.fun" target="_blank">清欲的小窝</a>
-            <span>沙雕网友清欲的碎碎念</span>
-        </p>
-        <p>
-            <a href="https://vss.plus" target="_blank">Vss Blog</a>
-            <span>用认真生活提升自己</span>
-        </p>
-        <p>
-            <a href="https://blog.snowy.moe" target="_blank">雪萌天文台</a>
-            <span>发现巷子里的那颗星星</span>
-        </p>
-        <p>
-            <a href="https://nasliangjian.mycloudnas.com:4443" target="_blank">James 的小站</a>
-            <span>分享生活、心情日志、兴趣广泛，80后程序猿。</span>
-        </p>
-        <p>
-            <a href="https://www.christianpoet.top" target="_blank">诗译象</a>
-            <span>诗歌，翻译，圣经随笔，生活随笔，一个小小园地。</span>
-        </p>
-        <p>
-            <a href="https://www.qingfengnb.cn" target="_blank">轻风blog</a>
-            <span>茫茫人海，多么幸运才能遇见你！</span>
-        </p>
+        <h3>友链</h3>
+        <div class="links">
+            <p>
+                <img src="https://wygxmew.github.io/favicon.ico" alt="">
+                <a href="https://wygxmew.github.io/" target="_blank">乌云盖雪</a>
+                <span>看君终日常安卧，何事纷纷去又回？</span>
+            </p>
+            <p>
+                <img src="https://hanis.me/upload/ProfilePic.jpg" alt="">
+                <a href="https://hanis.me" target="_blank">Jason’s Blog</a>
+                <span>常年端書，手臂結實。</span>
+            </p>
+            <p>
+                <img src="https://bu.dusays.com/2024/11/11/6731ad4c16396.jpg" alt="">
+                <a href="https://blog.leoo.fun" target="_blank">清欲的小窝</a>
+                <span>沙雕网友清欲的碎碎念</span>
+            </p>
+            <p>
+                <img src="https://pic.vss.plus/pianke/touxiang3.jpg" alt="">
+                <a href="https://vss.plus" target="_blank">Vss Blog</a>
+                <span>用认真生活提升自己</span>
+            </p>
+            <p>
+                <img src="https://img.snowy.moe/head.png" alt="">
+                <a href="https://blog.snowy.moe" target="_blank">雪萌天文台</a>
+                <span>发现巷子里的那颗星星</span>
+            </p>
+            <p>
+                <img src="https://nasliangjian.mycloudnas.com:4443/wp-content/uploads/2025/04/0e383817b97bb4b039167eff67c8f529.jpeg" alt="">
+                <a href="https://nasliangjian.mycloudnas.com:4443" target="_blank">James 的小站</a>
+                <span>分享生活、心情日志、兴趣广泛，80后程序猿。</span>
+            </p>
+            <p>
+                <a href="https://www.christianpoet.top" target="_blank">诗译象</a>
+                <span>诗歌，翻译，圣经随笔，生活随笔，一个小小园地。</span>
+            </p>
+            <p>
+                <img src="https://img.qingfengnb.cn/LightPicture/2025/07/bec6eb9625656d60.jpg" alt="">
+                <a href="https://www.qingfengnb.cn" target="_blank">轻风blog</a>
+                <span>茫茫人海，多么幸运才能遇见你！</span>
+            </p>
+        </div>
     </div>
     <div id="tcomment"></div>
     <div>

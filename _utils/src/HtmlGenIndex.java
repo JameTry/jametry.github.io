@@ -58,9 +58,9 @@ public class HtmlGenIndex {
         Document doc = Jsoup.parse(file, "UTF-8");
 
         String content = null;
-        Element h3 = doc.select("h3").first();
-        if (h3 != null) {
-            content = h3.text().trim();
+        Element h2 = doc.select("h2").first();
+        if (h2 != null) {
+            content = h2.text().trim();
         }
         if (content == null || content.isEmpty()) {
             Element firstP = doc.select("p").first();
