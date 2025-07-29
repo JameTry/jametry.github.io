@@ -1,7 +1,7 @@
 (function () {
     const storedTheme = localStorage.getItem('theme');
     document.documentElement.setAttribute('data-theme',
-        storedTheme || 'dark'
+        storedTheme || 'light'
     );
 })();
 
