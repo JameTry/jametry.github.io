@@ -37,11 +37,11 @@
     cursor: pointer;
 }
 
-.content a {
+.content-home a {
     text-decoration: none;
 }
 
-.content a:hover {
+.content-home a:hover {
     border-bottom: 1px solid var(--a-red);
 }
 
