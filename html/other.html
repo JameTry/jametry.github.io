@@ -46,8 +46,21 @@
         .one-text > div {
             max-width: 100%;
         }
+    }
 
+    #d1 {
+        position: relative;
+    }
 
+    #d1::after {
+        content: "";
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        width: 30px;
+        height: 30px;
+        transform: rotate(15deg);
+        background: url('/img/other/1.png') center/cover no-repeat;
     }
 
 </style>
@@ -94,7 +107,7 @@
                 <p>——所以我们可以说：</p>
                 <p><strong>“今天天气对的(❁´◡`❁)”</strong></p>
             </div>
-            <div>
+            <div id="d1">
                 <p>一簇——三叶草，</p>
                 <p>开出了五瓣的花。</p>
                 <p>在风中、在脚下，</p>
