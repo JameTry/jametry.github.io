@@ -12,7 +12,8 @@
     --tips-bg-color: #f3f3f3;
     --bottom-info-color: #9b9b9b;
     --a-red: #ff1919;
-    --a-blue:#407eff;
+    --a-blue: #407eff;
+    --about-top-img: none;
 }
 
 [data-theme="dark"] {
@@ -24,6 +25,7 @@
     --bottom-info-color: #c2c2c2;
     --a-red: #ff3939;
     --a-blue: #528aff;
+    --about-top-img: invert(1);
 }
 
 * {
@@ -166,7 +168,7 @@ a {
     font-size: 14px;
 }
 
-h2,h3{
+h2, h3 {
     margin-bottom: 10px;
     margin-top: 10px;
 }
@@ -174,7 +176,8 @@ h2,h3{
 .twikoo .tk-submit .el-textarea__inner {
     min-height: 100px !important;
 }
-.twikoo a{
+
+.twikoo a {
     border: none !important;
 }
 
@@ -183,7 +186,7 @@ h2,h3{
         flex-direction: column;
     }
 
-    .content-img-500,.content-img-300,.content-img-400 {
+    .content-img-500, .content-img-300, .content-img-400 {
         max-width: 70vw;
     }
 
