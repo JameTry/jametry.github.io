@@ -5,12 +5,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>&nbsp;</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/style/post.css">
     <link rel="stylesheet" href="/style/navigation.css">
     <script src="/js/changeTheme.js"></script>
 </head>
 <body>
 <style>
+    body {
+        font-family: 'Noto Serif SC', serif, 'Microsoft YaHei', sans-serif;
+        background: linear-gradient(135deg, #e6f7ff 0%, #f0f8ff 100%);
+        line-height: 1.8;
+    }
+
+    [data-theme="dark"] {
+        --text-color: #333;
+    }
+
+    .nav-links a {
+        color: #4a6fa5;
+    }
+
+    h2 {
+        color: #4a6fa5;
+        font-size: 2rem;
+        margin-bottom: 10px;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        letter-spacing: 1px;
+    }
+
     .content-text {
         display: flex;
         flex-direction: column;
@@ -21,30 +44,60 @@
     }
 
     .one-text {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        flex-wrap: wrap;
-        width: 100%;
+        column-count: 4;
+        column-gap: 25px;
+        width: 85%;
+    }
+
+    .one-text > div > p {
+        font-size: 1.1rem;
+        color: #444;
+    }
+
+    .divider {
+        height: 1px;
+        background: linear-gradient(to right, transparent, #8da9c4, transparent);
+        margin: 15px 0;
+    }
+
+    .poem-line {
+        text-indent: 1em;
+    }
+    .poem-line-2 {
+        text-indent: 2em;
+    }
+
+    .poem-line-3 {
+        text-indent: 3em;
     }
 
     .one-text > div {
-        background-color: var(--tips-bg-color);
-        padding: 20px;
-        margin: 20px;
-        border-radius: 10px;
-        max-width: 35%;
+        background: rgba(255, 255, 255, 0.85);;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        margin-bottom: 25px;
+        padding: 25px;
+        break-inside: avoid;
+        transition: all 0.3s ease;
+        border: 1px solid rgba(0, 0, 0, 0.05);
     }
 
-    ul li {
-        margin-bottom: 8px;
+
+    @media (max-width: 1600px) {
+        .one-text {
+            column-count: 3;
+        }
     }
 
+    @media (max-width: 1100px) {
+        .one-text {
+            column-count: 2;
+        }
+    }
 
-    @media (max-width: 768px) {
-        .one-text > div {
-            max-width: 100%;
+    @media (max-width: 700px) {
+        .one-text {
+            column-count: 1;
         }
     }
 
@@ -73,26 +126,43 @@
         <a href="/html/other">杂项</a>
         <a href="/html/friend-link">友链</a>
         <a target="_blank" href="https://www.travellings.cn/go.html">开往</a>
-        <a href="#" onclick="toggleTheme()">明/暗</a>
     </div>
 </nav>
 
 <div class="content-home">
     <div class="content-text">
-        <ul>
-            <li><a href="/html/other/0">想做的事情</a></li>
-            <li><a href="/html/other/1">Deadly Valentine</a></li>
-            <li><a href="/html/other/2">Late Night</a></li>
-        </ul>
-        <br><br><br>
+        <header>
+            <h2>莫名其妙，有时我想。</h2>
+        </header>
+        <br>
         <div class="one-text">
-            <div>
-                <p>它只是在那。</p>
+            <div style="padding-left: 50px">
+                <ul>
+                    <li><a href="/html/other/0">想做的事情</a></li>
+                    <li><a href="/html/other/1">Deadly Valentine</a></li>
+                    <li><a href="/html/other/2">Late Night</a></li>
+                </ul>
             </div>
             <div>
-                <p>在阳台，</p>
-                <p>她就坐在窗前，坐在海上。</p>
-                <p>波光粼粼，海风吹拂。</p>
+                <p>永远。</p>
+                <p class="poem-line">永远有多远呢？</p>
+                <p class="poem-line-2">我们还能抵达吗？</p>
+                <div class="divider"></div>
+                <p>有些事情微不足道。</p>
+                <p>我恨我自己。</p>
+            </div>
+            <div>
+                <p>它只是在那里。</p>
+            </div>
+            <div>
+                <p>阳台，</p>
+                <p class="poem-line-2">她就坐在窗前，</p>
+                <p class="poem-line-2">坐在海上。</p>
+                <p class="poem-line-2">波光粼粼，海风吹拂。</p>
+                <div class="divider"></div>
+                <p>即将沉没的阳光拓出蜷缩着的轮廓，</p>
+                <p>投下长长的影子。</p>
+                <p>朦胧着。</p>
             </div>
             <div>
                 <p>仿佛做了一个薰衣草的梦，</p>
@@ -133,6 +203,15 @@
         </div>
     </div>
 </div>
+<script>
+    (function () {
+        document.querySelectorAll('.one-text > div').forEach(div => {
+            const heights = [250, 300, 350, 400, 450, 500];
+            const randomHeight = heights[Math.floor(Math.random() * heights.length)];
+            div.style.minHeight = `${randomHeight}px`;
+        });
+    })();
+</script>
 
 
 </body>
