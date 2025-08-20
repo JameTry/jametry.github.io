@@ -106,7 +106,10 @@ public class HtmlGenIndex {
         }
         char lastChar = text.charAt(text.length() - 1);
         if ("，。！？,.!?".indexOf(lastChar) >= 0) {
-            return text.substring(0, text.length() - 1);
+            text = text.substring(0, text.length() - 1);
+        }
+        if ("“".indexOf(text.charAt(0)) == 0) {
+            text = text.substring(1);
         }
         return text;
     }
