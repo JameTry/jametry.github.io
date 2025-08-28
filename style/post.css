@@ -82,6 +82,12 @@ p {
     letter-spacing: 0.08rem;
 }
 
+.post-text p {
+    line-height: 1.6rem !important;
+    text-indent: 2rem;
+    margin-bottom: 10px;
+}
+
 .content-img-500 {
     max-width: 500px;
 }
