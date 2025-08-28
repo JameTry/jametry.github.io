@@ -69,7 +69,7 @@ public class HtmlGenIndex {
         }
 
 
-        content = removeTrailingPunctuation(content);
+        content = getTitleExcerpt(content);
 
         Element timeDiv = doc.select("div.time").first();
         if (timeDiv == null) return null;
@@ -86,22 +86,82 @@ public class HtmlGenIndex {
         );
     }
 
+
+
+    private static String getTitleExcerpt(String text) {
+        int minLength = 5;
+        int maxLength = 12;
+        String punctuationStr = "，。：”！？,.!?\""; // 定义标点符号集合（包括中英文）
+
+        // 查找第一个标点符号的位置
+        int firstIndex = -1;
+        for (int i = 0; i < text.length(); i++) {
+            if (punctuationStr.indexOf(text.charAt(i)) >= 0) {
+                firstIndex = i;
+                break;
+            }
+        }
+
+        String result;
+        if (firstIndex == -1) {
+            result = text; // 没有找到标点符号，返回整个字符串
+        } else {
+            if (firstIndex >= minLength) {
+                result = text.substring(0, firstIndex); // 第一个标点前的长度足够，截取到第一个标点
+            } else {
+                // 第一个标点前的长度太短，查找第二个标点符号
+                int secondIndex = -1;
+                for (int i = firstIndex + 1; i < text.length(); i++) {
+                    if (punctuationStr.indexOf(text.charAt(i)) >= 0) {
+                        secondIndex = i;
+                        break;
+                    }
+                }
+                if (secondIndex == -1) {
+                    result = text.substring(0, firstIndex); // 没有第二个标点，截取到第一个标点
+                } else {
+                    if (secondIndex <= maxLength) {
+                        result = text.substring(0, secondIndex); // 第二个标点前的长度不超过限制，截取到第二个标点
+                    } else {
+                        result = text.substring(0, firstIndex); // 第二个标点前的长度超过限制，截取到第一个标点
+                    }
+                }
+            }
+        }
+
+        // 清理结尾标点符号
+        if (!result.isEmpty()) {
+            char lastChar = result.charAt(result.length() - 1);
+            if ("，。！？,.!?".indexOf(lastChar) >= 0) {
+                result = result.substring(0, result.length() - 1);
+            }
+        }
+        // 清理开头标点符号（如左引号）
+        if (!result.isEmpty()) {
+            if ("“".indexOf(result.charAt(0)) >= 0) {
+                result = result.substring(1);
+            }
+        }
+        return result;
+    }
     private static String removeTrailingPunctuation(String text) {
         int first = -1;
         if (text.length() > 20) {
 
-            first = text.indexOf("，");
-            if (first == -1) {
-                first = text.indexOf("。");
-            }
-            if (first == -1) {
-                first = text.indexOf("：");
-            }
-            if (first == -1) {
-                first = text.indexOf("”");
-            }
-            if (first != -1) {
-                text = text.substring(0, first);
+            while (first < 5) {
+                first = text.indexOf("，");
+                if (first == -1) {
+                    first = text.indexOf("。");
+                }
+                if (first == -1) {
+                    first = text.indexOf("：");
+                }
+                if (first == -1) {
+                    first = text.indexOf("”");
+                }
+                if (first != -1) {
+                    text = text.substring(0, first);
+                }
             }
         }
         char lastChar = text.charAt(text.length() - 1);
