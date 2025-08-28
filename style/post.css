@@ -138,6 +138,15 @@ p {
     font-size: 16px;
 }
 
+.a-sentence{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 0.9em;
+    line-height: 1.5;
+    text-align: center;
+    color: rgb(145, 150, 161);
+}
+
 .bottom-info {
     color: var(--bottom-info-color);
     text-decoration: none;
