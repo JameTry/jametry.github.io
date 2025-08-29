@@ -12,6 +12,7 @@
 <style>
 
     .content-home {
+        counter-reset: div-counter;
         line-height: 1.8;
     }
 
@@ -19,9 +20,13 @@
     .content-text > div {
         width: fit-content;
         margin-bottom: 100px;
+        position: relative;
     }
 
-    .content-text > div::before {
+    .serial {
+        font-size: 2rem;
+        font-weight: 800;
+        color: var(--bottom-info-color);
     }
 
 
@@ -73,6 +78,7 @@
 <div class="content-home">
     <div class="content-text">
         <div>
+            <div class="serial">#22</div>
             <p>“你说生活为了什么？”</p>
             <p>“为了操屄。”</p>
             <p>“哦哦抱歉抱歉，我太粗俗了，请你重新问吧。”</p>
@@ -90,24 +96,29 @@
             <div class="tips-2">笨！其实很好反驳：那女的呢？女的怎么操呢？这不就反驳了。</div>
         </div>
         <div>
+            <div class="serial">#21</div>
             <p>今天有点想哭一会，没有原因，就像有时也会莫名其妙的想笑一样，有时莫名其妙的想笑，也没有原因，就像现在莫名其妙的想哭一样。</p>
             <p>但是今天天气不好，下雨，不是个该哭的天气，我看了天气预报，这一周都有雨，我想象不到这种天气我该如何哭，我哭的时候旁边的环境是什么样的？现在已经入秋，在屋外淋着雨哭总归是有点冷——毕竟打着伞也太破坏氛围了，夏天的时候倒是可以淋着雨哭。</p>
             <p>要是坐在屋里——那画面，怎么想都不是一个可以痛快哭的场景，好像缺了点什么。应该要有光，有风，能看到西面的山脊，太阳落下后的傍晚最合适，应该要能够天地共鸣，壮阔浩瀚，让万物跟着一起哭，就像丧葬上一家人头抵在一起哭那样。要是晴天，我可以坐在天台上哭，边吹着风边哭，很舒服，今天却是雨天，明天也是雨天，后天以及这周都是，那我只好等到下周天气好了再哭。</p>
             <div class="a-sentence">“收起你的悲伤吧，以后有的是要用到的地方。”</div>
         </div>
         <div>
+            <div class="serial">#20</div>
             <p>四面八方都是路，可我不知道去往何方。</p>
         </div>
         <div>
+            <div class="serial">#19</div>
             <p>追逐虚幻的光，</p>
             <p>日以继夜，</p>
             <p>在黯淡中悔恨煎熬。</p>
             <p>在黯淡中平静地咆哮。</p>
         </div>
         <div>
+            <div class="serial">#18</div>
             <p>这个春天太过整齐。</p>
         </div>
         <div>
+            <div class="serial">#17</div>
             <img src="/img/other/2.webp" width="100%">
             <p>我从未亲眼见过北斗七星。</p>
             <p>他们说那像个勺子，</p>
@@ -117,9 +128,11 @@
             <p>我就连一颗星星也找不到。</p>
         </div>
         <div>
+            <div class="serial">#16</div>
             <p>纯粹点也好。</p>
         </div>
         <div>
+            <div class="serial">#15</div>
             <p>许多年后，今天就像父辈、父辈的父辈、父辈的父辈的父辈所经历的那些年代一样，就像我会好奇的上世纪80年代、清朝、明朝甚至更远的、国内外的年代一样流逝、同样被另一个人所好奇。</p>
             <hr>
             <p>草原上每一颗草都是独特的，但又都不是独特的。</p>
@@ -147,16 +160,19 @@
             <p>这比荒诞更加荒诞。</p>
         </div>
         <div>
+            <div class="serial">#14</div>
             <p>撑开衣服，</p>
             <p>装一些风带回家。</p>
         </div>
         <div>
+            <div class="serial">#13</div>
             <p>若从我胸口剖开一条口子，</p>
             <p>窥探我心中的湖泊，</p>
             <p>那你只能看到被反射出的天空，</p>
             <p>因为它现在太过平静。</p>
         </div>
         <div>
+            <div class="serial">#12</div>
             <p>家里的麦子快熟了吧。</p>
             <p>三轮车从家里到田地来来回回一趟一趟，</p>
             <p>还有一只草帽经常挂在把手上，</p>
@@ -166,17 +182,21 @@
             <p>玉米早都种地里了。</p>
         </div>
         <div>
+            <div class="serial">#11</div>
             <p>永远。</p>
             <p class="poem-line">永远有多远呢？</p>
             <p class="poem-line-2">我们还能抵达吗？</p>
         </div>
         <div>
+            <div class="serial">#10</div>
             <p>微不足道。</p>
         </div>
         <div>
+            <div class="serial">#9</div>
             <p>它只是在那里。</p>
         </div>
         <div>
+            <div class="serial">#8</div>
             <p>在阳台，</p>
             <p class="poem-line-2">她就坐在窗前，</p>
             <p class="poem-line-2">坐在海上。</p>
@@ -188,23 +208,28 @@
             <p>朦胧了一阵阵海浪的声音。</p>
         </div>
         <div>
+            <div class="serial">#7</div>
             <p>仿佛做了一个薰衣草的梦，</p>
             <p>沿着小路，夕阳，奔跑。</p>
             <p>那条小路，缠绵又漫长，</p>
             <p>我清醒着做了一个梦。</p>
         </div>
         <div>
+            <div class="serial">#6</div>
             <p>七月和四月一样迅速，</p>
             <p>不曾在生命中留下痕迹。</p>
         </div>
         <div>
+            <div class="serial">#5</div>
             <p>后天我要离开这里，</p>
             <p>去一个能看到星星的地方。</p>
         </div>
         <div>
+            <div class="serial">#4</div>
             <p>我盯着一幅画入了迷。</p>
         </div>
         <div>
+            <div class="serial">#3</div>
             <p>今天天气不错。</p>
             <p>「不错」</p>
             <p>那其实也是「对的」</p>
@@ -212,12 +237,14 @@
             <p><strong>“今天天气对的(❁´◡`❁)”</strong></p>
         </div>
         <div id="d1">
+            <div class="serial">#2</div>
             <p>一簇——三叶草，</p>
             <p>开出了五瓣的花。</p>
             <p>在风中、在脚下，</p>
             <p>树影斑驳。</p>
         </div>
         <div>
+            <div class="serial">#1</div>
             <p>浩瀚宇宙吹来的风，</p>
             <p>不曾在我身旁一刻停留。</p>
         </div>
