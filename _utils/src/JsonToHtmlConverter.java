@@ -8,7 +8,6 @@ public class JsonToHtmlConverter {
         String templatePath = projectPath + "\\_utils\\template\\template.html";
         String outputDir = projectPath + "\\html\\talks";
         try {
-            // 读取模板 HTML
             String template = readFile(templatePath);
 
             int index = 1;
@@ -21,7 +20,6 @@ public class JsonToHtmlConverter {
                     break;
                 }
 
-                // 读取 JSON 文件内容
                 String jsonContent = readFile(jsonFilePath);
                 JSONObject jsonObject = JSONObject.parseObject(jsonContent);
                 String content = jsonObject.getString("content");
@@ -32,10 +30,8 @@ public class JsonToHtmlConverter {
                     content=imgHtml+content;
                 }
 
-                // 填充模板
                 String html = fillTemplate(template, content, publishedTime, index, lastIndex);
 
-                // 生成 HTML 文件
                 String outputFilePath = outputDir + File.separator + index + ".html";
                 writeFile(outputFilePath, html);
 
