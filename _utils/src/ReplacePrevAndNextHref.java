@@ -7,12 +7,6 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-/**
- * 替换html中a标签中上下章节链接*
- *
- * @author Jame!
- * @date 2025/4/8 下午 8:52
- */
 public class ReplacePrevAndNextHref {
     public static void run(String path) throws Exception {
         run(path + "\\html\\post", "$1/html/post/");
@@ -28,23 +22,19 @@ public class ReplacePrevAndNextHref {
             }
             int currentNumber = Integer.parseInt(fileName.split("\\.")[0]);
 
-            // 读取文件内容
             String content = new String(Files.readAllBytes(htmlFile.toPath()), StandardCharsets.UTF_8);
 
-            // 创建替换正则表达式
             String prevPattern = "(<a\\s+href=\")[^\"]*(\"\\s+id=\"prev\")";
             String prevReplacement = pat + (currentNumber - 1) + "$2";
 
             String nextPattern = "(<a\\s+href=\")[^\"]*(\"\\s+id=\"next\")";
             String nextReplacement = pat + (currentNumber + 1) + "$2";
 
-            // 执行替换
             if (currentNumber != 1) {
                 content = content.replaceAll(prevPattern, prevReplacement);
             }
             content = content.replaceAll(nextPattern, nextReplacement);
 
-            // 写回文件
             Files.write(htmlFile.toPath(), content.getBytes(StandardCharsets.UTF_8));
         }
     }

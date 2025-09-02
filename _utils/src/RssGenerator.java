@@ -12,7 +12,6 @@ import java.util.*;
 
 
 public class RssGenerator {
-    // 配置常量D:\project\mytext\jametry.github.io\easy-talk
     private static String POSTS_DIR = "\\html\\post";
     private static String STATUSES_DIR = "\\easy-talk\\talks";
     private static final String SITE_URL = "https://jame.work/";
