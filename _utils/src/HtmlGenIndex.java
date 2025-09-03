@@ -91,7 +91,7 @@ public class HtmlGenIndex {
     private static String getTitleExcerpt(String text) {
         int minLength = 5;
         int maxLength = 12;
-        String punctuationStr = "，。：”！？,.!?\"";
+        String punctuationStr = "，。：”？,.!?\"";
         int firstIndex = -1;
         for (int i = 0; i < text.length(); i++) {
             if (punctuationStr.indexOf(text.charAt(i)) >= 0) {
@@ -128,7 +128,7 @@ public class HtmlGenIndex {
 
         if (!result.isEmpty()) {
             char lastChar = result.charAt(result.length() - 1);
-            if ("，。！？,.!?".indexOf(lastChar) >= 0) {
+            if ("，。？,.".indexOf(lastChar) >= 0) {
                 result = result.substring(0, result.length() - 1);
             }
         }
