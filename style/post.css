@@ -78,8 +78,7 @@ p {
 .content-text p {
     line-height: 1.8;
     font-size: 16px;
-    font-weight: 500;
-    letter-spacing: 0.08rem;
+    letter-spacing: 0.02rem;
 }
 
 .post-text p {
@@ -127,16 +126,6 @@ p {
 }
 
 
-.tips {
-    all: unset;
-    border-left: 4px solid #ff405d;
-    background-color: var(--tips-bg-color);
-    padding: 10px 15px;
-    margin: 20px 0;
-    color: var(--text-color);
-    max-width: 35vw;
-    font-size: 16px;
-}
 
 .a-sentence{
     margin-top: 10px;
@@ -161,7 +150,7 @@ a {
 
 
 
-.tips-2 {
+.tips {
     border-left: 4px solid #7c7c7c;
     padding: 12px 12px 12px 15px;
     background: var(--tips-bg-color);
