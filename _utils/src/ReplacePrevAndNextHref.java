@@ -1,3 +1,5 @@
+import com.sun.xml.internal.org.jvnet.fastinfoset.FastInfosetException;
+
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -36,6 +38,7 @@ public class ReplacePrevAndNextHref {
             content = content.replaceAll(nextPattern, nextReplacement);
 
             Files.write(htmlFile.toPath(), content.getBytes(StandardCharsets.UTF_8));
+
         }
     }
 
