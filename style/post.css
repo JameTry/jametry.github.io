@@ -150,12 +150,17 @@ a {
 
 
 
-.tips {
+.tips,.tips-p {
     border-left: 4px solid #7c7c7c;
     padding: 12px 12px 12px 15px;
     background: var(--tips-bg-color);
     margin-bottom: 5px;
     margin-top: 5px;
+
+}
+.tips-p{
+    text-indent: 0 !important;
+    margin: 0 !important;
 }
 
 .time {
