@@ -10,7 +10,6 @@ import java.util.regex.Pattern;
 public class HtmlDateSort {
 
     public static void run(String path) {
-        // 设置HTML文件夹路径
         File folder = new File(path + "\\html\\post");
 
         if (!folder.exists() || !folder.isDirectory()) {
@@ -18,7 +17,6 @@ public class HtmlDateSort {
             return;
         }
 
-        // 获取所有HTML文件
         File[] files = folder.listFiles((dir, name) -> name.toLowerCase().endsWith(".html"));
 
         if (files == null || files.length == 0) {
@@ -26,12 +24,10 @@ public class HtmlDateSort {
             return;
         }
 
-        // 存储文件和对应的日期
         List<FileDatePair> fileDateList = new ArrayList<>();
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy年MM月dd日");
         Pattern datePattern = Pattern.compile("<div\\s+class=\"time\"[^>]*>(.*?)</div>");
 
-        // 从每个文件中提取日期
         for (File file : files) {
             try {
                 String content = new String(Files.readAllBytes(file.toPath()));
@@ -39,7 +35,6 @@ public class HtmlDateSort {
 
                 if (matcher.find()) {
                     String dateStr = matcher.group(1);
-                    // 处理日期中的单位数月份和日期（如"3月"改为"03月"）
                     dateStr = normalizeDateString(dateStr);
                     Date date = dateFormat.parse(dateStr);
                     fileDateList.add(new FileDatePair(file, date));
@@ -53,17 +48,14 @@ public class HtmlDateSort {
             }
         }
 
-        // 按日期排序（从早到晚）
         Collections.sort(fileDateList);
 
-        // 创建临时文件夹避免重命名冲突
         File tempDir = new File(folder, "temp_rename_" + System.currentTimeMillis());
         if (!tempDir.exists() && !tempDir.mkdir()) {
             System.err.println("无法创建临时目录");
             return;
         }
 
-        // 第一步：移动所有文件到临时目录
         for (FileDatePair pair : fileDateList) {
             File tempFile = new File(tempDir, pair.file.getName());
             if (!pair.file.renameTo(tempFile)) {
@@ -71,7 +63,6 @@ public class HtmlDateSort {
             }
         }
 
-        // 第二步：重命名并移回文件，按日期顺序编号
         int newIndex = 1;
         for (FileDatePair pair : fileDateList) {
             File tempFile = new File(tempDir, pair.file.getName());
@@ -88,33 +79,26 @@ public class HtmlDateSort {
             newIndex++;
         }
 
-        // 删除临时文件夹
         if (!tempDir.delete()) {
             System.err.println("警告: 无法删除临时文件夹");
         }
     }
 
-    // 规范化日期字符串（确保月份和日期是两位数）
     private static String normalizeDateString(String dateStr) {
-        // 将"年"、"月"、"日"分割开
         String[] parts = dateStr.split("年|月|日");
         if (parts.length < 3) return dateStr;
 
-        // 格式化年份
         String year = parts[0].trim();
 
-        // 格式化月份（确保两位数）
         String month = parts[1].trim();
         if (month.length() == 1) month = "0" + month;
 
-        // 格式化日期（确保两位数）
         String day = parts[2].trim();
         if (day.length() == 1) day = "0" + day;
 
         return year + "年" + month + "月" + day + "日";
     }
 
-    // 辅助类：文件与日期的配对
     static class FileDatePair implements Comparable<FileDatePair> {
         File file;
         Date date;
