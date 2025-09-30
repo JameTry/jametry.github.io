@@ -115,7 +115,7 @@ public class HtmlGenIndex {
                     }
                 }
                 if (secondIndex == -1) {
-                    result = text.substring(0, firstIndex);
+                    result = text;
                 } else {
                     if (secondIndex <= maxLength) {
                         result = text.substring(0, secondIndex);
