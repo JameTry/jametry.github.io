@@ -5,7 +5,7 @@
 }
 
 :root {
-    --bg-color: white;
+    --bg-color: #ffffff;
     --bg-text-color: white;
     --text-color: #333333;
     --a-color: #333;
@@ -19,7 +19,7 @@
 [data-theme="dark"] {
     --bg-color: #363636;
     --bg-text-color: #313131;
-    --text-color: #eeeeee;
+    --text-color: #f5f5f5;
     --a-color: #c5c5c5;
     --tips-bg-color: #444444;
     --bottom-info-color: #c0c0c0;
@@ -103,7 +103,6 @@ p {
     justify-content: center;
     display: flex;
     flex-direction: row;
-    margin-top: 50px;
 }
 
 .visit {
@@ -113,20 +112,6 @@ p {
     color: var(--text-color);
 }
 
-.simple-button {
-    caret-color: transparent;
-    width: 130px;
-    height: 40px;
-    color: var(--text-color);
-    background-color: var(--bg-color);
-    font-size: 16px;
-    cursor: pointer;
-    margin: 10px;
-    position: relative;
-}
-
-
-
 .a-sentence{
     margin-top: 10px;
     margin-bottom: 10px;
@@ -135,6 +120,20 @@ p {
     text-align: center;
 
     color: var(--bottom-info-color);
+}
+
+
+
+.simple-button {
+    width: 130px;
+    height: 40px;
+    margin-left: 10px;
+    margin-right: 10px;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    font-size: 16px;
+    cursor: pointer;
+    border: 2px solid var(--text-color);
 }
 
 .bottom-info {
