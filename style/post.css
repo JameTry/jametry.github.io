@@ -163,7 +163,7 @@ a {
 }
 
 .time {
-    border-top: 2px #407eff solid;
+    border-top: 2px #adadad solid;
     padding-top: 10px;
     color: var(--text-color);
     font-size: 14px;
