@@ -6,62 +6,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>&nbsp;</title>
     <link rel="stylesheet" href="/style/post.css">
-    <script src="/js/changeTheme.js"></script>
+
 
 </head>
 <style>
 
-    body{
+    body {
         background-color: #201b0b;
         background-size: cover;
-        color: #efefef;
+        color: white;
         background-position: center;
         background-attachment: fixed;
     }
+
+    a {
+        color: white;
+    }
+
+    img {
+        width: 400px;
+    }
+
     .content {
-        flex-direction: row;
-        flex-wrap: wrap;
-    }
-    p{
-        line-height: 2.5;
-        font-size: 17px;
-    }
-
-    .content > * {
-        margin: 20px;
-    }
-
-    .page {
-        flex-basis: 100%;
-        text-align: center;
-        margin-top: 100px;
-    }
-
-    .content-img {
-        max-width: 370px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
     }
 </style>
 <body>
-<div class="content">
-    <img src="/img/21.jpg" loading="lazy" alt="img" class="content-img-400">
-    <div>
-        <p>如果可以的话，</p>
-        <p>我还是想要一间窗户朝西的屋子，和一只粘人的猫。</p>
-        <p>傍晚时躺在沙发上抱着猫，</p>
-        <p>伴随发动机般呼噜呼噜的呼吸，</p>
-        <p>看着夕阳把我们的影子慢慢拉长。</p>
-        <p>——度过又一个平常的一天。</p>
-        <div class="time" style="color: #efefef">2024年4月2日</div>
-    </div>
+<div class="w">
+    <p class="top-op"><span><a href="/">返回</a></span><span>2024年4月2日</span></p>
+    <br><br>
+    <article class="content">
+        <img src="/img/21.jpg" loading="lazy" alt="img">
+        <div>
+            <p>如果可以的话，</p>
+            <p>我还是想要一间窗户朝西的屋子，和一只粘人的猫。</p>
+            <p>傍晚时躺在沙发上抱着猫，</p>
+            <p>伴随发动机般呼噜呼噜的呼吸，</p>
+            <p>看着夕阳把我们的影子慢慢拉长。</p>
+            <p>——度过又一个平常的一天。</p>
+        </div>
+    </article>
 
-    <div class="page">
-        <a href="/">
-            <button class="simple-button">首页</button>
-        </a>
-        <a href="/html/post/2" id="next">
-            <button class="simple-button">下一篇</button>
-        </a>
-    </div>
 </div>
 
 

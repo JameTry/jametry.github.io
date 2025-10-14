@@ -6,131 +6,91 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>&nbsp;</title>
     <link rel="stylesheet" href="/style/post.css">
-    <link rel="stylesheet" href="/style/navigation.css">
-    <script src="/js/changeTheme.js"></script>
 </head>
-<style>
-    .links p {
-        display: flex;
-        align-items: center;
-        height: 55px;
-        margin-bottom: 5px;
-        margin-top: 5px;
-    }
 
-    .links img {
-        border-radius: 5px;
-        width: 45px;
-        height: 45px;
-        margin-right: 10px;
-    }
-
-    .links a {
-        margin-right: 10px;
-        font-weight: 500;
-    }
-
-    .placeholder{
-        display: inline-block;
-        border-radius: 5px;
-        width: 45px;
-        height: 45px;
-        margin-right: 10px;
-    }
-</style>
 <body>
+<style>
+    img {
+        width: 30px;
+        height: 30px;
+        border-radius: 5px;
+        margin-right: 5px;
+    }
+
+</style>
 
 
-<nav class="navbar">
-    <button class="menu-toggle" onclick="document.querySelector('.nav-links').classList.toggle('show');">☰</button>
-    <div class="nav-links">
-        <a href="/">首页</a>
-        <a href="/html/about">关于</a>
-        <a href="/html/other">杂项</a>
-        <a href="/html/friend-link">友链</a>
-        <a target="_blank" href="https://www.travellings.cn/go.html">开往</a>
-        <a href="#" onclick="toggleTheme()">明/暗</a>
-    </div>
-</nav>
-
-<div class="content-home">
-    <div class="content-text">
+<div class="w">
+    <a href="/">返回</a>
+    <article>
         <h2>友链</h2>
-        <p>我的网站信息如下</p>
-        <p>名称：Jame</p>
-        <p>描述：随笔</p>
-        <p>图标：https://jame.work/favicon.ico</p>
-        <p>网址：https://jame.work</p>
+        <ul>
+            <li>我的网站信息如下</li>
+            <p>
+                <span>名称：Jame</span>
+                <br>
+                <span>描述：随笔</span>
+                <br>
+                <span>图标：https://jame.work/favicon.ico</span>
+                <br>
+                <span>网址：https://jame.work</span>
+            </p>
+            <li>收藏</li>
+            <ul>
+                <li><a href="https://bedtimepoem.com/" target="_blank">读首诗再睡觉</a>
+                    <span>分享诗歌的网站</span></li>
+            </ul>
+            <li>友链</li>
+            <ul>
+                <li>
+                    <a href="https://wygxmew.github.io/" target="_blank">乌云盖雪</a>
+                    <span>看君终日常安卧，何事纷纷去又回？</span>
+                </li>
+
+                <li>
+                    <a href="https://hanis.me" target="_blank">Jason’s Blog</a>
+                    <span>常年端書，手臂結實。</span>
+                </li>
+                <li>
+                    <a href="https://blog.leoo.fun" target="_blank">清欲的小窝</a>
+                    <span>沙雕网友清欲的碎碎念</span>
+                </li>
+                <li>
+                    <a href="https://vss.plus" target="_blank">Vss Blog</a>
+                    <span>用认真生活提升自己</span>
+                </li>
+                <li>
+                    <a href="https://blog.snowy.moe" target="_blank">雪萌天文台</a>
+                    <span>发现巷子里的那颗星星</span>
+                </li>
+                <li>
+                    <a href="https://nasliangjian.mycloudnas.com:4443" target="_blank">James的小站</a>
+                    <span>分享生活、心情日志、兴趣广泛，80后程序猿。</span>
+                </li>
+                <li>
+                    <a href="https://www.christianpoet.top" target="_blank">诗译象</a>
+                    <span>诗歌，翻译，圣经随笔，生活随笔，一个小小园地。</span>
+                </li>
+                <li>
+                    <a href="https://www.qingfengnb.cn" target="_blank">轻风blog</a>
+                    <span>茫茫人海，多么幸运才能遇见你！</span>
+                </li>
+                <li>
+                    <a href="https://www.yingyu5658.me/" target="_blank">映屿</a>
+                    <span>yingyu5658的数字花园，关于互联网、书籍、生活琐事以及那些一闪而过的念头。</span>
+                </li>
+            </ul>
+        </ul>
         <br>
-        <h3>收藏</h3>
-        <p><a href="https://bedtimepoem.com/" target="_blank">读首诗再睡觉</a>
-            <span>分享诗歌的网站</span>
-        </p>
-        <br>
-        <h3>友链</h3>
-        <div class="links">
-            <p>
-                <img src="https://wygxmew.github.io/favicon.ico" alt="">
-                <a href="https://wygxmew.github.io/" target="_blank">乌云盖雪</a>
-                <span>看君终日常安卧，何事纷纷去又回？</span>
-            </p>
-            <p>
-                <img src="https://hanis.me/upload/ProfilePic.jpg" alt="">
-                <a href="https://hanis.me" target="_blank">Jason’s Blog</a>
-                <span>常年端書，手臂結實。</span>
-            </p>
-            <p>
-                <img src="https://bu.dusays.com/2024/11/11/6731ad4c16396.jpg" alt="">
-                <a href="https://blog.leoo.fun" target="_blank">清欲的小窝</a>
-                <span>沙雕网友清欲的碎碎念</span>
-            </p>
-            <p>
-                <img src="https://pic.vss.plus/pianke/touxiang3.jpg" alt="">
-                <a href="https://vss.plus" target="_blank">Vss Blog</a>
-                <span>用认真生活提升自己</span>
-            </p>
-            <p>
-                <img src="https://img.snowy.moe/head.png" alt="">
-                <a href="https://blog.snowy.moe" target="_blank">雪萌天文台</a>
-                <span>发现巷子里的那颗星星</span>
-            </p>
-            <p>
-                <img src="https://nasliangjian.mycloudnas.com:4443/wp-content/uploads/2025/04/0e383817b97bb4b039167eff67c8f529.jpeg" alt="">
-                <a href="https://nasliangjian.mycloudnas.com:4443" target="_blank">James的小站</a>
-                <span>分享生活、心情日志、兴趣广泛，80后程序猿。</span>
-            </p>
-            <p>
-                <span class="placeholder"></span>
-                <a href="https://www.christianpoet.top" target="_blank">诗译象</a>
-                <span>诗歌，翻译，圣经随笔，生活随笔，一个小小园地。</span>
-            </p>
-            <p>
-                <img src="https://img.qingfengnb.cn/LightPicture/2025/07/bec6eb9625656d60.jpg" alt="">
-                <a href="https://www.qingfengnb.cn" target="_blank">轻风blog</a>
-                <span>茫茫人海，多么幸运才能遇见你！</span>
-            </p>
-            <p>
-                <span class="placeholder"></span>
-                <a href="https://www.yingyu5658.me/" target="_blank">映屿</a>
-                <span>yingyu5658的数字花园，关于互联网、书籍、生活琐事以及那些一闪而过的念头。</span>
-            </p>
-        </div>
-    </div>
-    <div id="tcomment"></div>
-    <div>
-        <p><a class="bottom-info" href="https://beian.miit.gov.cn/#/Integrated/index">冀ICP备2022008700号-1</a>
-            <a class="bottom-info" href="https://icp.gov.moe/?keyword=20250164" target="_blank">萌ICP备20250164号</a>
-            <a class="bottom-info" target="_blank" href="https://jame.work/feed.xml">订阅RSS</a>
-        </p>
-    </div>
-    <script src="https://registry.npmmirror.com/twikoo/1.6.41/files/dist/twikoo.min.js"></script>
-    <script>
-        twikoo.init({
-            envId: 'https://comment.jame.work',
-            el: '#tcomment',
-            lang: 'zh-CN',
-        })
-    </script>
+        <div id="tcomment"></div>
+        <script src="https://registry.npmmirror.com/twikoo/1.6.41/files/dist/twikoo.min.js"></script>
+        <script>
+            twikoo.init({
+                envId: 'https://comment.jame.work',
+                el: '#tcomment',
+                lang: 'zh-CN',
+            })
+        </script>
 </div>
 </body>
 </html>

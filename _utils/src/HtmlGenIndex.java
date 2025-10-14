@@ -58,12 +58,12 @@ public class HtmlGenIndex {
         Document doc = Jsoup.parse(file, "UTF-8");
 
         String content = null;
-        Element h3 = doc.select("h3").first();
-        if (h3 != null) {
-            content = h3.text().trim();
+        Element h2 = doc.select("h2").first();
+        if (h2 != null) {
+            content = h2.text().trim();
         }
         if (content == null || content.isEmpty()) {
-            Element firstP = doc.select("p").first();
+            Element firstP = doc.select("article p").first();
             if (firstP == null) return null;
             content = firstP.text().trim();
         }
@@ -71,7 +71,7 @@ public class HtmlGenIndex {
 
         content = getTitleExcerpt(content);
 
-        Element timeDiv = doc.select("div.time").first();
+        Element timeDiv = doc.select("p.top-op span").get(1);
         if (timeDiv == null) return null;
 
         String dateStr = timeDiv.text().trim();
@@ -170,7 +170,7 @@ public class HtmlGenIndex {
         doc = Jsoup.parse(indexPath.toFile(), "UTF-8");
 
         String OUTPUT_DIV_CLASS = "posts";
-        Element contentDiv = doc.select("div." + OUTPUT_DIV_CLASS).first();
+        Element contentDiv = doc.select("ul." + OUTPUT_DIV_CLASS).first();
         if (contentDiv == null) {
             throw new RuntimeException("找不到class为" + OUTPUT_DIV_CLASS + "的div");
         }
@@ -178,7 +178,7 @@ public class HtmlGenIndex {
         contentDiv.html("");
         for (PostInfo post : posts) {
             String html = String.format(
-                    "<p><span class=\"publish-time\">%s</span> <a href=\"/html/post/%s\">%s</a></p>",
+                    "<li><span>%s</span> <a href=\"/html/post/%s\">%s</a></li>",
                     post.formattedDate, post.fileId, post.content
             );
             contentDiv.append(html);
