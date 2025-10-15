@@ -1,5 +1,6 @@
 html, body {
-    background: white
+    background: white;
+    caret-color: transparent;
 }
 
 html {
