@@ -1,6 +1,6 @@
 html, body {
     background: white;
-    caret-color: transparent;
+
 }
 
 html {
@@ -88,6 +88,7 @@ a:hover{
 }
 
 article{
+    caret-color: transparent;
     margin-bottom: 200px;
 }
 
