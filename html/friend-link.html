@@ -6,9 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>&nbsp;</title>
     <link rel="stylesheet" href="/style/post.css">
-    <link rel="stylesheet" href="/style/navigation.css">
-    <script src="/js/changeTheme.js"></script>
 </head>
+
 <style>
     .links p {
         display: flex;
@@ -30,7 +29,7 @@
         font-weight: 500;
     }
 
-    .placeholder{
+    .placeholder {
         display: inline-block;
         border-radius: 5px;
         width: 45px;
@@ -39,22 +38,9 @@
     }
 </style>
 <body>
-
-
-<nav class="navbar">
-    <button class="menu-toggle" onclick="document.querySelector('.nav-links').classList.toggle('show');">☰</button>
-    <div class="nav-links">
-        <a href="/">首页</a>
-        <a href="/html/about">关于</a>
-        <a href="/html/other">杂项</a>
-        <a href="/html/friend-link">友链</a>
-        <a target="_blank" href="https://www.travellings.cn/go.html">开往</a>
-        <a href="#" onclick="toggleTheme()">明/暗</a>
-    </div>
-</nav>
-
-<div class="content-home">
-    <div class="content-text">
+<div class="w">
+    <a href="/">首页</a>
+    <article>
         <h2>友链</h2>
         <p>我的网站信息如下</p>
         <p>名称：Jame</p>
@@ -115,14 +101,8 @@
                 <span>yingyu5658的数字花园，关于互联网、书籍、生活琐事以及那些一闪而过的念头。</span>
             </p>
         </div>
-    </div>
+    </article>
     <div id="tcomment"></div>
-    <div>
-        <p><a class="bottom-info" href="https://beian.miit.gov.cn/#/Integrated/index">冀ICP备2022008700号-1</a>
-            <a class="bottom-info" href="https://icp.gov.moe/?keyword=20250164" target="_blank">萌ICP备20250164号</a>
-            <a class="bottom-info" target="_blank" href="https://jame.work/feed.xml">订阅RSS</a>
-        </p>
-    </div>
     <script src="https://registry.npmmirror.com/twikoo/1.6.41/files/dist/twikoo.min.js"></script>
     <script>
         twikoo.init({

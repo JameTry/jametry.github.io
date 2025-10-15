@@ -35,7 +35,7 @@ public class RssGenerator {
                 continue;
             }
             Document doc = Jsoup.parse(file, "UTF-8");
-            String title = escapeXml(doc.select("p:first-of-type").text().trim());
+            String title = escapeXml(doc.select("p").get(1).text().trim());
             title = title.length() > 20 ? title.substring(0, 20) + "..." : title;
             Elements paragraphs0 = doc.select("h2");
             StringBuilder content = new StringBuilder();
@@ -44,11 +44,11 @@ public class RssGenerator {
                 title = element.text();
             }
             Elements paragraphs = doc.select("p");
-            for (Element p : paragraphs) {
+            for (int i = 1; i < paragraphs.size(); i++) {
+                Element p = paragraphs.get(i);
                 content.append("<p>").append(p.text()).append("</p>");
             }
-
-            String timeStr = doc.select("div.time").text().split(" ")[0];
+            String timeStr = doc.select("p.top-op span").get(1).text();
             Date pubDate = INPUT_DATE.parse(timeStr);
             String link = SITE_URL + "html/post/" + file.getName().replace(".html", "");
 
