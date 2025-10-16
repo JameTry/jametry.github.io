@@ -130,7 +130,7 @@
         async function load() {
             const token = await createAuthToken();
             fetch(`https://page.jame.work/page/${page}`, {
-                "Authorization": `Bearer ${token}`
+                headers:{"Authorization": `Bearer ${token}`}
             })
                 .then(response => {
                     if (!response.ok) throw new Error('网络响应不正常');
