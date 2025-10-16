@@ -276,8 +276,9 @@
                         page_number: page
                     })
                 });
+                const data = await response.json();
 
-                if (!response.ok) throw new Error(response.body);
+                if (!response.ok) throw new Error(data.error || "请求失败");
 
                 alert('保存成功');
 
@@ -296,7 +297,7 @@
                 render();
             } catch (error) {
                 console.error('请求失败:', error);
-                alert(`${JSON.parse(error).error}`);
+                alert(`${error.message}`);
             } finally {
                 // 恢复按钮状态
                 isSaving = false;
