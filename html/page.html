@@ -70,6 +70,16 @@
                 })
                 .then(data => {
                     alert('保存成功');
+                    textData.push({
+                        text: text,
+                        x: pos.x,
+                        y: pos.y,
+                        angle: angle,
+                        color: color,
+                        size: Number(size),
+                        page_number: page
+                    })
+                    render()
                 })
                 .catch(error => {
                     console.error('请求失败:', error);
