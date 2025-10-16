@@ -6,22 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>&nbsp;</title>
     <link rel="stylesheet" href="/style/post.css">
-    <script src="/js/changeTheme.js"></script>
+
 </head>
 <body>
-<div class="content">
-    <div class="content-text">
-        <h3>在互联网冲浪时发现的句子。</h3>
-        <br>
+<div class="w">
+    <a href="#" onclick="history.back();">返回</a>
+    <article>
+        <h2>在互联网冲浪时发现的句子。</h2>
         <p>说的好极。虚荣引领我走向艺术，不知何时能施施然走出啊。</p>
+    </article>
+    <div id="tcomment"></div>
+    <script src="https://registry.npmmirror.com/twikoo/1.6.41/files/dist/twikoo.min.js"></script>
+    <script>
+        twikoo.init({
+            envId: 'https://comment.jame.work',
+            el: '#tcomment',
+            lang: 'zh-CN',
+        })
+    </script>
     </div>
-    <div class="page">
-        <a href="#" onclick="history.back();">
-            <button class="simple-button">返回</button>
-        </a>
-    </div>
-</div>
-
 
 </body>
 
