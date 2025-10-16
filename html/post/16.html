@@ -6,13 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>&nbsp;</title>
     <link rel="stylesheet" href="/style/post.css">
-    <script src="/js/changeTheme.js"></script>
+
 
 </head>
 <body>
 
-<div class="content">
-    <div class="content-text">
+<div class="w">
+    <p class="top-op"><span><a href="/">首页</a></span><span>2025年6月14日</span></p>
+    <article>
         <p>延绵的大雨要淹死整个城市，</p>
         <p>嬉闹喧嚣的往日不再，树影从深绿到黑白。</p>
         <p>我想淋着雨一直走到道路尽头，</p>
@@ -22,25 +23,16 @@
         <p>我停下脚步，</p>
         <p>听——</p>
         <p>起风了。</p>
-        <div class="time">2025年6月14日</div>
+    </article>
+    <div id="tcomment"></div>
+    <script src="https://registry.npmmirror.com/twikoo/1.6.41/files/dist/twikoo.min.js"></script>
+    <script>
+        twikoo.init({
+            envId: 'https://comment.jame.work',
+            el: '#tcomment',
+            lang: 'zh-CN',
+        })
+    </script>
     </div>
-
-    <div class="page">
-
-        <a href="/html/post/15" id="prev">
-            <button class="simple-button">上一篇</button>
-        </a>
-        <a href="/">
-            <button class="simple-button">首页</button>
-        </a>
-        <a href="/html/post/17" id="next">
-            <button class="simple-button">下一篇</button>
-        </a>
-    </div>
-
-</div>
-
-
 </body>
-
 </html>

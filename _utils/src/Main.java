@@ -7,7 +7,7 @@ public class Main {
 //        HtmlDateSort.run(projectPath);
         HtmlGenIndex.run(projectPath);
 //        JsonToHtmlConverter.run(projectPath);
-        ReplacePrevAndNextHref.run(projectPath);
+//        ReplacePrevAndNextHref.run(projectPath);
         RssGenerator.run(projectPath);
     }
 

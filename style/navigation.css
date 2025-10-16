@@ -15,12 +15,12 @@
 .nav-links a {
     text-decoration: none;
     padding: 6px 12px;
-    transition: all 0.2s ease;
     position: relative;
     overflow: hidden;
     z-index: 1;
     background: transparent;
     font-weight: 600;
+    color: #333;
 
 }
 
@@ -30,16 +30,21 @@
     background: none;
     border: none;
     cursor: pointer;
-    color: var(--text-color);
+    color: #333333FF;
 }
 
-.content-home a {
-    text-decoration: none;
+p {
+    margin-bottom: 7px; !important;
 }
 
-.content-home a:hover {
-    border-bottom: 1px solid var(--a-red);
+h2{
+    margin-top: 0;
+    margin-bottom: 0;
 }
+
+
+
+
 
 @media (max-width: 768px) {
     .navbar {
@@ -53,7 +58,7 @@
         top: 50px;
         left: 0;
         width: 100%;
-        background-color: var(--bg-color);
+        background-color: white;
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         padding: 10px 0;
         margin-left: 0;
