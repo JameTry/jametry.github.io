@@ -36,10 +36,11 @@
                 page--;
                 load();
                 render();
-            }else if (page == 1) {
+            } else if (page == 1) {
                 alert("已经是第一页了");
             }
         }
+
         function next() {
             page++;
             load();
@@ -67,9 +68,12 @@
                     return response.json();
                 })
                 .then(data => {
-                    console.log('保存成功:', data);
+                    alert('保存成功:');
                 })
-                .catch(error => console.error('请求失败:', error));
+                .catch(error => {
+                    console.error('请求失败:', error);
+                    alert("请求失败")
+                });
         }
 
 
@@ -170,12 +174,16 @@
             ctx.fillStyle = 'rgba(0, 0, 0, 0.04)';
             ctx.fillRect(canvas.width - 5, 5, 5, canvas.height - 10);
             ctx.fillRect(5, canvas.height - 5, canvas.width, 5);
+            drawPage()
+        }
 
+        function drawPage() {
             ctx.font = '12px Arial';
             ctx.fillStyle = '#999';
             ctx.textAlign = 'center';
-            ctx.fillText('第 1 页', canvas.width / 2, canvas.height - 15);
+            ctx.fillText(`第 ${page} 页`, canvas.width / 2, canvas.height - 15);
             ctx.restore();
+            document.getElementById("page").textContent = ` 第${page}页 `;
         }
 
         // 绘制文字
@@ -199,9 +207,7 @@
             }
         }
 
-        // 统一绘制函数（修复版）
         function render() {
-            // ✅ 重置所有变换，防止点击后文字偏移
             ctx.setTransform(1, 0, 0, 1, 0, 0);
             ctx.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -253,7 +259,6 @@
         });
 
         document.getElementById("submitBtn").addEventListener("click", function () {
-            alert(`已提交：文字 "${text}" @ (${pos.x}, ${pos.y}), 颜色 ${color}, 角度 ${angle}`);
             save();
         });
 
