@@ -25,6 +25,7 @@
     <div id="tcomment"></div>
 
     <script>
+        const SECRET = "jamework";
         var canvas = document.getElementById("content");
         var ctx = canvas.getContext("2d");
         var textData = [];
@@ -46,15 +47,35 @@
             render();
         }
 
-        function save() {
-            if(text==""){
+        async function createAuthToken() {
+            const timestamp = Date.now().toString();
+            const encoder = new TextEncoder();
+            const key = await crypto.subtle.importKey(
+                "raw",
+                encoder.encode(SECRET),
+                {name: "HMAC", hash: "SHA-256"},
+                false,
+                ["sign"]
+            );
+            const sigBuffer = await crypto.subtle.sign("HMAC", key, encoder.encode(timestamp));
+            const signature = Array.from(new Uint8Array(sigBuffer))
+                .map(b => b.toString(16).padStart(2, "0"))
+                .join("");
+            return btoa(`${timestamp}:${signature}`);
+        }
+
+
+        async function save() {
+            if (text == "") {
                 alert("请输入文字");
                 return;
             }
+            const token = await createAuthToken();
             fetch('https://page.jame.work/page/add', {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    "Authorization": `Bearer ${token}`
                 },
                 body: JSON.stringify({
                     text: text,
@@ -106,8 +127,11 @@
 
 
         // 加载
-        function load() {
-            fetch(`https://page.jame.work/page/${page}`)
+        async function load() {
+            const token = await createAuthToken();
+            fetch(`https://page.jame.work/page/${page}`, {
+                "Authorization": `Bearer ${token}`
+            })
                 .then(response => {
                     if (!response.ok) throw new Error('网络响应不正常');
                     return response.json();
