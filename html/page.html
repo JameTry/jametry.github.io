@@ -8,29 +8,62 @@
     <link rel="stylesheet" href="/style/post.css">
 </head>
 <style>
-    #content{
+    #content {
         border: 1px solid #ccc;
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     }
-    .btn{
+
+    .btn {
         background-color: #f8f8f9;
         padding: 4px 8px;
         border: 1px #595959 solid;
         font-size: 14px;
     }
-    .btn:hover{
+
+    .btn:hover {
         background-color: #f0f0f0;
     }
-    .input{
+
+    .input {
         padding: 4px;
         font-size: 14px;
         width: 80px;
     }
-    .text{
+
+    .text {
         width: 400px;
         height: 100px;
         font-size: 14px;
     }
+
+    .toggle .btn {
+        border: none;
+        display: inline-block;
+        cursor: pointer;
+        font-size: 16px;
+        user-select: none;
+        background-color: transparent;
+        padding: 0;
+        margin-top: 15px;
+    }
+
+    .toggle .btn:hover {
+        text-decoration: underline;
+        text-underline-offset: 4px;
+        color: #0858ff;
+    }
+
+    .toggle .panel {
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+    }
+
+    .toggle input:checked + .btn + .panel {
+        max-height: 500px;
+        opacity: 1;
+    }
+
 </style>
 <body>
 <div class="w">
@@ -40,20 +73,24 @@
     <br><br>
     <p><input type="button" class="btn" id="prev" value="上一页" onclick="prev()"><span id="page"> 第1页 </span><input type="button" class="btn" id="next" value="下一页" onclick="next()"></p>
     <p>位置：<span id="position">点击本子设置文字所在位置</span></p>
-    <p>内容：<textarea id="textInput" class="text" placeholder="请输入文字"  maxlength="300"></textarea> win+:打开表情</p>
+    <p>内容：<textarea id="textInput" class="text" placeholder="请输入文字" maxlength="300"></textarea> win+:打开表情</p>
     <p>大小：<input type="number" class="input" id="textSize" value="16" min="8" max="40"> 8-40</p>
     <p>颜色：<input type="color" id="textColor" value="#333333"></p>
     <p>角度：<input type="number" class="input" id="angle" min="-360" max="360" step="1" value="0"></p>
     <p><input type="button" class="btn" id="submitBtn" value="保 存"></p>
     <hr>
-    <p>灵感源于我本子上乱写乱画的内容——无意义的线条、图画、文字。</p>
-    <p>做一个可以随意写画的页面？why not?</p>
-    <p>配置内容、样式，点击页面实时预览位置，保存、完成！留下属于你的赛博涂鸦。</p>
+    <p>灵感源于我看到我的本子上乱写乱画的内容——无意义的线条、图画、文字。</p>
+    <p>做一个可以一起随意写画的页面？why not?</p>
     <p>还有最最最重要的一点，实现这个功能的基础支持我要一百分感谢Cloudflare，真的大善人👼</p>
+    <hr>
+    <p>操作如下：</p>
+    <p>首先配置文本内容、样式，然后点击本子选择想要的位置。</p>
+    <p>当本子被点击后，可以使用W、A、S、D缓慢移动位置，按住Shift键加速移动。</p>
     <br><br>
     <div id="tcomment"></div>
     <script>
         const canvas = document.getElementById("content");
+        canvas.tabIndex = 0;
         const submitBtn = document.getElementById("submitBtn")
         const ctx = canvas.getContext("2d");
         let textData = [];
@@ -71,6 +108,45 @@
         const lineMargin = 40;
 
         let isSaving = false;
+        let isFocused = false;
+
+        canvas.addEventListener('click', () => {
+            canvas.focus();
+        });
+
+        canvas.addEventListener('focus', () => {
+            isFocused = true;
+            canvas.style.outline = '2px solid #007bff';
+        });
+
+        canvas.addEventListener('blur', () => {
+            isFocused = false;
+            canvas.style.outline = 'none';
+        });
+
+        canvas.addEventListener('keydown', (event) => {
+            if (!isFocused) return;
+            const step = event.shiftKey ? 5 : 1;
+            switch (event.key.toLowerCase()) {
+                case 'w':
+                    pos.y -= step;
+                    break;
+                case 's':
+                    pos.y += step;
+                    break;
+                case 'a':
+                    pos.x -= step;
+                    break;
+                case 'd':
+                    pos.x += step;
+                    break;
+                default:
+                    return;
+            }
+            event.preventDefault();
+            document.getElementById("position").textContent = `x=${pos.x}, y=${pos.y}`;
+            render();
+        });
 
         function prev() {
             if (page > 1) {
@@ -209,17 +285,45 @@
         }
 
         // 绘制文字
-        function drawText(text, x, y, angle, color, size) {
+        function drawText(text, x, y, angle, color, size, maxWidth = 500) {
             ctx.save();
             ctx.font = `${size}px serif`;
             ctx.fillStyle = color;
-            ctx.textAlign = 'center';
-            ctx.textBaseline = 'middle';
+            ctx.textAlign = 'left';
+            ctx.textBaseline = 'top';
             ctx.translate(x, y);
             ctx.rotate(angle * Math.PI / 180);
-            ctx.fillText(text, 0, 0);
+
+            const lineHeight = size * 1.5;
+            const paragraphs = text.split(/\r?\n/);
+
+            let offsetY = 0;
+            for (let p = 0; p < paragraphs.length; p++) {
+                const words = paragraphs[p].split(' ');
+                let line = '';
+
+                for (let n = 0; n < words.length; n++) {
+                    const testLine = line + words[n] + ' ';
+                    const metrics = ctx.measureText(testLine);
+                    const testWidth = metrics.width;
+
+                    // 如果超出 maxWidth，就换行
+                    if (testWidth > maxWidth && n > 0) {
+                        ctx.fillText(line.trim(), 0, offsetY);
+                        line = words[n] + ' ';
+                        offsetY += lineHeight;
+                    } else {
+                        line = testLine;
+                    }
+                }
+
+                ctx.fillText(line.trim(), 0, offsetY);
+                offsetY += lineHeight; // 段落之间换行
+            }
+
             ctx.restore();
         }
+
 
         // 绘制数据中的文字
         function drawTextData() {
