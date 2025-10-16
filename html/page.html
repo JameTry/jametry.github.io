@@ -248,7 +248,7 @@
         }
 
         function drawPage() {
-            ctx.font = '12px Arial';
+            ctx.font = '12px Noto Sans SC';
             ctx.fillStyle = '#999';
             ctx.textAlign = 'center';
             ctx.fillText(`第 ${page} 页`, canvas.width / 2, canvas.height - 25);
@@ -259,7 +259,7 @@
         // 绘制文字
         function drawText(text, x, y, angle, color, size, maxWidth = 500) {
             ctx.save();
-            ctx.font = `${size}px serif`;
+            ctx.font = `${size}px Noto Sans SC`;
             ctx.fillStyle = color;
             ctx.textAlign = 'left';
             ctx.textBaseline = 'top';
