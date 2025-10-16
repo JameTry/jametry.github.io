@@ -47,6 +47,10 @@
         }
 
         function save() {
+            if(text==""){
+                alert("请输入文字");
+                return;
+            }
             fetch('https://page.jame.work/page/add', {
                 method: 'POST',
                 headers: {
