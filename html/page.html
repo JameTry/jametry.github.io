@@ -15,9 +15,9 @@
         <br>
         <p>我习惯在我的本子上写、画了一堆乱七八糟的东西，何不一起呢？</p>
         <canvas id="content" width="800" height="1000"></canvas>
-        <p><input type="button" id="prev" value="上一页"><span id="page"> 第1页 </span><input type="button" id="next" value="下一页"></p>
+        <p><input type="button" id="prev" value="上一页" onclick="prev()"><span id="page"> 第1页 </span><input type="button" id="next" value="下一页" onclick="next()"></p>
         <p>位置：<span id="position">点击本子设置文字所在位置</span></p>
-        <p>文字：<input type="text" id="textInput"  placeholder="请输入文字"></p>
+        <p>文字：<input type="text" id="textInput" placeholder="请输入文字"></p>
         <p>大小：<input type="number" id="textSize" value="16" min="1" max="40"></p>
         <p>颜色：<input type="color" id="textColor" value="#333333"></p>
         <p>角度：<input type="number" id="angle" min="-360" max="360" step="1" value="0"></p>
@@ -28,208 +28,235 @@
     <script>
         var canvas = document.getElementById("content");
         var ctx = canvas.getContext("2d");
-        var textData=[];
-        var page=1;
-        document.addEventListener('DOMContentLoaded', function () {
-            // 页面参数
-            const margin = { top: 80, bottom: 40, left: 50, right: 50 };
-            const lineSpacing = 24; // 行间距
-            const lineMargin = 40; // 横线左右边距
+        var textData = [];
+        var page = 1;
 
-            // 初始化状态变量
-            let text = document.getElementById("textInput").value;
-            let color = document.getElementById("textColor").value;
-            let angle = parseFloat(document.getElementById("angle").value);
-            let pos = { x: 370, y: 800 };
-            let size = document.getElementById("textSize").value;
-
-            function save(){
-                fetch('https://page.jame.work/page/add', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        text: text,
-                        x: pos.x,
-                        y: pos.y,
-                        angle: angle,
-                        color: color,
-                        size: size,
-                        page_number:page
-                    })
-                })
-                    .then(response => {
-                        if (!response.ok) {
-                            throw new Error('网络响应不正常');
-                        }
-                        return response.json();
-                    })
-                    .then(data => {
-                        console.log('保存成功:', data);
-                    })
+        function prev() {
+            if (page > 1) {
+                page--;
+                load();
+                render();
+            }else if (page == 1) {
+                alert("已经是第一页了");
             }
-
-
-            function load(){
-                fetch('https://page.jame.work/page/1')
-                    .then(response => {
-                        if (!response.ok) {
-                            throw new Error('网络响应不正常');
-                        }
-                        return response.json();
-                    })
-                    .then(data => {
-                        textData=data;
-                        drawTextData();
-                    })
-                    .catch(error => {
-                        console.error('请求失败:', error);
-                    });
-            }
-
-            function drawTextData(){
-                for (let i = 0; i < textData.length; i++) {
-                    const text = textData[i].text;
-                    const x = textData[i].x;
-                    const y = textData[i].y;
-                    const angle = textData[i].angle;
-                    const color = textData[i].color;
-                    const size = textData[i].size;
-                    drawText(text, x, y, angle, color,size);
-                }
-            }
-            // 绘制背景
-            function drawBackground() {
-                ctx.fillStyle = '#fff';
-                ctx.fillRect(0, 0, canvas.width, canvas.height);
-            }
-
-            // 绘制顶部信息栏
-            function drawHeader() {
-                const infoStartX = canvas.width - 200;
-                const infoStartY = 30;
-                const underlineLength = 120;
-
-                ctx.font = '14px Arial';
-                ctx.fillStyle = '#545454';
-
-                ctx.fillText('NO:', infoStartX, infoStartY);
-                ctx.beginPath();
-                ctx.moveTo(infoStartX, infoStartY + 5);
-                ctx.lineTo(infoStartX + underlineLength, infoStartY + 5);
-                ctx.strokeStyle = '#333';
-                ctx.stroke();
-
-                ctx.fillText('Date:', infoStartX, infoStartY + 30);
-                ctx.beginPath();
-                ctx.moveTo(infoStartX, infoStartY + 35);
-                ctx.lineTo(infoStartX + underlineLength, infoStartY + 35);
-                ctx.stroke();
-
-                ctx.beginPath();
-                ctx.moveTo(margin.left + lineMargin, margin.top);
-                ctx.lineTo(canvas.width - margin.right - lineMargin, margin.top);
-                ctx.strokeStyle = '#333';
-                ctx.lineWidth = 1.5;
-                ctx.stroke();
-            }
-
-            // 绘制横线
-            function drawLines() {
-                const lineStartY = margin.top + 8;
-                const lineEndY = canvas.height - margin.bottom;
-                const lineCount = Math.floor((lineEndY - lineStartY) / lineSpacing);
-
-                ctx.strokeStyle = '#ddd';
-                ctx.lineWidth = 1;
-
-                for (let i = 0; i < lineCount; i++) {
-                    const y = lineStartY + i * lineSpacing;
-                    ctx.beginPath();
-                    ctx.moveTo(margin.left + lineMargin, y);
-                    ctx.lineTo(canvas.width - margin.right - lineMargin, y);
-                    ctx.stroke();
-                }
-            }
-
-            // 绘制页面阴影
-            function drawDecorations() {
-                ctx.fillStyle = 'rgba(0, 0, 0, 0.04)';
-                ctx.fillRect(canvas.width - 5, 5, 5, canvas.height - 10);
-                ctx.fillRect(5, canvas.height - 5, canvas.width, 5);
-
-                ctx.font = '12px Arial';
-                ctx.fillStyle = '#999';
-                ctx.textAlign = 'center';
-                ctx.fillText('第 1 页', canvas.width / 2, canvas.height - 15);
-            }
-
-            // 绘制文字
-            function drawText(text, x, y, angle, color,size) {
-                ctx.font = `${size}px serif`;
-                ctx.fillStyle = color;
-                var textWidth = ctx.measureText(text).width;
-                ctx.save();
-                ctx.translate(x, y);
-                ctx.rotate(angle * Math.PI / 180);
-                ctx.fillText(text, -textWidth / 2, 0);
-                ctx.restore();
-            }
-
-            // 统一绘制函数
-            function render() {
-                drawBackground();
-                drawHeader();
-                drawLines();
-                drawDecorations();
-                drawTextData();
-                if (text.trim() !== "") {
-                    drawText(text, pos.x, pos.y, angle, color,size);
-                }
-            }
+        }
+        function next() {
+            page++;
             load();
-            // 初始化绘制
             render();
+        }
 
-            // 点击设置位置
-            canvas.addEventListener('click', function (event) {
-                const rect = canvas.getBoundingClientRect();
-                const scaleX = canvas.width / rect.width;
-                const scaleY = canvas.height / rect.height;
-                pos.x = Math.round((event.clientX - rect.left) * scaleX);
-                pos.y = Math.round((event.clientY - rect.top) * scaleY);
-
-                document.getElementById("position").textContent = `x=${pos.x}, y=${pos.y}`;
-                render(); // 重新绘制
-            });
-
-            // 实时预览
-            document.getElementById("textInput").addEventListener("input", function (e) {
-                text = e.target.value;
-                render();
-            });
-
-            document.getElementById("textColor").addEventListener("input", function (e) {
-                color = e.target.value;
-                render();
-            });
-
-            document.getElementById("angle").addEventListener("input", function (e) {
-                angle = parseFloat(e.target.value) || 0;
-                render();
-            });
-            document.getElementById("textSize").addEventListener("input", function (e) {
-                size = e.target.value;
-                render();
-            });
+        function save() {
+            fetch('https://page.jame.work/page/add', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    text: text,
+                    x: pos.x,
+                    y: pos.y,
+                    angle: angle,
+                    color: color,
+                    size: size,
+                    page_number: page
+                })
+            })
+                .then(response => {
+                    if (!response.ok) throw new Error('网络响应不正常');
+                    return response.json();
+                })
+                .then(data => {
+                    console.log('保存成功:', data);
+                })
+                .catch(error => console.error('请求失败:', error));
+        }
 
 
-            // 点击提交（其实功能已实时预览，这里可做保存或提示）
-            document.getElementById("submitBtn").addEventListener("click", function () {
-                alert(`已提交：文字 "${text}" @ (${pos.x}, ${pos.y}), 颜色 ${color}, 角度 ${angle}`);
-            });
+        // 页面参数
+        const margin = {top: 80, bottom: 40, left: 50, right: 50};
+        const lineSpacing = 24; // 行间距
+        const lineMargin = 40; // 横线左右边距
+
+        // 初始化状态变量
+        let text = document.getElementById("textInput").value;
+        let color = document.getElementById("textColor").value;
+        let angle = parseFloat(document.getElementById("angle").value);
+        let pos = {x: 370, y: 800};
+        let size = document.getElementById("textSize").value;
+
+
+        // 加载
+        function load() {
+            fetch('https://page.jame.work/page/1')
+                .then(response => {
+                    if (!response.ok) throw new Error('网络响应不正常');
+                    return response.json();
+                })
+                .then(data => {
+                    textData = data;
+                    render();
+                })
+                .catch(error => {
+                    console.error('请求失败:', error);
+                });
+        }
+
+        // 绘制背景
+        function drawBackground() {
+            ctx.save();
+            ctx.fillStyle = '#fff';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            ctx.restore();
+        }
+
+        // 绘制顶部信息栏
+        function drawHeader() {
+            ctx.save();
+            const infoStartX = canvas.width - 200;
+            const infoStartY = 30;
+            const underlineLength = 120;
+
+            ctx.font = '14px Arial';
+            ctx.fillStyle = '#545454';
+            ctx.textAlign = 'left';
+            ctx.textBaseline = 'alphabetic';
+
+            ctx.fillText('NO:', infoStartX, infoStartY);
+            ctx.beginPath();
+            ctx.moveTo(infoStartX, infoStartY + 5);
+            ctx.lineTo(infoStartX + underlineLength, infoStartY + 5);
+            ctx.strokeStyle = '#333';
+            ctx.stroke();
+
+            ctx.fillText('Date:', infoStartX, infoStartY + 30);
+            ctx.beginPath();
+            ctx.moveTo(infoStartX, infoStartY + 35);
+            ctx.lineTo(infoStartX + underlineLength, infoStartY + 35);
+            ctx.stroke();
+
+            ctx.beginPath();
+            ctx.moveTo(margin.left + lineMargin, margin.top);
+            ctx.lineTo(canvas.width - margin.right - lineMargin, margin.top);
+            ctx.strokeStyle = '#333';
+            ctx.lineWidth = 1.5;
+            ctx.stroke();
+            ctx.restore();
+        }
+
+        // 绘制横线
+        function drawLines() {
+            ctx.save();
+            const lineStartY = margin.top + 8;
+            const lineEndY = canvas.height - margin.bottom;
+            const lineCount = Math.floor((lineEndY - lineStartY) / lineSpacing);
+
+            ctx.strokeStyle = '#ddd';
+            ctx.lineWidth = 1;
+
+            for (let i = 0; i < lineCount; i++) {
+                const y = lineStartY + i * lineSpacing;
+                ctx.beginPath();
+                ctx.moveTo(margin.left + lineMargin, y);
+                ctx.lineTo(canvas.width - margin.right - lineMargin, y);
+                ctx.stroke();
+            }
+            ctx.restore();
+        }
+
+        // 绘制页面装饰
+        function drawDecorations() {
+            ctx.save();
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.04)';
+            ctx.fillRect(canvas.width - 5, 5, 5, canvas.height - 10);
+            ctx.fillRect(5, canvas.height - 5, canvas.width, 5);
+
+            ctx.font = '12px Arial';
+            ctx.fillStyle = '#999';
+            ctx.textAlign = 'center';
+            ctx.fillText('第 1 页', canvas.width / 2, canvas.height - 15);
+            ctx.restore();
+        }
+
+        // 绘制文字
+        function drawText(text, x, y, angle, color, size) {
+            ctx.save();
+            ctx.font = `${size}px serif`;
+            ctx.fillStyle = color;
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.translate(x, y);
+            ctx.rotate(angle * Math.PI / 180);
+            ctx.fillText(text, 0, 0);
+            ctx.restore();
+        }
+
+        // 绘制数据中的文字
+        function drawTextData() {
+            for (let i = 0; i < textData.length; i++) {
+                const t = textData[i];
+                drawText(t.text, t.x, t.y, t.angle, t.color, t.size);
+            }
+        }
+
+        // 统一绘制函数（修复版）
+        function render() {
+            // ✅ 重置所有变换，防止点击后文字偏移
+            ctx.setTransform(1, 0, 0, 1, 0, 0);
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            drawBackground();
+            drawHeader();
+            drawLines();
+            drawDecorations();
+            drawTextData();
+
+            if (text.trim() !== "") {
+                drawText(text, pos.x, pos.y, angle, color, size);
+            }
+        }
+
+        // 初始化加载与绘制
+        load();
+        render();
+
+        // 点击设置文字位置
+        canvas.addEventListener('click', function (event) {
+            const rect = canvas.getBoundingClientRect();
+            const scaleX = canvas.width / rect.width;
+            const scaleY = canvas.height / rect.height;
+            pos.x = Math.round((event.clientX - rect.left) * scaleX);
+            pos.y = Math.round((event.clientY - rect.top) * scaleY);
+            document.getElementById("position").textContent = `x=${pos.x}, y=${pos.y}`;
+            render();
         });
+
+        // 实时预览
+        document.getElementById("textInput").addEventListener("input", e => {
+            text = e.target.value;
+            render();
+        });
+
+        document.getElementById("textColor").addEventListener("input", e => {
+            color = e.target.value;
+            render();
+        });
+
+        document.getElementById("angle").addEventListener("input", e => {
+            angle = parseFloat(e.target.value) || 0;
+            render();
+        });
+
+        document.getElementById("textSize").addEventListener("input", e => {
+            size = e.target.value;
+            render();
+        });
+
+        document.getElementById("submitBtn").addEventListener("click", function () {
+            alert(`已提交：文字 "${text}" @ (${pos.x}, ${pos.y}), 颜色 ${color}, 角度 ${angle}`);
+            save();
+        });
+
     </script>
     <script src="https://registry.npmmirror.com/twikoo/1.6.41/files/dist/twikoo.min.js"></script>
     <script>
