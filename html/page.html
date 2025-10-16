@@ -25,12 +25,12 @@
     <div id="tcomment"></div>
 
     <script>
-        var canvas = document.getElementById("content");
+        const canvas = document.getElementById("content");
         const submitBtn = document.getElementById("submitBtn")
-        var ctx = canvas.getContext("2d");
-        var textData = [];
+        const ctx = canvas.getContext("2d");
+        let textData = [];
 
-        var page = 1;
+        let page = 1;
         let text = document.getElementById("textInput").value;
         let color = document.getElementById("textColor").value;
         let angle = parseFloat(document.getElementById("angle").value);
