@@ -6,24 +6,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>&nbsp;</title>
     <link rel="stylesheet" href="/style/post.css">
-
 </head>
+<style>
+    #content{
+        border: 1px solid #ccc;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+    .btn{
+        background-color: #f8f8f9;
+        padding: 4px 8px;
+        border: 1px #595959 solid;
+        font-size: 14px;
+    }
+    .btn:hover{
+        background-color: #f0f0f0;
+    }
+    .input{
+        padding: 4px;
+        font-size: 14px;
+        width: 80px;
+    }
+    .text{
+        width: 400px;
+        height: 100px;
+        font-size: 14px;
+    }
+</style>
 <body>
 <div class="w">
     <a href="#" onclick="history.back();">返回</a>
+    <br><br>
     <canvas id="content" width="800" height="1000"></canvas>
     <br><br>
-    <p><input type="button" id="prev" value="上一页" onclick="prev()"><span id="page"> 第1页 </span><input type="button" id="next" value="下一页" onclick="next()"></p>
+    <p><input type="button" class="btn" id="prev" value="上一页" onclick="prev()"><span id="page"> 第1页 </span><input type="button" class="btn" id="next" value="下一页" onclick="next()"></p>
     <p>位置：<span id="position">点击本子设置文字所在位置</span></p>
-    <p>内容：<textarea id="textInput" placeholder="请输入文字" style="width: 400px;height: 50px" maxlength="300"></textarea> win+:打开表情</p>
-    <p>大小：<input type="number" id="textSize" value="16" min="8" max="40"> 8-40</p>
+    <p>内容：<textarea id="textInput" class="text" placeholder="请输入文字"  maxlength="300"></textarea> win+:打开表情</p>
+    <p>大小：<input type="number" class="input" id="textSize" value="16" min="8" max="40"> 8-40</p>
     <p>颜色：<input type="color" id="textColor" value="#333333"></p>
-    <p>角度：<input type="number" id="angle" min="-360" max="360" step="1" value="0"></p>
-    <p><input type="button" id="submitBtn" value="提交"></p>
+    <p>角度：<input type="number" class="input" id="angle" min="-360" max="360" step="1" value="0"></p>
+    <p><input type="button" class="btn" id="submitBtn" value="保 存"></p>
     <hr>
-    <p>灵感源于我本子上乱写乱画的内容——充满了无意义的线条、图画、文字。</p>
+    <p>灵感源于我本子上乱写乱画的内容——无意义的线条、图画、文字。</p>
     <p>做一个可以随意写画的页面？why not?</p>
-    <p>配置内容、样式，点击页面实时预览位置，提交、完成！留下属于你的赛博涂鸦。</p>
+    <p>配置内容、样式，点击页面实时预览位置，保存、完成！留下属于你的赛博涂鸦。</p>
     <p>还有最最最重要的一点，实现这个功能的基础支持我要一百分感谢Cloudflare，真的大善人👼</p>
     <br><br>
     <div id="tcomment"></div>
@@ -41,7 +66,7 @@
         let size = document.getElementById("textSize").value;
         const SECRET = "jamework";
 
-        const margin = {top: 80, bottom: 40, left: 10, right: 10};
+        const margin = {top: 90, bottom: 30, left: 10, right: 10};
         const lineSpacing = 24;
         const lineMargin = 40;
 
@@ -114,7 +139,7 @@
         function drawHeader() {
             ctx.save();
             const infoStartX = canvas.width - 200;
-            const infoStartY = 30;
+            const infoStartY = 50;
             const underlineLength = 150;
 
             ctx.font = '14px Arial';
@@ -124,8 +149,8 @@
 
             ctx.fillText('NO:', infoStartX, infoStartY);
             ctx.beginPath();
-            ctx.moveTo(infoStartX, infoStartY + 5);
-            ctx.lineTo(infoStartX + underlineLength, infoStartY + 5);
+            ctx.moveTo(infoStartX, infoStartY + 10);
+            ctx.lineTo(infoStartX + underlineLength, infoStartY + 10);
             ctx.strokeStyle = '#333';
             ctx.stroke();
 
@@ -167,9 +192,10 @@
         // 绘制页面装饰
         function drawDecorations() {
             ctx.save();
-            ctx.fillStyle = 'rgba(0, 0, 0, 0.04)';
-            ctx.fillRect(canvas.width - 5, 5, 5, canvas.height - 10);
-            ctx.fillRect(5, canvas.height - 5, canvas.width, 5);
+            ctx.fillStyle = 'rgba(42,42,42,0.2)';
+            ctx.fillRect(canvas.width - 3, 3, 3, canvas.height);
+            ctx.fillRect(0, canvas.height - 3, canvas.width, 3);
+            ctx.fillRect(0, 0, canvas.width, 3);
             drawPage()
         }
 
@@ -177,7 +203,7 @@
             ctx.font = '12px Arial';
             ctx.fillStyle = '#999';
             ctx.textAlign = 'center';
-            ctx.fillText(`第 ${page} 页`, canvas.width / 2, canvas.height - 15);
+            ctx.fillText(`第 ${page} 页`, canvas.width / 2, canvas.height - 25);
             ctx.restore();
             document.getElementById("page").textContent = ` 第${page}页 `;
         }
@@ -209,9 +235,10 @@
 
             drawBackground();
             drawHeader();
+            drawPage();
             drawLines();
-            drawDecorations();
             drawTextData();
+
 
             if (text.trim() !== "") {
                 drawText(text, pos.x, pos.y, angle, color, size);
@@ -306,7 +333,7 @@
                 // 恢复按钮状态
                 isSaving = false;
                 submitBtn.disabled = false;
-                submitBtn.value = "保存";
+                submitBtn.value = "保 存";
             }
         });
 
