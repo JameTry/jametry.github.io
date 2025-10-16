@@ -25,7 +25,6 @@
     <div id="tcomment"></div>
 
     <script>
-        const SECRET = "jamework";
         var canvas = document.getElementById("content");
         const submitBtn = document.getElementById("submitBtn")
         var ctx = canvas.getContext("2d");
@@ -37,6 +36,7 @@
         let angle = parseFloat(document.getElementById("angle").value);
         let pos = {x: 370, y: 800};
         let size = document.getElementById("textSize").value;
+        const SECRET = "jamework";
 
         const margin = {top: 80, bottom: 40, left: 10, right: 10};
         const lineSpacing = 24;
