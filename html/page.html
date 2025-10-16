@@ -42,6 +42,10 @@
         }
 
         function next() {
+            if (page == 10) {
+                alert("已经是最后一页了");
+                return;
+            }
             page++;
             load();
             render();
@@ -130,7 +134,7 @@
         async function load() {
             const token = await createAuthToken();
             fetch(`https://page.jame.work/page/${page}`, {
-                headers:{"Authorization": `Bearer ${token}`}
+                headers: {"Authorization": `Bearer ${token}`}
             })
                 .then(response => {
                     if (!response.ok) throw new Error('网络响应不正常');
