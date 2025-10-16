@@ -277,7 +277,7 @@
                     })
                 });
 
-                if (!response.ok) throw new Error('网络响应不正常');
+                if (!response.ok) throw new Error(response.body);
 
                 alert('保存成功');
 
@@ -296,7 +296,7 @@
                 render();
             } catch (error) {
                 console.error('请求失败:', error);
-                alert("请求失败");
+                alert(`${JSON.parse(error).error}`);
             } finally {
                 // 恢复按钮状态
                 isSaving = false;
