@@ -16,14 +16,13 @@
     <br><br>
     <p><input type="button" id="prev" value="上一页" onclick="prev()"><span id="page"> 第1页 </span><input type="button" id="next" value="下一页" onclick="next()"></p>
     <p>位置：<span id="position">点击本子设置文字所在位置</span></p>
-    <p>文字：<textarea id="textInput" placeholder="请输入文字" style="width: 400px;height: 50px" maxlength="300"></textarea> win+:打开表情</p>
+    <p>内容：<textarea id="textInput" placeholder="请输入文字" style="width: 400px;height: 50px" maxlength="300"></textarea> win+:打开表情</p>
     <p>大小：<input type="number" id="textSize" value="16" min="8" max="40"> 8-40</p>
     <p>颜色：<input type="color" id="textColor" value="#333333"></p>
     <p>角度：<input type="number" id="angle" min="-360" max="360" step="1" value="0"></p>
     <p><input type="button" id="submitBtn" value="提交"></p>
-
+    <br><br>
     <div id="tcomment"></div>
-
     <script>
         const canvas = document.getElementById("content");
         const submitBtn = document.getElementById("submitBtn")
@@ -252,7 +251,7 @@
             if (isSaving) return;
             isSaving = true;
             submitBtn.disabled = true;
-            submitBtn.textContent = "提交中...";
+            submitBtn.value = "提交中...";
 
             try {
                 if (text === "") {
@@ -302,7 +301,7 @@
                 // 恢复按钮状态
                 isSaving = false;
                 submitBtn.disabled = false;
-                submitBtn.textContent = "保存";
+                submitBtn.value = "保存";
             }
         });
 
