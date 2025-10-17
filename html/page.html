@@ -195,14 +195,14 @@
             ctx.textAlign = 'left';
             ctx.textBaseline = 'top';
 
-            ctx.fillText('NO:', infoStartX, infoStartY);
+            ctx.fillText('NO.', infoStartX, infoStartY-5);
             ctx.beginPath();
             ctx.moveTo(infoStartX, infoStartY + 10);
             ctx.lineTo(infoStartX + underlineLength, infoStartY + 10);
             ctx.strokeStyle = '#333';
             ctx.stroke();
 
-            ctx.fillText('Date:', infoStartX, infoStartY + 30);
+            ctx.fillText('Date', infoStartX, infoStartY + 20);
             ctx.beginPath();
             ctx.moveTo(infoStartX, infoStartY + 35);
             ctx.lineTo(infoStartX + underlineLength, infoStartY + 35);
