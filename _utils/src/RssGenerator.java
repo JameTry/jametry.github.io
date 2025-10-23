@@ -28,6 +28,7 @@ public class RssGenerator {
         POSTS_DIR = projectPath + POSTS_DIR;
         STATUSES_DIR = projectPath + STATUSES_DIR;
         List<RssItem> items = new ArrayList<>();
+        int count=0;
 
         File htmlDir = new File(POSTS_DIR);
         for (File file : htmlDir.listFiles((d, name) -> name.endsWith(".html"))) {
@@ -47,6 +48,7 @@ public class RssGenerator {
             for (int i = 1; i < paragraphs.size(); i++) {
                 Element p = paragraphs.get(i);
                 content.append("<p>").append(p.text()).append("</p>");
+                count+=p.text().length();
             }
             String timeStr = doc.select("p.top-op span").get(1).text();
             Date pubDate = INPUT_DATE.parse(timeStr);
@@ -99,6 +101,7 @@ public class RssGenerator {
             writer.write(rss.toString().replaceAll("><", ">\n<"));
         }
         System.out.println("RSS 生成成功：" + RSS_FILE);
+        System.out.println("字数："+count);
     }
 
     private static String escapeXml(String input) {
