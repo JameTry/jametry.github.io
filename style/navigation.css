@@ -7,8 +7,7 @@
     margin-right: auto;
     flex-wrap: nowrap;
     justify-content: end;
-    max-width: calc(890px - (30px * 2));
-    max-width: -webkit-calc(890px - (30px * 2));
+    max-width: 750px;
     border-bottom: 1px solid #ececec;
 }
 
