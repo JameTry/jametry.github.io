@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>&nbsp;</title>
     <link rel="stylesheet" href="/style/post.css">
+    <link rel="stylesheet" href="/style/navigation.css">
 </head>
 <style>
     #content {
@@ -37,9 +38,13 @@
     }
 </style>
 <body>
+<nav class="navbar">
+    <button class="menu-toggle" onclick="document.querySelector('.nav-links').classList.toggle('show');">☰</button>
+    <div class="nav-links">
+        <a  href="/">首页</a> <a href="/html/about">关于</a> <a href="/html/other">杂项</a> <a  href="/html/friend-link">友链</a> <a class="active"   href="/html/page">本子</a> <a target="_blank" href="https://www.travellings.cn/go.html">开往</a>
+    </div>
+</nav>
 <div class="w">
-    <a href="#" onclick="history.back();">返回</a>
-    <br><br>
     <canvas id="content" width="800" height="1000"></canvas>
     <br><br>
     <p><input type="button" class="btn" id="prev" value="上一页" onclick="prev()"><span id="page"> 第1页 </span><input type="button" class="btn" id="next" value="下一页" onclick="next()"></p>
