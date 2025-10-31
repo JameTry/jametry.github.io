@@ -1,0 +1,560 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>&nbsp;</title>
+    <link rel="stylesheet" href="/style/post.css">
+    <link rel="stylesheet" href="/style/navigation.css">
+    <style>
+        #ava {
+            width: 60px;
+            height: 60px;
+            border-radius: 10px;
+        }
+
+        #page-container {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .w {
+            padding: 2rem 2rem 0rem 2rem;
+        }
+
+        #hidden-content-background {
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: #171717;
+            z-index: 1;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+            display: flex;
+            box-sizing: border-box;
+            color: #efefef;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #main-content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: white;
+            z-index: 2;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+            transition: transform 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+
+        #swipe-trigger {
+            float: left;
+            margin-left: 45px;
+            margin-bottom: 25px;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: grab;
+            z-index: 1003;
+            box-shadow: none;
+            transition: transform 0.2s ease, background-color 0.2s ease;
+        }
+
+        #swipe-trigger:hover {
+            cursor: grabbing;
+            transform: translateY(-4px);
+            box-shadow: none;
+        }
+
+        #op-icon {
+            width: 20px;
+            height: 20px;
+            color: #666;
+            transition: transform 0.3s ease;
+        }
+
+
+        #close-panel-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 30px;
+            font-weight: bold;
+            color: #aaa;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            line-height: 1;
+        }
+
+        #close-panel-btn:hover {
+            color: #666;
+        }
+
+        #universe {
+            position: fixed;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+        }
+
+        #hide-content {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            padding-top: 8rem;
+            background-image: radial-gradient(circle at 50% 100%,
+            #575fa6 0%,
+            #3a4288 25%,
+            #303038FF 50%,
+            #2c2c2c 75%,
+            #151515 100%
+            );
+        }
+
+        #hide-content2 {
+            width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        #hide-content2 p {
+            margin: 1rem 0 1rem 0;
+        }
+
+    </style>
+</head>
+<body>
+<div id="page-container">
+    <div id="hidden-content-background">
+        <div id="hide-content">
+            <button id="close-panel-btn">×</button>
+            <canvas id="universe"></canvas>
+            <div id="hide-content2">
+                <div style="height: 355vh"></div>
+            </div>
+
+        </div>
+    </div>
+    <div id="main-content">
+        <nav class="navbar">
+            <button class="menu-toggle" onclick="document.querySelector('.nav-links').classList.toggle('show');">☰</button>
+            <div class="nav-links">
+                <a class="active" href="/">首页</a> <a href="/html/about">关于</a> <a href="/html/other">杂项</a> <a href="/html/friend-link">友链</a><a target="_blank" href="https://www.travellings.cn/go.html">开往</a>
+            </div>
+        </nav>
+        <div class="w">
+            <br>
+            <br>
+            <br>
+            <br>
+            <div class="info">
+                <img src="favicon.ico" id="ava">
+            </div>
+            <h2 class="info">Jame!</h2>
+            <p class="info">自然、音乐、诗歌，爱与死亡。</p>
+            <br>
+            <br>
+            <br>
+            <br>
+            <p style="font-size: 18px;font-weight: 600; border-bottom: 1px solid #ececec;">文章列表</p>
+            <div class="posts">
+                <p><span>25-10-24</span> <a href="/html/post/30">像猫一样的风</a></p>
+                <p><span>25-10-20</span> <a href="/html/post/29">暮色逐渐褪去</a></p>
+                <p><span>25-10-13</span> <a href="/html/post/28">狂风暴雨逐渐停止后的第二天正午</a></p>
+                <p><span>25-10-07</span> <a href="/html/post/27">我一路上问他关于摄影的东西</a></p>
+                <p><span>25-08-30</span> <a href="/html/post/24">人和猪狗是一样的</a></p>
+                <p><span>25-08-15</span> <a href="/html/post/23">雨停之后</a></p>
+                <p><span>25-07-29</span> <a href="/html/post/22">暴雨过后，天空格外晴朗</a></p>
+                <p><span>25-07-21</span> <a href="/html/post/21">引力弹弓</a></p>
+                <p><span>25-07-03</span> <a href="/html/post/20">先生！先生！</a></p>
+                <p><span>25-06-26</span> <a href="/html/post/19">罢了罢了</a></p>
+                <p><span>25-06-19</span> <a href="/html/post/18">我沿着地狱边缘种花</a></p>
+                <p><span>25-06-16</span> <a href="/html/post/17">周日夜晚</a></p>
+                <p><span>25-06-14</span> <a href="/html/post/16">延绵的大雨要淹死整个城市</a></p>
+                <p><span>25-06-12</span> <a href="/html/post/15">一只苍蝇在他面前嗡嗡嗡地飞来飞去</a></p>
+                <p><span>25-06-02</span> <a href="/html/post/14">养花的诀窍</a></p>
+                <p><span>25-05-09</span> <a href="/html/post/13">扼杀欲望，停止争吵</a></p>
+                <p><span>25-04-30</span> <a href="/html/post/12">今夜的风儿有些喧嚣</a></p>
+                <p><span>25-04-28</span> <a href="/html/post/11">捧起骨灰，收起悲伤</a></p>
+                <p><span>25-04-25</span> <a href="/html/post/10">我坐在车里在十字路口等待着朋友</a></p>
+                <p><span>25-03-28</span> <a href="/html/post/9">3月28，下雪了</a></p>
+                <p><span>25-03-19</span> <a href="/html/post/8">我在梦中遇到了一个女孩</a></p>
+                <p><span>25-03-12</span> <a href="/html/post/7">坐好吧，这样的雨天</a></p>
+                <p><span>25-03-03</span> <a href="/html/post/6">时间永不停止流逝</a></p>
+                <p><span>24-10-10</span> <a href="/html/post/5">不再关心新闻事件</a></p>
+                <p><span>24-08-29</span> <a href="/html/post/4">有个朋友让我帮忙问一下小鸟</a></p>
+                <p><span>24-08-13</span> <a href="/html/post/3">日出日落，一天又一天</a></p>
+                <p><span>24-07-02</span> <a href="/html/post/2">应是已入深秋</a></p>
+                <p><span>24-04-02</span> <a href="/html/post/1">如果可以的话</a></p>
+            </div>
+            <br>
+            <br>
+            <br>
+            <div class="small-text" style="margin: 30px auto 0 auto; width: fit-content;">
+                <p class="info">胸有猛虎，嗷嗷待哺</p>
+                <p><a href="https://jame.work/feed.xml" target="_blank">订阅RSS</a> <a href="https://beian.miit.gov.cn/#/Integrated/index" target="_blank">冀ICP备2022008700号-1</a> <a href="https://icp.gov.moe/?keyword=20250164" target="_blank">萌ICP备20250164号</a> <span id="vercount_value_site_uv">0</span>总访客</p>
+            </div>
+        </div>
+
+        <div id="swipe-trigger">
+            <svg t="1761891149712" id="op-icon" viewBox="0 0 1129 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="14371" width="32" height="32">
+                <path d="M1041.88182 555.032371a54.623938 54.623938 0 0 0 72.879917 0 45.019949 45.019949 0 0 0 0-67.369923L601.464319 13.981984a54.623938 54.623938 0 0 0-73.019918 0L15.182983 487.626448a45.019949 45.019949 0 0 0 0 67.369923 54.623938 54.623938 0 0 0 72.879917 0l476.89146-440.099501 476.92746 440.135501z m0 455.035485a54.623938 54.623938 0 0 0 72.879917 0 45.019949 45.019949 0 0 0 0-67.369924l-513.297418-473.679463a54.623938 54.623938 0 0 0-73.019918 0L15.182983 942.697932a45.019949 45.019949 0 0 0 0 67.369924 54.623938 54.623938 0 0 0 72.879917 0L564.95336 569.899354l476.92746 440.134502z"
+                      opacity=".629" p-id="14372" fill="#040404"></path>
+            </svg>
+        </div>
+    </div>
+</div>
+<script>
+    window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame ||
+        window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
+    let starDensity = .216;
+    let speedCoeff = .05;
+    let width;
+    let height;
+    let starCount;
+    let circleRadius;
+    let circleCenter;
+    let first = true;
+    let giantColor = '180,184,240';
+    let starColor = '226,228,214';
+    let cometColor = '108,152,253';
+    let canva = document.getElementById('universe');
+    let stars = [];
+    let universe;
+    let animationTime = 0; // 添加全局动画时间
+
+    // 初始化
+    windowResizeHandler();
+    window.addEventListener('resize', windowResizeHandler, false);
+    createUniverse();
+
+    function createUniverse() {
+        universe = canva.getContext('2d');
+        generateStars();
+        draw();
+    }
+
+    function generateStars() {
+        stars = [];
+        for (let i = 0; i < starCount; i++) {
+            stars[i] = new Star();
+            stars[i].reset();
+        }
+    }
+
+    function draw() {
+        if (!universe) return;
+        universe.clearRect(0, 0, width, height);
+
+        // 更新全局动画时间
+        animationTime += 0.01;
+
+        const starsLength = stars.length;
+        for (let i = 0; i < starsLength; i++) {
+            const star = stars[i];
+            star.move();
+            star.fadeIn();
+            star.fadeOut();
+            star.updateTwinkle(); // 更新闪烁效果
+            star.draw();
+        }
+        window.requestAnimationFrame(draw);
+    }
+
+    function Star() {
+        // 添加闪烁相关属性
+        this.twinkleSpeed = 0;
+        this.twinkleOffset = 0;
+        this.twinkleIntensity = 0;
+        this.isTwinkling = false;
+
+        this.reset = function () {
+            this.giant = getProbability(3);
+            this.comet = this.giant || first ? false : getProbability(10);
+            this.x = getRandInterval(0, width);
+            this.y = getRandInterval(0, height);
+            this.r = getRandInterval(1.1, 2.6);
+            this.dx = getRandInterval(speedCoeff, 0.02 + speedCoeff) + (this.comet ? speedCoeff * getRandInterval(50, 120) : 0) + speedCoeff * 2;
+            this.dy = getRandInterval(speedCoeff, 0.02 + speedCoeff) - (this.comet ? speedCoeff * getRandInterval(50, 120) : 0);
+            this.fadingOut = null;
+            this.fadingIn = true;
+            this.opacity = 0;
+            this.opacityTresh = getRandInterval(.2, this.comet ? 0.6 : 1);
+            this.do = getRandInterval(0.0005, 0.002) + (this.comet ? 0.001 : 0);
+
+            // 初始化闪烁属性（只有普通星星会闪烁）
+            if (!this.giant && !this.comet) {
+                this.isTwinkling = getProbability(70); // 70%的普通星星会闪烁
+                if (this.isTwinkling) {
+                    this.twinkleSpeed = getRandInterval(1.5, 4.5); // 闪烁速度
+                    this.twinkleOffset = Math.random() * Math.PI * 2; // 随机相位偏移
+                    this.twinkleIntensity = getRandInterval(0.2, 0.6); // 闪烁强度
+                }
+            } else {
+                this.isTwinkling = false;
+            }
+        };
+
+        // 新增：更新闪烁效果
+        this.updateTwinkle = function () {
+            if (this.isTwinkling && !this.fadingIn && !this.fadingOut) {
+                // 使用正弦波创建自然的闪烁效果
+                const twinkle = Math.sin(animationTime * this.twinkleSpeed + this.twinkleOffset);
+                // 将正弦波从[-1,1]映射到[1-强度, 1+强度]
+                this.twinkleFactor = 1 + twinkle * this.twinkleIntensity;
+            } else {
+                this.twinkleFactor = 1;
+            }
+        };
+
+        this.fadeIn = function () {
+            if (this.fadingIn) {
+                this.fadingIn = this.opacity <= this.opacityTresh;
+                this.opacity += this.do;
+            }
+        };
+
+        this.fadeOut = function () {
+            if (this.fadingOut) {
+                this.fadingOut = this.opacity >= 0;
+                this.opacity -= this.do / 2;
+                if (this.x > width || this.y < 0) {
+                    this.fadingOut = false;
+                    this.reset();
+                }
+            }
+        };
+
+        this.draw = function () {
+            universe.beginPath();
+
+            if (this.giant) {
+                universe.fillStyle = 'rgba(' + giantColor + ',' + this.opacity + ')';
+                universe.arc(this.x, this.y, 2, 0, 2 * Math.PI, false);
+            } else if (this.comet) {
+                universe.fillStyle = 'rgba(' + cometColor + ',' + this.opacity + ')';
+                universe.arc(this.x, this.y, 1.5, 0, 2 * Math.PI, false);
+                for (let i = 0; i < 30; i++) {
+                    universe.fillStyle = 'rgba(' + cometColor + ',' + (this.opacity - (this.opacity / 20) * i) + ')';
+                    universe.rect(this.x - this.dx / 4 * i, this.y - this.dy / 4 * i, 2, 2);
+                    universe.fill();
+                }
+            } else {
+                // 修改普通星星绘制：应用闪烁效果
+                let finalOpacity = this.opacity;
+                if (this.isTwinkling && !this.fadingIn && !this.fadingOut) {
+                    finalOpacity = this.opacity * this.twinkleFactor;
+                    // 限制透明度范围
+                    finalOpacity = Math.max(0, Math.min(this.opacityTresh, finalOpacity));
+                }
+
+                universe.fillStyle = 'rgba(' + starColor + ',' + finalOpacity + ')';
+                universe.rect(this.x, this.y, this.r, this.r);
+            }
+
+            universe.closePath();
+            universe.fill();
+        };
+
+        this.move = function () {
+            this.x += this.dx;
+            this.y += this.dy;
+            if (this.fadingOut === false) {
+                this.reset();
+            }
+            if (this.x > width - (width / 4) || this.y < 0) {
+                this.fadingOut = true;
+            }
+        };
+
+        (function () {
+            setTimeout(function () {
+                first = false;
+            }, 50)
+        })()
+    }
+
+    function getProbability(percents) {
+        return ((Math.floor(Math.random() * 1000) + 1) < percents * 10);
+    }
+
+    function getRandInterval(min, max) {
+        return (Math.random() * (max - min) + min);
+    }
+
+    function windowResizeHandler() {
+
+        width = document.documentElement.clientWidth;
+        height = document.documentElement.clientHeight;
+
+        starCount = Math.floor(width * starDensity);
+        circleRadius = Math.min(width, height) / 2;
+        circleCenter = {x: width / 2, y: height / 2};
+
+        canva.width = width;
+        canva.height = height;
+
+        generateStars();
+    }
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const trigger = document.getElementById('swipe-trigger');
+        const mainContent = document.getElementById('main-content');
+        const hiddenContentBackground = document.getElementById('hidden-content-background');
+        const closeBtn = document.getElementById('close-panel-btn');
+
+        let isDragging = false;
+        let startY = 0;
+        let currentTranslateY = 0;
+        const threshold = window.innerHeight / 4;
+
+        // --- 打开面板的函数 ---
+        function openPanel() {
+            mainContent.style.transform = `translateY(-${window.innerHeight}px)`;
+            mainContent.classList.add('shifted');
+            mainContent.style.transition = 'transform 0.35s cubic-bezier(0.25, 0.8, 0.25, 1)';
+            // 隐藏主内容的滚动条，防止在打开时看到滚动条闪烁
+            mainContent.style.overflowY = 'hidden';
+        }
+
+        // --- 关闭面板的函数 ---
+        function closePanel() {
+            mainContent.style.transform = `translateY(0)`;
+            mainContent.classList.remove('shifted');
+            mainContent.style.transition = 'transform 0.35s cubic-bezier(0.25, 0.8, 0.25, 1)';
+            // 恢复主内容的滚动条
+            mainContent.style.overflowY = 'auto';
+        }
+
+        // --- 开始拖动 (鼠标/触摸) ---
+        function onDragStart(e) {
+            // 1. 只有当主内容在顶部（未完全打开）时才允许拖动打开
+            if (mainContent.classList.contains('shifted')) return;
+
+
+            isDragging = true;
+            startY = e.clientY || e.touches[0].clientY;
+            mainContent.style.transition = 'none'; // 拖动时移除过渡效果
+
+            const transformMatch = mainContent.style.transform.match(/translateY\(([^)]+)px\)/);
+            currentTranslateY = transformMatch ? parseFloat(transformMatch[1]) : 0;
+
+            // 修复：为 document 上的事件添加 { passive: false } 以允许 preventDefault
+            document.addEventListener('mousemove', onDrag, {passive: false});
+            document.addEventListener('mouseup', onDragEnd);
+            document.addEventListener('touchmove', onDrag, {passive: false});
+            document.addEventListener('touchend', onDragEnd);
+
+            // 修复：在开始时就阻止默认行为（如文本选择）
+            e.preventDefault();
+        }
+
+        // 触发器事件
+        trigger.addEventListener('mousedown', onDragStart);
+        // 修复：为触发器上的 touchstart 添加 { passive: false }
+        trigger.addEventListener('touchstart', onDragStart, {passive: false});
+
+
+        // --- 拖动中 ---
+        function onDrag(e) {
+            if (!isDragging) return;
+
+            // 修复：在拖动过程中持续阻止默认行为（如滚动或选择）
+            e.preventDefault();
+
+            const currentY = e.clientY || e.touches[0].clientY;
+            const deltaY = startY - currentY; // 向上拖动时 deltaY 为正值
+
+            // 仅在向上拖动时（deltaY > 0）且主内容未完全打开时才移动
+            if (deltaY > 0 && !mainContent.classList.contains('shifted')) {
+                let newTranslateY = currentTranslateY - deltaY;
+                // 限制最大向上平移量为屏幕高度
+                newTranslateY = Math.max(-window.innerHeight, newTranslateY);
+                mainContent.style.transform = `translateY(${newTranslateY}px)`;
+            }
+        }
+
+        // --- 结束拖动 ---
+        function onDragEnd(e) {
+            if (!isDragging) return;
+            isDragging = false;
+
+            // 重新启用过渡效果
+            mainContent.style.transition = 'transform 0.35s cubic-bezier(0.25, 0.8, 0.25, 1)';
+
+            // 移除 document 上的事件监听器
+            document.removeEventListener('mousemove', onDrag);
+            document.removeEventListener('mouseup', onDragEnd);
+            document.removeEventListener('touchmove', onDrag);
+            document.removeEventListener('touchend', onDragEnd);
+
+            // 获取松手时主内容的实际 transform 值
+            const transformStyle = mainContent.style.transform;
+            const currentPanelPosition = transformStyle ? parseFloat(transformStyle.replace('translateY(', '').replace('px)', '')) : 0;
+
+            // --- 吸附逻辑 ---
+            if (currentPanelPosition <= -threshold) {
+                // 如果主内容向上移动超过了阈值
+                openPanel();
+            } else {
+                // 否则，弹回关闭状态
+                closePanel();
+            }
+        }
+
+        // --- 关闭按钮事件 (在隐藏页面内部) ---
+        closeBtn.addEventListener('click', () => {
+            closePanel();
+        });
+
+        // --- 优化：点击触发器也可以直接开关面板 ---
+        let clickPrevented = false;
+
+        trigger.addEventListener('mousemove', () => {
+            if (isDragging) clickPrevented = true;
+        });
+
+        trigger.addEventListener('touchmove', () => {
+            if (isDragging) clickPrevented = true;
+        });
+
+        trigger.addEventListener('click', (e) => {
+            if (clickPrevented) {
+                clickPrevented = false;
+                return;
+            }
+
+            if (mainContent.classList.contains('shifted')) {
+                closePanel();
+            } else {
+                // openPanel();
+            }
+        });
+
+        trigger.addEventListener('mousedown', () => {
+            clickPrevented = false;
+        });
+        trigger.addEventListener('touchstart', () => {
+            clickPrevented = false;
+        }, {passive: true});
+    });
+
+
+</script>
+<script src="https://cn.vercount.one/js"></script>
+</body>
+</html>
