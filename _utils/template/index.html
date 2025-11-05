@@ -73,6 +73,7 @@
             cursor: grabbing;
             transform: translateY(-4px);
             box-shadow: none;
+
         }
 
         #op-icon {
@@ -115,11 +116,10 @@
             justify-content: center;
             flex-direction: column;
             padding-top: 8rem;
-            background-image: radial-gradient(circle at 50% 100%,
-            #575fa6 0%,
-            #3a4288 25%,
-            #303038FF 50%,
-            #2c2c2c 75%,
+            background-image: radial-gradient(ellipse 250% 100% at 50% 100%,
+            #d05122 0%,
+            #3a4288 35%,
+            #2c2c2c 65%,
             #151515 100%
             );
         }
@@ -134,6 +134,20 @@
             margin: 1rem 0 1rem 0;
         }
 
+        @media (max-width: 768px) {
+            #hide-content {
+                background-image: radial-gradient(ellipse 500% 50% at 50% 100%,
+                #d05122 0%,
+                #3a4288 34%,
+                #2c2c2c 75%,
+                #151515 100%
+                );
+            }
+            #hide-content2{
+                width: 90vw;
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -143,7 +157,8 @@
             <button id="close-panel-btn">×</button>
             <canvas id="universe"></canvas>
             <div id="hide-content2">
-                <div style="height: 355vh"></div>
+                <div style="height: 655vh">
+                </div>
             </div>
 
         </div>
@@ -210,351 +225,15 @@
         </div>
 
         <div id="swipe-trigger">
-            <svg t="1761891149712" id="op-icon" viewBox="0 0 1129 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="14371" width="32" height="32">
+            <svg t="1761891149712" id="op-icon" viewBox="0 0 1129 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="14371" width="36" height="36">
                 <path d="M1041.88182 555.032371a54.623938 54.623938 0 0 0 72.879917 0 45.019949 45.019949 0 0 0 0-67.369923L601.464319 13.981984a54.623938 54.623938 0 0 0-73.019918 0L15.182983 487.626448a45.019949 45.019949 0 0 0 0 67.369923 54.623938 54.623938 0 0 0 72.879917 0l476.89146-440.099501 476.92746 440.135501z m0 455.035485a54.623938 54.623938 0 0 0 72.879917 0 45.019949 45.019949 0 0 0 0-67.369924l-513.297418-473.679463a54.623938 54.623938 0 0 0-73.019918 0L15.182983 942.697932a45.019949 45.019949 0 0 0 0 67.369924 54.623938 54.623938 0 0 0 72.879917 0L564.95336 569.899354l476.92746 440.134502z"
                       opacity=".629" p-id="14372" fill="#040404"></path>
             </svg>
         </div>
     </div>
 </div>
-<script>
-    window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame ||
-        window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
-    let starDensity = .216;
-    let speedCoeff = .05;
-    let width;
-    let height;
-    let starCount;
-    let circleRadius;
-    let circleCenter;
-    let first = true;
-    let giantColor = '180,184,240';
-    let starColor = '226,228,214';
-    let cometColor = '108,152,253';
-    let canva = document.getElementById('universe');
-    let stars = [];
-    let universe;
-    let animationTime = 0; // 添加全局动画时间
 
-    // 初始化
-    windowResizeHandler();
-    window.addEventListener('resize', windowResizeHandler, false);
-    createUniverse();
-
-    function createUniverse() {
-        universe = canva.getContext('2d');
-        generateStars();
-        draw();
-    }
-
-    function generateStars() {
-        stars = [];
-        for (let i = 0; i < starCount; i++) {
-            stars[i] = new Star();
-            stars[i].reset();
-        }
-    }
-
-    function draw() {
-        if (!universe) return;
-        universe.clearRect(0, 0, width, height);
-
-        // 更新全局动画时间
-        animationTime += 0.01;
-
-        const starsLength = stars.length;
-        for (let i = 0; i < starsLength; i++) {
-            const star = stars[i];
-            star.move();
-            star.fadeIn();
-            star.fadeOut();
-            star.updateTwinkle(); // 更新闪烁效果
-            star.draw();
-        }
-        window.requestAnimationFrame(draw);
-    }
-
-    function Star() {
-        // 添加闪烁相关属性
-        this.twinkleSpeed = 0;
-        this.twinkleOffset = 0;
-        this.twinkleIntensity = 0;
-        this.isTwinkling = false;
-
-        this.reset = function () {
-            this.giant = getProbability(3);
-            this.comet = this.giant || first ? false : getProbability(10);
-            this.x = getRandInterval(0, width);
-            this.y = getRandInterval(0, height);
-            this.r = getRandInterval(1.1, 2.6);
-            this.dx = getRandInterval(speedCoeff, 0.02 + speedCoeff) + (this.comet ? speedCoeff * getRandInterval(50, 120) : 0) + speedCoeff * 2;
-            this.dy = getRandInterval(speedCoeff, 0.02 + speedCoeff) - (this.comet ? speedCoeff * getRandInterval(50, 120) : 0);
-            this.fadingOut = null;
-            this.fadingIn = true;
-            this.opacity = 0;
-            this.opacityTresh = getRandInterval(.2, this.comet ? 0.6 : 1);
-            this.do = getRandInterval(0.0005, 0.002) + (this.comet ? 0.001 : 0);
-
-            // 初始化闪烁属性（只有普通星星会闪烁）
-            if (!this.giant && !this.comet) {
-                this.isTwinkling = getProbability(70); // 70%的普通星星会闪烁
-                if (this.isTwinkling) {
-                    this.twinkleSpeed = getRandInterval(1.5, 4.5); // 闪烁速度
-                    this.twinkleOffset = Math.random() * Math.PI * 2; // 随机相位偏移
-                    this.twinkleIntensity = getRandInterval(0.2, 0.6); // 闪烁强度
-                }
-            } else {
-                this.isTwinkling = false;
-            }
-        };
-
-        // 新增：更新闪烁效果
-        this.updateTwinkle = function () {
-            if (this.isTwinkling && !this.fadingIn && !this.fadingOut) {
-                // 使用正弦波创建自然的闪烁效果
-                const twinkle = Math.sin(animationTime * this.twinkleSpeed + this.twinkleOffset);
-                // 将正弦波从[-1,1]映射到[1-强度, 1+强度]
-                this.twinkleFactor = 1 + twinkle * this.twinkleIntensity;
-            } else {
-                this.twinkleFactor = 1;
-            }
-        };
-
-        this.fadeIn = function () {
-            if (this.fadingIn) {
-                this.fadingIn = this.opacity <= this.opacityTresh;
-                this.opacity += this.do;
-            }
-        };
-
-        this.fadeOut = function () {
-            if (this.fadingOut) {
-                this.fadingOut = this.opacity >= 0;
-                this.opacity -= this.do / 2;
-                if (this.x > width || this.y < 0) {
-                    this.fadingOut = false;
-                    this.reset();
-                }
-            }
-        };
-
-        this.draw = function () {
-            universe.beginPath();
-
-            if (this.giant) {
-                universe.fillStyle = 'rgba(' + giantColor + ',' + this.opacity + ')';
-                universe.arc(this.x, this.y, 2, 0, 2 * Math.PI, false);
-            } else if (this.comet) {
-                universe.fillStyle = 'rgba(' + cometColor + ',' + this.opacity + ')';
-                universe.arc(this.x, this.y, 1.5, 0, 2 * Math.PI, false);
-                for (let i = 0; i < 30; i++) {
-                    universe.fillStyle = 'rgba(' + cometColor + ',' + (this.opacity - (this.opacity / 20) * i) + ')';
-                    universe.rect(this.x - this.dx / 4 * i, this.y - this.dy / 4 * i, 2, 2);
-                    universe.fill();
-                }
-            } else {
-                // 修改普通星星绘制：应用闪烁效果
-                let finalOpacity = this.opacity;
-                if (this.isTwinkling && !this.fadingIn && !this.fadingOut) {
-                    finalOpacity = this.opacity * this.twinkleFactor;
-                    // 限制透明度范围
-                    finalOpacity = Math.max(0, Math.min(this.opacityTresh, finalOpacity));
-                }
-
-                universe.fillStyle = 'rgba(' + starColor + ',' + finalOpacity + ')';
-                universe.rect(this.x, this.y, this.r, this.r);
-            }
-
-            universe.closePath();
-            universe.fill();
-        };
-
-        this.move = function () {
-            this.x += this.dx;
-            this.y += this.dy;
-            if (this.fadingOut === false) {
-                this.reset();
-            }
-            if (this.x > width - (width / 4) || this.y < 0) {
-                this.fadingOut = true;
-            }
-        };
-
-        (function () {
-            setTimeout(function () {
-                first = false;
-            }, 50)
-        })()
-    }
-
-    function getProbability(percents) {
-        return ((Math.floor(Math.random() * 1000) + 1) < percents * 10);
-    }
-
-    function getRandInterval(min, max) {
-        return (Math.random() * (max - min) + min);
-    }
-
-    function windowResizeHandler() {
-
-        width = document.documentElement.clientWidth;
-        height = document.documentElement.clientHeight;
-
-        starCount = Math.floor(width * starDensity);
-        circleRadius = Math.min(width, height) / 2;
-        circleCenter = {x: width / 2, y: height / 2};
-
-        canva.width = width;
-        canva.height = height;
-
-        generateStars();
-    }
-</script>
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const trigger = document.getElementById('swipe-trigger');
-        const mainContent = document.getElementById('main-content');
-        const hiddenContentBackground = document.getElementById('hidden-content-background');
-        const closeBtn = document.getElementById('close-panel-btn');
-
-        let isDragging = false;
-        let startY = 0;
-        let currentTranslateY = 0;
-        const threshold = window.innerHeight / 4;
-
-        // --- 打开面板的函数 ---
-        function openPanel() {
-            mainContent.style.transform = `translateY(-${window.innerHeight}px)`;
-            mainContent.classList.add('shifted');
-            mainContent.style.transition = 'transform 0.35s cubic-bezier(0.25, 0.8, 0.25, 1)';
-            // 隐藏主内容的滚动条，防止在打开时看到滚动条闪烁
-            mainContent.style.overflowY = 'hidden';
-        }
-
-        // --- 关闭面板的函数 ---
-        function closePanel() {
-            mainContent.style.transform = `translateY(0)`;
-            mainContent.classList.remove('shifted');
-            mainContent.style.transition = 'transform 0.35s cubic-bezier(0.25, 0.8, 0.25, 1)';
-            // 恢复主内容的滚动条
-            mainContent.style.overflowY = 'auto';
-        }
-
-        // --- 开始拖动 (鼠标/触摸) ---
-        function onDragStart(e) {
-            // 1. 只有当主内容在顶部（未完全打开）时才允许拖动打开
-            if (mainContent.classList.contains('shifted')) return;
-
-
-            isDragging = true;
-            startY = e.clientY || e.touches[0].clientY;
-            mainContent.style.transition = 'none'; // 拖动时移除过渡效果
-
-            const transformMatch = mainContent.style.transform.match(/translateY\(([^)]+)px\)/);
-            currentTranslateY = transformMatch ? parseFloat(transformMatch[1]) : 0;
-
-            // 修复：为 document 上的事件添加 { passive: false } 以允许 preventDefault
-            document.addEventListener('mousemove', onDrag, {passive: false});
-            document.addEventListener('mouseup', onDragEnd);
-            document.addEventListener('touchmove', onDrag, {passive: false});
-            document.addEventListener('touchend', onDragEnd);
-
-            // 修复：在开始时就阻止默认行为（如文本选择）
-            e.preventDefault();
-        }
-
-        // 触发器事件
-        trigger.addEventListener('mousedown', onDragStart);
-        // 修复：为触发器上的 touchstart 添加 { passive: false }
-        trigger.addEventListener('touchstart', onDragStart, {passive: false});
-
-
-        // --- 拖动中 ---
-        function onDrag(e) {
-            if (!isDragging) return;
-
-            // 修复：在拖动过程中持续阻止默认行为（如滚动或选择）
-            e.preventDefault();
-
-            const currentY = e.clientY || e.touches[0].clientY;
-            const deltaY = startY - currentY; // 向上拖动时 deltaY 为正值
-
-            // 仅在向上拖动时（deltaY > 0）且主内容未完全打开时才移动
-            if (deltaY > 0 && !mainContent.classList.contains('shifted')) {
-                let newTranslateY = currentTranslateY - deltaY;
-                // 限制最大向上平移量为屏幕高度
-                newTranslateY = Math.max(-window.innerHeight, newTranslateY);
-                mainContent.style.transform = `translateY(${newTranslateY}px)`;
-            }
-        }
-
-        // --- 结束拖动 ---
-        function onDragEnd(e) {
-            if (!isDragging) return;
-            isDragging = false;
-
-            // 重新启用过渡效果
-            mainContent.style.transition = 'transform 0.35s cubic-bezier(0.25, 0.8, 0.25, 1)';
-
-            // 移除 document 上的事件监听器
-            document.removeEventListener('mousemove', onDrag);
-            document.removeEventListener('mouseup', onDragEnd);
-            document.removeEventListener('touchmove', onDrag);
-            document.removeEventListener('touchend', onDragEnd);
-
-            // 获取松手时主内容的实际 transform 值
-            const transformStyle = mainContent.style.transform;
-            const currentPanelPosition = transformStyle ? parseFloat(transformStyle.replace('translateY(', '').replace('px)', '')) : 0;
-
-            // --- 吸附逻辑 ---
-            if (currentPanelPosition <= -threshold) {
-                // 如果主内容向上移动超过了阈值
-                openPanel();
-            } else {
-                // 否则，弹回关闭状态
-                closePanel();
-            }
-        }
-
-        // --- 关闭按钮事件 (在隐藏页面内部) ---
-        closeBtn.addEventListener('click', () => {
-            closePanel();
-        });
-
-        // --- 优化：点击触发器也可以直接开关面板 ---
-        let clickPrevented = false;
-
-        trigger.addEventListener('mousemove', () => {
-            if (isDragging) clickPrevented = true;
-        });
-
-        trigger.addEventListener('touchmove', () => {
-            if (isDragging) clickPrevented = true;
-        });
-
-        trigger.addEventListener('click', (e) => {
-            if (clickPrevented) {
-                clickPrevented = false;
-                return;
-            }
-
-            if (mainContent.classList.contains('shifted')) {
-                closePanel();
-            } else {
-                // openPanel();
-            }
-        });
-
-        trigger.addEventListener('mousedown', () => {
-            clickPrevented = false;
-        });
-        trigger.addEventListener('touchstart', () => {
-            clickPrevented = false;
-        }, {passive: true});
-    });
-
-
-</script>
+<script src="/js/index.js"></script>
 <script src="https://cn.vercount.one/js"></script>
 </body>
 </html>
