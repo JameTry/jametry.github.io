@@ -64,9 +64,11 @@ blockquote {
     padding: 12px 12px 12px 15px;
     background-color: #f6f6f6;
     margin: 0;
+    width: fit-content;
 }
 
 blockquote p {
+    width: fit-content;
     margin: 0
 }
 
