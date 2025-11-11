@@ -105,3 +105,20 @@ article {
     padding: 3px 5px;
     border-radius: 10px;
 }
+
+#imgViewer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.85);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+#imgViewer img {
+    max-width: 90%;
+    max-height: 90%;
+}
