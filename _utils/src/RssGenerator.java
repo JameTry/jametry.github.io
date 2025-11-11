@@ -13,7 +13,7 @@ import java.util.*;
 
 public class RssGenerator {
     private static String POSTS_DIR = "\\html\\post";
-    private static String STATUSES_DIR = "\\easy-talk\\talks";
+
     private static final String SITE_URL = "https://jame.work/";
     private static final String RSS_FILE = "feed.xml";
 
@@ -22,11 +22,10 @@ public class RssGenerator {
         INPUT_DATE.setTimeZone(TimeZone.getTimeZone("Asia/Shanghai"));
     }
     private static final SimpleDateFormat OUTPUT_DATE = new SimpleDateFormat("EEE, dd MMM yyyy HH:mm:ss +0800", Locale.US);
-    private static final String TYPE_ARTICLE = "随笔";
+
 
     public static void run(String projectPath) throws Exception {
         POSTS_DIR = projectPath + POSTS_DIR;
-        STATUSES_DIR = projectPath + STATUSES_DIR;
         List<RssItem> items = new ArrayList<>();
         int count=0;
 
@@ -54,25 +53,9 @@ public class RssGenerator {
             Date pubDate = INPUT_DATE.parse(timeStr);
             String link = SITE_URL + "html/post/" + file.getName().replace(".html", "");
 
-            items.add(new RssItem(title, content.toString(), pubDate, link, TYPE_ARTICLE));
+            items.add(new RssItem(title, content.toString(), pubDate, link));
         }
 
-        File jsonDir = new File(STATUSES_DIR);
-//        for (File file : jsonDir.listFiles((d, name) -> name.endsWith(".json"))) {
-//            String jsonStr = new String(java.nio.file.Files.readAllBytes(file.toPath()), StandardCharsets.UTF_8);
-//            JSONObject jsonObject = JSONObject.parseObject(jsonStr);
-//
-//            String rawContent = jsonObject.getString("content");
-//            String plainText = Jsoup.parse(rawContent).text();
-//
-//            String title = plainText.length() > 20 ? plainText.substring(0, 20) + "..." : plainText;
-//            title = escapeXml(title);
-//
-//            Date pubDate = INPUT_DATE.parse(jsonObject.getString("publishedTime"));
-//            String link = SITE_URL + "html/talks/" +  file.getName().replace(".json", "");
-//
-//            items.add(new RssItem(title, "<p>" + rawContent + "</p>", pubDate, link, TYPE_STATUS));
-//        }
 
         items.sort((a, b) -> b.pubDate.compareTo(a.pubDate));
 
@@ -91,7 +74,6 @@ public class RssGenerator {
                     .append("<description><![CDATA[").append(item.content).append("]]></description>\n")
                     .append("<pubDate>").append(OUTPUT_DATE.format(item.pubDate)).append("</pubDate>\n")
                     .append("<guid>").append(item.link).append("</guid>\n")
-                    .append("<category>").append(item.type).append("</category>\n")
                     .append("</item>\n");
         }
 
@@ -117,14 +99,12 @@ public class RssGenerator {
         String content;
         Date pubDate;
         String link;
-        String type; // 类型标识
 
-        RssItem(String title, String content, Date pubDate, String link, String type) {
+        RssItem(String title, String content, Date pubDate, String link) {
             this.title = title;
             this.content = content;
             this.pubDate = pubDate;
             this.link = link;
-            this.type = type;
         }
     }
 }
