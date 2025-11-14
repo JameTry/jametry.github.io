@@ -88,7 +88,7 @@ public class HtmlGenIndex {
 
 
 
-    private static String getTitleExcerpt(String text) {
+    public static String getTitleExcerpt(String text) {
         int minLength = 5;
         int maxLength = 12;
         String punctuationStr = "，。：”？,.!?\"";
