@@ -1,9 +1,11 @@
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
+import org.jsoup.parser.Tag;
 import org.jsoup.select.Elements;
 import com.alibaba.fastjson.JSONObject;
 
+import javax.swing.text.html.HTML;
 import java.io.File;
 import java.io.FileWriter;
 import java.nio.charset.StandardCharsets;
@@ -13,48 +15,77 @@ import java.util.*;
 
 public class RssGenerator {
     private static String POSTS_DIR = "\\html\\post";
+    private static String OTHER_DIR = "\\html\\other";
 
     private static final String SITE_URL = "https://jame.work/";
     private static final String RSS_FILE = "feed.xml";
-
+    static int count = 0;
     private static final SimpleDateFormat INPUT_DATE = new SimpleDateFormat("yyyy年MM月dd日");
+
     static {
         INPUT_DATE.setTimeZone(TimeZone.getTimeZone("Asia/Shanghai"));
     }
+
     private static final SimpleDateFormat OUTPUT_DATE = new SimpleDateFormat("EEE, dd MMM yyyy HH:mm:ss +0800", Locale.US);
 
 
-    public static void run(String projectPath) throws Exception {
-        POSTS_DIR = projectPath + POSTS_DIR;
-        List<RssItem> items = new ArrayList<>();
-        int count=0;
+    public static List<RssItem> readContent(String path, boolean isPost) throws Exception {
 
-        File htmlDir = new File(POSTS_DIR);
+        File htmlDir = new File(path);
+        List<RssItem> items = new ArrayList<>();
         for (File file : htmlDir.listFiles((d, name) -> name.endsWith(".html"))) {
             if (file.getName().equals("0.html")) {
                 continue;
             }
+            if (!isPost && !file.getName().contains("r")) {
+                continue;
+            }
             Document doc = Jsoup.parse(file, "UTF-8");
             String title = escapeXml(doc.select("p").get(1).text().trim());
-            title = title.length() > 20 ? title.substring(0, 20) + "..." : title;
-            Elements paragraphs0 = doc.select("h2");
+            title = HtmlGenIndex.getTitleExcerpt(title);
+            Elements paragraphs0 = doc.select("h1");
             StringBuilder content = new StringBuilder();
             for (Element element : paragraphs0) {
-                content.append("<h2>").append(element.text()).append("</h2>");
+                content.append("<h1>").append(element.text()).append("</h1>");
                 title = element.text();
             }
-            Elements paragraphs = doc.select("p");
-            for (int i = 1; i < paragraphs.size(); i++) {
-                Element p = paragraphs.get(i);
-                content.append("<p>").append(p.text()).append("</p>");
-                count+=p.text().length();
+
+            Element article = doc.select("article").get(0);
+            for (Element child : article.children()) {
+                String name = child.tag().getName();
+                if(name.equals("p")){
+                    content.append("<p>").append(child.text()).append("</p>");
+                    count += child.text().length();
+                }else if(name.equals("blockquote")){
+                    content.append("<blockquote>").append(child.text()).append("</blockquote>");
+                    count += child.text().length();
+                }
+
+
             }
-            String timeStr = doc.select("p.top-op span").get(1).text();
+
+            String timeStr = null;
+            try {
+                timeStr = doc.select("p.top-op span").get(1).text();
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
             Date pubDate = INPUT_DATE.parse(timeStr);
-            String link = SITE_URL + "html/post/" + file.getName().replace(".html", "");
+            String link = SITE_URL + (isPost ? "html/post/" : "html/other/") + file.getName().replace(".html", "");
 
             items.add(new RssItem(title, content.toString(), pubDate, link));
         }
+        return items;
+    }
+
+
+    public static void run(String projectPath) throws Exception {
+        POSTS_DIR = projectPath + POSTS_DIR;
+        OTHER_DIR = projectPath + OTHER_DIR;
+        List<RssItem> items = new ArrayList<>();
+
+        items.addAll(readContent(POSTS_DIR, true));
+        items.addAll(readContent(OTHER_DIR, false));
 
 
         items.sort((a, b) -> b.pubDate.compareTo(a.pubDate));
@@ -83,7 +114,7 @@ public class RssGenerator {
             writer.write(rss.toString().replaceAll("><", ">\n<"));
         }
         System.out.println("RSS 生成成功：" + RSS_FILE);
-        System.out.println("字数："+count);
+        System.out.println("字数：" + count);
     }
 
     private static String escapeXml(String input) {
