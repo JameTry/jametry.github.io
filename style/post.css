@@ -17,7 +17,7 @@ body {
     overflow-wrap: break-word
 }
 
-h1{
+h1 {
     font-size: 26px;
 }
 
@@ -27,9 +27,9 @@ hr {
 }
 
 p {
-    margin: 0 0 1rem 0;
-    letter-spacing: 0.02rem;
-    line-height: 1.45;
+    margin: 1.3rem 0;
+    letter-spacing: 0.01rem;
+    line-height: 1.6;
 }
 
 .post p {
@@ -114,13 +114,21 @@ article {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: rgba(0,0,0,0.85);
+    background: rgba(0, 0, 0, 0.85);
     display: none;
     justify-content: center;
     align-items: center;
     z-index: 999;
 }
+
 #imgViewer img {
     max-width: 90%;
     max-height: 90%;
+}
+
+.delete {
+    text-decoration: line-through;
+    color: #838383;
+    text-decoration-color: #151515;
+    text-decoration-thickness: 2px
 }
