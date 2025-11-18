@@ -59,6 +59,8 @@ public class RssGenerator {
                 }else if(name.equals("blockquote")){
                     content.append("<blockquote>").append(child.text()).append("</blockquote>");
                     count += child.text().length();
+                }else  if(name.equals("br")){
+                    content.append("<br/>");
                 }
 
 
