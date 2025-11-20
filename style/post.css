@@ -79,13 +79,15 @@ blockquote p {
 }
 
 a {
-    text-underline-offset: 4px;
-    text-decoration: none;
+    text-underline-offset: 6px;
+    text-decoration-color: #a3beff;
+    text-decoration-style: dashed;
     color: #333;
 }
 
 a:hover {
-    text-decoration: underline;
+    text-decoration-style: dashed;
+    text-decoration-color: #0858ff;
     color: #0858ff;
 }
 
