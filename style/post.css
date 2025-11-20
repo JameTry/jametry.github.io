@@ -44,7 +44,9 @@ li {
 }
 
 *:target {
-    background: #ffdeb1
+    background: #eaeeff;
+    border-radius: 10px;
+    padding: 0.5rem
 }
 
 .w {
@@ -89,6 +91,10 @@ a:hover {
     text-decoration-style: dashed;
     text-decoration-color: #0858ff;
     color: #0858ff;
+}
+
+.twikoo a{
+    text-decoration: none;
 }
 
 .top-op {
