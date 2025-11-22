@@ -44,7 +44,9 @@ li {
 }
 
 *:target {
-    background: #ffdeb1
+    background: #eaeeff;
+    border-radius: 10px;
+    padding: 0.5rem
 }
 
 .w {
@@ -79,14 +81,20 @@ blockquote p {
 }
 
 a {
-    text-underline-offset: 4px;
-    text-decoration: none;
+    text-underline-offset: 6px;
+    text-decoration-color: #a3beff;
+    text-decoration-style: dashed;
     color: #333;
 }
 
 a:hover {
-    text-decoration: underline;
+    text-decoration-style: dashed;
+    text-decoration-color: #0858ff;
     color: #0858ff;
+}
+
+.twikoo a{
+    text-decoration: none;
 }
 
 .top-op {
