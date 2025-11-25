@@ -94,7 +94,9 @@ a:hover {
 }
 
 .twikoo a{
-    text-decoration: none;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    text-decoration-color: #a3beff;
 }
 
 .top-op {
