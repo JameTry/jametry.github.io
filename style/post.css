@@ -81,22 +81,19 @@ blockquote p {
 }
 
 a {
-    text-underline-offset: 6px;
-    text-decoration-color: #a3beff;
-    text-decoration-style: dashed;
+    text-underline-offset: 4px;
+    text-decoration-color: #8eadff;
     color: #333;
 }
 
 a:hover {
-    text-decoration-style: dashed;
     text-decoration-color: #0858ff;
     color: #0858ff;
 }
 
 .twikoo a{
-    text-decoration: underline;
     text-underline-offset: 2px;
-    text-decoration-color: #a3beff;
+    text-decoration-color: #8eadff;
 }
 
 .top-op {
