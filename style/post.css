@@ -137,7 +137,7 @@ article {
     max-height: 90%;
 }
 
-.delete {
+.delete,del {
     text-decoration: line-through;
     color: #838383;
     text-decoration-color: #151515;
