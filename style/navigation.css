@@ -11,7 +11,7 @@
     border-bottom: 1px solid #ececec;
 }
 
-.active{
+.active {
     opacity: 1;
     font-weight: 600;
 }
@@ -23,12 +23,12 @@
     z-index: 99;
 }
 
-.post-time{
+.post-time {
     font-weight: 600;
 }
 
-.info{
- width: fit-content;
+.info {
+    width: fit-content;
     margin-right: auto;
     margin-left: auto;
 }
@@ -53,17 +53,14 @@
 }
 
 p {
-    margin-bottom: 7px; !important;
+    margin-bottom: 7px;
+!important;
 }
 
-h2{
+h2 {
     margin-top: 0;
     margin-bottom: 0;
 }
-
-
-
-
 
 
 @media (max-width: 768px) {
