@@ -306,6 +306,12 @@
         </div>
     </article>
 </div>
+<script>
+    let $ps=document.getElementsByClassName("serial");
+    for (let i = 0; i < $ps.length; i++) {
+        $ps.item(i).textContent=`#${$ps.length-i}`
+    }
+</script>
 <script src="/js/imgView.js"></script>
 </body>
 </html>
