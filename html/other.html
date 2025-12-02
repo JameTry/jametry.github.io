@@ -19,6 +19,7 @@
     article div {
         margin-bottom: 120px;
     }
+
     .list li {
         margin-top: 10px;
 
@@ -81,7 +82,10 @@
         <div>
             <p class="serial">#</p>
             <p>突然有一种宏大的感觉从我心中升起，或者不如说是宏大走到了我面前，我感受到了压迫。</p>
-            <p>也突然很想写点命运，生命有关宏大的东西，却不知道写什么，<del>死</del>活脑子快想啊。</p>
+            <p>也突然很想写点命运，生命有关宏大的东西，却不知道写什么，
+                <del>死</del>
+                活脑子快想啊。
+            </p>
         </div>
         <div>
             <p class="serial">#</p>
@@ -307,9 +311,9 @@
     </article>
 </div>
 <script>
-    let $ps=document.getElementsByClassName("serial");
+    let $ps = document.getElementsByClassName("serial");
     for (let i = 0; i < $ps.length; i++) {
-        $ps.item(i).textContent=`#${$ps.length-i}`
+        $ps.item(i).textContent = `#${$ps.length - i}`
     }
 </script>
 <script src="/js/imgView.js"></script>
