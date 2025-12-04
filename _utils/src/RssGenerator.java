@@ -107,6 +107,7 @@ public class RssGenerator {
                     .append("<description><![CDATA[").append(item.content).append("]]></description>\n")
                     .append("<pubDate>").append(OUTPUT_DATE.format(item.pubDate)).append("</pubDate>\n")
                     .append("<guid>").append(item.link).append("</guid>\n")
+                    .append("<author>Jame!</author>\n")
                     .append("</item>\n");
         }
 
