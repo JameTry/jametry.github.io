@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="/style/post.css">
     <link rel="stylesheet" href="/style/navigation.css">
 </head>
+<script src="/js/tool.js"></script>
 
 <style>
 
@@ -18,7 +19,8 @@
         margin: 20px 0;
         font-size: 14px;
     }
-    .styled-table a{
+
+    .styled-table a {
         font-size: 16px;
         font-weight: 500;
     }
@@ -28,33 +30,19 @@
     }
 
     .styled-table thead tr {
-        background-color: #f3f3f3;
         text-align: left;
         height: 50px;
     }
 
     .styled-table th {
-        padding: 8px 8px;
+        padding: 8px;
         font-weight: 600;
         position: relative;
     }
 
-    .styled-table tbody td:first-child,
-    .styled-table tbody td:nth-child(2) {
-        white-space: nowrap;
-    }
-
-    .styled-table tbody tr {
-        background-color: #ffffff;
-    }
-
-    .styled-table tbody tr:nth-of-type(even) {
-        background-color: #f8f9fa;
-    }
 
     .styled-table td {
         padding: 12px 12px;
-        color: #333;
         min-height: 64px;
         vertical-align: middle;
     }
@@ -65,7 +53,7 @@
 <nav class="navbar">
     <button class="menu-toggle" onclick="document.querySelector('.nav-links').classList.toggle('show');">☰</button>
     <div class="nav-links">
-        <a href="/">首页</a> <a href="/html/about">关于</a> <a href="/html/other">杂项</a> <a class="active" href="/html/link">链接</a><a target="_blank" href="https://www.travellings.cn/go.html">开往</a>
+        <a class="active" href="/">首页</a> <a href="/html/about">关于</a> <a href="/html/other">杂项</a> <a href="/html/link">链接</a><a target="_blank" href="https://www.travellings.cn/go.html">开往</a><a href="#" onclick="toggleTheme()">明暗</a>
     </div>
 </nav>
 <div class="w">
@@ -106,39 +94,39 @@
             <table class="styled-table">
                 <thead>
                 <tr>
-                    <th>图标</th>
+                    <th>&nbsp;图标</th>
                     <th>名称</th>
                     <th>描述</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr>
-                    <td><img src="https://wygxmew.github.io/favicon.ico" alt=""></td>
+                    <td><img src="https://wygxmew.github.io/favicon.ico" loading="lazy" alt=""></td>
                     <td><a href="https://wygxmew.github.io/" target="_blank">乌云盖雪</a></td>
                     <td>看君终日常安卧，何事纷纷去又回？</td>
                 </tr>
                 <tr>
-                    <td><img src="https://hanis.me/upload/ProfilePic.jpg" alt=""></td>
+                    <td><img src="https://hanis.me/upload/ProfilePic.jpg" loading="lazy" alt=""></td>
                     <td><a href="https://hanis.me" target="_blank">Jason’s Blog</a></td>
                     <td>常年端書，手臂結實。</td>
                 </tr>
                 <tr>
-                    <td><img src="https://bu.dusays.com/2024/11/11/6731ad4c16396.jpg" alt=""></td>
+                    <td><img src="https://bu.dusays.com/2024/11/11/6731ad4c16396.jpg" loading="lazy" alt=""></td>
                     <td><a href="https://blog.leoo.fun" target="_blank">清欲的小窝</a></td>
                     <td>沙雕网友清欲的碎碎念</td>
                 </tr>
                 <tr>
-                    <td><img src="https://pic.vss.plus/pianke/touxiang3.jpg" alt=""></td>
+                    <td><img src="https://pic.vss.plus/pianke/touxiang3.jpg" loading="lazy" alt=""></td>
                     <td><a href="https://vss.plus" target="_blank">Vss Blog</a></td>
                     <td>用认真生活提升自己</td>
                 </tr>
                 <tr>
-                    <td><img src="https://img.snowy.moe/head.png" alt=""></td>
+                    <td><img src="https://img.snowy.moe/head.png" loading="lazy" alt=""></td>
                     <td><a href="https://blog.snowy.moe" target="_blank">雪萌天文台</a></td>
                     <td>发现巷子里的那颗星星</td>
                 </tr>
                 <tr>
-                    <td><img src="https://nasliangjian.mycloudnas.com:4443/wp-content/uploads/2025/04/0e383817b97bb4b039167eff67c8f529.jpeg" alt=""></td>
+                    <td><img src="https://nasliangjian.mycloudnas.com:4443/wp-content/uploads/2025/04/0e383817b97bb4b039167eff67c8f529.jpeg" loading="lazy" alt=""></td>
                     <td><a href="https://nasliangjian.mycloudnas.com:4443" target="_blank">James的小站</a></td>
                     <td>分享生活、心情日志、兴趣广泛，80后程序猿。</td>
                 </tr>
@@ -148,7 +136,7 @@
                     <td>诗歌，翻译，圣经随笔，生活随笔，一个小小园地。</td>
                 </tr>
                 <tr>
-                    <td><img src="https://img.qingfengnb.cn/LightPicture/2025/07/bec6eb9625656d60.jpg" alt=""></td>
+                    <td><img src="https://img.qingfengnb.cn/LightPicture/2025/07/bec6eb9625656d60.jpg" loading="lazy" alt=""></td>
                     <td><a href="https://www.qingfengnb.cn" target="_blank">轻风blog</a></td>
                     <td>茫茫人海，多么幸运才能遇见你！</td>
                 </tr>
@@ -163,17 +151,17 @@
                     <td>魔女碎碎念</td>
                 </tr>
                 <tr>
-                    <td><img src="https://www.xiaoten.com/avatar.png" alt=""></td>
+                    <td><img src="https://www.xiaoten.com/avatar.png" loading="lazy" alt=""></td>
                     <td><a href="https://www.xiaoten.com/" target="_blank">小十博客</a></td>
                     <td>十分之十的小十</td>
                 </tr>
                 <tr>
-                    <td><img src="https://cystee.github.io/img/apple-touch-icon-144-precomposed.png" alt=""></td>
+                    <td><img src="https://cystee.github.io/img/apple-touch-icon-144-precomposed.png" loading="lazy" alt=""></td>
                     <td><a href="https://cystee.github.io" target="_blank">The Blog</a></td>
                     <td>What is a blog?</td>
                 </tr>
                 <tr>
-                    <td><img src="http://www.xulog.cn/logo.png" alt=""></td>
+                    <td><img src="http://www.xulog.cn/logo.png" loading="lazy" alt=""></td>
                     <td><a href="http://xulog.cn/" target="_blank">徐建伟</a></td>
                     <td>分享经典语录随笔文字的微博客</td>
                 </tr>
