@@ -11,26 +11,44 @@
 <script src="/js/tool.js"></script>
 <style>
 
-    :root{
-        --serial-color:#9196a1;
+    :root {
+        --serial-color: #9196a1;
+        --div-border-color: rgba(0, 0, 0, 0.3);
     }
+
     [data-theme="dark"] {
         --serial-color: #b9b4b4;
+        --div-border-color: rgb(255, 255, 255, 0.3);
+
     }
 
     .serial {
         font-size: 2rem;
         font-weight: bolder;
         color: var(--serial-color);
+        position: absolute;
+        top: -0.65em;
+        left: 10px;
+        background-color: var(--bg-color);
+        padding: 0 5px;
+        z-index: 1;
+        line-height: 1;
+    }
+
+    article {
+        padding-top: 100px;
     }
 
     article div {
-        margin-bottom: 120px;
+        margin-bottom: 90px;
+        border: 1px var(--div-border-color) solid;
+        border-radius: 4px;
+        position: relative;
+        padding: 30px 15px 5px 15px;
     }
 
     .list li {
         margin-top: 10px;
-
     }
 
     .time {
@@ -39,38 +57,38 @@
         font-size: 14px;
         color: var(--smail-txt-color);
     }
+
 </style>
 
 <body>
 <nav class="navbar">
     <button class="menu-toggle" onclick="document.querySelector('.nav-links').classList.toggle('show');">☰</button>
     <div class="nav-links">
-        <a  href="/">首页</a> <a href="/html/about">关于</a> <a  class="active" href="/html/other">杂项</a> <a href="/html/link">链接</a><a target="_blank" href="https://www.travellings.cn/go.html">开往</a><a href="#" onclick="toggleTheme()">明暗</a>
+        <a href="/">首页</a> <a href="/html/about">关于</a> <a class="active" href="/html/other">杂项</a> <a href="/html/link">链接</a><a target="_blank" href="https://www.travellings.cn/go.html">开往</a><a href="#" onclick="toggleTheme()">明暗</a>
     </div>
 </nav>
 <div class="w">
+    <ul class="list">
+        <li><strong>杂杂项</strong></li>
+        <ul>
+            <li><a href="/html/other/page">留言本</a></li>
+        </ul>
+        <li><strong>不定期更新</strong></li>
+        <ul>
+            <li><a href="/html/other/0">想做的事情</a></li>
+            <li><a href="/html/other/4">随笔</a></li>
+            <li><a href="/html/other/5">收藏</a></li>
+        </ul>
+        <li><strong>其他</strong></li>
+        <ul>
+            <li><a href="/html/other/3">生活的意义，ai与荒谬</a></li>
+            <li><a href="/html/other/6r">物哀</a></li>
+            <li><a href="/html/other/7">same</a></li>
+            <li><a href="/html/other/8r">聊聊书</a></li>
+        </ul>
+    </ul>
+    <hr>
     <article>
-        <div>
-            <ul class="list">
-                <li><strong>杂杂项</strong></li>
-                <ul>
-                    <li><a href="/html/other/page">留言本</a></li>
-                </ul>
-                <li><strong>不定期更新</strong></li>
-                <ul>
-                    <li><a href="/html/other/0">想做的事情</a></li>
-                    <li><a href="/html/other/4">随笔</a></li>
-                    <li><a href="/html/other/5">收藏</a></li>
-                </ul>
-                <li><strong>其他</strong></li>
-                <ul>
-                    <li><a href="/html/other/3">生活的意义，ai与荒谬</a></li>
-                    <li><a href="/html/other/6r">物哀</a></li>
-                    <li><a href="/html/other/7">same</a></li>
-                    <li><a href="/html/other/8r">聊聊书</a></li>
-                </ul>
-            </ul>
-        </div>
         <div>
             <p class="serial">#</p>
             <p>今天下雪了，下的很温柔。</p>
@@ -402,6 +420,23 @@
     for (let i = 0; i < $ps.length; i++) {
         $ps.item(i).textContent = `#${$ps.length - i}`
     }
+
+    (function adjustMargins() {
+        const divs = document.querySelectorAll('article > div');
+        for (let i = 0; i < divs.length - 1; i++) {
+            const currentTime = divs[i].querySelector('.time').textContent.trim();
+            const nextTime = divs[i + 1].querySelector('.time').textContent.trim();
+            const parseDate = (dateStr) => {
+                const [year, month, day] = dateStr.split('-').map(Number);
+                return new Date(2000 + year, month - 1, day);
+            };
+
+            const diffTime = Math.abs(parseDate(currentTime) - parseDate(nextTime));
+            const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+            const totalMargin = 50 + (diffDays ) * 50;
+            divs[i].style.marginBottom = `${Math.max(90, totalMargin)}px`;
+        }
+    })();
 </script>
 
 </body>
