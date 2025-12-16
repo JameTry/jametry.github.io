@@ -10,6 +10,7 @@
     --border-color: #ececec;
     --a-hover-color:#0858ff;
     --about-img:invert(0%);
+    --text-decoration-color:#8eadff;
 }
 
 
@@ -23,8 +24,9 @@
     --del-line-color: #e8e8e8;
     --menu-toggle-color: #333333FF;
     --border-color: #595b5c;
-    --a-hover-color: #5788fa;
+    --a-hover-color: #4c81fa;
     --about-img:invert(100%);
+    --text-decoration-color: #5884f8;
 }
 
 html, body {
@@ -112,7 +114,7 @@ blockquote p {
 
 a {
     text-underline-offset: 4px;
-    text-decoration-color: #8eadff;
+    text-decoration-color: var(--text-decoration-color);
     color: var(--text-color);
 }
 
