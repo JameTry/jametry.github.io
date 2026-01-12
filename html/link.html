@@ -11,51 +11,27 @@
 <script src="/js/tool.js"></script>
 
 <style>
-
-    .styled-table {
-        width: 100%;
-        border-collapse: separate;
-        border-spacing: 0;
-        margin: 20px 0;
-        font-size: 14px;
+    #f {
+        padding-left: 20px;
     }
 
-    .styled-table a {
-        font-size: 16px;
-        font-weight: 500;
+    #f li p {
+        display: grid;
+        grid-template-columns: 110px 1fr;
+        column-gap: 12px;
+        align-items: center;
+        margin: 6px 0;
     }
 
-    .styled-table img {
-        width: 35px;
+    #f li p a {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 
-    .styled-table thead tr {
-        text-align: left;
-        height: 50px;
+    #f li p .describe {
+        color: var(--smail-txt-color);
     }
-
-    .styled-table th {
-        padding: 8px;
-        font-weight: 600;
-        position: relative;
-    }
-
-
-    .styled-table td {
-        padding: 12px 12px;
-        min-height: 64px;
-        vertical-align: middle;
-    }
-
-    .poetry {
-        padding-top: 10px;
-        padding-bottom: 10px;
-    }
-
-    .poetry li {
-        margin-bottom: 20px;
-    }
-
 </style>
 <body>
 <nav class="navbar">
@@ -157,7 +133,7 @@
                     <li>
                         <div>
                             <p><a href="https://bedtimepoem.com/archives/18399" target="_blank">如歌的行板</a></p>
-                            <p>正正经经看一名女子走过之必要  有些时候，那种状态、心境下经历的一些事，读过的一些诗，会在心中留下一直特别的感觉，哪怕后来再去经历一遍，也不如当时那么强烈，或者根本没有。诗不错，诗评也好。</p>
+                            <p>正正经经看一名女子走过之必要 有些时候，那种状态、心境下经历的一些事，读过的一些诗，会在心中留下一直特别的感觉，哪怕后来再去经历一遍，也不如当时那么强烈，或者根本没有。诗不错，诗评也好。</p>
                         </div>
                     </li>
                     <li>
@@ -200,89 +176,50 @@
 
         <br>
         <h3>友链</h3>
-        <div>
-            <table class="styled-table">
-                <thead>
-                <tr>
-                    <th>&nbsp;图标</th>
-                    <th>名称</th>
-                    <th>描述</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td><img src="https://wygxmew.github.io/favicon.ico" loading="lazy" alt=""></td>
-                    <td><a href="https://wygxmew.github.io/" target="_blank">乌云盖雪</a></td>
-                    <td>看君终日常安卧，何事纷纷去又回？</td>
-                </tr>
-                <tr>
-                    <td><img src="https://hanis.me/upload/ProfilePic.jpg" loading="lazy" alt=""></td>
-                    <td><a href="https://hanis.me" target="_blank">Jason’s Blog</a></td>
-                    <td>常年端書，手臂結實。</td>
-                </tr>
-                <tr>
-                    <td><img src="https://bu.dusays.com/2024/11/11/6731ad4c16396.jpg" loading="lazy" alt=""></td>
-                    <td><a href="https://blog.leoo.fun" target="_blank">清欲的小窝</a></td>
-                    <td>沙雕网友清欲的碎碎念</td>
-                </tr>
-                <tr>
-                    <td><img src="https://pic.vss.plus/pianke/touxiang3.jpg" loading="lazy" alt=""></td>
-                    <td><a href="https://vss.plus" target="_blank">Vss Blog</a></td>
-                    <td>用认真生活提升自己</td>
-                </tr>
-                <tr>
-                    <td><img src="https://img.snowy.moe/head.png" loading="lazy" alt=""></td>
-                    <td><a href="https://blog.snowy.moe" target="_blank">雪萌天文台</a></td>
-                    <td>发现巷子里的那颗星星</td>
-                </tr>
-                <tr>
-                    <td><img src="https://nasliangjian.mycloudnas.com:4443/wp-content/uploads/2025/04/0e383817b97bb4b039167eff67c8f529.jpeg" loading="lazy" alt=""></td>
-                    <td><a href="https://nasliangjian.mycloudnas.com:4443" target="_blank">James的小站</a></td>
-                    <td>分享生活、心情日志、兴趣广泛，80后程序猿。</td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td><a href="https://www.christianpoet.top" target="_blank">诗译象</a></td>
-                    <td>诗歌，翻译，圣经随笔，生活随笔，一个小小园地。</td>
-                </tr>
-                <tr>
-                    <td><img src="https://img.qingfengnb.cn/LightPicture/2025/07/bec6eb9625656d60.jpg" loading="lazy" alt=""></td>
-                    <td><a href="https://www.qingfengnb.cn" target="_blank">轻风blog</a></td>
-                    <td>茫茫人海，多么幸运才能遇见你！</td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td><a href="https://www.yingyu5658.me/" target="_blank">映屿</a></td>
-                    <td>关于互联网、书籍、生活琐事以及那些一闪而过的念头。</td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td><a href="https://ro3or.com" target="_blank">鹅玉</a></td>
-                    <td>魔女碎碎念</td>
-                </tr>
-                <tr>
-                    <td><img src="https://www.xiaoten.com/avatar.png" loading="lazy" alt=""></td>
-                    <td><a href="https://www.xiaoten.com/" target="_blank">小十博客</a></td>
-                    <td>十分之十的小十</td>
-                </tr>
-                <tr>
-                    <td><img src="https://blog.5252025.xyz/img/apple-touch-icon-144-precomposed.png" loading="lazy" alt=""></td>
-                    <td><a href="https://blog.5252025.xyz" target="_blank">The Blog</a></td>
-                    <td>What is a blog?</td>
-                </tr>
-                <tr>
-                    <td><img src="http://www.xulog.cn/logo.png" loading="lazy" alt=""></td>
-                    <td><a href="http://xulog.cn/" target="_blank">徐建伟</a></td>
-                    <td>分享经典语录随笔文字的微博客</td>
-                </tr>
-                <tr>
-                    <td><img src="http://www.winegrower.cn/logo.png" loading="lazy" alt=""></td>
-                    <td><a href="http://www.winegrower.cn/" target="_blank">winegrower</a></td>
-                    <td>种葡萄并酿酒的人</td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
+        <ul style="padding-left: 20px" id="f">
+            <li>
+                <p><a href="https://wygxmew.github.io/" target="_blank">乌云盖雪</a> <span class="describe">看君终日常安卧，何事纷纷去又回？</span></p>
+            </li>
+            <li>
+                <p><a href="https://hanis.me" target="_blank">Jason’s Blog</a> <span class="describe">常年端書，手臂結實。</span></p>
+            </li>
+            <li>
+                <p><a href="https://blog.leoo.fun" target="_blank">清欲的小窝</a> <span class="describe">沙雕网友清欲的碎碎念</span></p>
+            </li>
+            <li>
+                <p><a href="https://vss.plus" target="_blank">Vss Blog</a> <span class="describe">用认真生活提升自己</span></p>
+            </li>
+            <li>
+                <p><a href="https://blog.snowy.moe" target="_blank">雪萌天文台</a> <span class="describe">发现巷子里的那颗星星</span></p>
+            </li>
+            <li>
+                <p><a href="https://nasliangjian.mycloudnas.com:4443" target="_blank">James的小站</a> <span class="describe">分享生活、心情日志、兴趣广泛，80后程序猿。</span></p>
+            </li>
+            <li>
+                <p><a href="https://www.christianpoet.top" target="_blank">诗译象</a> <span class="describe">诗歌，翻译，圣经随笔，生活随笔，一个小小园地。</span></p>
+            </li>
+            <li>
+                <p><a href="https://www.qingfengnb.cn" target="_blank">轻风blog</a> <span class="describe">茫茫人海，多么幸运才能遇见你！</span></p>
+            </li>
+            <li>
+                <p><a href="https://www.yingyu5658.me/" target="_blank">映屿</a> <span class="describe">关于互联网、书籍、生活琐事以及那些一闪而过的念头。</span></p>
+            </li>
+            <li>
+                <p><a href="https://ro3or.com" target="_blank">鹅玉</a> <span class="describe">魔女碎碎念</span></p>
+            </li>
+            <li>
+                <p><a href="https://www.xiaoten.com/" target="_blank">小十博客</a> <span class="describe">十分之十的小十</span></p>
+            </li>
+            <li>
+                <p><a href="https://blog.5252025.xyz" target="_blank">The Blog</a> <span class="describe">What is a blog?</span></p>
+            </li>
+            <li>
+                <p><a href="http://xulog.cn/" target="_blank">徐建伟</a> <span class="describe">分享经典语录随笔文字的微博客</span></p>
+            </li>
+            <li>
+                <p><a href="http://www.winegrower.cn/" target="_blank">winegrower</a> <span class="describe">种葡萄并酿酒的人</span></p>
+            </li>
+        </ul>
         <br>
         <h3>失效链接</h3>
         <details>
