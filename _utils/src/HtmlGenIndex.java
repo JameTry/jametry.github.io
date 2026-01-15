@@ -23,7 +23,10 @@ public class HtmlGenIndex {
     public static void run(String path) {
         INDEX_FILE = path + INDEX_FILE;
         try {
+            // 步骤1: 读取并处理所有HTML文件
             List<PostInfo> posts = new ArrayList<>();
+            // 定义常量
+            // HTML文件所在目录
             String INPUT_DIR = path + "\\html\\post";
             File dir = new File(INPUT_DIR);
             File[] files = dir.listFiles((d, name) -> name.endsWith(".html"));
@@ -79,9 +82,10 @@ public class HtmlGenIndex {
                 file.getName().replace(".html", ""),
                 content,
                 date,
-                formatMonthDay(date)
+                formatDate(date)
         );
     }
+
 
 
     public static String getTitleExcerpt(String text) {
@@ -165,21 +169,13 @@ public class HtmlGenIndex {
 
         doc = Jsoup.parse(indexPath.toFile(), "UTF-8");
 
-        Element contentDiv = doc.select("div.posts").first();
+        Element contentDiv = doc.select("div.posts" ).first();
         if (contentDiv == null) {
             throw new RuntimeException("找不到class为的div");
         }
 
         contentDiv.html("");
-        Integer lastYear = null;
         for (PostInfo post : posts) {
-            int currentYear = getYear(post.date);
-            if (lastYear == null || currentYear != lastYear) {
-                contentDiv.append(
-                        String.format("<p class=\"year\">%d</p>", currentYear)
-                );
-                lastYear = currentYear;
-            }
             String html = String.format(
                     "<p><span>%s</span> <a href=\"/html/post/%s\">%s</a></p>",
                     post.formattedDate, post.fileId, post.content
@@ -202,14 +198,5 @@ public class HtmlGenIndex {
             this.date = date;
             this.formattedDate = formattedDate;
         }
-    }
-
-    private static int getYear(Date date) {
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy");
-        return Integer.parseInt(sdf.format(date));
-    }
-    private static String formatMonthDay(Date date) {
-        SimpleDateFormat sdf = new SimpleDateFormat("MM-dd");
-        return sdf.format(date);
     }
 }
