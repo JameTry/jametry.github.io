@@ -169,7 +169,7 @@ public class HtmlGenIndex {
 
         doc = Jsoup.parse(indexPath.toFile(), "UTF-8");
 
-        Element contentDiv = doc.select("div.post" ).first();
+        Element contentDiv = doc.select("div.posts" ).first();
         if (contentDiv == null) {
             throw new RuntimeException("找不到class为的div");
         }

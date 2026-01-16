@@ -59,6 +59,12 @@ hr {
     line-height: 1.45;
 }
 
+.post p {
+    text-indent: 2rem;
+    margin: 1.1rem 0;
+    letter-spacing: 0.01rem;
+    line-height: 1.6;
+}
 
 li {
     margin: 0.4rem 0
