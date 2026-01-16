@@ -79,9 +79,8 @@ li {
 }
 
 .w {
-    font-family: "华文行楷", "STKaiti", "KaiTi", serif;
+    font-family: "KaiTi","FangSong", "STKaiti", serif;
     font-size: 18px;
-    font-weight: 500;
     max-width: 700px;
     margin: 0 auto;
     padding: 2rem 2rem 4rem 2rem
