@@ -2,8 +2,6 @@
     --bg-color: white;
     --text-color: #333;
     --blockquote-bg-color: #f6f6f6;
-    --tips-bg-color: rgba(159, 208, 255, 0.5);
-    --smail-txt-color: #7f848f;
     --del-text-color: #838383;
     --del-line-color: #151515;
     --menu-toggle-color: #333333FF;
@@ -18,8 +16,6 @@
     --bg-color: #27272a;
     --text-color: #e8e8ec;
     --blockquote-bg-color: #3f3d3d;
-    --tips-bg-color: rgba(57, 91, 227, 0.94);
-    --smail-txt-color: #e5e5e5;
     --del-text-color: #dadada;
     --del-line-color: #e8e8e8;
     --menu-toggle-color: #333333FF;
@@ -57,18 +53,12 @@ hr {
     margin: 2rem 0
 }
 
-p {
+.w p {
     margin: 0 0 1rem 0;
     letter-spacing: 0.02rem;
     line-height: 1.45;
 }
 
-.post p {
-    text-indent: 2rem;
-    margin: 1.1rem 0;
-    letter-spacing: 0.01rem;
-    line-height: 1.6;
-}
 
 li {
     margin: 0.4rem 0
@@ -81,6 +71,9 @@ li {
 }
 
 .w {
+    font-family: "华文行楷", "STKaiti", "KaiTi", serif;
+    font-size: 20px;
+    font-weight: 500;
     max-width: 700px;
     margin: 0 auto;
     padding: 2rem 2rem 4rem 2rem
@@ -113,13 +106,13 @@ blockquote p {
     margin: 0.5rem !important;
 }
 
-a {
+.w a {
     text-underline-offset: 4px;
     text-decoration-color: var(--text-decoration-color);
     color: var(--text-color);
 }
 
-a:hover {
+.w a:hover {
     text-decoration-color: var(--a-hover-color);
     color: var(--a-hover-color);
 }
@@ -132,24 +125,13 @@ a:hover {
 .top-op {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 70px;
+    margin-bottom: 80px !important;
     margin-top: 4rem;
 }
 
 article {
     caret-color: transparent;
     margin-bottom: 70px;
-}
-
-.small-text, .small-text * {
-    font-size: 12px;
-    color: var(--smail-txt-color);
-}
-
-.tips {
-    background-color: var(--tips-bg-color);
-    padding: 3px 5px;
-    border-radius: 10px;
 }
 
 #imgViewer {
