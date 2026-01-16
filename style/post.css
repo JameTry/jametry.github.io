@@ -8,6 +8,7 @@
     --border-color: #ececec;
     --a-hover-color:#0858ff;
     --about-img:invert(0%);
+    --smail-txt-color: #7f848f;
     --text-decoration-color:#8eadff;
 }
 
@@ -22,6 +23,7 @@
     --border-color: #595b5c;
     --a-hover-color: #4c81fa;
     --about-img:invert(100%);
+    --smail-txt-color: #e5e5e5;
     --text-decoration-color: #5884f8;
 }
 
@@ -78,7 +80,7 @@ li {
 
 .w {
     font-family: "华文行楷", "STKaiti", "KaiTi", serif;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 500;
     max-width: 700px;
     margin: 0 auto;
@@ -126,6 +128,9 @@ blockquote p {
 .twikoo a {
     text-underline-offset: 2px;
     text-decoration-color: #8eadff;
+}
+.twikoo{
+    font-family: 黑体, serif;
 }
 
 .top-op {
