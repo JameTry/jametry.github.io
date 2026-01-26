@@ -46,7 +46,7 @@ public class RssGenerator {
             Elements paragraphs0 = doc.select("h1");
             StringBuilder content = new StringBuilder();
             for (Element element : paragraphs0) {
-                content.append("<h1>").append(element.text()).append("</h1>");
+//                content.append("<h1>").append(element.text()).append("</h1>");
                 title = element.text();
             }
 
