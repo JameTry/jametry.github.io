@@ -53,14 +53,14 @@ public class RssGenerator {
             Element article = doc.select("article").get(0);
             for (Element child : article.children()) {
                 String name = child.tag().getName();
-                if(name.equals("p")){
+                if (name.equals("p")) {
                     content.append("<p>").append(child.text()).append("</p>");
                     count += child.text().length();
-                }else if(name.equals("blockquote")){
-                    content.append("<blockquote>").append(child.text()).append("</blockquote>");
-                    count += child.text().length();
-                }else  if(name.equals("br")){
+                } else if (name.equals("br")) {
                     content.append("<br/>");
+                } else {
+                    content.append("<").append(name).append(">").append(child.text()).append("</").append(name).append(">");
+                    count += child.text().length();
                 }
 
 
