@@ -5,133 +5,177 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Jame</title>
   <style>
-  :root {
-   --sidebar-width: 300px;
-   --transition-speed: 0.3s;
-  }
 
-  * {
-   margin: 0;
-   padding: 0;
-   box-sizing: border-box;
-  }
+      :root{
+          --sidebar-width:300px;
+          --transition-speed:0.3s;
+      }
 
-  body {
-   color: #333;
-   background-color: #fff;
-   height: 100vh;
-   overflow: hidden;
-   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  }
+      *{
+          margin:0;
+          padding:0;
+          box-sizing:border-box;
+      }
 
-  .layout-container {
-   display: flex;
-   height: 100%;
-   width: 100%;
-   position: relative;
-  }
+      body{
+          color:#333;
+          background:#fff;
+          height:100vh;
+          overflow:hidden;
+          font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+      }
 
-  .sidebar {
-   width: var(--sidebar-width);
-   background-color: #f7f7f7;
-   border-right: 1px solid #eaeaea;
-   display: flex;
-   flex-direction: column;
-   flex-shrink: 0;
-   transition: width var(--transition-speed) ease, transform var(--transition-speed) ease;
-   overflow: hidden;
-   z-index: 10;
-  }
+      .layout-container{
+          display:flex;
+          height:100%;
+          width:100%;
+          position:relative;
+      }
 
-  .sidebar.collapsed {
-   width: 0;
-   transform: translateX(-100%);
-   border-right: none;
-  }
+      /* sidebar */
 
-  .sidebar-header {
-   padding: 24px 20px;
-   border-bottom: 1px solid #eaeaea;
-   min-width: var(--sidebar-width);
-  }
+      .sidebar{
+          width:var(--sidebar-width);
+          background:#f7f7f7;
+          border-right:1px solid #eaeaea;
+          display:flex;
+          flex-direction:column;
+          flex-shrink:0;
+          transition:width var(--transition-speed),transform var(--transition-speed);
+          overflow:hidden;
+          z-index:10;
+      }
 
-  .sidebar-nav {
-   flex: 1;
-   overflow-y: auto;
-   min-width: var(--sidebar-width);
-  }
+      .sidebar.collapsed{
+          width:0;
+          transform:translateX(-100%);
+          border-right:none;
+      }
 
-  .toggle-btn {
-   position: absolute;
-   left: 15px;
-   top: 15px;
-   z-index: 100;
-   background: #fff;
-   border: 1px solid #ddd;
-   border-radius: 6px;
-   width: 35px;
-   height: 35px;
-   cursor: pointer;
-   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   transition: left var(--transition-speed) ease, transform var(--transition-speed) ease;
-   font-size: 20px;
-  }
+      .sidebar-header{
+          padding:24px 20px;
+          border-bottom:1px solid #eaeaea;
+          min-width:var(--sidebar-width);
+      }
 
+      .sidebar-nav{
+          flex:1;
+          overflow-y:auto;
+          min-width:var(--sidebar-width);
+      }
 
-  .sidebar-open .toggle-btn {
-   left: calc(var(--sidebar-width) + 15px);
-  }
+      /* toggle */
 
-  .main-content {
-   flex: 1;
-   position: relative;
-   background-color: #fff;
-   transition: margin-left var(--transition-speed) ease;
-  }
+      .toggle-btn{
+          position:absolute;
+          left:15px;
+          top:15px;
+          z-index:100;
+          background:#fff;
+          border:1px solid #ddd;
+          border-radius:6px;
+          width:35px;
+          height:35px;
+          cursor:pointer;
+          box-shadow:0 2px 8px rgba(0,0,0,0.1);
+          display:flex;
+          align-items:center;
+          justify-content:center;
+          transition:left var(--transition-speed);
+          font-size:20px;
+      }
 
-  #contentFrame {
-   height: 100%;
-   width: 100%;
-   border: none;
-  }
+      .sidebar-open .toggle-btn{
+          left:calc(var(--sidebar-width) + 15px);
+      }
 
-  .nav-item {
-   display: block;
-   padding: 10px 20px;
-   color: #555;
-   text-decoration: none;
-   font-size: 15px;
-   transition: background-color 0.2s;
-  }
+      /* main */
 
-  .nav-item:hover { background-color: #ebebeb; }
-  .nav-item.active { color: #1a73e8; font-weight: 500; }
-  .nav-group-title {
-   font-size: 16px;
-   font-weight: bold;
-   color: #2c2c2c;
-   padding: 20px 20px 8px 20px;
-   text-transform: uppercase;
-   letter-spacing: 1px;
-  }
+      .main-content{
+          flex:1;
+          position:relative;
+          background:#fff;
+      }
 
-  a { text-decoration: none; color: inherit; }
-  .loading {
-   position: absolute;
-   top: 50%;
-   left: 50%;
-   transform: translate(-50%, -50%);
-   background: rgba(255,255,255,0.9);
-   padding: 10px 20px;
-   border-radius: 6px;
-   font-size: 14px;
-   color: #666;
-   display: none;
-   z-index: 5;
-  }
+      #contentFrame{
+          width:100%;
+          height:100%;
+          border:none;
+      }
+
+      /* nav */
+
+      .nav-item{
+          display:block;
+          padding:10px 20px;
+          color:#555;
+          text-decoration:none;
+          font-size:15px;
+          transition:background 0.2s;
+      }
+
+      .nav-item:hover{
+          background:#ebebeb;
+      }
+
+      .nav-item.active{
+          color:#1a73e8;
+          font-weight:500;
+      }
+
+      .nav-group-title{
+          font-size:16px;
+          font-weight:bold;
+          color:#2c2c2c;
+          padding:20px 20px 8px;
+          text-transform:uppercase;
+          letter-spacing:1px;
+      }
+
+      /* loading mask */
+
+      .loading-mask{
+          position:absolute;
+          top:0;
+          left:0;
+          width:100%;
+          height:100%;
+          background:#fff;
+          display:flex;
+          align-items:center;
+          justify-content:center;
+          z-index:20;
+          font-size:14px;
+          color:#666;
+      }
+
+      .loading-mask.hide{
+          display:none;
+      }
+
+      /* loading spinner */
+
+      .loading-text::after{
+          content:"";
+          width:16px;
+          height:16px;
+          border:2px solid #ccc;
+          border-top-color:#333;
+          border-radius:50%;
+          display:inline-block;
+          margin-left:8px;
+          animation:spin 0.8s linear infinite;
+      }
+
+      @keyframes spin{
+          to{transform:rotate(360deg);}
+      }
+
+      a{
+          text-decoration:none;
+          color:inherit;
+      }
+
  </style>
  </head>
  <body class="sidebar-open">
@@ -159,51 +203,56 @@
     </nav>
    </aside>
    <main class="main-content">
-    <div id="loading" class="loading">加载中...</div>
+       <div id="loadingMask" class="loading-mask">
+           <div class="loading-text">加载中...</div>
+       </div>
     <iframe name="contentFrame" id="contentFrame" src="/html/0.html"></iframe>
    </main>
   </div>
   <script>
- const btn = document.getElementById('sidebarToggle');
- const sidebar = document.getElementById('sidebar');
- const body = document.body;
+      const btn=document.getElementById("sidebarToggle");
+      const sidebar=document.getElementById("sidebar");
+      const body=document.body;
 
- btn.addEventListener('click', () => {
-  sidebar.classList.toggle('collapsed');
-  body.classList.toggle('sidebar-open');
+      btn.addEventListener("click",()=>{
 
-  btn.textContent = sidebar.classList.contains('collapsed') ? '➔' : '☰';
- });
- const navItems = document.querySelectorAll('.nav-item[target="contentFrame"]');
+          sidebar.classList.toggle("collapsed");
+          body.classList.toggle("sidebar-open");
 
- navItems.forEach(item => {
-     item.addEventListener('click', function () {
+          btn.textContent=sidebar.classList.contains("collapsed")?"➔":"☰";
 
-         // 清除之前的active
-         navItems.forEach(i => i.classList.remove('active'));
+      });
 
-         // 当前添加active
-         this.classList.add('active');
 
-     });
- });
- const frame = document.getElementById('contentFrame');
- const loading = document.getElementById('loading');
+      /* nav active + loading */
 
- navItems.forEach(item => {
-  item.addEventListener('click', function () {
+      const navItems=document.querySelectorAll('.nav-item[target="contentFrame"]');
+      const frame=document.getElementById("contentFrame");
+      const loading=document.getElementById("loadingMask");
 
-   // 显示加载提示
-   loading.style.display = 'block';
+      navItems.forEach(item=>{
 
-  });
- });
+          item.addEventListener("click",function(){
 
- // iframe加载完成
- frame.addEventListener('load', function () {
-  loading.style.display = 'none';
- });
-</script>
+              navItems.forEach(i=>i.classList.remove("active"));
+              this.classList.add("active");
+
+              loading.classList.remove("hide");
+
+          });
+
+      });
+
+
+
+      frame.addEventListener("load",()=>{
+
+          loading.classList.add("hide");
+
+      });
+
+  </script>
+
   <script src="https://cn.vercount.one/js"></script>
  </body>
 </html>
