@@ -218,66 +218,82 @@
    const frame = document.getElementById("contentFrame");
    const loading = document.getElementById("loadingMask");
 
+
    /* 侧栏开关 */
+
    btn.addEventListener("click", () => {
+
     sidebar.classList.toggle("collapsed");
     body.classList.toggle("sidebar-open");
+
     btn.textContent = sidebar.classList.contains("collapsed") ? "➔" : "☰";
+
    });
 
 
    /* 点击导航 */
+
    navItems.forEach(item => {
+
     item.addEventListener("click", function(e){
+
      e.preventDefault();
+
      const url = this.getAttribute("href");
 
-     // 更新浏览器地址，但不刷新页面
-     history.pushState({url}, "", url);
+     location.hash = url;
 
-     // 加载页面
-     loadPage(url);
     });
+
    });
 
 
-   /* 加载页面函数 */
-   function loadPage(url){
-    if(!url) url = "/html/0.html";
+   /* 根据URL加载文章 */
 
-    // 显示加载遮罩
+   function loadPage(url){
+
+    if(!url) url="/html/0.html";
+
     loading.classList.remove("hide");
 
-    // iframe加载
     frame.src = url;
 
-    // 左侧高亮
-    navItems.forEach(i => {
+    navItems.forEach(i=>{
      i.classList.toggle("active", i.getAttribute("href") === url);
     });
 
-    // 滚动到当前导航
-    document.querySelector(".nav-item.active")?.scrollIntoView({block:"center"});
+    document.querySelector(".nav-item.active")?.scrollIntoView({
+     block:"center"
+    });
+
    }
 
 
-   /* 监听浏览器前进后退 */
-   window.addEventListener("popstate", (event) => {
-    const url = event.state?.url || "/html/0.html";
+
+   window.addEventListener("hashchange", ()=>{
+
+    const url = location.hash.replace("#","");
+
     loadPage(url);
+
    });
 
 
-   /* iframe加载完成 */
+
    frame.addEventListener("load", ()=>{
+
     loading.classList.add("hide");
+
    });
 
 
-   /* 页面首次加载 */
+
    window.addEventListener("DOMContentLoaded", ()=>{
-    const url = location.pathname;
+
+    const url = location.hash.replace("#","");
+
     loadPage(url);
+
    });
   </script>
 
