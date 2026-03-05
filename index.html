@@ -184,7 +184,7 @@
    <aside class="sidebar" id="sidebar">
     <div class="sidebar-header">
      <h1 style="font-size: 24px;">Jame</h1>
-     <p style="margin-top: 8px; font-size: 14px; color: #666;"><a target="contentFrame" href="/html/message">留言</a>&nbsp;·&nbsp; <a target="_blank" href="https://www.travellings.cn/go.html">开往</a></p>
+     <p style="margin-top: 8px; font-size: 14px; color: #666;"><a target="contentFrame" href="/html/message" id="message">留言</a>&nbsp;·&nbsp; <a target="_blank" href="https://www.travellings.cn/go.html">开往</a></p>
     </div>
     <nav class="sidebar-nav">
      <a target="contentFrame" class="nav-item active" href="/html/0.html">序</a>
@@ -213,6 +213,7 @@
   <script>
    const btn = document.getElementById("sidebarToggle");
    const sidebar = document.getElementById("sidebar");
+   const message = document.getElementById("message");
    const body = document.body;
 
    const navItems = document.querySelectorAll('.nav-item[target="contentFrame"]');
@@ -245,8 +246,18 @@
      location.hash = url;
 
     });
+   });
+
+   message.addEventListener("click", function(e){
+
+    e.preventDefault();
+
+    const url = this.getAttribute("href");
+
+    location.hash = url;
 
    });
+
 
 
    /* 根据URL加载文章 */
