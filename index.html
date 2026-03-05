@@ -119,6 +119,19 @@
   }
 
   a { text-decoration: none; color: inherit; }
+  .loading {
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   background: rgba(255,255,255,0.9);
+   padding: 10px 20px;
+   border-radius: 6px;
+   font-size: 14px;
+   color: #666;
+   display: none;
+   z-index: 5;
+  }
  </style>
  </head>
  <body class="sidebar-open">
@@ -130,7 +143,7 @@
      <p style="margin-top: 8px; font-size: 14px; color: #666;"><a target="contentFrame" href="/html/message">留言</a>&nbsp;·&nbsp; <a target="_blank" href="https://www.travellings.cn/go.html">开往</a></p>
     </div>
     <nav class="sidebar-nav">
-     <a target="contentFrame" class="nav-item" href="/html/0.html">序</a>
+     <a target="contentFrame" class="nav-item active" href="/html/0.html">序</a>
      <div class="nav-group-title">
       内容
      </div>
@@ -146,6 +159,7 @@
     </nav>
    </aside>
    <main class="main-content">
+    <div id="loading" class="loading">加载中...</div>
     <iframe name="contentFrame" id="contentFrame" src="/html/0.html"></iframe>
    </main>
   </div>
@@ -159,6 +173,35 @@
   body.classList.toggle('sidebar-open');
 
   btn.textContent = sidebar.classList.contains('collapsed') ? '➔' : '☰';
+ });
+ const navItems = document.querySelectorAll('.nav-item[target="contentFrame"]');
+
+ navItems.forEach(item => {
+     item.addEventListener('click', function () {
+
+         // 清除之前的active
+         navItems.forEach(i => i.classList.remove('active'));
+
+         // 当前添加active
+         this.classList.add('active');
+
+     });
+ });
+ const frame = document.getElementById('contentFrame');
+ const loading = document.getElementById('loading');
+
+ navItems.forEach(item => {
+  item.addEventListener('click', function () {
+
+   // 显示加载提示
+   loading.style.display = 'block';
+
+  });
+ });
+
+ // iframe加载完成
+ frame.addEventListener('load', function () {
+  loading.style.display = 'none';
  });
 </script>
   <script src="https://cn.vercount.one/js"></script>
