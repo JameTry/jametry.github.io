@@ -1,7 +1,6 @@
-@import url('https://npm.elemecdn.com/lxgw-wenkai-screen-webfont/style.css');
 
 :root {
-    --bg-color: white;
+    --bg-color: #fff;
     --text-color: #333;
     --blockquote-bg-color: #f6f6f6;
     --del-text-color: #838383;
@@ -48,11 +47,6 @@ body {
     overflow-wrap: break-word;
 }
 
-h1 {
-    font-size: 30px;
-}
-
-
 hr {
     margin: 2rem 0
 }
@@ -66,7 +60,6 @@ hr {
 .post p {
     text-indent: 40px;
     margin: 1.1rem 0;
-    letter-spacing: 0.01rem;
     line-height: 1.6;
 }
 
@@ -81,8 +74,7 @@ li {
 }
 
 .w {
-    font-family: "LXGW Wenkai Screen","KaiTi","FangSong", "STKaiti", serif;
-    font-size: 18px;
+    font-size: 17px;
     max-width: 700px;
     margin: 0 auto;
     padding: 2rem 2rem 4rem 2rem
@@ -117,7 +109,6 @@ blockquote p {
 
 .w a {
     text-underline-offset: 4px;
-    text-decoration-color: var(--text-decoration-color);
     color: var(--text-color);
 }
 
