@@ -210,47 +210,91 @@
    </main>
   </div>
   <script>
-      const btn=document.getElementById("sidebarToggle");
-      const sidebar=document.getElementById("sidebar");
-      const body=document.body;
+   const btn = document.getElementById("sidebarToggle");
+   const sidebar = document.getElementById("sidebar");
+   const body = document.body;
 
-      btn.addEventListener("click",()=>{
-
-          sidebar.classList.toggle("collapsed");
-          body.classList.toggle("sidebar-open");
-
-          btn.textContent=sidebar.classList.contains("collapsed")?"➔":"☰";
-
-      });
+   const navItems = document.querySelectorAll('.nav-item[target="contentFrame"]');
+   const frame = document.getElementById("contentFrame");
+   const loading = document.getElementById("loadingMask");
 
 
-      /* nav active + loading */
+   /* 侧栏开关 */
 
-      const navItems=document.querySelectorAll('.nav-item[target="contentFrame"]');
-      const frame=document.getElementById("contentFrame");
-      const loading=document.getElementById("loadingMask");
+   btn.addEventListener("click", () => {
 
-      navItems.forEach(item=>{
+    sidebar.classList.toggle("collapsed");
+    body.classList.toggle("sidebar-open");
 
-          item.addEventListener("click",function(){
+    btn.textContent = sidebar.classList.contains("collapsed") ? "➔" : "☰";
 
-              navItems.forEach(i=>i.classList.remove("active"));
-              this.classList.add("active");
-
-              loading.classList.remove("hide");
-
-          });
-
-      });
+   });
 
 
+   /* 点击导航 */
 
-      frame.addEventListener("load",()=>{
+   navItems.forEach(item => {
 
-          loading.classList.add("hide");
+    item.addEventListener("click", function(e){
 
-      });
+     e.preventDefault();
 
+     const url = this.getAttribute("href");
+
+     location.hash = url;
+
+    });
+
+   });
+
+
+   /* 根据URL加载文章 */
+
+   function loadPage(url){
+
+    if(!url) url="/html/0.html";
+
+    loading.classList.remove("hide");
+
+    frame.src = url;
+
+    navItems.forEach(i=>{
+     i.classList.toggle("active", i.getAttribute("href") === url);
+    });
+
+    document.querySelector(".nav-item.active")?.scrollIntoView({
+     block:"center"
+    });
+
+   }
+
+
+
+   window.addEventListener("hashchange", ()=>{
+
+    const url = location.hash.replace("#","");
+
+    loadPage(url);
+
+   });
+
+
+
+   frame.addEventListener("load", ()=>{
+
+    loading.classList.add("hide");
+
+   });
+
+
+
+   window.addEventListener("DOMContentLoaded", ()=>{
+
+    const url = location.hash.replace("#","");
+
+    loadPage(url);
+
+   });
   </script>
 
   <script src="https://cn.vercount.one/js"></script>
