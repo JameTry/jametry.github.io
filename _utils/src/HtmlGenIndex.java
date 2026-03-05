@@ -71,7 +71,7 @@ public class HtmlGenIndex {
 
         content = getTitleExcerpt(content);
 
-        Element timeDiv = doc.select("p.top-op span").get(1);
+        Element timeDiv = doc.select("span.time").first();
         if (timeDiv == null) return null;
 
         String dateStr = timeDiv.text().trim();
@@ -169,7 +169,7 @@ public class HtmlGenIndex {
 
         doc = Jsoup.parse(indexPath.toFile(), "UTF-8");
 
-        Element contentDiv = doc.select("div.posts" ).first();
+        Element contentDiv = doc.select("div.poetry" ).first();
         if (contentDiv == null) {
             throw new RuntimeException("找不到class为的div");
         }
@@ -177,7 +177,7 @@ public class HtmlGenIndex {
         contentDiv.html("");
         for (PostInfo post : posts) {
             String html = String.format(
-                    "<p><a href=\"/html/post/%s\">%s</a></p>",
+                    "<a  target=\"contentFrame\" class=\"nav-item\" href=\"/html/post/%s.html\">%s</a>",
                      post.fileId, post.content
             );
             contentDiv.append(html);

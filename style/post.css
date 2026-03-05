@@ -1,6 +1,6 @@
 
 :root {
-    --bg-color: #fff;
+    #fff: #fff;
     --text-color: #333;
     --blockquote-bg-color: #f6f6f6;
     --del-text-color: #838383;
@@ -14,23 +14,9 @@
 }
 
 
-[data-theme="dark"] {
-    --bg-color: #27272a;
-    --text-color: #e8e8ec;
-    --blockquote-bg-color: #3f3d3d;
-    --del-text-color: #dadada;
-    --del-line-color: #e8e8e8;
-    --menu-toggle-color: #333333FF;
-    --border-color: #595b5c;
-    --a-hover-color: #4c81fa;
-    --about-img:invert(100%);
-    --smail-txt-color: #e5e5e5;
-    --text-decoration-color: #5884f8;
-}
 
 html, body {
-
-    background: var(--bg-color);
+    background:#fff;
 }
 
 html {
@@ -39,7 +25,7 @@ html {
 }
 
 body {
-    color: var(--text-color);
+    color: #333;
     font-size: 16px;
     line-height: 1.4;
     margin: 0;
@@ -77,7 +63,7 @@ li {
     font-size: 17px;
     max-width: 700px;
     margin: 0 auto;
-    padding: 2rem 2rem 4rem 2rem
+    padding: 8rem 2rem 4rem 2rem
 }
 
 hr {
@@ -86,19 +72,19 @@ hr {
 }
 
 hr:before {
-    color: var(--smail-txt-color);
+    color: #7F848FFF;
     content: "/////"
 }
 
 hr:after {
-    color: var(--smail-txt-color);
+    color: #7F848FFF;
     content: attr(data-content) "/////"
 }
 
 blockquote {
     border-left: 4px solid #7c7c7c;
     padding: 12px 12px 12px 15px;
-    background-color: var(--blockquote-bg-color);
+    background-color: #F6F6F6FF;
     margin: 0;
 }
 
@@ -109,12 +95,11 @@ blockquote p {
 
 .w a {
     text-underline-offset: 4px;
-    color: var(--text-color);
+    color: #333333FF;
 }
 
 .w a:hover {
-    text-decoration-color: var(--a-hover-color);
-    color: var(--a-hover-color);
+  text-decoration: underline;
 }
 
 .twikoo a {
@@ -159,7 +144,16 @@ article {
 
 del {
     text-decoration: line-through;
-    color: var(--del-text-color);
-    text-decoration-color: var(--del-line-color);
+    color: #838383FF;
+    text-decoration-color: #151515FF;
     text-decoration-thickness: 2px
+}
+
+.time{
+    border-top: 1px solid #b2b2b2;
+    padding-top: 5px;
+    width: 100%;
+    font-size: 14px;
+    color: #5b5c60;
+    display: inline-block;
 }

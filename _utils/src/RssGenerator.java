@@ -68,7 +68,7 @@ public class RssGenerator {
 
             String timeStr = null;
             try {
-                timeStr = doc.select("p.top-op span").get(1).text();
+                timeStr = doc.select("span.time").first().text();
             } catch (Exception e) {
                 throw new RuntimeException(e);
             }
