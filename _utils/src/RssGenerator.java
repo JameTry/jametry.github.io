@@ -73,7 +73,7 @@ public class RssGenerator {
                 throw new RuntimeException(e);
             }
             Date pubDate = INPUT_DATE.parse(timeStr);
-            String link = SITE_URL + (isPost ? "#/html/post/" : "#/html/other/") + file.getName().replace(".html", "");
+            String link = SITE_URL + (isPost ? "#/html/post/" : "#/html/other/") + file.getName();
 
             items.add(new RssItem(title, content.toString(), pubDate, link));
         }
