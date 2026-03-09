@@ -32,7 +32,6 @@
           position:relative;
       }
 
-      /* sidebar */
 
       .sidebar{
           width:var(--sidebar-width);
@@ -64,7 +63,6 @@
           min-width:var(--sidebar-width);
       }
 
-      /* toggle */
 
       .toggle-btn{
           position:absolute;
@@ -89,7 +87,6 @@
           left:calc(var(--sidebar-width) + 15px);
       }
 
-      /* main */
 
       .main-content{
           flex:1;
@@ -103,7 +100,6 @@
           border:none;
       }
 
-      /* nav */
 
       .nav-item{
           display:block;
@@ -152,8 +148,6 @@
       .loading-mask.hide{
           display:none;
       }
-
-      /* loading spinner */
 
       .loading-text::after{
           content:"";
@@ -220,93 +214,49 @@
    const frame = document.getElementById("contentFrame");
    const loading = document.getElementById("loadingMask");
 
-
-   /* 侧栏开关 */
-
    btn.addEventListener("click", () => {
-
     sidebar.classList.toggle("collapsed");
     body.classList.toggle("sidebar-open");
-
     btn.textContent = sidebar.classList.contains("collapsed") ? "➔" : "☰";
-
    });
 
-
-   /* 点击导航 */
-
    navItems.forEach(item => {
-
     item.addEventListener("click", function(e){
-
      e.preventDefault();
-
-     const url = this.getAttribute("href");
-
-     location.hash = url;
-
+     location.hash = this.getAttribute("href");
     });
    });
 
    message.addEventListener("click", function(e){
-
     e.preventDefault();
-
-    const url = this.getAttribute("href");
-
-    location.hash = url;
-
+    location.hash = this.getAttribute("href");
    });
 
-
-
-   /* 根据URL加载文章 */
-
    function loadPage(url){
-
     if(!url) url="/html/0.html";
-
     loading.classList.remove("hide");
-
     frame.src = url;
-
     navItems.forEach(i=>{
      i.classList.toggle("active", i.getAttribute("href") === url);
     });
-
     document.querySelector(".nav-item.active")?.scrollIntoView({
      behavior: "smooth",
      block:"center"
     });
-
    }
 
-
-
    window.addEventListener("hashchange", ()=>{
-
     const url = location.hash.replace("#","");
-
     loadPage(url);
-
    });
-
-
 
    frame.addEventListener("load", ()=>{
-
     loading.classList.add("hide");
-
    });
 
-
-
    window.addEventListener("DOMContentLoaded", ()=>{
-
     const url = location.hash.replace("#","");
-
     loadPage(url);
-
    });
   </script>
   <script src="https://cn.vercount.one/js"></script>
