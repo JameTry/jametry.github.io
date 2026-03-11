@@ -169,7 +169,7 @@ public class HtmlGenIndex {
 
         doc = Jsoup.parse(indexPath.toFile(), "UTF-8");
 
-        Element contentDiv = doc.select("div.poetry" ).first();
+        Element contentDiv = doc.select("div.post-list" ).first();
         if (contentDiv == null) {
             throw new RuntimeException("找不到class为的div");
         }
@@ -177,8 +177,12 @@ public class HtmlGenIndex {
         contentDiv.html("");
         for (PostInfo post : posts) {
             String html = String.format(
-                    "<a  target=\"contentFrame\" class=\"nav-item\" href=\"/html/post/%s.html\">%s</a>",
-                     post.fileId, post.content
+                    " <div class=\"post\">\n" +
+                            "            <a class=\"post-title\" href=\"/html/post/%s\">%s</a>\n" +
+                            "            <div class=\"post-line\"></div>\n" +
+                            "            <div class=\"post-date\">%s</div>\n" +
+                            "        </div>",
+                     post.fileId, post.content,new SimpleDateFormat("yyyy-MM").format(post.date)
             );
             contentDiv.append(html);
         }
