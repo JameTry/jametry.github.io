@@ -127,9 +127,7 @@ del {
 }
 
 .time{
-    border-top: 1px solid #b2b2b2;
-    padding-top: 5px;
-    width: 100%;
+    margin-top: 35px;
     font-size: 14px;
     color: #5b5c60;
     display: inline-block;
