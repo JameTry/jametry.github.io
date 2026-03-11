@@ -1,22 +1,6 @@
 
-:root {
-    #fff: #fff;
-    --text-color: #333;
-    --blockquote-bg-color: #f6f6f6;
-    --del-text-color: #838383;
-    --del-line-color: #151515;
-    --menu-toggle-color: #333333FF;
-    --border-color: #ececec;
-    --a-hover-color:#0858ff;
-    --about-img:invert(0%);
-    --smail-txt-color: #7f848f;
-    --text-decoration-color:#8eadff;
-}
-
-
-
 html, body {
-    background:#fff;
+    background:#fefcf1;
 }
 
 html {
@@ -61,9 +45,9 @@ li {
 
 .w {
     font-size: 17px;
-    max-width: 700px;
+    max-width: 720px;
     margin: 0 auto;
-    padding: 8rem 2rem 4rem 2rem
+    padding: 4rem 0 4rem 0;
 }
 
 hr {
@@ -84,7 +68,6 @@ hr:after {
 blockquote {
     border-left: 4px solid #7c7c7c;
     padding: 12px 12px 12px 15px;
-    background-color: #F6F6F6FF;
     margin: 0;
 }
 
@@ -93,14 +76,8 @@ blockquote p {
     margin: 0.5rem !important;
 }
 
-.w a {
-    text-underline-offset: 4px;
-    color: #333333FF;
-}
 
-.w a:hover {
-  text-decoration: underline;
-}
+
 
 .twikoo a {
     text-underline-offset: 2px;
@@ -156,4 +133,32 @@ del {
     font-size: 14px;
     color: #5b5c60;
     display: inline-block;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 60px;
+}
+
+header a{
+    margin-left: 14px;
+    text-decoration: none;
+    text-underline-offset: 4px;
+    color: #333;
+}
+
+.logo {
+    font-size: 28px;
+    font-style: italic;
+}
+
+.w a {
+    text-underline-offset: 4px;
+    color: #333;
+}
+.w a:hover {
+    text-decoration: underline;
+    color: #1a73e8;
 }

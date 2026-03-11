@@ -1,266 +1,346 @@
 <!doctype html>
-<html lang="zh-CN">
- <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jame</title>
-  <style>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Jame</title>
+    <style>
+        body {
+            margin: 0;
+            background: #fefcf1;
+            color: #333;
+        }
 
-      :root{
-          --sidebar-width:300px;
-          --transition-speed:0.3s;
-      }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 60px;
+        }
 
-      *{
-          margin:0;
-          padding:0;
-          box-sizing:border-box;
-      }
+        .logo {
+            font-size: 28px;
+            font-style: italic;
+        }
 
-      body{
-          color:#333;
-          background:#fff;
-          height:100vh;
-          overflow:hidden;
-          font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
-      }
+        header a {
+            margin-left: 14px;
+            text-decoration: none;
+            color: #333;
+        }
 
-      .layout-container{
-          display:flex;
-          height:100%;
-          width:100%;
-          position:relative;
-      }
-
-
-      .sidebar{
-          width:var(--sidebar-width);
-          background:#f7f7f7;
-          border-right:1px solid #eaeaea;
-          display:flex;
-          flex-direction:column;
-          flex-shrink:0;
-          transition:width var(--transition-speed),transform var(--transition-speed);
-          overflow:hidden;
-          z-index:10;
-      }
-
-      .sidebar.collapsed{
-          width:0;
-          transform:translateX(-100%);
-          border-right:none;
-      }
-
-      .sidebar-header{
-          padding:24px 20px;
-          border-bottom:1px solid #eaeaea;
-          min-width:var(--sidebar-width);
-      }
-
-      .sidebar-nav{
-          flex:1;
-          overflow-y:auto;
-          min-width:var(--sidebar-width);
-      }
+        header a:hover {
+            text-decoration: underline;
+        }
 
 
-      .toggle-btn{
-          position:absolute;
-          left:15px;
-          top:15px;
-          z-index:100;
-          background:#fff;
-          border:1px solid #ddd;
-          border-radius:6px;
-          width:35px;
-          height:35px;
-          cursor:pointer;
-          box-shadow:0 2px 8px rgba(0,0,0,0.1);
-          display:flex;
-          align-items:center;
-          justify-content:center;
-          transition:left var(--transition-speed);
-          font-size:20px;
-      }
+        .post-list {
+            margin-top: 40px;
+        }
 
-      .sidebar-open .toggle-btn{
-          left:calc(var(--sidebar-width) + 15px);
-      }
+        .post {
+            display: flex;
+            align-items: center;
+            padding: 12px 0;
+            font-size: 18px;
+        }
+
+        .post-title {
+            white-space: nowrap;
+        }
+
+        .post-line {
+            flex: 1;
+            border-bottom: 1px dashed #bbb;
+            margin: 0 12px;
+        }
+
+        .post-date {
+            color: #666;
+            font-size: 16px;
+        }
+
+        .post a {
+            text-decoration: none;
+            color: #222;
+        }
+
+        .post a:hover {
+            text-underline-offset: 4px;
+            text-decoration: underline;
+        }
+
+        footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #ccc;
+            display: flex;
+            justify-content: space-between;
+            font-size: 14px;
+            color: #777;
+        }
+
+        footer a {
+            color: #777;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
 
 
-      .main-content{
-          flex:1;
-          position:relative;
-          background:#fff;
-      }
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            padding-top: 4rem;
+            padding-bottom: 4rem;
+        }
 
-      #contentFrame{
-          width:100%;
-          height:100%;
-          border:none;
-          display:block;
-      }
-
-
-      .nav-item{
-          display:block;
-          padding:10px 20px;
-          color:#555;
-          text-decoration:none;
-          font-size:15px;
-          transition:background 0.2s;
-      }
-
-      .nav-item:hover{
-          background:#ebebeb;
-      }
-
-      .nav-item.active{
-          color:#1a73e8;
-          font-weight:500;
-      }
-
-      .nav-group-title{
-          font-size:16px;
-          font-weight:bold;
-          color:#2c2c2c;
-          padding:20px 20px 8px;
-          text-transform:uppercase;
-          letter-spacing:1px;
-      }
-
-      /* loading mask */
-
-      .loading-mask{
-          position:absolute;
-          top:0;
-          left:0;
-          width:100%;
-          height:100%;
-          background:#fff;
-          display:flex;
-          align-items:center;
-          justify-content:center;
-          z-index:20;
-          font-size:14px;
-          color:#666;
-      }
-
-      .loading-mask.hide{
-          display:none;
-      }
-
-      .loading-text::after{
-          content:"";
-          width:16px;
-          height:16px;
-          border:2px solid #ccc;
-          border-top-color:#333;
-          border-radius:50%;
-          display:inline-block;
-          margin-left:8px;
-          animation:spin 0.8s linear infinite;
-      }
-
-      @keyframes spin{
-          to{transform:rotate(360deg);}
-      }
-
-      a{
-          text-decoration:none;
-          color:inherit;
-      }
-
- </style>
- </head>
- <body class="sidebar-open">
-  <div class="layout-container">
-   <button class="toggle-btn" id="sidebarToggle" title="切换侧边栏">☰</button>
-   <aside class="sidebar" id="sidebar">
-    <div class="sidebar-header">
-     <h1 style="font-size: 24px;">Jame</h1>
-     <p style="margin-top: 8px; font-size: 14px; color: #666;"><a target="contentFrame" href="/html/message" id="message">留言</a>&nbsp;·&nbsp; <a target="_blank" href="https://www.travellings.cn/go.html">开往</a></p>
+    </style>
+</head>
+<body>
+<div class="container">
+    <header>
+        <div class="logo">
+            <a href="/">Jame</a>
+        </div>
+        <div class="nav">
+            <a href="/html/message.html">留言</a> <a href="/html/link/links.html">链接</a> <a target="_blank" href="https://www.travellings.cn/go.html">开往</a>
+        </div>
+    </header>
+    <div class="post-list">
+        <div class="post">
+            <a class="post-title" href="/html/post/43">戴着罐头瓶的猫</a>
+            <div class="post-line"></div>
+            <div class="post-date">
+                2026-03
+            </div>
+        </div>
+        <div class="post">
+            <a class="post-title" href="/html/post/42">我是读者</a>
+            <div class="post-line"></div>
+            <div class="post-date">
+                2026-03
+            </div>
+        </div>
+        <div class="post">
+            <a class="post-title" href="/html/post/40">食物与土地</a>
+            <div class="post-line"></div>
+            <div class="post-date">
+                2026-01
+            </div>
+        </div>
+        <div class="post">
+            <a class="post-title" href="/html/post/33">他来吃饭的时候其他人已经快吃完了</a>
+            <div class="post-line"></div>
+            <div class="post-date">
+                2025-12
+            </div>
+        </div>
+        <div class="post">
+            <a class="post-title" href="/html/post/30">像猫一样的风</a>
+            <div class="post-line"></div>
+            <div class="post-date">
+                2025-10
+            </div>
+        </div>
+        <div class="post">
+            <a class="post-title" href="/html/post/29">暮色逐渐褪去</a>
+            <div class="post-line"></div>
+            <div class="post-date">
+                2025-10
+            </div>
+        </div>
+        <div class="post">
+            <a class="post-title" href="/html/post/28">狂风暴雨逐渐停止后的第二天正午</a>
+            <div class="post-line"></div>
+            <div class="post-date">
+                2025-10
+            </div>
+        </div>
+        <div class="post">
+            <a class="post-title" href="/html/post/24">人和猪狗是一样的</a>
+            <div class="post-line"></div>
+            <div class="post-date">
+                2025-08
+            </div>
+        </div>
+        <div class="post">
+            <a class="post-title" href="/html/post/23">雨停之后</a>
+            <div class="post-line"></div>
+            <div class="post-date">
+                2025-08
+            </div>
+        </div>
+        <div class="post">
+            <a class="post-title" href="/html/post/22">暴雨过后，天空格外晴朗</a>
+            <div class="post-line"></div>
+            <div class="post-date">
+                2025-07
+            </div>
+        </div>
+        <div class="post">
+            <a class="post-title" href="/html/post/21">引力弹弓</a>
+            <div class="post-line"></div>
+            <div class="post-date">
+                2025-07
+            </div>
+        </div>
+        <div class="post">
+            <a class="post-title" href="/html/post/20">先生！先生！</a>
+            <div class="post-line"></div>
+            <div class="post-date">
+                2025-07
+            </div>
+        </div>
+        <div class="post">
+            <a class="post-title" href="/html/post/19">罢了罢了，我会穿过大兴安岭</a>
+            <div class="post-line"></div>
+            <div class="post-date">
+                2025-06
+            </div>
+        </div>
+        <div class="post">
+            <a class="post-title" href="/html/post/17">周日夜晚</a>
+            <div class="post-line"></div>
+            <div class="post-date">
+                2025-06
+            </div>
+        </div>
+        <div class="post">
+            <a class="post-title" href="/html/post/16">延绵的大雨要淹死整个城市</a>
+            <div class="post-line"></div>
+            <div class="post-date">
+                2025-06
+            </div>
+        </div>
+        <div class="post">
+            <a class="post-title" href="/html/post/14">养花的诀窍</a>
+            <div class="post-line"></div>
+            <div class="post-date">
+                2025-06
+            </div>
+        </div>
+        <div class="post">
+            <a class="post-title" href="/html/post/12">今夜的风儿有些喧嚣</a>
+            <div class="post-line"></div>
+            <div class="post-date">
+                2025-04
+            </div>
+        </div>
+        <div class="post">
+            <a class="post-title" href="/html/post/11">捧起骨灰，收起悲伤</a>
+            <div class="post-line"></div>
+            <div class="post-date">
+                2025-04
+            </div>
+        </div>
+        <div class="post">
+            <a class="post-title" href="/html/post/10">我坐在车里在十字路口等待着朋友</a>
+            <div class="post-line"></div>
+            <div class="post-date">
+                2025-04
+            </div>
+        </div>
+        <div class="post">
+            <a class="post-title" href="/html/post/9">3月28，下雪了</a>
+            <div class="post-line"></div>
+            <div class="post-date">
+                2025-03
+            </div>
+        </div>
+        <div class="post">
+            <a class="post-title" href="/html/post/7">坐好吧，这样的雨天</a>
+            <div class="post-line"></div>
+            <div class="post-date">
+                2025-03
+            </div>
+        </div>
+        <div class="post">
+            <a class="post-title" href="/html/post/6">时间永不停止流逝</a>
+            <div class="post-line"></div>
+            <div class="post-date">
+                2025-03
+            </div>
+        </div>
+        <div class="post">
+            <a class="post-title" href="/html/post/5">不再关心新闻事件</a>
+            <div class="post-line"></div>
+            <div class="post-date">
+                2024-10
+            </div>
+        </div>
+        <div class="post">
+            <a class="post-title" href="/html/post/3">日出日落，一天又一天</a>
+            <div class="post-line"></div>
+            <div class="post-date">
+                2024-08
+            </div>
+        </div>
+        <div class="post">
+            <a class="post-title" href="/html/post/2">应是已入深秋</a>
+            <div class="post-line"></div>
+            <div class="post-date">
+                2024-07
+            </div>
+        </div>
+        <div class="post">
+            <a class="post-title" href="/html/post/1">如果可以的话</a>
+            <div class="post-line"></div>
+            <div class="post-date">
+                2024-04
+            </div>
+        </div>
     </div>
-    <nav class="sidebar-nav">
-     <a target="contentFrame" class="nav-item active" href="/html/0.html">序</a>
-     <div class="nav-group-title">
-      内容
-     </div>
-     <div class="poetry">
-      <a target="contentFrame" class="nav-item" href="/html/post/43.html">戴着罐头瓶的猫</a><a target="contentFrame" class="nav-item" href="/html/post/42.html">我是读者</a><a target="contentFrame" class="nav-item" href="/html/post/40.html">食物与土地</a><a target="contentFrame" class="nav-item" href="/html/post/33.html">他来吃饭的时候其他人已经快吃完了</a><a target="contentFrame" class="nav-item" href="/html/post/30.html">像猫一样的风</a><a target="contentFrame" class="nav-item" href="/html/post/29.html">暮色逐渐褪去</a><a target="contentFrame" class="nav-item" href="/html/post/28.html">狂风暴雨逐渐停止后的第二天正午</a><a target="contentFrame" class="nav-item" href="/html/post/24.html">人和猪狗是一样的</a><a target="contentFrame" class="nav-item" href="/html/post/23.html">雨停之后</a><a target="contentFrame" class="nav-item" href="/html/post/22.html">暴雨过后，天空格外晴朗</a><a target="contentFrame" class="nav-item" href="/html/post/21.html">引力弹弓</a><a target="contentFrame" class="nav-item" href="/html/post/20.html">先生！先生！</a><a target="contentFrame" class="nav-item" href="/html/post/19.html">罢了罢了，我会穿过大兴安岭</a><a target="contentFrame" class="nav-item" href="/html/post/17.html">周日夜晚</a><a target="contentFrame" class="nav-item" href="/html/post/16.html">延绵的大雨要淹死整个城市</a><a target="contentFrame" class="nav-item" href="/html/post/14.html">养花的诀窍</a><a target="contentFrame" class="nav-item" href="/html/post/12.html">今夜的风儿有些喧嚣</a><a target="contentFrame" class="nav-item" href="/html/post/11.html">捧起骨灰，收起悲伤</a><a target="contentFrame" class="nav-item" href="/html/post/10.html">我坐在车里在十字路口等待着朋友</a><a target="contentFrame" class="nav-item" href="/html/post/9.html">3月28，下雪了</a><a target="contentFrame" class="nav-item" href="/html/post/7.html">坐好吧，这样的雨天</a><a target="contentFrame" class="nav-item" href="/html/post/6.html">时间永不停止流逝</a><a target="contentFrame" class="nav-item" href="/html/post/5.html">不再关心新闻事件</a><a target="contentFrame" class="nav-item" href="/html/post/3.html">日出日落，一天又一天</a><a target="contentFrame" class="nav-item" href="/html/post/2.html">应是已入深秋</a><a target="contentFrame" class="nav-item" href="/html/post/1.html">如果可以的话</a>
-     </div>
-     <div class="nav-group-title">
-      随笔
-     </div><a target="contentFrame" class="nav-item" href="/html/other/14.html">关于写作</a><a target="contentFrame" class="nav-item" href="/html/other/13r">转身，我看到窗外纷飞的雪花</a> <a target="contentFrame" class="nav-item" href="/html/other/11r">时间的定义</a> <a target="contentFrame" class="nav-item" href="/html/other/8r">聊聊书</a> <a target="contentFrame" class="nav-item" href="/html/other/3">生活的意义，ai与荒谬</a>
-     <div class="nav-group-title">
-      链接
-     </div><a target="contentFrame" class="nav-item" href="/html/link/1.html">读首诗再睡觉</a> <a target="contentFrame" class="nav-item" href="/html/link/2.html">友链</a> <a class="nav-item" href="https://jame.work/feed.xml" target="_blank">订阅RSS</a> <a class="nav-item" href="https://beian.miit.gov.cn/#/Integrated/index" target="_blank">冀ICP备2022008700号-1</a> <span class="nav-item"><span id="vercount_value_site_uv">0</span>总访客</span>
-    </nav>
-   </aside>
-   <main class="main-content">
-    <div id="loadingMask" class="loading-mask">
-     <div class="loading-text">
-      加载中...
-     </div>
-    </div><iframe name="contentFrame" id="contentFrame" src="/html/0.html"></iframe>
-   </main>
-  </div>
-  <script>
-   const btn = document.getElementById("sidebarToggle");
-   const sidebar = document.getElementById("sidebar");
-   const message = document.getElementById("message");
-   const body = document.body;
+    <h2>随笔</h2>
+    <div class="post">
+        <a class="post-title" href="/html/other/14.html">关于写作</a>
+        <div class="post-line"></div>
+        <div class="post-date">
+            2026-03
+        </div>
+    </div>
+    <div class="post">
+        <a class="post-title" href="/html/other/13r">转身，我看到窗外纷飞的雪花</a>
+        <div class="post-line"></div>
+        <div class="post-date">
+            2026-01
+        </div>
+    </div>
+    <div class="post">
+        <a class="post-title" href="/html/other/11r">时间的定义</a>
+        <div class="post-line"></div>
+        <div class="post-date">
+            2025-12
+        </div>
+    </div>
+    <div class="post">
+        <a class="post-title" href="/html/other/8r">聊聊书</a>
+        <div class="post-line"></div>
+        <div class="post-date">
+            2025-11
+        </div>
+    </div>
+    <div class="post">
+        <a class="post-title" href="/html/other/3">生活的意义，ai与荒谬</a>
+        <div class="post-line"></div>
+        <div class="post-date">
+            2025-09
+        </div>
+    </div>
 
-   const navItems = document.querySelectorAll('.nav-item[target="contentFrame"]');
-   const frame = document.getElementById("contentFrame");
-   const loading = document.getElementById("loadingMask");
+    <footer>
+        <div>
+            她有起伏的美，也有黯淡下去的忧伤
+        </div>
+        <div>
+            <span id="vercount_value_site_uv">0</span>总访客
+            <a class="nav-item" href="https://beian.miit.gov.cn/#/Integrated/index" target="_blank">冀ICP备2022008700号-1</a>
+            <a class="nav-item" href="https://jame.work/feed.xml" target="_blank">订阅RSS</a>
 
-   btn.addEventListener("click", () => {
-    sidebar.classList.toggle("collapsed");
-    body.classList.toggle("sidebar-open");
-    btn.textContent = sidebar.classList.contains("collapsed") ? "➔" : "☰";
-   });
-
-   navItems.forEach(item => {
-    item.addEventListener("click", function(e){
-     e.preventDefault();
-     location.hash = this.getAttribute("href");
-    });
-   });
-
-   message.addEventListener("click", function(e){
-    e.preventDefault();
-    location.hash = this.getAttribute("href");
-   });
-
-   function loadPage(url){
-    if(!url) url="/html/0.html";
-    loading.classList.remove("hide");
-    frame.src = url;
-    navItems.forEach(i=>{
-     i.classList.toggle("active", i.getAttribute("href") === url);
-    });
-    document.querySelector(".nav-item.active")?.scrollIntoView({
-     behavior: "smooth",
-     block:"center"
-    });
-   }
-
-   window.addEventListener("hashchange", ()=>{
-    const url = location.hash.replace("#","");
-    loadPage(url);
-   });
-
-   frame.addEventListener("load", ()=>{
-    loading.classList.add("hide");
-   });
-
-   window.addEventListener("DOMContentLoaded", ()=>{
-    const url = location.hash.replace("#","");
-    loadPage(url);
-   });
-  </script>
-  <script src="https://cn.vercount.one/js"></script>
-  <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon="{&quot;token&quot;: &quot;df24ad58eb78422d8e743ac89b50cda8&quot;}"></script>
- </body>
+        </div>
+    </footer>
+</div>
+<script src="https://cn.vercount.one/js"></script>
+</body>
 </html>
