@@ -177,12 +177,11 @@ public class HtmlGenIndex {
         contentDiv.html("");
         for (PostInfo post : posts) {
             String html = String.format(
-                    " <div class=\"post\">\n" +
-                            "            <a class=\"post-title\" href=\"/html/post/%s\">%s</a>\n" +
-                            "            <div class=\"post-line\"></div>\n" +
-                            "            <div class=\"post-date\">%s</div>\n" +
-                            "        </div>",
-                     post.fileId, post.content,new SimpleDateFormat("yyyy-MM").format(post.date)
+                    " <a class=\"post\" href=\"/html/post/%s\">\n" +
+                            "            <span>%s</span>\n" +
+                            "            <span class=\"post-date\">%s</span>\n" +
+                            "        </a>",
+                     post.fileId, post.content,new SimpleDateFormat("yyyy/MM").format(post.date)
             );
             contentDiv.append(html);
         }
