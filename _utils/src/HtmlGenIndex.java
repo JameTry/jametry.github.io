@@ -46,7 +46,6 @@ public class HtmlGenIndex {
             Collections.sort(posts, (p1, p2) -> p2.date.compareTo(p1.date));
             updateIndexHtml(posts);
 
-            System.out.println("成功更新 " + INDEX_FILE);
 
         } catch (Exception e) {
             e.printStackTrace();

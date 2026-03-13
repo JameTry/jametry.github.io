@@ -116,8 +116,7 @@ public class RssGenerator {
         try (FileWriter writer = new FileWriter(RSS_FILE)) {
             writer.write(rss.toString().replaceAll("><", ">\n<"));
         }
-        System.out.println("RSS 生成成功：" + RSS_FILE);
-        System.out.println("字数：" + count);
+        System.out.println("count：" + count);
     }
 
     private static String escapeXml(String input) {
