@@ -88,14 +88,22 @@
    <h2>随笔</h2><a class="post" href="/html/other/16r"> <span>“你是个什么样的人呢”</span><span class="post-date">2026/03</span></a><a class="post" href="/html/other/14"> <span>关于写作</span> <span class="post-date">2026/03</span> </a> <a class="post" href="/html/other/15r"> <span>食物与土地</span> <span class="post-date">2026/01</span> </a> <a class="post" href="/html/other/13r"> <span>转身，我看到窗外纷飞的雪花</span> <span class="post-date">2026/01</span> </a> <a class="post" href="/html/other/11r"> <span>时间的定义</span> <span class="post-date">2025/12</span> </a> <a class="post" href="/html/other/8r"> <span>聊聊书</span> <span class="post-date">2025/11</span> </a> <a class="post" href="/html/other/3"> <span>生活的意义，ai与荒谬</span> <span class="post-date">2025/09</span> </a>
    <h2>其他</h2><a class="post" href="/html/link/1"> <span>读首诗再睡觉</span> </a>
    <footer>
+    <div id="footer-text"></div>
     <div>
-     她有起伏的美，也有黯淡下去的忧伤
-    </div>
-    <div>
-     <span class="nav-item" id="vercount_value_site_uv">0</span>总访客 <a class="nav-item" href="https://beian.miit.gov.cn/#/Integrated/index" target="_blank">冀ICP备2022008700号-1</a> <a class="nav-item" href="https://jame.work/feed.xml" target="_blank">订阅RSS</a>
+     <span class="nav-item" id="vercount_value_site_uv">0</span>总访客
+     <a class="nav-item" href="https://beian.miit.gov.cn/#/Integrated/index" target="_blank">冀ICP备2022008700号-1</a>
+     <a class="nav-item" href="https://jame.work/feed.xml" target="_blank">订阅RSS</a>
     </div>
    </footer>
   </div>
+  <script>
+   const phrases = [
+    "你已经默许了那么多谎言，为什么不再沉默一次呢？",
+    "她有起伏的美，也有黯淡下去的忧伤。",
+   ];
+   const randomIndex = Math.floor(Math.random() * phrases.length);
+   document.getElementById('footer-text').textContent = phrases[randomIndex];
+  </script>
   <script src="https://cn.vercount.one/js"></script>
  </body>
 </html>
