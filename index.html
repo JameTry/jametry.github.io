@@ -100,9 +100,12 @@
    const phrases = [
     "你已经默许了那么多谎言，为什么不再沉默一次呢？",
     "她有起伏的美，也有黯淡下去的忧伤。",
+    "要允许失败、允许悬而不决。",
+    "我坐在石球子上。",
+    "你有多久没有高兴得又唱又跳了？<br>那他妈已经很久了。"
    ];
    const randomIndex = Math.floor(Math.random() * phrases.length);
-   document.getElementById('footer-text').textContent = phrases[randomIndex];
+   document.getElementById('footer-text').innerHTML = phrases[randomIndex];
   </script>
   <script src="https://cn.vercount.one/js"></script>
  </body>
