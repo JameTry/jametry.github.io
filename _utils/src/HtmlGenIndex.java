@@ -20,31 +20,38 @@ public class HtmlGenIndex {
 
     private static String INDEX_FILE = "\\index.html";   // 目标索引文件
 
+
+    private static String[] postPath = {"\\html\\post", "\\html\\other"};
+    private static String[] chose = {"div.post-list", "div.other-list"};
+    private static String[] urlPath = {"post", "other"};
+
+
     public static void run(String path) {
         INDEX_FILE = path + INDEX_FILE;
         try {
             // 步骤1: 读取并处理所有HTML文件
             List<PostInfo> posts = new ArrayList<>();
-            // 定义常量
-            // HTML文件所在目录
-            String INPUT_DIR = path + "\\html\\post";
-            File dir = new File(INPUT_DIR);
-            File[] files = dir.listFiles((d, name) -> name.endsWith(".html"));
+            for (int i = 0; i < postPath.length; i++) {
+                String INPUT_DIR = path + postPath[i];
+                File dir = new File(INPUT_DIR);
+                File[] files = dir.listFiles((d, name) -> name.endsWith(".html"));
 
-            if (files == null) {
-                System.out.println("目录不存在或没有HTML文件");
-                return;
-            }
-
-            for (File file : files) {
-                PostInfo post = extractPostInfo(file);
-                if (post != null) {
-                    posts.add(post);
+                if (files == null) {
+                    System.out.println("目录不存在或没有HTML文件");
+                    return;
                 }
-            }
 
-            Collections.sort(posts, (p1, p2) -> p2.date.compareTo(p1.date));
-            updateIndexHtml(posts);
+                for (File file : files) {
+                    PostInfo post = extractPostInfo(file);
+                    if (post != null) {
+                        posts.add(post);
+                    }
+                }
+
+                Collections.sort(posts, (p1, p2) -> p2.date.compareTo(p1.date));
+                updateIndexHtml(posts, chose[i], urlPath[i]);
+                posts.clear();
+            }
 
 
         } catch (Exception e) {
@@ -84,7 +91,6 @@ public class HtmlGenIndex {
                 formatDate(date)
         );
     }
-
 
 
     public static String getTitleExcerpt(String text) {
@@ -162,13 +168,13 @@ public class HtmlGenIndex {
         return sdf.format(date);
     }
 
-    private static void updateIndexHtml(List<PostInfo> posts) throws IOException {
+    private static void updateIndexHtml(List<PostInfo> posts, String chose, String urlPath) throws IOException {
         Path indexPath = Paths.get(INDEX_FILE);
         Document doc;
 
         doc = Jsoup.parse(indexPath.toFile(), "UTF-8");
 
-        Element contentDiv = doc.select("div.post-list" ).first();
+        Element contentDiv = doc.select(chose).first();
         if (contentDiv == null) {
             throw new RuntimeException("找不到class为的div");
         }
@@ -176,11 +182,11 @@ public class HtmlGenIndex {
         contentDiv.html("");
         for (PostInfo post : posts) {
             String html = String.format(
-                    " <a class=\"post\" href=\"/html/post/%s\">\n" +
+                    " <a class=\"post\" href=\"/html/%s/%s\">\n" +
                             "            <span>%s</span>\n" +
                             "            <span class=\"post-date\">%s</span>\n" +
                             "        </a>",
-                     post.fileId, post.content,new SimpleDateFormat("yyyy/MM").format(post.date)
+                    urlPath, post.fileId, post.content, new SimpleDateFormat("yyyy/MM").format(post.date)
             );
             contentDiv.append(html);
         }
