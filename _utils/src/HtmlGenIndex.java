@@ -59,7 +59,6 @@ public class HtmlGenIndex {
         }
     }
 
-    // 提取文章信息
     private static PostInfo extractPostInfo(File file) throws IOException {
         Document doc = Jsoup.parse(file, "UTF-8");
 

@@ -73,6 +73,13 @@ public class RssGenerator {
                 throw new RuntimeException(e);
             }
             Date pubDate = INPUT_DATE.parse(timeStr);
+            Calendar cal = Calendar.getInstance(TimeZone.getTimeZone("Asia/Shanghai"));
+            cal.setTime(pubDate);
+            cal.set(Calendar.HOUR_OF_DAY, 8);
+            cal.set(Calendar.MINUTE, 0);
+            cal.set(Calendar.SECOND, 0);
+            cal.set(Calendar.MILLISECOND, 0);
+            pubDate = cal.getTime();
             String link = SITE_URL + (isPost ? "html/post/" : "html/other/") +  file.getName().replace(".html", "");
 
             items.add(new RssItem(title, content.toString(), pubDate, link));
