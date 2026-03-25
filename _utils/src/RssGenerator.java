@@ -41,7 +41,7 @@ public class RssGenerator {
                 continue;
             }
             Document doc = Jsoup.parse(file, "UTF-8");
-            String title = escapeXml(doc.select("p").get(1).text().trim());
+            String title = escapeXml(doc.select("p").get(0).text().trim());
             title = HtmlGenIndex.getTitleExcerpt(title);
             Elements paragraphs0 = doc.select("h1");
             StringBuilder content = new StringBuilder();
