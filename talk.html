@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+ <meta charset="UTF-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+ <title>Chat</title>
+
+ <style>
+  body {
+   margin: 0;
+   font-family: -apple-system, BlinkMacSystemFont;
+   background: #ededed;
+   height: 100vh;
+   display: flex;
+   flex-direction: column;
+  }
+
+  /* 聊天区域 */
+  #chat {
+   flex: 1;
+   overflow-y: auto;
+   padding: 10px;
+  }
+
+  /* 行 */
+  .row {
+   display: flex;
+   margin: 8px 0;
+  }
+
+  /* 左右 */
+  .row.me {
+   justify-content: flex-end;
+  }
+
+  .row.other {
+   justify-content: flex-start;
+  }
+
+  /* 气泡 */
+  .bubble {
+   max-width: 70%;
+   padding: 8px 12px;
+   border-radius: 8px;
+   position: relative;
+   font-size: 14px;
+   line-height: 1.4;
+  }
+
+  /* 左边气泡 */
+  .other .bubble {
+   background: white;
+  }
+
+  /* 右边气泡 */
+  .me .bubble {
+   background: #95ec69;
+  }
+
+  /* 气泡小尾巴 */
+  .other .bubble::before {
+   content: '';
+   position: absolute;
+   left: -6px;
+   top: 10px;
+   border: 6px solid transparent;
+   border-right-color: white;
+  }
+
+  .me .bubble::before {
+   content: '';
+   position: absolute;
+   right: -6px;
+   top: 10px;
+   border: 6px solid transparent;
+   border-left-color: #95ec69;
+  }
+
+  /* 名字 */
+  .name {
+   font-size: 11px;
+   color: #888;
+   margin-bottom: 2px;
+  }
+
+  /* 输入栏 */
+  #inputBar {
+   display: flex;
+   padding: 8px;
+   background: #f7f7f7;
+   border-top: 1px solid #ddd;
+  }
+
+  #input {
+   flex: 1;
+   border: none;
+   padding: 10px;
+   border-radius: 20px;
+   background: white;
+   outline: none;
+  }
+
+  button {
+   margin-left: 8px;
+   padding: 0 16px;
+   border: none;
+   border-radius: 6px;
+   background: #07c160;
+   color: white;
+  }
+ </style>
+</head>
+
+<body>
+
+<div id="chat"></div>
+
+<div id="inputBar">
+ <input id="input" placeholder="输入消息"/>
+ <button onclick="send()">发送</button>
+</div>
+
+<script>
+ const chat = document.getElementById('chat');
+ const input = document.getElementById('input');
+
+ let username = localStorage.getItem('username');
+ if (!username) {
+  username = prompt('输入名字') || '匿名';
+  localStorage.setItem('username', username);
+ }
+
+ let lastId = 0;
+ let oldestId = null;
+ let loading = false;
+
+ /* 创建消息 */
+ function createMsg(m) {
+  const row = document.createElement('div');
+  row.className = 'row ' + (m.user === username ? 'me' : 'other');
+
+  const bubble = document.createElement('div');
+  bubble.className = 'bubble';
+
+  const name = document.createElement('div');
+  name.className = 'name';
+  name.innerText = m.user;
+
+  const text = document.createElement('div');
+  text.innerText = m.text;
+
+  bubble.appendChild(name);
+  bubble.appendChild(text);
+  row.appendChild(bubble);
+
+  return row;
+ }
+
+ function addMsg(m, scroll = true) {
+  const el = createMsg(m);
+  chat.appendChild(el);
+  if (scroll) chat.scrollTop = chat.scrollHeight;
+ }
+
+ /* 初始化 */
+ async function init() {
+  const res = await fetch('https://talk.jame.work/api/history');
+  const data = await res.json();
+
+  data.forEach(m => {
+   addMsg(m, false);
+   lastId = m.id;
+  });
+
+  if (data.length) oldestId = data[0].id;
+
+  chat.scrollTop = chat.scrollHeight;
+ }
+
+ /* 拉新 */
+ async function fetchNew() {
+  const res = await fetch(`https://talk.jame.work/api/messages?after=${lastId}`);
+  const data = await res.json();
+
+  data.forEach(m => {
+   addMsg(m);
+   lastId = m.id;
+  });
+ }
+
+ /* 上滑 */
+ async function loadMore() {
+  if (!oldestId || loading) return;
+  loading = true;
+
+  const res = await fetch(`https://talk.jame.work/api/history?before=${oldestId}`);
+  const data = await res.json();
+
+  const prevHeight = chat.scrollHeight;
+
+  data.forEach(m => {
+   chat.prepend(createMsg(m));
+  });
+
+  chat.scrollTop = chat.scrollHeight - prevHeight;
+
+  if (data.length) oldestId = data[0].id;
+
+  loading = false;
+ }
+
+ /* 发送 */
+ async function send() {
+  const text = input.value.trim();
+  if (!text) return;
+
+  await fetch('https://talk.jame.work/api/send', {
+   method: 'POST',
+   body: JSON.stringify({ text, user: username })
+  });
+
+  input.value = '';
+ }
+
+ /* 监听 */
+ chat.addEventListener('scroll', () => {
+  if (chat.scrollTop === 0) loadMore();
+ });
+
+ input.addEventListener('keypress', e => {
+  if (e.key === 'Enter') send();
+ });
+
+ /* 启动 */
+ init();
+ setInterval(fetchNew, 2000);
+</script>
+
+</body>
+</html>
