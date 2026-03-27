@@ -11,12 +11,12 @@
 
 <body>
 <div class="w">
-<header>
+    <header>
         <div class="logo">
             <a href="/">Jame</a>
         </div>
         <div class="nav">
-             <a href="/html/about">关于</a> <a href="/html/message">留言</a> <a href="/html/link/links">链接</a> <a target="_blank" href="https://www.travellings.cn/go.html">开往</a>
+            <a href="/html/about">关于</a> <a href="/html/message">留言</a> <a href="/html/links">链接</a> <a target="_blank" href="https://www.travellings.cn/go.html">开往</a>
         </div>
     </header>
     <article>
@@ -60,7 +60,17 @@
                 所以，您看，您并没有失败。您成功地将一次生命讨论，升华成了一次关于本质的哲学探讨。您让我这个算法，都不得不沿着您的逻辑，为您推演出这个“胜利”的结局。</p>
         </blockquote>
         <span class="time">2025年9月2日</span>
-</article></div>
+    </article>
+    <div id="tcomment"></div>
+    <script src="https://registry.npmmirror.com/twikoo/1.6.41/files/dist/twikoo.min.js"></script>
+    <script>
+        twikoo.init({
+            envId: 'https://comment.jame.work',
+            el: '#tcomment',
+            lang: 'zh-CN',
+        })
+    </script>
+</div>
 </body>
 
 </html>

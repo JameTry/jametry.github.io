@@ -15,7 +15,7 @@
             <a href="/">Jame</a>
         </div>
         <div class="nav">
-             <a href="/html/about">关于</a> <a href="/html/message">留言</a> <a href="/html/link/links">链接</a> <a target="_blank" href="https://www.travellings.cn/go.html">开往</a>
+             <a href="/html/about">关于</a> <a href="/html/message">留言</a> <a href="/html/links">链接</a> <a target="_blank" href="https://www.travellings.cn/go.html">开往</a>
         </div>
     </header>
     <article class="post">
@@ -32,6 +32,15 @@
         <p>逗你的，没有升华，就只是下午我看到一带灌木丛被风吹得像果冻那样晃悠，仅此而已。</p>
         <span class="time">2026年3月19日</span>
     </article>
+    <div id="tcomment"></div>
+    <script src="https://registry.npmmirror.com/twikoo/1.6.41/files/dist/twikoo.min.js"></script>
+    <script>
+        twikoo.init({
+            envId: 'https://comment.jame.work',
+            el: '#tcomment',
+            lang: 'zh-CN',
+        })
+    </script>
 </div>
 </body>
 </html>

@@ -17,7 +17,7 @@
             <a href="/">Jame</a>
         </div>
         <div class="nav">
-             <a href="/html/about">关于</a> <a href="/html/message">留言</a> <a href="/html/link/links">链接</a> <a target="_blank" href="https://www.travellings.cn/go.html">开往</a>
+             <a href="/html/about">关于</a> <a href="/html/message">留言</a> <a href="/html/links">链接</a> <a target="_blank" href="https://www.travellings.cn/go.html">开往</a>
         </div>
     </header>
     <article class="post">
@@ -50,6 +50,15 @@
         <p>抬头看不见星星月亮，听到村里传来微弱的狗叫声。她长得并不算漂亮。</p>
         <span  class="time">2025年10月20日</span>
     </article>
+    <div id="tcomment"></div>
+    <script src="https://registry.npmmirror.com/twikoo/1.6.41/files/dist/twikoo.min.js"></script>
+    <script>
+        twikoo.init({
+            envId: 'https://comment.jame.work',
+            el: '#tcomment',
+            lang: 'zh-CN',
+        })
+    </script>
 </div>
 </body>
 </html>
