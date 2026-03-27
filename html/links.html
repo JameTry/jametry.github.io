@@ -9,16 +9,24 @@
 </head>
 <body>
 <div class="w">
-<header>
+    <header>
         <div class="logo">
             <a href="/">Jame</a>
         </div>
         <div class="nav">
-             <a href="/html/about">关于</a> <a href="/html/message">留言</a> <a href="/html/link/links">链接</a> <a target="_blank" href="https://www.travellings.cn/go.html">开往</a>
+            <a href="/html/about">关于</a> <a href="/html/message">留言</a> <a href="/html/links">链接</a> <a target="_blank" href="https://www.travellings.cn/go.html">开往</a>
         </div>
     </header>
     <article>
         <p><strong>友链</strong></p>
+        <p>这是我的信息。</p>
+        <blockquote>
+            <p>名称：Jame</p>
+            <p>网址：https://jame.work</p>
+            <p>描述：随笔</p>
+        </blockquote>
+        <br>
+
         <p><a href="https://wygxmew.github.io/" target="_blank">乌云盖雪</a></p>
         <p><a href="https://hanis.me" target="_blank">Jason’s Blog</a></p>
         <p><a href="https://vss.plus" target="_blank">Vss Blog</a></p>
@@ -32,10 +40,20 @@
         <p><a href="https://blog.5252025.xyz" target="_blank">The Blog</a></p>
         <p><a href="http://xulog.cn/" target="_blank">徐建伟</a></p>
         <p><a href="http://www.winegrower.cn/" target="_blank">winegrower</a></p>
+        <p><a href="https://dangeer.com/" target="_blank">dangeer</a></p>
         <blockquote>
             移除了长期不可访问的网站。
         </blockquote>
     </article>
+    <div id="tcomment"></div>
+    <script src="https://registry.npmmirror.com/twikoo/1.6.41/files/dist/twikoo.min.js"></script>
+    <script>
+        twikoo.init({
+            envId: 'https://comment.jame.work',
+            el: '#tcomment',
+            lang: 'zh-CN',
+        })
+    </script>
 </div>
 </body>
 </html>

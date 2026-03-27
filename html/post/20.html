@@ -15,7 +15,7 @@
             <a href="/">Jame</a>
         </div>
         <div class="nav">
-             <a href="/html/about">关于</a> <a href="/html/message">留言</a> <a href="/html/link/links">链接</a> <a target="_blank" href="https://www.travellings.cn/go.html">开往</a>
+             <a href="/html/about">关于</a> <a href="/html/message">留言</a> <a href="/html/links">链接</a> <a target="_blank" href="https://www.travellings.cn/go.html">开往</a>
         </div>
     </header>
 
@@ -49,6 +49,15 @@
         <p>雪停了，雪人脑袋歪了，身子日渐消瘦，脚下长出小花，开了，又败了，直到秋天，先生也没有回来。</p>
         <span  class="time">2025年7月3日</span>
     </article>
+    <div id="tcomment"></div>
+    <script src="https://registry.npmmirror.com/twikoo/1.6.41/files/dist/twikoo.min.js"></script>
+    <script>
+        twikoo.init({
+            envId: 'https://comment.jame.work',
+            el: '#tcomment',
+            lang: 'zh-CN',
+        })
+    </script>
 </div>
 </body>
 </html>
