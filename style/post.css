@@ -80,8 +80,9 @@ blockquote p {
 
 
 .twikoo a {
-    text-underline-offset: 2px;
-    text-decoration-color: #8eadff;
+    color: #333;
+    text-underline-offset: 4px;
+    text-decoration-color: #3a3838;
 }
 .twikoo{
     font-size: 16px;
