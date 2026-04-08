@@ -9,10 +9,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -169,23 +166,36 @@ public class HtmlGenIndex {
 
     private static void updateIndexHtml(List<PostInfo> posts, String chose, String urlPath) throws IOException {
         Path indexPath = Paths.get(INDEX_FILE);
-        Document doc;
-
-        doc = Jsoup.parse(indexPath.toFile(), "UTF-8");
+        Document doc = Jsoup.parse(indexPath.toFile(), "UTF-8");
 
         Element contentDiv = doc.select(chose).first();
         if (contentDiv == null) {
             throw new RuntimeException("找不到class为的div");
         }
 
-        contentDiv.html("");
+        contentDiv.html(""); // 清空原有内容
+
+        Calendar cal = Calendar.getInstance();
+        int lastYear = -1;
+
         for (PostInfo post : posts) {
+            cal.setTime(post.date);
+            int year = cal.get(Calendar.YEAR);
+
+            // 当年份变化时，插入年份分隔标签
+            if (year != lastYear) {
+                contentDiv.append(String.format("<p class=\"year-separator\">%d</p>", year));
+                lastYear = year;
+            }
+
+            // 构建文章链接
             String html = String.format(
                     " <a class=\"post\" href=\"/html/%s/%s\">\n" +
                             "            <span>%s</span>\n" +
                             "            <span class=\"post-date\">%s</span>\n" +
                             "        </a>",
-                    urlPath, post.fileId, post.content, new SimpleDateFormat("yyyy/MM").format(post.date)
+                    urlPath, post.fileId, post.content,
+                    new SimpleDateFormat("yyyy/MM").format(post.date)
             );
             contentDiv.append(html);
         }
