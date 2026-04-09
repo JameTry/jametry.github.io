@@ -38,11 +38,7 @@ li {
     margin: 0.4rem 0
 }
 
-*:target {
-    background: #eaeeff;
-    border-radius: 10px;
-    padding: 0.5rem
-}
+
 
 .w {
     font-size: 17px;
@@ -170,4 +166,62 @@ article a{
         padding: 2rem 0;
     }
 
+}
+
+.toc {
+    font-size: 16px;
+    font-weight: 400;
+    position: sticky;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-left: -200px;
+    width: 160px;
+    float: left;
+    padding: 10px;
+}
+
+
+.toc a {
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: #999;
+    text-decoration: none;
+    transition: all 0.2s;
+}
+
+.toc a.active {
+    color: #000;
+    font-weight: bold;
+}
+
+.toc a:hover {
+    color: #000;
+    text-decoration: underline;
+}
+
+.toc ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.toc ul li {
+    margin: 5px 0;
+}
+
+.toc ul ul {
+    padding-left: 10px;
+    border-left: 2px solid #eee;
+}
+
+.toc ul ul ul {
+    padding-left: 10px;
+    border-left: 2px dashed #ddd;
+}
+
+@media (max-width: 600px) {
+    .toc {
+        display: none;
+    }
 }
