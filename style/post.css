@@ -39,13 +39,13 @@ li {
 }
 
 
-
 .w {
     font-size: 17px;
     max-width: 700px;
     margin: 0 auto;
     padding: 4rem 20px;
 }
+
 hr {
     text-align: center;
     border: 0
@@ -73,14 +73,13 @@ blockquote p {
 }
 
 
-
-
 .twikoo a {
     color: #333;
     text-underline-offset: 4px;
     text-decoration-color: #3a3838;
 }
-.twikoo{
+
+.twikoo {
     font-size: 16px;
     font-family: Arial, serif;
 }
@@ -123,7 +122,7 @@ del {
     text-decoration-thickness: 2px
 }
 
-.time{
+.time {
     margin-top: 35px;
     font-size: 14px;
     color: #5b5c60;
@@ -137,7 +136,7 @@ header {
     margin-bottom: 60px;
 }
 
-header a{
+header a {
     margin-left: 14px;
     text-decoration: none;
     text-underline-offset: 4px;
@@ -149,19 +148,19 @@ header a{
     font-style: italic;
 }
 
-header a:hover{
+header a:hover {
     text-decoration: underline;
     color: #333 !important;
 }
 
-article a{
+article a {
     text-underline-offset: 4px;
     color: #333;
 }
 
 @media (max-width: 600px) {
 
-    .w{
+    .w {
         width: 85%;
         padding: 2rem 0;
     }
@@ -178,8 +177,30 @@ article a{
     width: 160px;
     float: left;
     padding: 10px;
+    max-height: 400px;
+    overflow-y: auto;
 }
 
+.toc::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+
+.toc::-webkit-scrollbar-track {
+    background: rgba(222, 212, 212, 0.51);
+}
+
+
+.toc::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+
+.toc::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.35);
+}
 
 .toc a {
     display: block;
