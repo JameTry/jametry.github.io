@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     //导航========
     // ===== 获取标题 =====
-    const headers = document.querySelectorAll('article h1, article h2, article h3');
+    const headers = document.querySelectorAll('h1, h2, h3,h4');
     if (headers.length < 2) return;
 
     // ===== 创建 TOC =====
@@ -49,11 +49,11 @@ document.addEventListener("DOMContentLoaded", function () {
         links.push(a);
 
         // ===== 构建层级 =====
-        if (h.tagName === 'H1') {
+        if (h.tagName === 'H2') {
             rootUl.appendChild(li);
             currentH1Li = li;
             currentH2Li = null;
-        } else if (h.tagName === 'H2') {
+        } else if (h.tagName === 'H3') {
             if (!currentH1Li) {
                 rootUl.appendChild(li);
             } else {
@@ -65,7 +65,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 subUl.appendChild(li);
             }
             currentH2Li = li;
-        } else if (h.tagName === 'H3') {
+        } else if (h.tagName === 'H4') {
             if (!currentH2Li) {
                 rootUl.appendChild(li);
             } else {
