@@ -88,6 +88,8 @@ public class RssGenerator {
     }
 
 
+
+
     public static void run(String projectPath) throws Exception {
         POSTS_DIR = projectPath + POSTS_DIR;
         OTHER_DIR = projectPath + OTHER_DIR;
