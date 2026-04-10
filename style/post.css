@@ -168,13 +168,13 @@ article a {
 }
 
 .toc {
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 400;
     position: sticky;
     top: 50%;
     transform: translateY(-50%);
-    margin-left: -200px;
-    width: 160px;
+    margin-left: -280px;
+    width: 180px;
     float: left;
     padding: 10px;
     max-height: 400px;
