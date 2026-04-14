@@ -173,7 +173,7 @@ public class HtmlGenIndex {
             throw new RuntimeException("找不到class为的div");
         }
 
-        contentDiv.html(""); // 清空原有内容
+        contentDiv.html("");
 
         Calendar cal = Calendar.getInstance();
         int lastYear = -1;
@@ -182,13 +182,11 @@ public class HtmlGenIndex {
             cal.setTime(post.date);
             int year = cal.get(Calendar.YEAR);
 
-            // 当年份变化时，插入年份分隔标签
             if (year != lastYear) {
                 contentDiv.append(String.format("<p class=\"year-separator\">%d</p>", year));
                 lastYear = year;
             }
 
-            // 构建文章链接
             String html = String.format(
                     " <a class=\"post\" href=\"/html/%s/%s\">\n" +
                             "            <span>%s</span>\n" +
