@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>&nbsp;</title>
+    <link rel="stylesheet" href="/style/post.css">
+</head>
+<style>
+    .word {
+        position: relative;
+        cursor: pointer;
+        transition: .2s;
+        border-bottom: 1px dashed #666;
+
+        display: inline-block;
+        margin-right: 10px;
+        margin-top: 20px;
+    }
+
+    .word:hover {
+    }
+
+    .tooltip {
+        font-size: 16px;
+        position: absolute;
+        left: 50%;
+        top: 120%;
+        transform: translateX(-50%);
+        min-width: 260px;
+
+        padding: 14px 16px;
+        border-radius: 12px;
+
+        background: rgba(33, 33, 33, 0.96);
+        color: #fff;
+
+        line-height: 1.7;
+
+        box-shadow: 0 10px 30px rgba(105, 105, 105, 0.18);
+
+        opacity: 0;
+        visibility: hidden;
+
+        transition: all .2s ease;
+
+        z-index: 99;
+    }
+
+    .tooltip::before {
+        content: "";
+        position: absolute;
+        top: -6px;
+        left: 50%;
+        transform: translateX(-50%) rotate(45deg);
+
+        width: 12px;
+        height: 12px;
+
+        background: rgba(208, 198, 198, 0.96);
+    }
+
+    .word:hover .tooltip {
+        opacity: 1;
+        visibility: visible;
+        top: 140%;
+    }
+
+    .tooltip .pinyin {
+        color: #ffd166;
+        margin-bottom: 6px;
+        font-size: 16px;
+    }
+
+    .tooltip .meaning {
+        margin-bottom: 8px;
+    }
+
+
+</style>
+<body>
+
+<div class="w">
+
+    <span class="word">
+        揶揄
+        <div class="tooltip">
+            <div class="pinyin">yé yú</div>
+            <div class="meaning">
+                指嘲笑、戏弄，多带有调侃意味。
+            </div>
+        </div>
+    </span>
+    <span class="word">
+            酬酢
+            <div class="tooltip">
+                <div class="pinyin">chóu zuò</div>
+                <div class="meaning">
+                    指宾主之间相互敬酒应酬，也泛指交际往来。
+                </div>
+            </div>
+    </span>
+    <span class="word">
+        苍翠
+    </span>
+    <span class="word">
+        濛濛
+    </span>
+    <span class="word">
+        霏霏
+    </span>
+
+</div>
+</body>
+</html>
