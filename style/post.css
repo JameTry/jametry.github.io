@@ -1,15 +1,31 @@
 
-html, body {
+:root {
+    --bg-color: white;
+    --text-color: #333;
+    --hr-color:#7F848FFF;
+    --date-color: #5b5c60;
+    --a-active-color:#000;
 }
+
+
+[data-theme="dark"] {
+    --bg-color: #242426;
+    --text-color: #e8e8ec;
+    --hr-color:#7F848FFF;
+    --date-color: #d7d6d6;
+    --a-active-color: #ececec;
+}
+
+
 
 html {
     height: 100%;
     scroll-behavior: smooth
-
 }
 
 body {
-    color: #333;
+    color: var(--text-color);
+    background-color: var(--bg-color);
     font-size: 16px;
     line-height: 1.4;
     margin: 0;
@@ -51,12 +67,12 @@ hr {
 }
 
 hr:before {
-    color: #7F848FFF;
+    color: var(--hr-color);
     content: "/////"
 }
 
 hr:after {
-    color: #7F848FFF;
+    color: var(--hr-color);
     content: attr(data-content) "/////"
 }
 
@@ -73,7 +89,7 @@ blockquote p {
 
 
 .twikoo a {
-    color: #333;
+    color: var(--text-color);
     text-underline-offset: 4px;
     text-decoration-color: #3a3838;
 }
@@ -124,7 +140,7 @@ del {
 .time {
     margin-top: 35px;
     font-size: 14px;
-    color: #5b5c60;
+    color: var(--date-color);
     display: inline-block;
 }
 
@@ -139,7 +155,7 @@ header a {
     margin-left: 14px;
     text-decoration: none;
     text-underline-offset: 4px;
-    color: #333;
+    color: var(--text-color)
 }
 
 .logo {
@@ -149,12 +165,12 @@ header a {
 
 header a:hover {
     text-decoration: underline;
-    color: #333 !important;
+    color: var(--text-color) !important;
 }
 
 article a {
     text-underline-offset: 4px;
-    color: #333;
+    color: var(--text-color)
 }
 
 @media (max-width: 600px) {
@@ -198,7 +214,7 @@ article a {
 
 
 .toc::-webkit-scrollbar-thumb:hover {
-    background: rgba(0, 0, 0, 0.35);
+    background: var(--text-color);
 }
 
 .toc a {
@@ -212,12 +228,12 @@ article a {
 }
 
 .toc a.active {
-    color: #000;
+    color: var(--a-active-color);
     font-weight: bold;
 }
 
 .toc a:hover {
-    color: #000;
+    color: var(--text-color);
     text-decoration: underline;
 }
 

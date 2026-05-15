@@ -5,7 +5,27 @@
   <title>Jame</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/style/post.css">
+  <script src="/js/tool.js"></script>
   <style>
+
+
+        :root {
+            --post-color0: #222;
+            --post-hover-color0: #f3f3f3;
+            --year-separator-color:#7C7C7CE0;
+            --post-date:#666;
+            --bottom-info-color:#777;
+        }
+
+
+        [data-theme="dark"] {
+            --post-color0: #fff;
+            --post-hover-color0: #343434;
+            --year-separator-color: rgba(206, 206, 206, 0.88);
+            --post-date: #c5c5c5;
+            --bottom-info-color: #bdbdbd;
+        }
+
 
         .post-list {
             margin-top: 40px;
@@ -18,7 +38,7 @@
             margin-bottom: 5px;
             font-size: 18px;
             text-decoration: none;
-            color: #222;
+            color: var(--post-color0) !important;
             margin-left: 1rem;
         }
 
@@ -35,14 +55,14 @@
         }
 
         .post-date {
-            color: #666;
+            color: var(--post-date);
             font-size: 16px;
             white-space: nowrap;
             order: 2;
         }
 
         .post:hover {
-            background-color: #f3f3f3;
+            background-color: var(--post-hover-color0);
             border-radius: 10px;
         }
 
@@ -51,11 +71,11 @@
             border-top: 1px solid #ccc;
             font-size: 14px;
             padding-top: 20px;
-            color: #777;
+            color: var(--bottom-info-color) !important;
         }
+
         .bottom-info a:hover {
             text-decoration: underline !important;
-            color: #777 !important;
         }
 
         footer {
@@ -65,11 +85,11 @@
             display: flex;
             justify-content: space-between;
             font-size: 14px;
-            color: #777;
+            color: var(--bottom-info-color);
         }
 
         footer a, .nav-item {
-            color: #777 !important;
+            color: var(--bottom-info-color) !important;
             margin-left: 10px !important;
             text-decoration: none !important;
             font-size: 14px;
@@ -77,7 +97,7 @@
 
         footer a:hover {
             text-decoration: underline !important;
-            color: #777 !important;
+            color: var(--bottom-info-color) !important;
         }
 
         .nav a {
@@ -87,7 +107,7 @@
         .year-separator {
             margin-bottom: 10px !important;
             font-size: 1.5rem;
-            color: rgba(124, 124, 124, 0.88);
+            color: var(--year-separator-color);
         }
 
         .footer-right p {
@@ -107,7 +127,7 @@
      <a href="/">Jame</a>
     </div>
     <div class="nav">
-     <a href="/html/message">留言</a> <a href="/html/links">链接</a> <a target="_blank" href="https://www.travellings.cn/go.html">开往</a>
+     <a href="/html/message">留言</a> <a href="/html/links">链接</a> <a target="_blank" href="https://www.travellings.cn/go.html">开往</a><a href="#" onclick="toggleTheme()">明暗</a>
     </div>
    </header>
    <div class="post-list">
