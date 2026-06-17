@@ -8,7 +8,7 @@ public class Main {
         HtmlGenIndex.run(projectPath);
 //        JsonToHtmlConverter.run(projectPath);
 //        ReplacePrevAndNextHref.run(projectPath);
-        RssGenerator.run(projectPath);
+//        RssGenerator.run(projectPath);
     }
 
 
