@@ -32,8 +32,30 @@
      <li><a href="/html/post/20">先生！先生！</a></li>
      <li><a href="/html/post/9">3月28，下雪了</a></li>
     </ul>
-    <br><a href="/html/other/18r">诗歌</a> <a href="/html/links">链接</a>
+    <br>
+    <p><a href="/html/other/18r">诗歌</a> <a href="/html/links">链接</a> </p>
+    <p id="footer-text"></p>
    </article>
   </div>
+  <script>
+   const phrases = [
+    "你已经默许了那么多谎言，为什么不再沉默一次呢？",
+    "她有起伏的美，也有黯淡下去的忧伤。",
+    "悬而不决。",
+    "我坐在石球子上。",
+    "你有多久没有高兴得又唱又跳了？<br>那已经很他妈久了。",
+    "世界和平。",
+    "一阵极其缓慢的风，牵出了我的灵魂。",
+    "你们知道吗？我就要去旅行，或许和朋友，或许就我自己。",
+    "沉默真是完美的能力。",
+    "我有一所房子，面朝大海，春暖花开",
+    "徒劳。",
+    "浩瀚宇宙吹来的风，不曾在我身旁一刻停留。",
+    "很轻的梦，满天星星。",
+    "灿烂的风与海。"
+   ];
+   const randomIndex = Math.floor(Math.random() * phrases.length);
+   document.getElementById('footer-text').innerHTML = phrases[randomIndex];
+  </script>
  </body>
 </html>
