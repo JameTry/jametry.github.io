@@ -7,16 +7,13 @@
     --a-active-color:#000;
 }
 
-
 [data-theme="dark"] {
     --bg-color: #242426;
-    --text-color: #d0d0d5;
+    --text-color: #ececec;
     --hr-color:#7F848FFF;
     --date-color: #d7d6d6;
     --a-active-color: #ececec;
 }
-
-
 
 html {
     height: 100%;
@@ -24,8 +21,8 @@ html {
 }
 
 body {
-    color: var(--text-color);
-    background-color: var(--bg-color);
+    color: #e1e1e1;
+    background-color:#201b0b;
     font-size: 16px;
     line-height: 1.4;
     margin: 0;
@@ -79,7 +76,7 @@ hr:after {
 blockquote {
     border-left: 4px solid #7c7c7c;
     padding: 12px 12px 12px 15px;
-    margin: 0;
+    margin: 0 0 1.1rem;
 }
 
 blockquote p {
@@ -89,7 +86,7 @@ blockquote p {
 
 
 .twikoo a {
-    color: var(--text-color);
+    color: #ECECECFF;
     text-underline-offset: 4px;
     text-decoration-color: #3a3838;
 }
@@ -110,6 +107,7 @@ blockquote p {
 article {
     caret-color: transparent;
     margin-bottom: 70px;
+    margin-top: 70px;
 }
 
 #imgViewer {
@@ -140,37 +138,14 @@ del {
 .time {
     margin-top: 35px;
     font-size: 14px;
-    color: var(--date-color);
+    color: #d7d6d6;
     display: inline-block;
 }
 
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 60px;
-}
-
-header a {
-    margin-left: 14px;
-    text-decoration: none;
-    text-underline-offset: 4px;
-    color: var(--text-color)
-}
-
-.logo {
-    font-size: 28px;
-    font-style: italic;
-}
-
-header a:hover {
-    text-decoration: underline;
-    color: var(--text-color) !important;
-}
 
 article a {
     text-underline-offset: 4px;
-    color: var(--text-color)
+    color: #ECECECFF
 }
 
 @media (max-width: 600px) {
@@ -214,7 +189,7 @@ article a {
 
 
 .toc::-webkit-scrollbar-thumb:hover {
-    background: var(--text-color);
+    background: #ECECECFF;
 }
 
 .toc a {
@@ -228,12 +203,12 @@ article a {
 }
 
 .toc a.active {
-    color: var(--a-active-color);
+    color: #ECECECFF;
     font-weight: bold;
 }
 
 .toc a:hover {
-    color: var(--text-color);
+    color: #ECECECFF;
     text-decoration: underline;
 }
 

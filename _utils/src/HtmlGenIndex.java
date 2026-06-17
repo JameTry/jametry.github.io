@@ -18,8 +18,8 @@ public class HtmlGenIndex {
     private static String INDEX_FILE = "\\index.html";   // 目标索引文件
 
 
-    private static String[] postPath = {"\\html\\post", "\\html\\other"};
-    private static String[] chose = {"div.post-list", "div.other-list"};
+    private static String[] postPath = {"\\html\\post"};
+    private static String[] chose = {"ul.post-list", "div.other-list"};
     private static String[] urlPath = {"post", "other"};
 
 
@@ -179,22 +179,11 @@ public class HtmlGenIndex {
         int lastYear = -1;
 
         for (PostInfo post : posts) {
-            cal.setTime(post.date);
-            int year = cal.get(Calendar.YEAR);
 
-            if (year != lastYear) {
-                contentDiv.append(String.format("<p class=\"year-separator\">%d</p>", year));
-                lastYear = year;
-            }
 
             String html = String.format(
-                    " <a class=\"post\" href=\"/html/%s/%s\">\n" +
-                            "            <span>%s</span>\n" +
-                            "            <span class=\"post-date\">%s</span>\n" +
-                            "        </a>",
-                    urlPath, post.fileId, post.content,
-                    new SimpleDateFormat("yyyy/MM").format(post.date)
-            );
+                    " <li><a href=\"/html/%s/%s\">%s</a></li>",
+                    urlPath, post.fileId, post.content);
             contentDiv.append(html);
         }
 
