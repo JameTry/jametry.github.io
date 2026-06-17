@@ -69,30 +69,31 @@ document.addEventListener("DOMContentLoaded", function () {
             rootUl.appendChild(li);
             currentH1Li = li;
             currentH2Li = null;
-        } else if (h.tagName === 'H3') {
-            if (!currentH1Li) {
-                rootUl.appendChild(li);
-            } else {
-                let subUl = currentH1Li.querySelector('ul');
-                if (!subUl) {
-                    subUl = document.createElement('ul');
-                    currentH1Li.appendChild(subUl);
-                }
-                subUl.appendChild(li);
-            }
-            currentH2Li = li;
-        } else if (h.tagName === 'H4') {
-            if (!currentH2Li) {
-                rootUl.appendChild(li);
-            } else {
-                let subUl = currentH2Li.querySelector('ul');
-                if (!subUl) {
-                    subUl = document.createElement('ul');
-                    currentH2Li.appendChild(subUl);
-                }
-                subUl.appendChild(li);
-            }
         }
+        // } else if (h.tagName === 'H3') {
+        //     if (!currentH1Li) {
+        //         rootUl.appendChild(li);
+        //     } else {
+        //         let subUl = currentH1Li.querySelector('ul');
+        //         if (!subUl) {
+        //             subUl = document.createElement('ul');
+        //             currentH1Li.appendChild(subUl);
+        //         }
+        //         subUl.appendChild(li);
+        //     }
+        //     currentH2Li = li;
+        // } else if (h.tagName === 'H4') {
+        //     if (!currentH2Li) {
+        //         rootUl.appendChild(li);
+        //     } else {
+        //         let subUl = currentH2Li.querySelector('ul');
+        //         if (!subUl) {
+        //             subUl = document.createElement('ul');
+        //             currentH2Li.appendChild(subUl);
+        //         }
+        //         subUl.appendChild(li);
+        //     }
+        // }
     });
 
     toc.appendChild(rootUl);
