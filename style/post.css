@@ -22,7 +22,7 @@ html {
 
 body {
     color: #e1e1e1;
-    background-color:#201b0b;
+    background: radial-gradient(circle at top left, #201b0b 70%, #443C25FF 100%);
     font-size: 16px;
     line-height: 1.4;
     margin: 0;
@@ -96,14 +96,6 @@ blockquote p {
     font-family: Arial, serif;
 }
 
-.top-op {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 80px !important;
-    margin-top: 4rem;
-
-}
-
 article {
     caret-color: transparent;
     margin-bottom: 70px;
@@ -128,24 +120,16 @@ article {
     max-height: 90%;
 }
 
-del {
-    text-decoration: line-through;
-    color: #838383FF;
-    text-decoration-color: #151515FF;
-    text-decoration-thickness: 2px
-}
-
-.time {
-    margin-top: 35px;
-    font-size: 14px;
-    color: #d7d6d6;
-    display: inline-block;
-}
-
 
 article a {
-    text-underline-offset: 4px;
-    color: #ECECECFF
+    text-decoration: none;
+    color: #ECECECFF;
+}
+
+ a:hover {
+    text-decoration: underline;
+     text-decoration-style: wavy;
+     text-underline-offset: 4px;
 }
 
 @media (max-width: 600px) {
