@@ -1,15 +1,49 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
-
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>404</title>
     <link rel="stylesheet" href="/style/post.css">
 </head>
+<style>
+    img {
+        display: inline-block;
+        animation: floatWiggle 4s ease-in-out infinite;
+        transform-origin: center;
+        will-change: transform;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    @keyframes floatWiggle {
+        0% {
+            transform: translate(0px, 0px) scale(1) rotate(0deg);
+        }
+        25% {
+            transform: translate(2px, -3px) scale(1.01) rotate(0.3deg);
+        }
+        50% {
+            transform: translate(-2px, 2px) scale(0.99) rotate(-0.3deg);
+        }
+        75% {
+            transform: translate(1px, -2px) scale(1.01) rotate(0.2deg);
+        }
+        100% {
+            transform: translate(0px, 0px) scale(1) rotate(0deg);
+        }
+    }
+</style>
 <body>
 <div class="w">
-    <p>你探索到了一片未知的领域</p>
+
+    <article>
+        <p>你探索到了一片未知的领域。</p>
+        <img src="/img/sys/404.png">
+        <br>
+        <p><a href="/">回首页</a></p>
+    </article>
+
+
 </div>
 </body>
 </html>
