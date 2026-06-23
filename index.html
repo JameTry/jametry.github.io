@@ -95,7 +95,7 @@
         </div>
     </div>
 
-    <img src="/img/tryclick.png" style="width: 100px;position: absolute;bottom:-90px;right: 90px;z-index: 9999999999">
+    <img src="/img/tryclick.png" style="width: 100px;position: absolute;bottom:-90px;right: 90px;" alt="">
 </div>
 
 <div class="w">
@@ -139,9 +139,9 @@
         const mouseX = e.clientX;
         const screenWidth = window.innerWidth;
 
-        if (mouseX < screenWidth * 0.20) {
+        if (mouseX < screenWidth * 0.15) {
             tDiv.style.cursor = 'pointer';
-        } else if (mouseX > screenWidth * 0.70) {
+        } else if (mouseX > screenWidth * 0.85) {
             tDiv.style.cursor = 'pointer';
         } else {
             tDiv.style.cursor = 'default';
@@ -152,11 +152,11 @@
         const clickX = e.clientX;
         const screenWidth = window.innerWidth;
 
-        if (clickX < screenWidth * 0.20) {
+        if (clickX < screenWidth * 0.15) {
             cons[currentIndex].classList.remove('active');
             currentIndex = (currentIndex - 1 + cons.length) % cons.length;
             cons[currentIndex].classList.add('active');
-        } else if (clickX > screenWidth * 0.70) {
+        } else if (clickX > screenWidth * 0.85) {
             cons[currentIndex].classList.remove('active');
             currentIndex = (currentIndex + 1) % cons.length;
             cons[currentIndex].classList.add('active');
