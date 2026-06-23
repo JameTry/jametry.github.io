@@ -6,23 +6,102 @@
   <title>Jame</title>
   <link rel="stylesheet" href="/style/post.css">
   <style>
-    img {
-        width: 400px;
-    }
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+        }
 
-</style>
+        .t {
+            width: 100%;
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .con {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 5% 10%;
+            box-sizing: border-box;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out, background-color 0.4s ease;
+            z-index: 0;
+        }
+
+        .con.active {
+            opacity: 1;
+            z-index: 1;
+        }
+
+        .con img {
+            max-width: 45%;
+            max-height: 80vh;
+            object-fit: contain;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-right: 5%;
+            aspect-ratio: auto;
+        }
+
+        .con .text-wrap {
+            flex: 1;
+            max-width: 50%;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            transition: color 0.3s;
+        }
+
+        .w {
+            padding: 40px;
+            max-width: 800px;
+            margin: 0 auto;
+            min-height: 100vh;
+        }
+
+        @media (max-width: 768px) {
+            .con {
+                flex-direction: column;
+            }
+            .con img {
+                max-width: 90%;
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+            .con .text-wrap {
+                max-width: 90%;
+            }
+        }
+    </style>
  </head>
  <body>
+  <div class="t">
+   <div class="con active">
+    <img src="/img/21.jpg" alt="img" crossorigin="anonymous" fetchpriority="high">
+    <div class="text-wrap">
+     <p>如果可以的话……</p>
+     <p>我还是想要一间窗户朝西的屋子，和一只粘人的猫。</p>
+    </div>
+   </div>
+   <div class="con">
+    <img src="/img/100.webp" alt="img" crossorigin="anonymous" loading="lazy">
+    <div class="text-wrap">
+     <p>我好像走进我西部海岸的那所房子，虽然中国并没有西部海岸。</p>
+     <p>潮湿闷热的一个星期终于过去，午后我走进厨房，微风徐徐，强烈的阳光从天井照射进来、在窗沿溅开，柔和地弥漫在整个房间里。</p>
+     <p>每当这时，我常常想着我那所位置不定的房子，它总是和光与风有着断不开的联系。</p>
+    </div>
+   </div>
+
+  </div>
   <div class="w">
    <article>
-    <img src="/img/21.jpg" alt="img">
-    <p>如果可以的话……</p>
-    <p>我还是想要一间窗户朝西的屋子，和一只粘人的猫。</p>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
     <h1>Jame</h1>
     <ul class="post-list">
      <li><a href="/html/post/48">凋落的银杏树叶上的雨水</a></li>
@@ -31,7 +110,6 @@
      <li><a href="/html/post/44">夏季午后，女人的叫骂声和三个孩子放肆的笑声在安静的街道上回荡……</a></li>
      <li><a href="/html/post/33">他来吃饭的时候其他人已经快吃完了</a></li>
      <li><a href="/html/post/30">像猫一样的风</a></li>
-     <li><a href="/html/post/29">暮色逐渐褪去</a></li>
      <li><a href="/html/post/28">狂风暴雨逐渐停止后的第二天正午</a></li>
      <li><a href="/html/post/23">雨停之后</a></li>
      <li><a href="/html/post/22">暴雨过后，天空格外晴朗</a></li>
@@ -47,29 +125,103 @@
      <li><a href="/html/post/2">应是已入深秋</a></li>
     </ul>
     <br>
-    <p><a href="/html/other/18r">诗歌</a> <a href="/html/links">链接</a> <a href="https://www.travellings.cn/go.html">开往</a> </p>
-    <p id="footer-text"></p>
+    <p>
+     <a href="/html/other/18r">诗歌</a>
+     <a href="/html/links">链接</a>
+     <a href="/html/messages">留言</a>
+     <a href="https://www.travellings.cn/go.html">开往</a></p>
    </article>
   </div>
   <script>
-   const phrases = [
-    "你已经默许了那么多谎言，为什么不再沉默一次呢？",
-    "她有起伏的美，也有黯淡下去的忧伤。",
-    "悬而不决。",
-    "我坐在石球子上。",
-    "你有多久没有高兴得又唱又跳了？<br>那已经很他妈久了。",
-    "世界和平。",
-    "一阵极其缓慢的风，牵出了我的灵魂。",
-    "你们知道吗？我就要去旅行，或许和朋友，或许就我自己。",
-    "沉默真是完美的能力。",
-    "我有一所房子，面朝大海，春暖花开",
-    "徒劳。",
-    "浩瀚宇宙吹来的风，不曾在我身旁一刻停留。",
-    "很轻的梦，满天星星。",
-    "灿烂的风与海。"
-   ];
-   const randomIndex = Math.floor(Math.random() * phrases.length);
-   document.getElementById('footer-text').innerHTML = phrases[randomIndex];
-  </script>
+    const cons = document.querySelectorAll('.con');
+    const tDiv = document.querySelector('.t');
+    let currentIndex = 0;
+
+    tDiv.addEventListener('mousemove', function(e) {
+        const mouseX = e.clientX;
+        const screenWidth = window.innerWidth;
+
+        if (mouseX < screenWidth * 0.20) {
+            tDiv.style.cursor = 'pointer';
+        } else if (mouseX > screenWidth * 0.70) {
+            tDiv.style.cursor = 'pointer';
+        } else {
+            tDiv.style.cursor = 'default';
+        }
+    });
+
+    tDiv.addEventListener('click', function(e) {
+        const clickX = e.clientX;
+        const screenWidth = window.innerWidth;
+
+        if (clickX < screenWidth * 0.20) {
+            cons[currentIndex].classList.remove('active');
+            currentIndex = (currentIndex - 1 + cons.length) % cons.length;
+            cons[currentIndex].classList.add('active');
+        }
+        else if (clickX > screenWidth * 0.70) {
+            cons[currentIndex].classList.remove('active');
+            currentIndex = (currentIndex + 1) % cons.length;
+            cons[currentIndex].classList.add('active');
+        }
+    });
+    function getAverageColor(imgElement) {
+        const canvas = document.createElement('canvas');
+        const context = canvas.getContext && canvas.getContext('2d');
+        const defaultRGB = { r: 245, g: 245, b: 245 };
+
+        if (!context) return defaultRGB;
+
+        canvas.width = 4;
+        canvas.height = 4;
+
+        try {
+            context.drawImage(imgElement, 0, 0, 4, 4);
+            const imgData = context.getImageData(0, 0, 4, 4).data;
+
+            let r = 0, g = 0, b = 0;
+            let count = 0;
+
+            for (let i = 0; i < imgData.length; i += 4) {
+                if (imgData[i+3] > 0) {
+                    r += imgData[i];
+                    g += imgData[i+1];
+                    b += imgData[i+2];
+                    count++;
+                }
+            }
+
+            if (count === 0) return defaultRGB;
+
+            return {
+                r: Math.floor(r / count),
+                g: Math.floor(g / count),
+                b: Math.floor(b / count)
+            };
+        } catch (e) {
+            return defaultRGB;
+        }
+    }
+
+    cons.forEach(con => {
+        const img = con.querySelector('img');
+
+        const applyColor = () => {
+            const rgb = getAverageColor(img);
+            con.style.backgroundColor = `rgb(${rgb.r}, ${rgb.g}, ${rgb.b})`;
+
+            const brightness = Math.round(((parseInt(rgb.r) * 299) + (parseInt(rgb.g) * 587) + (parseInt(rgb.b) * 114)) / 1000);
+            const textWrap = con.querySelector('.text-wrap');
+            textWrap.style.color = brightness > 125 ? '#333' : '#fff';
+        };
+
+        if (img.complete) {
+            applyColor();
+        } else {
+            img.addEventListener('load', applyColor);
+        }
+    });
+
+</script>
  </body>
 </html>

@@ -45,7 +45,7 @@ public class HtmlGenIndex {
                     }
                 }
 
-                Collections.sort(posts, (p1, p2) -> p2.date.compareTo(p1.date));
+                Collections.sort(posts, (p1, p2) -> Integer.compare(Integer.parseInt(p2.fileId), Integer.parseInt(p1.fileId)));
                 updateIndexHtml(posts, chose[i], urlPath[i]);
                 posts.clear();
             }
@@ -73,18 +73,18 @@ public class HtmlGenIndex {
 
         content = getTitleExcerpt(content);
 
-        Element timeDiv = doc.select("span.time").first();
-        if (timeDiv == null) return null;
-
-        String dateStr = timeDiv.text().trim();
-        Date date = parseDate(dateStr);
-        if (date == null) return null;
+//        Element timeDiv = doc.select("span.time").first();
+//        if (timeDiv == null) return null;
+//
+//        String dateStr = timeDiv.text().trim();
+//        Date date = parseDate(dateStr);
+//        if (date == null) return null;
 
         return new PostInfo(
                 file.getName().replace(".html", ""),
                 content,
-                date,
-                formatDate(date)
+                null,
+                null
         );
     }
 
