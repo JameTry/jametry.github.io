@@ -33,13 +33,22 @@
             padding: 5% 10%;
             box-sizing: border-box;
             overflow: hidden;
-
+            column-gap: 4%;
             opacity: 0;
             visibility: hidden;
             transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1),
             visibility 0.8s cubic-bezier(0.25, 1, 0.5, 1);
             z-index: 0;
             will-change: opacity;
+        }
+
+        .con-c{
+            row-gap: 4%;
+            align-items: center;
+            justify-content: center;
+            display: flex;
+            flex-direction: column;
+
         }
 
         .con.active {
@@ -71,7 +80,6 @@
             object-fit: contain;
             border-radius: 8px;
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
-            margin-right: 5%;
             aspect-ratio: auto;
 
             opacity: 0;
@@ -141,6 +149,7 @@
             <p>每当这时，我常常想起我那所位置不定的房子，它总是和阳光与风有着断不开的联系。</p>
         </div>
     </div>
+
 
     <img src="/img/tryclick.png" style="width: 100px;position: absolute;bottom:-90px;right: 90px;" alt="">
 </div>
