@@ -107,6 +107,7 @@ article {
 }
 
 #imgViewer {
+    caret-color: transparent;
     position: fixed;
     top: 0;
     left: 0;
@@ -120,6 +121,7 @@ article {
 }
 
 #imgViewer img {
+    caret-color: transparent;
     max-width: 90%;
     max-height: 90%;
 }
