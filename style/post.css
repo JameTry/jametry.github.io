@@ -128,8 +128,10 @@ article {
 
 
 article a {
-    text-decoration: none;
+    text-decoration: underline wavy transparent;
+    text-underline-offset: 2px;
     color: #ECECECFF;
+    transition: text-decoration-color 0.2s ease, text-underline-offset 0.2s ease;
 }
 
 article a:hover {
