@@ -327,7 +327,6 @@
     const tDiv = document.querySelector('.t');
     let currentIndex = 0;
 
-    // 鼠标左右移动改变指针样式
     tDiv.addEventListener('mousemove', function (e) {
         const mouseX = e.clientX;
         const screenWidth = window.innerWidth;
@@ -338,7 +337,6 @@
         }
     });
 
-    // 优化点 2：全局复用同一个 Offscreen Canvas 实例，避免频繁销毁创建引发垃圾回收造成的卡顿
     const sharedCanvas = document.createElement('canvas');
     const sharedContext = sharedCanvas.getContext && sharedCanvas.getContext('2d');
     if (sharedContext) {
@@ -346,7 +344,6 @@
         sharedCanvas.height = 4;
     }
 
-    // 获取主色调
     function getAverageColor(imgElement) {
         const defaultRGB = {r: 245, g: 245, b: 245};
         if (!sharedContext) return defaultRGB;
@@ -381,7 +378,6 @@
         }
     }
 
-    // 核心加载逻辑
     function loadAndProcessImage(index) {
         const con = cons[index];
         const img = con.querySelector('img');
@@ -404,7 +400,6 @@
             con.style.setProperty('--bg-url', `url(${src})`);
             img.src = src;
 
-            // 优化点 3：利用原生 img.decode() 异步解码大图，将计算移出主线程，杜绝动画中断
             if (typeof img.decode === 'function') {
                 img.decode().then(handleLoadComplete).catch(() => {
                     img.addEventListener('load', handleLoadComplete, {once: true});
@@ -428,7 +423,6 @@
         }
     }
 
-    // 预加载相邻卡片
     function preloadAdjacent(index) {
         const nextIndex = (index + 1) % cons.length;
         const prevIndex = (index - 1 + cons.length) % cons.length;
@@ -437,11 +431,9 @@
         loadAndProcessImage(prevIndex);
     }
 
-    // 优化点 4：首屏初始化时，不等待当前图加载完毕，【直接并行】开始静默拉取相邻图片资源
     loadAndProcessImage(currentIndex);
     preloadAdjacent(currentIndex);
 
-    // 点击切换事件
     tDiv.addEventListener('click', function (e) {
         const clickX = e.clientX;
         const screenWidth = window.innerWidth;
@@ -460,7 +452,6 @@
         }
 
         if (changed) {
-            // 优化点 5：点击切换后立即执行预加载，动态扩充前后卡片的缓存队列
             loadAndProcessImage(currentIndex);
             preloadAdjacent(currentIndex);
         }
