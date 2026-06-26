@@ -110,6 +110,12 @@ article {
     margin-top: 70px;
 }
 
+.time {
+    margin-top: 20px;
+    display: inline-block;
+}
+
+
 #imgViewer {
     caret-color: transparent;
     position: fixed;
