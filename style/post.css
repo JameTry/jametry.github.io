@@ -54,7 +54,6 @@ li {
     margin: 0.4rem 0
 }
 
-
 .w {
     font-size: 17px;
     max-width: 700px;
@@ -88,7 +87,6 @@ blockquote p {
     margin: 0.5rem !important;
 }
 
-
 .twikoo a {
     color: #ECECECFF;
     text-underline-offset: 4px;
@@ -105,6 +103,12 @@ article {
     margin-bottom: 70px;
     margin-top: 70px;
 }
+
+.time {
+    margin-top: 20px;
+    display: inline-block;
+}
+
 
 #imgViewer {
     caret-color: transparent;
@@ -126,25 +130,17 @@ article {
     max-height: 90%;
 }
 
-
 article a {
-    text-decoration: none;
+    text-decoration: underline wavy transparent;
+    text-underline-offset: 2px;
     color: #ECECECFF;
+    transition: text-decoration-color 0.2s ease, text-underline-offset 0.2s ease;
 }
 
 article a:hover {
     text-decoration: underline;
     text-decoration-style: wavy;
     text-underline-offset: 4px;
-}
-
-@media (max-width: 600px) {
-
-    .w {
-        width: 85%;
-        padding: 2rem 0;
-    }
-
 }
 
 .toc {
@@ -166,17 +162,14 @@ article a:hover {
     height: 6px;
 }
 
-
 .toc::-webkit-scrollbar-track {
     background: rgba(222, 212, 212, 0.51);
 }
-
 
 .toc::-webkit-scrollbar-thumb {
     background: rgba(0, 0, 0, 0.2);
     border-radius: 10px;
 }
-
 
 .toc::-webkit-scrollbar-thumb:hover {
     background: #ECECECFF;
@@ -222,6 +215,10 @@ article a:hover {
 }
 
 @media (max-width: 600px) {
+    .w {
+        width: 85%;
+        padding: 2rem 0;
+    }
     .toc {
         display: none;
     }
