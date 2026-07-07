@@ -70,7 +70,8 @@ public class RssGenerator {
             try {
                 timeStr = doc.select("span.time").first().text();
             } catch (Exception e) {
-                throw new RuntimeException(e);
+                continue;
+//                throw new RuntimeException(e);
             }
             Date pubDate = INPUT_DATE.parse(timeStr);
             Calendar cal = Calendar.getInstance(TimeZone.getTimeZone("Asia/Shanghai"));
@@ -113,7 +114,7 @@ public class RssGenerator {
             rss.append("<item>\n")
                     .append("<title>").append(item.title).append("</title>\n")
                     .append("<link>").append(item.link).append("</link>\n")
-                    .append("<description><![CDATA[").append(item.content).append("]]></description>\n")
+//                    .append("<description><![CDATA[").append(item.content).append("]]></description>\n")
                     .append("<pubDate>").append(OUTPUT_DATE.format(item.pubDate)).append("</pubDate>\n")
                     .append("<guid>").append(item.link).append("</guid>\n")
                     .append("<author>Jame!</author>\n")
