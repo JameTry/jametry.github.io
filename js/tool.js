@@ -34,15 +34,27 @@ document.addEventListener("DOMContentLoaded", function () {
 
             const id = 'h-' + i;
             h.id = id;
+
             const li = document.createElement('li');
             const a = document.createElement('a');
-            a.href = '#' + id;
+
+            a.href = 'javascript:void(0)';
             a.textContent = h.textContent;
+
+            a.addEventListener('click', () => {
+
+                h.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+
+            });
 
             li.appendChild(a);
             rootUl.appendChild(li);
 
             links.push(a);
+
         });
 
         toc.appendChild(rootUl);
