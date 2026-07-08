@@ -15,7 +15,7 @@
 
         .t {
             width: 100%;
-            height: 100vh;
+            min-height: 100vh;
             position: relative;
             cursor: pointer;
             background-color: #0d0d0d;
@@ -56,7 +56,6 @@
             z-index: 1;
         }
 
-        /* 优化点 1：将 scale 改为 translate3d，强制开启 GPU 硬件加速，大幅降低 80px 高斯模糊的渲染开销 */
         .con::before {
             content: "";
             position: absolute;
@@ -118,19 +117,29 @@
         }
 
         @media (max-width: 768px) {
-            .con {
-                flex-direction: column;
-            }
+         .con {
+          flex-direction: column;
+          justify-content: flex-start;
+          align-items: center;
+          padding: 40px 20px;
+          overflow-y: auto;
+          -webkit-overflow-scrolling: touch;
+         }
 
-            .con img {
-                max-width: 90%;
-                margin-right: 0;
-                margin-bottom: 20px;
-            }
+         .con img {
+          max-width: 90%;
+          max-height: none;
+          height: auto;
+          margin-right: 0;
+          margin-bottom: 24px;
+         }
 
-            .con .text-wrap {
-                max-width: 90%;
-            }
+         .con .text-wrap {
+          max-width: 90%;
+          flex: none;
+          text-align: left;
+          padding-bottom: 40px;
+         }
         }
     </style>
  </head>
