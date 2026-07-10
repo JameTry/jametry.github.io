@@ -9,6 +9,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     document.querySelectorAll('img').forEach(img => {
         img.addEventListener('click', () => {
+            if (img.hasAttribute('no')) {
+                return; // 跳过预览
+            }
             viewerImg.src = img.src;
             viewer.style.display = 'flex';
         });
