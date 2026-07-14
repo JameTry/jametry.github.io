@@ -15,7 +15,9 @@
     --a-active-color: #ececec;
 }
 
+
 html {
+    color-scheme: dark;
     min-height: 100%;
     background: radial-gradient(
             circle at top left,
@@ -23,6 +25,11 @@ html {
             #443C25FF 100%
     ) no-repeat fixed;
     background-size: cover;
+    scroll-behavior: smooth;
+}
+
+* {
+    scrollbar-width: thin;
 }
 
 body {
@@ -149,8 +156,8 @@ article a:hover {
     position: sticky;
     top: 50%;
     transform: translateY(-50%);
-    margin-left: -280px;
-    width: 180px;
+    margin-left: -300px;
+    width: 200px;
     float: left;
     padding: 10px;
     max-height: 400px;
