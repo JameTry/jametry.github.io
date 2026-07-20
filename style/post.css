@@ -137,14 +137,14 @@ article {
     max-height: 90%;
 }
 
-article a {
+.w a {
     text-decoration: underline wavy transparent;
     text-underline-offset: 2px;
     color: #ECECECFF;
     transition: text-decoration-color 0.2s ease, text-underline-offset 0.2s ease;
 }
 
-article a:hover {
+.w a:hover {
     text-decoration: underline;
     text-decoration-style: wavy;
     text-underline-offset: 4px;
