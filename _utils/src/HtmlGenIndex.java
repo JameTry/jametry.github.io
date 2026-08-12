@@ -182,7 +182,7 @@ public class HtmlGenIndex {
 
 
             String html = String.format(
-                    " <li><a href=\"/html/%s/%s\">%s</a></li>",
+                    " <li><a target=\"_blank\" href=\"/html/%s/%s\">%s</a></li>",
                     urlPath, post.fileId, post.content);
             contentDiv.append(html);
         }
