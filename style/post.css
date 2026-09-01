@@ -221,6 +221,54 @@ article {
     border-left: 2px dashed #ddd;
 }
 
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 60px;
+}
+
+header a {
+    margin-left: 14px;
+    text-decoration: none;
+    text-underline-offset: 4px;
+}
+
+.logo {
+    font-size: 28px;
+    font-style: italic;
+}
+
+header a:hover {
+    text-decoration: underline;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    min-width: 120px;
+    padding: 8px 0;
+}
+
+.dropdown-content a {
+    display: block;
+    text-decoration: none;
+    margin-top: 10px;
+}
+
+
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
 @media (max-width: 600px) {
     .w {
         width: 85%;
