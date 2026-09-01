@@ -12,201 +12,38 @@
             padding: 0;
             width: 100%;
         }
-
-        .t {
-            width: 100%;
-            min-height: 100vh;
-            position: relative;
-            cursor: pointer;
-            background-color: #0d0d0d;
-        }
-
-        .con {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 5% 10%;
-            box-sizing: border-box;
-            overflow: hidden;
-            column-gap: 4%;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1),
-            visibility 0.8s cubic-bezier(0.25, 1, 0.5, 1);
-            z-index: 0;
-            will-change: opacity;
-        }
-
-        .con-c {
-            row-gap: 4%;
-            align-items: center;
-            justify-content: center;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .con.active {
-            opacity: 1;
-            visibility: visible;
-            z-index: 1;
-        }
-
-        .con::before {
-            content: "";
-            position: absolute;
-            top: -20%;
-            left: -20%;
-            width: 140%;
-            height: 140%;
-
-            background-image: var(--bg-url);
-            background-size: 100% 100%;
-            background-position: center;
-
-            filter: blur(80px) brightness(0.8) saturate(1.2);
-            transform: scale(1.1) translate3d(0, 0, 0);
-            will-change: transform, opacity;
-            z-index: -1;
-        }
-
-        .con img {
-            caret-color: transparent;
-            max-width: 50%;
-            max-height: 80vh;
-            object-fit: contain;
-            border-radius: 8px;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
-            aspect-ratio: auto;
-            user-select: none;
-            opacity: 0;
-            transform: scale(0.97) translate3d(0, 0, 0);
-            transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1),
-            transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
-            will-change: opacity, transform;
-        }
-
-        .con.active img {
-            opacity: 1;
-            transform: scale(1) translate3d(0, 0, 0);
-            transition-delay: 0.05s;
-        }
-
-        .con .text-wrap {
-            flex: 1;
-            max-width: 50%;
-            font-size: 1.1rem;
-            line-height: 1.8;
-
-            opacity: 0;
-            transform: translateY(15px) translate3d(0, 0, 0);
-            transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1),
-            transform 0.8s cubic-bezier(0.25, 1, 0.5, 1),
-            color 0.3s;
-            will-change: opacity, transform;
-        }
-
-        .con.active .text-wrap {
-            opacity: 1;
-            transform: translateY(0) translate3d(0, 0, 0);
-            transition-delay: 0.2s;
-        }
-        .bottom-info{
+        .bottom-info {
          font-size: 16px;
         }
-        .bottom-info a{
+
+        .bottom-info a {
          text-decoration: underline wavy;
          margin-left: 2px;
          margin-right: 2px;
         }
 
-        @media (max-width: 768px) {
-            .con {
-                flex-direction: column;
-                justify-content: flex-start;
-                align-items: center;
-                padding: 40px 20px;
-                overflow-y: auto;
-                -webkit-overflow-scrolling: touch;
-            }
-
-            .con img {
-                max-width: 90%;
-                max-height: none;
-                height: auto;
-                margin-right: 0;
-                margin-bottom: 24px;
-            }
-
-            .con .text-wrap {
-                max-width: 90%;
-                flex: none;
-                text-align: left;
-                padding-bottom: 40px;
-            }
-        }
     </style>
  </head>
+
  <body>
-  <div class="t">
-   <div class="con active">
-    <img src="/img/index/1.jpg" alt="img" fetchpriority="high">
-    <div class="text-wrap">
-     <p>如果可以的话……</p>
-     <p>我还是想要一间窗户朝西的屋子，和一只粘人的猫。</p>
-    </div>
-   </div>
-   <div class="con">
-    <img data-src="/img/index/2.webp" alt="img">
-    <div class="text-wrap">
-     <p>我好像走进了我西部海岸的那所房子，虽然中国并没有西部海岸。</p>
-     <p>潮湿闷热的一个星期终于过去，午后我走进厨房，微风徐徐，强烈的阳光从天井照射进来、在窗沿溅开，柔和地弥漫在整个房间里。</p>
-     <p>每当这时，我常常想起我那所位置不定的房子，它总是和阳光与风有着断不开的联系。</p>
-    </div>
-   </div>
-   <div class="con">
-    <img data-src="/img/index/3.webp" alt="img">
-    <div class="text-wrap">
-     <p>为了躲避烈日，踏上松树林中一条根本称不上是路的小径。</p>
-     <p>阳光耀眼，草木翠绿，一切都模模糊糊，又清楚得像一个很轻的梦，遥远得望不到头。</p>
-     <p>向导的人说，穿过这片松树林便能看到公路。</p>
-    </div>
-   </div><!--    <div class="con con-c">--> <!--        <img data-src="/img/index/4.webp" alt="img">--> <!--        <div class="text-wrap">--> <!--        </div>--> <!--    </div>--> <!--    <div class="con con-c">--> <!--        <img data-src="/img/index/5.webp" alt="img">--> <!--        <div class="text-wrap">--> <!--        </div>--> <!--    </div>--> <!--    <div class="con con-c">--> <!--        <img data-src="/img/index/6.webp" alt="img">--> <!--        <div class="text-wrap">--> <!--        </div>--> <!--    </div>-->
-   <div class="con ">
-    <img data-src="/img/index/9.webp" alt="img">
-    <div class="text-wrap">
-     <p>——那时我有一种感觉，一种已经被磨灭了无数次后又重新诞生出来的感觉：一个清晰的、可以为之努力的目标，并在不断接近中所产生的悸动。</p>
-     <p>让我从今天开始积攒泪水。</p>
-    </div>
-   </div><!--        <div class="con con-c">--> <!--            <img data-src="/img/index/10.webp" alt="img">--> <!--            <div class="text-wrap">--> <!--            </div>--> <!--        </div>--> <!--    <div class="con con-c">--> <!--        <img data-src="/img/index/11.webp" alt="img">--> <!--        <div class="text-wrap">--> <!--        </div>--> <!--    </div>--> <!--    <div class="con con-c   ">--> <!--        <img data-src="/img/index/12.webp" alt="img">--> <!--        <div class="text-wrap">--> <!--        </div>--> <!--    </div>--> <!--    <div class="con">--> <!--        <img data-src="/img/index/13.webp" alt="img">--> <!--        <div class="text-wrap">--> <!--        </div>--> <!--    </div>--> <!--    <div class="con">--> <!--        <img data-src="/img/index/14.webp" alt="img">--> <!--        <div class="text-wrap">--> <!--        </div>--> <!--    </div>-->
-   <div class="con con-c">
-    <img data-src="/img/index/15.webp" alt="img">
-    <div class="text-wrap">
-     <p>总有一片原野。</p>
-    </div>
-   </div><!--    <div class="con">--> <!--        <img data-src="/img/index/16.webp" alt="img">--> <!--        <div class="text-wrap">--> <!--        </div>--> <!--    </div>-->
-   <div class="con">
-    <img data-src="/img/index/19.webp" alt="img">
-    <div class="text-wrap">
-     <p>每当我抬头仰望夜空</p>
-     <p>只能看到微尘般的星光——你半刻前的容貌</p>
-     <p>你不能总是这样</p>
-    </div>
-   </div><!--    <div class="con">--> <!--        <img data-src="/img/index/20.webp" alt="img">--> <!--        <div class="text-wrap">--> <!--        </div>--> <!--    </div>--> <!--    <div class="con">--> <!--        <img data-src="/img/index/23.webp" alt="img">--> <!--        <div class="text-wrap">--> <!--        </div>--> <!--    </div>-->
-   <div class="con">
-    <img data-src="/img/index/24.webp" alt="img">
-    <div class="text-wrap">
-     <p>拥抱自己。</p>
-    </div>
-   </div><!--        <div class="con con-c">--> <!--            <img data-src="/img/index/25.webp" alt="img">--> <!--            <div class="text-wrap">--> <!--            </div>--> <!--        </div>--> <!--    <div class="con ">--> <!--        <img data-src="/img/index/26.webp" alt="img">--> <!--        <div class="text-wrap">--> <!--            --> <!--        </div>--> <!--    </div>--> <!--    <div class="con con-c">--> <!--        <img data-src="/img/index/28.webp" alt="img">--> <!--        <div class="text-wrap">--> <!--        </div>--> <!--    </div>--> <!--    <div class="con">--> <!--        <img data-src="/img/index/29.webp" alt="img">--> <!--        <div class="text-wrap">--> <!--        </div>--> <!--    </div>--> <!--    <div class="con con-c">--> <!--        <img data-src="/img/index/7.webp" alt="img">--> <!--        <div class="text-wrap">--> <!--            <p>不过，如果可以的话……</p>--> <!--        </div>--> <!--    </div>--> <img src="/img/sys/tryclick.png" no style="width: 100px;position: absolute;bottom:-90px;right: 90px;" alt="">
-  </div>
   <div class="w">
+    <header>
+        <div class="logo">
+            <a href="/">Jame</a>
+        </div>
+        <div>
+         <a href="/html/message">留言</a>
+         <a href="/html/links">链接</a>
+         <div class="dropdown">
+          <a href="#">杂项</a>
+          <div class="dropdown-content">
+           <a href="/html/other/18r">诗歌</a>
+           <a href="/html/trance">图文</a>
+          </div>
+         </div>
+        </div>
+    </header>
    <article>
-    <h1>Jame</h1>
     <ul class="post-list">
      <li><a target="_blank" href="/html/post/55">院里种了两排刺槐</a></li>
      <li><a target="_blank" href="/html/post/54">姥姥死了，妈妈和小姨哭红了眼</a></li>
@@ -232,146 +69,11 @@
     </ul>
     <br>
     <div class="bottom-info">
-     <p>这里有我收集的<a target="_blank" href="/html/other/18r">诗歌</a>，以及一些<a target="_blank" href="/html/links">链接</a>，有什么想说的话你可以给我<a target="_blank" href="/html/message">留言</a>。</p>
      <p>订阅<a target="_blank" href="/feed.xml">RSS</a>以获取最新提醒，或<a href="https://www.travellings.cn/go.html">开往</a>到下个网站。这里曾有<span id="vercount_value_site_uv">0</span>个访客。</p>
     </div>
    </article>
   </div>
-  <script>
-    const cons = document.querySelectorAll('.con');
-    const tDiv = document.querySelector('.t');
-    let currentIndex = 0;
 
-    tDiv.addEventListener('mousemove', function (e) {
-        const mouseX = e.clientX;
-        const screenWidth = window.innerWidth;
-        if (mouseX < screenWidth * 0.15 || mouseX > screenWidth * 0.85) {
-            tDiv.style.cursor = 'pointer';
-        } else {
-            tDiv.style.cursor = 'default';
-        }
-    });
-
-    const sharedCanvas = document.createElement('canvas');
-    const sharedContext = sharedCanvas.getContext && sharedCanvas.getContext('2d');
-    if (sharedContext) {
-        sharedCanvas.width = 4;
-        sharedCanvas.height = 4;
-    }
-
-    function getAverageColor(imgElement) {
-        const defaultRGB = {r: 245, g: 245, b: 245};
-        if (!sharedContext) return defaultRGB;
-
-        try {
-            sharedContext.clearRect(0, 0, 4, 4);
-            sharedContext.drawImage(imgElement, 0, 0, 4, 4);
-            const imgData = sharedContext.getImageData(0, 0, 4, 4).data;
-            let r = 0, g = 0, b = 0, count = 0;
-
-            for (let i = 0; i < imgData.length; i += 4) {
-                if (imgData[i + 3] > 0) {
-                    r += imgData[i];
-                    g += imgData[i + 1];
-                    b += imgData[i + 2];
-                    count++;
-                }
-            }
-            if (count === 0) return defaultRGB;
-            return {r: Math.floor(r / count), g: Math.floor(g / count), b: Math.floor(b / count)};
-        } catch (e) {
-            return defaultRGB;
-        }
-    }
-
-    function applyColor(con, img) {
-        const rgb = getAverageColor(img);
-        const brightness = Math.round(((parseInt(rgb.r) * 299) + (parseInt(rgb.g) * 587) + (parseInt(rgb.b) * 114)) / 1000);
-        const textWrap = con.querySelector('.text-wrap');
-        if (textWrap) {
-            textWrap.style.color = brightness > 190 ? '#101010' : '#ffffff';
-        }
-    }
-
-    function loadAndProcessImage(index) {
-        const con = cons[index];
-        const img = con.querySelector('img');
-
-        if (con.style.getPropertyValue('--bg-url')) {
-            if (img.complete) {
-                applyColor(con, img);
-            }
-            return;
-        }
-
-        const handleLoadComplete = () => {
-            applyColor(con, img);
-        };
-
-        if (img.dataset.src) {
-            const src = img.dataset.src;
-            img.removeAttribute('data-src');
-
-            con.style.setProperty('--bg-url', `url(${src})`);
-            img.src = src;
-
-            if (typeof img.decode === 'function') {
-                img.decode().then(handleLoadComplete).catch(() => {
-                    img.addEventListener('load', handleLoadComplete, {once: true});
-                });
-            } else {
-                img.addEventListener('load', handleLoadComplete, {once: true});
-            }
-        } else {
-            con.style.setProperty('--bg-url', `url(${img.src})`);
-            if (img.complete) {
-                handleLoadComplete();
-            } else {
-                if (typeof img.decode === 'function') {
-                    img.decode().then(handleLoadComplete).catch(() => {
-                        img.addEventListener('load', handleLoadComplete, {once: true});
-                    });
-                } else {
-                    img.addEventListener('load', handleLoadComplete, {once: true});
-                }
-            }
-        }
-    }
-
-    function preloadAdjacent(index) {
-        const nextIndex = (index + 1) % cons.length;
-        const prevIndex = (index - 1 + cons.length) % cons.length;
-
-        loadAndProcessImage(nextIndex);
-        loadAndProcessImage(prevIndex);
-    }
-
-    loadAndProcessImage(currentIndex);
-    preloadAdjacent(currentIndex);
-
-    tDiv.addEventListener('click', function (e) {
-        const clickX = e.clientX;
-        const screenWidth = window.innerWidth;
-        let changed = false;
-
-        if (clickX < screenWidth * 0.15) {
-            cons[currentIndex].classList.remove('active');
-            currentIndex = (currentIndex - 1 + cons.length) % cons.length;
-            cons[currentIndex].classList.add('active');
-            changed = true;
-        } else if (clickX > screenWidth * 0.85) {
-            cons[currentIndex].classList.remove('active');
-            currentIndex = (currentIndex + 1) % cons.length;
-            cons[currentIndex].classList.add('active');
-            changed = true;
-        }
-
-        if (changed) {
-            loadAndProcessImage(currentIndex);
-            preloadAdjacent(currentIndex);
-        }
-    });
-</script>
   <script async src="https://cn.vercount.one/js"></script>
  </body>
 </html>
