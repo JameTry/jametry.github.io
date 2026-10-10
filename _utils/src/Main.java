@@ -1,16 +1,11 @@
 
 public class Main {
 
-
     public static void main(String[] args) throws Exception {
         String projectPath = System.getProperty("user.dir");
-//        HtmlDateSort.run(projectPath);
+
+        // 扫描 html/post，按日期倒序重建首页的文章索引
         HtmlGenIndex.run(projectPath);
-//        JsonToHtmlConverter.run(projectPath);
-//        ReplacePrevAndNextHref.run(projectPath);
-        RssGenerator.run(projectPath);
     }
-
-
 
 }

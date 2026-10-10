@@ -1,43 +1,46 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-CN">
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title></title>
-    <link rel="stylesheet" href="/style/post.css">
-</head>
-<body>
-<div class="w">
-    <header>
-        <div class="logo">
-            <a href="/">Jame</a>
-        </div>
-        <div>
-            <div class="dropdown">
-                <a href="#">其他</a>
-                <div class="dropdown-content">
-                    <a href="/html/links">链接</a>
-                    <a href="/html/other/18r">诗歌</a>
-                    <a target="_blank" href="/rss.xml">RSS</a>
-                </div>
-            </div>
-            <a href="https://www.travellings.cn/go.html">开往</a>
-        </div>
-    </header>
-
-    <article>
-       <h1>留言</h1>
-    </article>
-    <div id="tcomment"></div>
-    <script src="https://registry.npmmirror.com/twikoo/1.6.41/files/dist/twikoo.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>留言 · Jame</title>
+    <link rel="stylesheet" href="/style/main.css">
     <script>
-        twikoo.init({
-            envId: 'https://comment.jame.work',
-            el: '#tcomment',
-            lang: 'zh-CN',
-        })
+        try {
+            var t = localStorage.getItem('jame-theme');
+            if (t) document.documentElement.setAttribute('data-theme', t);
+        } catch (e) { }
     </script>
-</div>
+    <script src="/js/site.js" defer></script>
+</head>
+
+<body>
+    <div class="layout">
+        <aside class="side">
+            <a class="brand" href="/">Jame</a>
+            <nav class="side-nav">
+                <a href="/html/other/18r">诗</a>
+                <a href="/html/links">链接</a>
+                <a href="/html/message" aria-current="page">留言</a>
+                <a href="https://www.travellings.cn/go.html" target="_blank" rel="noopener">开往</a>
+            </nav>
+            <button class="theme-toggle" type="button" title="切换主题" aria-label="切换主题">◐</button>
+        </aside>
+
+        <main>
+            <h1 class="page-title">留言</h1>
+            <div id="tcomment"></div>
+            <script src="https://registry.npmmirror.com/twikoo/1.6.41/files/dist/twikoo.min.js"></script>
+            <script>
+                twikoo.init({
+                    envId: 'https://comment.jame.work',
+                    el: '#tcomment',
+                    lang: 'zh-CN'
+                });
+            </script>
+        </main>
+    </div>
 </body>
+
 </html>

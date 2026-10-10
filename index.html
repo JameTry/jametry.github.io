@@ -1,37 +1,172 @@
 <!doctype html>
 <html lang="zh-CN">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Jame</title>
-    <link rel="stylesheet" href="/style/post.css">
-    <script src="/js/tool.js"></script>
+    <meta name="description" content="随笔与诗。">
+    <link rel="stylesheet" href="/style/main.css">
+    <script>
+        try {
+            var t = localStorage.getItem('jame-theme');
+            if (t) document.documentElement.setAttribute('data-theme', t);
+        } catch (e) { }
+    </script>
+    <script src="/js/site.js" defer></script>
 </head>
+
 <body>
-<div class="w">
-    <header>
-        <div class="logo">
-            <a href="/">Jame</a>
-        </div>
-        <div>
-            <div class="dropdown">
-                <a href="#">其他</a>
-                <div class="dropdown-content">
-                    <a href="/html/links">链接</a>
-                    <a href="/html/other/18r">诗歌</a>
-                    <a target="_blank" href="/rss.xml">RSS</a>
-                </div>
-            </div>
-            <a href="https://www.travellings.cn/go.html">开往</a>
-        </div>
-    </header>
-    <article>
-        <p>生存本身就是一种徒劳。</p>
-        <p>我并不想说明放弃这个博客的原因，也做不到。简单说，似乎什么都没发生，只是突然觉得这个网站毫无意义，也没什么意思。</p>
-        <hr>
-        <p>友链的朋友如果看到，烦请撤下链接。如果万幸有订阅了该站RSS的人，也烦请取消订阅。谢谢。</p>
-        <p>我会假装出一趟远门，也许很快就会回来，也许再也不会。</p>
-    </article>
-</div>
+    <div class="layout">
+        <aside class="side">
+            <a class="brand" href="/">Jame</a>
+            <nav class="side-nav">
+                <a href="/html/other/18r">诗</a>
+                <a href="/html/links">链接</a>
+                <a href="/html/message">留言</a>
+                <a href="https://www.travellings.cn/go.html" target="_blank" rel="noopener">开往</a>
+            </nav>
+            <button class="theme-toggle" type="button" title="切换主题" aria-label="切换主题">◐</button>
+        </aside>
+
+        <main>
+            <span class="label">文章</span>
+            <ul class="index">
+                <li>
+                    <a href="/html/post/56">
+                        <time datetime="2026-10-10">2026.10.10</time>
+                        <span>湖</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/html/post/55">
+                        <time datetime="2026-08-31">2026.08.31</time>
+                        <span>院里种了两排刺槐</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/html/post/54">
+                        <time datetime="2026-08-18">2026.08.18</time>
+                        <span>关于她最后的记忆</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/html/post/53">
+                        <time datetime="2026-08-14">2026.08.14</time>
+                        <span>我待人友善</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/html/post/52">
+                        <time datetime="2026-08-12">2026.08.12</time>
+                        <span>永远不要诉说悲伤</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/html/post/49">
+                        <time datetime="2026-07-07">2026.07.07</time>
+                        <span>她赤身裸体，胸部起伏</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/html/post/47">
+                        <time datetime="2026-05-25">2026.05.25</time>
+                        <span>鸟鸣寺</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/html/post/46">
+                        <time datetime="2026-04-07">2026.04.07</time>
+                        <span>四月</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/html/post/44">
+                        <time datetime="2026-03-24">2026.03.24</time>
+                        <span>夏季午后</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/html/post/33">
+                        <time datetime="2025-12-11">2025.12.11</time>
+                        <span>他来吃饭的时候其他人已经快吃完了</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/html/post/30">
+                        <time datetime="2025-10-24">2025.10.24</time>
+                        <span>像猫一样的风</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/html/post/28">
+                        <time datetime="2025-10-13">2025.10.13</time>
+                        <span>狂风暴雨逐渐停止后的第二天正午</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/html/post/23">
+                        <time datetime="2025-08-15">2025.08.15</time>
+                        <span>雨停之后</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/html/post/22">
+                        <time datetime="2025-07-29">2025.07.29</time>
+                        <span>暴雨过后，天空格外晴朗</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/html/post/20">
+                        <time datetime="2025-07-03">2025.07.03</time>
+                        <span>先生！先生！</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/html/post/17">
+                        <time datetime="2025-06-16">2025.06.16</time>
+                        <span>周日夜晚</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/html/post/10">
+                        <time datetime="2025-04-25">2025.04.25</time>
+                        <span>我坐在车里在十字路口等待着朋友</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/html/post/9">
+                        <time datetime="2025-03-28">2025.03.28</time>
+                        <span>3月28，下雪了</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/html/post/5">
+                        <time datetime="2024-10-10">2024.10.10</time>
+                        <span>不再关心新闻事件</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/html/post/3">
+                        <time datetime="2024-08-13">2024.08.13</time>
+                        <span>日出日落，一天又一天</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/html/post/2">
+                        <time datetime="2024-07-02">2024.07.02</time>
+                        <span>应是已入深秋</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/html/post/1">
+                        <time datetime="2024-04-02">2024.04.02</time>
+                        <span>如果可以的话</span>
+                    </a>
+                </li>
+</ul>
+        </main>
+    </div>
 </body>
+
 </html>

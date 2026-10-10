@@ -1,52 +1,65 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-CN">
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title></title>
-    <link rel="stylesheet" href="/style/post.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>链接 · Jame</title>
+    <link rel="stylesheet" href="/style/main.css">
+    <script>
+        try {
+            var t = localStorage.getItem('jame-theme');
+            if (t) document.documentElement.setAttribute('data-theme', t);
+        } catch (e) { }
+    </script>
+    <script src="/js/site.js" defer></script>
 </head>
+
 <body>
-<div class="w">
-    <header>
-        <div class="logo">
-            <a href="/">Jame</a>
-        </div>
-        <div>
-            <div class="dropdown">
-                <a href="#">其他</a>
-                <div class="dropdown-content">
-                    <a href="/html/links">链接</a>
-                    <a href="/html/other/18r">诗歌</a>
-                    <a target="_blank" href="/rss.xml">RSS</a>
-                </div>
-            </div>
-            <a href="https://www.travellings.cn/go.html">开往</a>
-        </div>
-    </header>
+    <div class="layout">
+        <aside class="side">
+            <a class="brand" href="/">Jame</a>
+            <nav class="side-nav">
+                <a href="/html/other/18r">诗</a>
+                <a href="/html/links" aria-current="page">链接</a>
+                <a href="/html/message">留言</a>
+                <a href="https://www.travellings.cn/go.html" target="_blank" rel="noopener">开往</a>
+            </nav>
+            <button class="theme-toggle" type="button" title="切换主题" aria-label="切换主题">◐</button>
+        </aside>
 
-    <article>
-        <p><a href="https://bedtimepoem.com/" target="_blank">读首诗再睡觉</a> 分享诗歌的网站</p>
-        <hr>
-        <p><a href="https://wygxmew.github.io/" target="_blank">乌云盖雪</a></p>
-        <p><a href="https://ro3or.com" target="_blank">鹅玉</a></p>
-        <p><a href="https://dangeer.com/" target="_blank">dangeer</a></p>
-        <p><a href="https://ventuss.xyz/" target="_blank">ventuss</a></p>
-        <hr>
-        <p><a href="https://hanis.me" target="_blank">Jason’s Blog</a></p>
-        <p><a href="https://vss.plus" target="_blank">Vss Blog</a></p>
-        <p><a href="https://blog.snowy.moe" target="_blank">雪萌天文台</a></p>
-        <p><a href="https://nasliangjian.mycloudnas.com:4443" target="_blank">James的小站</a></p>
-        <p><a href="https://www.christianpoet.top" target="_blank">诗译象</a></p>
-        <p><a href="https://www.qingfengnb.cn" target="_blank">轻风blog</a></p>
-        <p><a href="https://www.yingyu5658.me/" target="_blank">映屿</a></p>
-        <p><a href="https://www.xiaoten.com/" target="_blank">小十博客</a></p>
-        <p><a href="https://blog.5252025.xyz" target="_blank">The Blog</a></p>
-        <p><a href="http://www.winegrower.cn/" target="_blank">winegrower</a></p>
-        <p><a href="https://loongmint1314.mycloudnas.com:4443/" target="_blank">来看听雨轩</a></p>
-    </article>
+        <main>
+            <h1 class="page-title">链接</h1>
 
-</div>
+            <ul class="link-group">
+                <li>
+                    <a href="https://bedtimepoem.com/" target="_blank" rel="noopener">读首诗再睡觉</a>
+                    <span class="desc">分享诗歌的网站</span>
+                </li>
+            </ul>
+
+            <ul class="link-group">
+                <li><a href="https://wygxmew.github.io/" target="_blank" rel="noopener">乌云盖雪</a></li>
+                <li><a href="https://ro3or.com" target="_blank" rel="noopener">鹅玉</a></li>
+                <li><a href="https://dangeer.com/" target="_blank" rel="noopener">dangeer</a></li>
+                <li><a href="https://ventuss.xyz/" target="_blank" rel="noopener">ventuss</a></li>
+            </ul>
+
+            <ul class="link-group">
+                <li><a href="https://hanis.me" target="_blank" rel="noopener">Jason’s Blog</a></li>
+                <li><a href="https://vss.plus" target="_blank" rel="noopener">Vss Blog</a></li>
+                <li><a href="https://blog.snowy.moe" target="_blank" rel="noopener">雪萌天文台</a></li>
+                <li><a href="https://nasliangjian.mycloudnas.com:4443" target="_blank" rel="noopener">James的小站</a></li>
+                <li><a href="https://www.christianpoet.top" target="_blank" rel="noopener">诗译象</a></li>
+                <li><a href="https://www.qingfengnb.cn" target="_blank" rel="noopener">轻风blog</a></li>
+                <li><a href="https://www.yingyu5658.me/" target="_blank" rel="noopener">映屿</a></li>
+                <li><a href="https://www.xiaoten.com/" target="_blank" rel="noopener">小十博客</a></li>
+                <li><a href="https://blog.5252025.xyz" target="_blank" rel="noopener">The Blog</a></li>
+                <li><a href="http://www.winegrower.cn/" target="_blank" rel="noopener">winegrower</a></li>
+                <li><a href="https://loongmint1314.mycloudnas.com:4443/" target="_blank" rel="noopener">来看听雨轩</a></li>
+            </ul>
+        </main>
+    </div>
 </body>
+
 </html>
