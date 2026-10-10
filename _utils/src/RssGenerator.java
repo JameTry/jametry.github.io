@@ -18,7 +18,7 @@ public class RssGenerator {
     private static String OTHER_DIR = "\\html\\other";
 
     private static final String SITE_URL = "https://jame.work/";
-    private static final String RSS_FILE = "feed.xml";
+    private static final String RSS_FILE = "rss.xml";
     static int count = 0;
     private static final SimpleDateFormat INPUT_DATE = new SimpleDateFormat("yyyy年MM月dd日");
 

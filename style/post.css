@@ -17,14 +17,9 @@
 
 
 html {
-    color-scheme: dark;
     min-height: 100%;
-    background: radial-gradient(
-            circle at top left,
-            #201b0b 70%,
-            #3a321c 100%
-    ) no-repeat fixed;
-    background-size: cover;
+    background-color: #fdfdfd;
+    /*background-size: cover;*/
     scroll-behavior: smooth;
 }
 
@@ -33,7 +28,7 @@ html {
 }
 
 body {
-    color: #e1e1e1;
+    /*color: #e1e1e1;*/
     font-size: 16px;
     line-height: 1.4;
     margin: 0;
@@ -65,7 +60,7 @@ li {
     font-size: 17px;
     max-width: 700px;
     margin: 0 auto;
-    padding: 4rem 20px;
+    padding: 2.5rem 20px 4rem 20px;
 }
 
 hr {
@@ -140,7 +135,7 @@ article {
 .w a {
     text-decoration: underline wavy transparent;
     text-underline-offset: 2px;
-    color: #ECECECFF;
+    color: #212020;
     transition: text-decoration-color 0.2s ease, text-underline-offset 0.2s ease;
 }
 
@@ -225,7 +220,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 60px;
+    margin-bottom: 80px;
 }
 
 header a {
