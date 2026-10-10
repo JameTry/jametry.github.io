@@ -401,37 +401,14 @@ main {
     line-height: 2.05;
 }
 
-/* --- 正文里的分隔线与图文并排 --------------------------------------------- */
+/* --- 正文里的分隔线 ------------------------------------------------------- */
 
-/* 居中的一小截短线，比浏览器默认的内凹横线干净得多 */
 hr {
     border: 0;
     width: 2.5rem;
     height: 1px;
     margin: 3.25rem auto;
     background: var(--rule-2);
-}
-
-/* 「如果可以的话」那篇：图在上、诗在下。
-   图片是 703×1144 的竖构图，给到 56% 宽、上下居中留白就够，不必占满整行 */
-.prose .pair {
-    margin: 0;
-}
-
-.prose .pair img {
-    width: 56%;
-    margin: 0 auto 2.75rem;
-}
-
-.prose .pair-text p {
-    margin: 0 0 0.35rem;
-}
-
-@media (max-width: 620px) {
-    .prose .pair img {
-        width: 78%;
-        margin-bottom: 1.75rem;
-    }
 }
 
 /* --- 友链 ----------------------------------------------------------------- */
@@ -499,14 +476,14 @@ img {
     height: auto;
 }
 
+/* 限高：竖构图的图不限的话会撑到一千像素以上，一屏放不下 */
 .prose img,
 .poems img {
     display: block;
+    max-height: 34rem;
     margin: 2.5rem auto;
     border-radius: 4px;
-    /* 描边用 box-shadow 而不是 border：border 会吃掉 2px，
-       max-width:100% 的图被迫跟着缩，边缘会发虚。
-       投影给暗色照片一点浮起感，免得和背景糊在一起。 */
+    /* box-shadow 描边而非 border：border 会吃掉 2px，图片被迫缩放、边缘发虚 */
     box-shadow:
         0 0 0 1px var(--rule),
         0 18px 40px -24px rgba(0, 0, 0, 0.4);
