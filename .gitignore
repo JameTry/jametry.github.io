@@ -1,0 +1,12 @@
+# 编译产物
+_utils/out/
+out/
+
+# IDE
+.idea/
+*.iml
+
+# 系统
+Thumbs.db
+desktop.ini
+.DS_Store

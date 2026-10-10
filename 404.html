@@ -1,58 +1,41 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="zh-CN">
+
 <head>
     <meta charset="UTF-8">
-    <title>404</title>
-    <link rel="stylesheet" href="/style/post.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>404 · Jame</title>
+    <link rel="stylesheet" href="/style/main.css">
+    <script>
+        try {
+            var t = localStorage.getItem('jame-theme');
+            if (t) document.documentElement.setAttribute('data-theme', t);
+        } catch (e) { }
+    </script>
+    <script src="/js/site.js" defer></script>
 </head>
-<style>
-    img {
-        display: inline-block;
-        animation: floatWiggle 4s ease-in-out infinite;
-        transform-origin: center;
-        will-change: transform;
-        margin-top: 10px;
-        margin-bottom: 10px;
-    }
 
-    @keyframes floatWiggle {
-        0% {
-            transform: translate(0px, 0px) scale(1) rotate(0deg);
-        }
-        25% {
-            transform: translate(2px, -3px) scale(1.01) rotate(0.3deg);
-        }
-        50% {
-            transform: translate(-2px, 2px) scale(0.99) rotate(-0.3deg);
-        }
-        75% {
-            transform: translate(1px, -2px) scale(1.01) rotate(0.2deg);
-        }
-        100% {
-            transform: translate(0px, 0px) scale(1) rotate(0deg);
-        }
-    }
-</style>
 <body>
-<div class="w">
-    <header>
-        <div class="logo">
-            <a href="/">Jame</a>
-        </div>
-        <div>
-            <div class="dropdown">
-                <a href="#">杂项</a>
-                <div class="dropdown-content">
-                    <a href="/html/links">链接</a>
-                    <a href="/html/other/18r">诗歌</a>
-                </div>
+    <div class="layout">
+        <aside class="side">
+            <a class="brand" href="/">Jame</a>
+            <nav class="side-nav">
+                <a href="/html/other/18r">诗</a>
+                <a href="/html/links">链接</a>
+                <a href="/html/message">留言</a>
+                <a href="https://www.travellings.cn/go.html" target="_blank" rel="noopener">开往</a>
+            </nav>
+            <button class="theme-toggle" type="button" title="切换主题" aria-label="切换主题">◐</button>
+        </aside>
+
+        <main>
+            <div class="notfound">
+                <p class="code">404 / NOT FOUND</p>
+                <p class="msg">你探索到了一片未知的领域。</p>
+                <p><a class="link-text" href="/">回到首页</a></p>
             </div>
-            <a href="https://www.travellings.cn/go.html">开往</a>
-        </div>
-    </header>
-    <article>
-        <p>你探索到了一片未知的领域。</p>
-    </article>
-</div>
+        </main>
+    </div>
 </body>
+
 </html>
