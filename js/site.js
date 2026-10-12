@@ -1,14 +1,8 @@
-/* ==========================================================================
-   Jame — 站点脚本
-   三件事：主题切换、图片灯箱、文内目录。没有依赖，没有构建。
-   ========================================================================== */
-
 (function () {
     'use strict';
 
     var THEME_KEY = 'jame-theme';
 
-    /* --- 主题 ------------------------------------------------------------- */
 
     function effectiveIsDark() {
         var forced = document.documentElement.getAttribute('data-theme');
@@ -30,7 +24,6 @@
                 localStorage.removeItem(THEME_KEY);
             }
         } catch (err) {
-            /* 隐私模式下 localStorage 不可写，忽略即可 */
         }
     }
 
@@ -42,7 +35,6 @@
         });
     }
 
-    /* --- 图片灯箱 --------------------------------------------------------- */
 
     function initLightbox() {
         var images = document.querySelectorAll('.prose img, .poems img');
@@ -69,7 +61,7 @@
         }
 
         Array.prototype.forEach.call(images, function (img) {
-            if (img.hasAttribute('no')) return;   /* <img no> 表示不参与预览 */
+            if (img.hasAttribute('no')) return;
             img.style.cursor = 'zoom-in';
             img.addEventListener('click', function () {
                 open(img.currentSrc || img.src, img.alt);
@@ -82,14 +74,13 @@
         });
     }
 
-    /* --- 文内目录 --------------------------------------------------------- */
 
     function initToc() {
         var article = document.querySelector('.prose, .poems');
         if (!article) return;
 
         var heads = article.querySelectorAll('h2');
-        if (heads.length < 3) return;   /* 只有一两个小标题不值得做目录 */
+        if (heads.length < 3) return;
 
         var nav = document.createElement('nav');
         nav.className = 'toc';
@@ -114,7 +105,6 @@
 
         nav.appendChild(list);
 
-        /* 桌面端挂进左侧栏；没有左栏（窄屏单栏）时就近插到正文之前 */
         var anchor = document.querySelector('.side-nav');
         if (anchor && anchor.parentNode) {
             anchor.parentNode.insertBefore(nav, anchor.nextSibling);
@@ -145,8 +135,6 @@
             });
         }, { passive: true });
     }
-
-    /* --- 启动 ------------------------------------------------------------- */
 
     function boot() {
         initTheme();
