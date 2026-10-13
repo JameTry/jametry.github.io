@@ -635,6 +635,7 @@ mark {
 
     .theme-toggle {
         order: 3;
+        align-self: baseline;
     }
 }
 
