@@ -13,7 +13,6 @@ public class Main {
         // 压缩 style 和 js
         AssetMinifier.run(projectPath);
 
-        RssGen.run(projectPath);
     }
 
 }
