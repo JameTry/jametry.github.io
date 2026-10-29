@@ -373,8 +373,8 @@ main {
 
 hr {
     border: 0;
-    width: 2.5rem;
-    height: 1px;
+    width: 10rem;
+    height: 2px;
     margin: 3.25rem auto;
     background: var(--rule-2);
 }
