@@ -94,11 +94,11 @@ body {
 
 .layout {
     display: grid;
-    grid-template-columns: 11.5rem minmax(0, 40rem);
-    gap: 3.75rem;
+    grid-template-columns: 11.5rem minmax(0, 43.75rem);
+    gap: 2rem;
     justify-content: center;
     align-items: start;
-    max-width: 60rem;
+    max-width: 62rem;
     margin: 0 auto;
     padding: 4.5rem 1.5rem 5rem;
 }
@@ -276,7 +276,7 @@ main {
 }
 
 .prose p {
-    margin: 0 0 1rem;
+    margin: 0 0 1.1rem;
     text-wrap: pretty;
 }
 
@@ -520,6 +520,7 @@ mark {
     font-family: var(--sans);
     font-size: 0.74rem;
     line-height: 1.75;
+    max-width: 10rem;
     max-height: 40vh;
     overflow-y: auto;
 }
