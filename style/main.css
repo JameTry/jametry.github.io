@@ -11,13 +11,14 @@
     --signal: #a8322a;
     --mark: #f0e2d8;
 
-    --title: "Noto Sans SC", "Source Han Sans SC", "PingFang SC",
-        "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    --serif: "Gentium Plus", "LXGW WenKai Lite", "Songti SC", "STSong",
+        "SimSun", serif;
+    --title: var(--serif);
     --sans: system-ui, -apple-system, "Segoe UI", "PingFang SC", "Hiragino Sans GB",
         "Microsoft YaHei", "Source Han Sans SC", sans-serif;
     --mono: ui-monospace, "SF Mono", "Cascadia Mono", Menlo, Consolas, monospace;
 
-    --body-size: 17px;
+    --body-size: 18px;
     --radius: 3px;
 }
 
@@ -69,11 +70,14 @@ body {
     min-height: 100%;
     background: var(--paper);
     color: var(--ink);
-    font-family: var(--sans);
+    font-family: var(--serif);
     font-size: var(--body-size);
-    line-height: 1.9;
-    letter-spacing: 0.012em;
+    line-height: 1.8;
+    letter-spacing: 0;
     overflow-wrap: break-word;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 ::selection {
@@ -128,8 +132,9 @@ body {
     position: relative;
     display: block;
     color: var(--ink-2);
-    font-size: 0.8rem;
-    letter-spacing: 0.08em;
+    font-family: var(--serif);
+    font-size: 0.82rem;
+    letter-spacing: 0.03em;
     text-decoration: none;
     transition: color 0.2s ease;
 }
@@ -271,7 +276,8 @@ main {
 }
 
 .prose p {
-    margin: 0 0 0.9rem;
+    margin: 0 0 1rem;
+    text-wrap: pretty;
 }
 
 .prose h2 {
@@ -641,7 +647,7 @@ mark {
 
 @media (max-width: 560px) {
     :root {
-        --body-size: 17px;
+        --body-size: 16px;
     }
 
     .intro {
