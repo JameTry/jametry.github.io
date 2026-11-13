@@ -32,7 +32,7 @@
         </aside>
 
         <main>
-            <article class="post">
+            <article>
                 <header class="post-head">
                     <time datetime="2026-08-31">2026.08.31</time>
                     <h1>院里种了两排刺槐</h1>
@@ -51,6 +51,23 @@
                     <p>实际就是这样，秋日午后我漫无目的坐在刺槐树下，吹着微风、略带困意，逃避般地感知着周围的一切。</p>
                 </div>
             </article>
+
+            <div id="tcomment" class="post-comments"></div>
+            <script>
+                (function () {
+                    var s = document.createElement('script');
+                    s.src = 'https://registry.npmmirror.com/twikoo/1.6.41/files/dist/twikoo.min.js';
+                    s.async = true;
+                    s.onload = function () {
+                        twikoo.init({
+                            envId: 'https://comment.jame.work',
+                            el: '#tcomment',
+                            lang: 'zh-CN'
+                        });
+                    };
+                    document.body.appendChild(s);
+                })();
+            </script>
         </main>
     </div>
 </body>

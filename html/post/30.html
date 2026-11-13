@@ -32,7 +32,7 @@
         </aside>
 
         <main>
-            <article class="post">
+            <article>
                 <header class="post-head">
                     <time datetime="2025-10-24">2025.10.24</time>
                     <h1>像猫一样的风</h1>
@@ -107,6 +107,23 @@
                     <p>上午的阳光正媚，一个小老头正站在堂屋正门的椅子上愣神，没人知道他从什么时候站上去的又要站到多久。当那股像猫一样的风像猫一样离开时，院子里的树叶也跟着簌簌作响，就如同它来的时候一样。</p>
                 </div>
             </article>
+
+            <div id="tcomment" class="post-comments"></div>
+            <script>
+                (function () {
+                    var s = document.createElement('script');
+                    s.src = 'https://registry.npmmirror.com/twikoo/1.6.41/files/dist/twikoo.min.js';
+                    s.async = true;
+                    s.onload = function () {
+                        twikoo.init({
+                            envId: 'https://comment.jame.work',
+                            el: '#tcomment',
+                            lang: 'zh-CN'
+                        });
+                    };
+                    document.body.appendChild(s);
+                })();
+            </script>
         </main>
     </div>
 </body>

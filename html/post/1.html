@@ -32,7 +32,7 @@
         </aside>
 
         <main>
-            <article class="post">
+            <article>
                 <header class="post-head">
                     <time datetime="2024-04-02">2024.04.02</time>
                     <h1>如果可以的话</h1>
@@ -44,6 +44,23 @@
                     <img src="/img/21.jpg" alt="狗">
                 </div>
             </article>
+
+            <div id="tcomment" class="post-comments"></div>
+            <script>
+                (function () {
+                    var s = document.createElement('script');
+                    s.src = 'https://registry.npmmirror.com/twikoo/1.6.41/files/dist/twikoo.min.js';
+                    s.async = true;
+                    s.onload = function () {
+                        twikoo.init({
+                            envId: 'https://comment.jame.work',
+                            el: '#tcomment',
+                            lang: 'zh-CN'
+                        });
+                    };
+                    document.body.appendChild(s);
+                })();
+            </script>
         </main>
     </div>
 </body>

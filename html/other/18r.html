@@ -881,6 +881,22 @@
                 <p>贴着你的唇——你是一处泉眼</p>
                 <p>我不断回归，无法餍足，痛饮不休。</p>
             </article>
+            <div id="tcomment" class="post-comments"></div>
+            <script>
+                (function () {
+                    var s = document.createElement('script');
+                    s.src = 'https://registry.npmmirror.com/twikoo/1.6.41/files/dist/twikoo.min.js';
+                    s.async = true;
+                    s.onload = function () {
+                        twikoo.init({
+                            envId: 'https://comment.jame.work',
+                            el: '#tcomment',
+                            lang: 'zh-CN'
+                        });
+                    };
+                    document.body.appendChild(s);
+                })();
+            </script>
         </main>
     </div>
 </body>

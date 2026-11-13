@@ -32,7 +32,7 @@
         </aside>
 
         <main>
-            <article class="post">
+            <article>
                 <header class="post-head">
                     <time datetime="2025-10-13">2025.10.13</time>
                     <h1>狂风暴雨逐渐停止后的第二天正午</h1>
@@ -44,6 +44,23 @@
                     <p>仿佛这些遭遇都是这句话所带来的，刚刚所有的舒适和美好瞬间破灭，口渴难耐、干裂的嘴唇不断撕开皮肤、头顶撞击过的疼痛，这些不适一起袭来。而他能做的，只有静静地躺在这条小船之中，犹如这条小船只能静静地躺在这片大海之上。</p>
                 </div>
             </article>
+
+            <div id="tcomment" class="post-comments"></div>
+            <script>
+                (function () {
+                    var s = document.createElement('script');
+                    s.src = 'https://registry.npmmirror.com/twikoo/1.6.41/files/dist/twikoo.min.js';
+                    s.async = true;
+                    s.onload = function () {
+                        twikoo.init({
+                            envId: 'https://comment.jame.work',
+                            el: '#tcomment',
+                            lang: 'zh-CN'
+                        });
+                    };
+                    document.body.appendChild(s);
+                })();
+            </script>
         </main>
     </div>
 </body>

@@ -32,7 +32,7 @@
         </aside>
 
         <main>
-            <article class="post">
+            <article>
                 <header class="post-head">
                     <time datetime="2026-01-17">2026.01.17</time>
                     <h1>雪</h1>
@@ -48,6 +48,23 @@
                     <p>已经过去了快一年，我不记得自己还曾写过这篇文章。今天傍晚时下起细雨，街上的路灯还没有点亮，一切水汽蒙蒙。我比写这篇文章时更能感受到当时的情感，却依然不能确切地找到它，同样也无法为之命名。</p>
                 </div>
             </article>
+
+            <div id="tcomment" class="post-comments"></div>
+            <script>
+                (function () {
+                    var s = document.createElement('script');
+                    s.src = 'https://registry.npmmirror.com/twikoo/1.6.41/files/dist/twikoo.min.js';
+                    s.async = true;
+                    s.onload = function () {
+                        twikoo.init({
+                            envId: 'https://comment.jame.work',
+                            el: '#tcomment',
+                            lang: 'zh-CN'
+                        });
+                    };
+                    document.body.appendChild(s);
+                })();
+            </script>
         </main>
     </div>
 </body>

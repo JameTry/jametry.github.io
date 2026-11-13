@@ -32,7 +32,7 @@
         </aside>
 
         <main>
-            <article class="post">
+            <article>
                 <header class="post-head">
                     <time datetime="2026-08-18">2026.08.18</time>
                     <h1>关于她最后的记忆</h1>
@@ -44,6 +44,23 @@
                     <p>临走那晚收拾东西，客厅只开了靠门一侧的灯，沙发这边有些昏暗。她佝偻着身体坐在沙发上，不知为何显得有些手足无措，我站在墙边久久地看向她黯淡的侧脸，像是在看着自己的罪证。</p>
                 </div>
             </article>
+
+            <div id="tcomment" class="post-comments"></div>
+            <script>
+                (function () {
+                    var s = document.createElement('script');
+                    s.src = 'https://registry.npmmirror.com/twikoo/1.6.41/files/dist/twikoo.min.js';
+                    s.async = true;
+                    s.onload = function () {
+                        twikoo.init({
+                            envId: 'https://comment.jame.work',
+                            el: '#tcomment',
+                            lang: 'zh-CN'
+                        });
+                    };
+                    document.body.appendChild(s);
+                })();
+            </script>
         </main>
     </div>
 </body>

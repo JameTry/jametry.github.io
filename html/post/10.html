@@ -32,7 +32,7 @@
         </aside>
 
         <main>
-            <article class="post">
+            <article>
                 <header class="post-head">
                     <time datetime="2025-04-25">2025.04.25</time>
                     <h1>我坐在车里在十字路口等待着朋友</h1>
@@ -80,6 +80,23 @@
                     <p>最近半个月连着下雨，杨絮倒是不见了，直到昨天天气才好了起来，大太阳把半个月的潮湿都给晒干了。早上我下楼，清晨的阳光穿过微弱的风，杨絮漫天，轻飘飘的。望着门口飘舞的杨絮，我想我终于在这个温和的初夏，见到了漫天的白雪。</p>
                 </div>
             </article>
+
+            <div id="tcomment" class="post-comments"></div>
+            <script>
+                (function () {
+                    var s = document.createElement('script');
+                    s.src = 'https://registry.npmmirror.com/twikoo/1.6.41/files/dist/twikoo.min.js';
+                    s.async = true;
+                    s.onload = function () {
+                        twikoo.init({
+                            envId: 'https://comment.jame.work',
+                            el: '#tcomment',
+                            lang: 'zh-CN'
+                        });
+                    };
+                    document.body.appendChild(s);
+                })();
+            </script>
         </main>
     </div>
 </body>

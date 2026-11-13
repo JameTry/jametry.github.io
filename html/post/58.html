@@ -32,7 +32,7 @@
         </aside>
 
         <main>
-            <article class="post">
+            <article>
                 <header class="post-head">
                     <time datetime="2026-10-26">2026.10.26</time>
                     <h1>积水潭</h1>
@@ -57,6 +57,23 @@
                     <p>午后回去的路上我又想起了那条长椅。它怎么会悲伤呢？它不会悲伤，也不能悲伤，毕竟它只是铁与木的组合，一切不过是我自己情不自禁地伤感。可我终究揣度不了在它身旁发生的那些故事中的情感的重量，爱与担忧，深沉的无力，早已都如水般默默沉积在了那片潭里。</p>
                 </div>
             </article>
+
+            <div id="tcomment" class="post-comments"></div>
+            <script>
+                (function () {
+                    var s = document.createElement('script');
+                    s.src = 'https://registry.npmmirror.com/twikoo/1.6.41/files/dist/twikoo.min.js';
+                    s.async = true;
+                    s.onload = function () {
+                        twikoo.init({
+                            envId: 'https://comment.jame.work',
+                            el: '#tcomment',
+                            lang: 'zh-CN'
+                        });
+                    };
+                    document.body.appendChild(s);
+                })();
+            </script>
         </main>
     </div>
 </body>
