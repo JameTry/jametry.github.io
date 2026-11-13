@@ -180,7 +180,9 @@ main {
 }
 
 article {
-    margin-bottom: 4rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--rule);
+    margin-bottom: 5rem;
 }
 
 .intro {
