@@ -63,6 +63,7 @@ html {
     text-size-adjust: 100%;
     scrollbar-width: thin;
     scrollbar-color: var(--rule-2) transparent;
+    scrollbar-gutter: stable;
 }
 
 body {
