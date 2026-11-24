@@ -476,6 +476,10 @@ hr {
     font-size: 0.95rem;
 }
 
+.nav-page .link-group {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
 .link-group li {
     display: flex;
     flex-direction: column;
