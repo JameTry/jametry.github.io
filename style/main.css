@@ -186,26 +186,6 @@ article {
     margin-bottom: 5rem;
 }
 
-.intro {
-    margin: 0 0 4.5rem;
-}
-
-.intro p {
-    margin: 0 0 1.15rem;
-}
-
-.intro p:last-child {
-    margin-bottom: 0;
-}
-
-.intro .lede {
-    font-family: var(--title);
-    font-size: 1.5rem;
-    font-weight: 400;
-    line-height: 1.6;
-    margin-bottom: 1.5rem;
-}
-
 .poem-spot {
     margin: 0 0 4rem;
 }
@@ -602,7 +582,6 @@ mark {
     color: inherit;
 }
 
-
 .toc {
     font-family: var(--sans);
     font-size: 0.74rem;
@@ -676,10 +655,6 @@ mark {
     border-radius: var(--radius);
 }
 
-.content-page {
-    font-family: var(--sans);
-}
-
 .twikoo {
     font-family: var(--sans);
     font-size: 0.9rem;
@@ -736,14 +711,6 @@ mark {
 @media (max-width: 560px) {
     :root {
         --body-size: 16px;
-    }
-
-    .intro {
-        margin-bottom: 3.25rem;
-    }
-
-    .intro .lede {
-        font-size: 1.3rem;
     }
 
     .index a {
