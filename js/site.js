@@ -90,7 +90,7 @@
         var links = [];
 
         Array.prototype.forEach.call(heads, function (head, index) {
-            var id = 'sec-' + index;
+            var id = head.id || 'sec-' + index;
             head.id = id;
 
             var item = document.createElement('li');
@@ -136,10 +136,47 @@
         }, { passive: true });
     }
 
+    function initPoemSpot() {
+        var box = document.getElementById('poem-spot');
+        var data = document.getElementById('poem-picks');
+        if (!box || !data) return;
+
+        var picks;
+        try {
+            picks = JSON.parse(data.textContent || '[]');
+        } catch (err) {
+            return;
+        }
+        if (!picks || !picks.length) return;
+
+        var pick = picks[Math.floor(Math.random() * picks.length)];
+        var link = document.getElementById('poem-spot-link');
+        var title = document.getElementById('poem-spot-title');
+        var lines = document.getElementById('poem-spot-lines');
+        if (!link || !title || !lines) return;
+
+        link.href = '/html/other/18r#' + pick.anchor;
+        title.textContent = pick.title;
+        lines.textContent = (pick.lines || []).join('\n');
+        box.hidden = false;
+    }
+
+
+    function scrollToHash() {
+        if (!location.hash) return;
+        var target = document.getElementById(location.hash.slice(1));
+        if (target) {
+            target.scrollIntoView({ block: 'start' });
+        }
+    }
+
+
     function boot() {
         initTheme();
         initLightbox();
         initToc();
+        initPoemSpot();
+        scrollToHash();
     }
 
     if (document.readyState === 'loading') {

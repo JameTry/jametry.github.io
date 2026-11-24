@@ -7,6 +7,9 @@ public class Main {
         // 扫描 html/post，按日期倒序重建首页的文章索引
         HtmlGenIndex.run(projectPath);
 
+        //
+        PoemPicks.run(projectPath);
+
         // 按同一份日期重建 feed.xml
         RssGen.run(projectPath);
 

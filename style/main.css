@@ -134,7 +134,7 @@ body {
     display: block;
     color: var(--ink-2);
     font-family: var(--serif);
-    font-size: 0.9rem;
+    font-size: 1rem;
     letter-spacing: 0.03em;
     text-decoration: none;
     transition: color 0.2s ease;
@@ -206,14 +206,73 @@ article {
     margin-bottom: 1.5rem;
 }
 
-.label {
+.poem-spot {
+    margin: 0 0 4rem;
+}
+
+.poem-spot-link {
     display: block;
+    padding-left: 1.2rem;
+    border-left: 2px solid var(--rule-2);
+    color: var(--ink-2);
+    text-decoration: none;
+    transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.poem-spot-link:hover {
+    color: var(--ink);
+    border-left-color: var(--signal);
+}
+
+.poem-spot-title {
+    display: block;
+    margin: 0 0 0.6rem;
+    font-family: var(--sans);
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    color: var(--ink-3);
+}
+
+.poem-spot-lines {
+    display: block;
+    font-family: var(--title);
+    font-size: 1.05rem;
+    line-height: 2;
+    white-space: pre-line;
+}
+
+.label {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
     margin: 0 0 1.35rem;
     font-family: var(--sans);
     font-size: 0.72rem;
     letter-spacing: 0.22em;
     color: var(--ink-3);
 }
+
+
+.site-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 2rem;
+    margin-top: 3rem;
+    color: var(--ink-3);
+    font-size: 0.9rem;
+    letter-spacing: 0.02em;
+}
+
+.site-footer p {
+    margin: 0;
+}
+
+.footer-meta {
+
+}
+
+
 
 .index {
     list-style: none;
@@ -249,6 +308,14 @@ article {
 .index a:hover,
 .index a:hover time {
     color: var(--signal);
+}
+
+.index a span {
+    transition: transform 0.2s ease;
+}
+
+.index a:hover span {
+    transform: translateX(4px);
 }
 
 
@@ -331,16 +398,18 @@ article {
 }
 
 .prose a,
+.poems a,
 .link-text {
     color: var(--ink);
     text-decoration: underline;
     text-decoration-color: var(--rule-2);
     text-decoration-thickness: 1px;
-    text-underline-offset: 0.22em;
+    text-underline-offset: 0.3em;
     transition: color 0.18s ease, text-decoration-color 0.18s ease;
 }
 
 .prose a:hover,
+.poems a:hover,
 .link-text:hover {
     color: var(--signal);
     text-decoration-color: var(--signal);
@@ -382,6 +451,10 @@ article {
     line-height: 2.05;
 }
 
+pk {
+    display: contents;
+}
+
 
 hr {
     border: 0;
@@ -413,12 +486,16 @@ hr {
 
 .link-group a {
     color: var(--ink);
-    text-decoration: none;
-    transition: color 0.2s ease;
+    text-decoration: underline;
+    text-decoration-color: var(--rule-2);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.3em;
+    transition: color 0.18s ease, text-decoration-color 0.18s ease;
 }
 
 .link-group a:hover {
     color: var(--signal);
+    text-decoration-color: var(--signal);
 }
 
 .link-group .desc {
@@ -683,6 +760,16 @@ mark {
     .link-group li {
         flex-direction: column;
         gap: 0.15rem;
+    }
+
+    .site-footer {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1.5rem;
+    }
+
+    .footer-meta {
+        text-align: left;
     }
 }
 
