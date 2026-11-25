@@ -13,69 +13,97 @@
         try {
             var t = localStorage.getItem('jame-theme');
             if (t) document.documentElement.setAttribute('data-theme', t);
-        } catch (e) { }
+        } catch (e) {
+        }
     </script>
     <script src="/js/site_mini.js" defer></script>
 </head>
 
 <body>
-    <div class="layout">
-        <aside class="side">
-            <a class="brand" href="/">Jame</a>
-            <nav class="side-nav">
-                <a href="/html/other/nav">杂项</a>
-                <a href="/html/links" aria-current="page">链接</a>
-                <a href="/html/message">留言</a>
-                <a href="https://www.travellings.cn/go.html" target="_blank" rel="noopener">开往</a>
-            </nav>
-            <button class="theme-toggle" type="button" title="切换主题" aria-label="切换主题">◐</button>
-        </aside>
+<div class="layout">
+    <aside class="side">
+        <a class="brand" href="/">Jame</a>
+        <nav class="side-nav">
+            <a href="/html/other/nav">杂项</a>
+            <a href="/html/links" aria-current="page">链接</a>
+            <a href="/html/message">留言</a>
+            <a href="https://www.travellings.cn/go.html" target="_blank" rel="noopener">开往</a>
+        </nav>
+        <button class="theme-toggle" type="button" title="切换主题" aria-label="切换主题">◐</button>
+    </aside>
 
-        <main>
-            <h1 class="page-title">链接</h1>
-
-
-            <ul class="link-group">
-                <li>
-                    <a href="https://bedtimepoem.com/" target="_blank" rel="noopener">读首诗再睡觉</a>
-                    <span class="desc">分享诗歌的网站</span>
-                </li>
-            </ul>
-            <ul class="link-group">
-                <li><a href="https://wygxmew.github.io/" target="_blank" rel="noopener">乌云盖雪</a></li>
-                <li><a href="https://ro3or.com" target="_blank" rel="noopener">鹅玉</a></li>
-                <li><a href="https://dangeer.com/" target="_blank" rel="noopener">dangeer</a></li>
-                <li><a href="https://ventuss.xyz/" target="_blank" rel="noopener">ventuss</a></li>
-                <li><a href="https://blog.verdant.ee" target="_blank" rel="noopener">映屿</a></li>
-            </ul>
-            <ul class="link-group">
-                <li><a href="https://hanis.me" target="_blank" rel="noopener">Jason’s Blog</a></li>
-                <li><a href="https://blog.snowy.moe" target="_blank" rel="noopener">雪萌天文台</a></li>
-                <li><a href="https://nasliangjian.mycloudnas.com:4443" target="_blank" rel="noopener">James的小站</a></li>
-                <li><a href="https://www.christianpoet.top" target="_blank" rel="noopener">诗译象</a></li>
-                <li><a href="https://www.qingfengnb.cn" target="_blank" rel="noopener">轻风blog</a></li>
-                <li><a href="https://www.xiaoten.com/" target="_blank" rel="noopener">小十博客</a></li>
-                <li><a href="https://blog.5252025.xyz" target="_blank" rel="noopener">The Blog</a></li>
-                <li><a href="http://www.winegrower.cn/" target="_blank" rel="noopener">winegrower</a></li>
-                <li><a href="https://loongmint1314.mycloudnas.com:4443/" target="_blank" rel="noopener">来看听雨轩</a></li>
-            </ul>
-            <ul class="link-group">
-                <li>
-                    <a href="https://www.travellings.cn/" target="_blank" rel="noopener">开往</a>
-                </li>
-                <li>
-                    <a href="https://www.foreverblog.cn/" target="_blank" rel="noopener">十年之约</a>
-                </li>
-                <li>
-                    <a href="https://indi.blog/" target="_blank" rel="noopener">中文独立博客</a>
-                </li>
-                <li>
-                    <a href="https://jame.work/feed.xml" target="_blank" rel="noopener">订阅本站RSS</a>
-                </li>
-            </ul>
-
-        </main>
-    </div>
+    <main>
+        <article>
+            <div class="prose">
+                <h1 class="page-title">链接</h1>
+                <p>如果你想链接到该站，可以使用以下信息：</p>
+                <blockquote>
+                    <p>名称：Jame</p>
+                    <p>地址：https://jame.work</p>
+                    <p>描述：随笔</p>
+                    <p>头像：https://jame.work/favicon.ico</p>
+                </blockquote>
+                <hr>
+                <ul class="link-group">
+                    <li>
+                        <a href="https://bedtimepoem.com/" target="_blank" rel="noopener">读首诗再睡觉</a>
+                        <span class="desc">分享诗歌的网站</span>
+                    </li>
+                </ul>
+                <ul class="link-group">
+                    <li><a href="https://wygxmew.github.io/" target="_blank" rel="noopener" class="dead">乌云盖雪</a></li>
+                    <li><a href="https://ro3or.com" target="_blank" rel="noopener">鹅玉</a></li>
+                    <li><a href="https://dangeer.com/" target="_blank" rel="noopener">dangeer</a></li>
+                    <li><a href="https://ventuss.xyz/" target="_blank" rel="noopener">ventuss</a></li>
+                    <li><a href="https://blog.verdant.ee" target="_blank" rel="noopener">映屿</a></li>
+                </ul>
+                <ul class="link-group">
+                    <li><a href="https://hanis.me" target="_blank" rel="noopener" class="dead">Jason’s Blog</a></li>
+                    <li><a href="https://blog.snowy.moe" target="_blank" rel="noopener">雪萌天文台</a></li>
+                    <li><a href="https://nasliangjian.mycloudnas.com:4443" target="_blank" rel="noopener">James的小站</a></li>
+                    <li><a href="https://www.christianpoet.top" target="_blank" rel="noopener">诗译象</a></li>
+                    <li><a href="https://www.qingfengnb.cn" target="_blank" rel="noopener">轻风blog</a></li>
+                    <li><a href="https://www.xiaoten.com/" target="_blank" rel="noopener">小十博客</a></li>
+                    <li><a href="https://blog.5252025.xyz" target="_blank" rel="noopener">The Blog</a></li>
+                    <li><a href="http://www.winegrower.cn/" target="_blank" rel="noopener">winegrower</a></li>
+                    <li><a href="https://loongmint1314.mycloudnas.com:4443/" target="_blank" rel="noopener">来看听雨轩</a></li>
+                </ul>
+                <ul class="link-group">
+                    <li>
+                        <a href="https://www.travellings.cn/" target="_blank" rel="noopener">开往</a>
+                    </li>
+                    <li>
+                        <a href="https://www.foreverblog.cn/" target="_blank" rel="noopener">十年之约</a>
+                    </li>
+                    <li>
+                        <a href="https://indi.blog/" target="_blank" rel="noopener">中文独立博客</a>
+                    </li>
+                    <li>
+                        <a href="https://jame.work/feed.xml" target="_blank" rel="noopener">订阅本站RSS</a>
+                    </li>
+                </ul>
+                <br>
+                <p>第一个找我交换链接的博客是“Jason’s Blog”，他的博客已经关站了。</p>
+                <p>我第一个请求交换链接的博客是“乌云盖雪”，他的博客也已经关站了，有那么一丢丢怅然。</p>
+                <p>但其实也没什么，本来我们也没怎么交流过。</p>
+                <p>突然想起来……说个趣事吧，“乌云盖雪”为什么叫“乌云盖雪”呢？最初我以为这是出自某首诗词中，搜索后才明白，是因为博主养了一只奶牛猫，上半身黑色而下半身白色，所以很形象地称之为“乌云盖雪”，由此我也了解到了一些关于猫毛花色的雅称。</p>
+                <p>他写诗、写文章、写思考，不过更新得很慢很慢。他有一篇《你养的蚂蚱》，那篇文章可能都不到三百字，但我很喜欢那篇短文，常常去读，我总觉得有一种伤感。</p>
+                <p>内容是“我”遇到了一只蚂蚱，认出来那是“你”养的蚂蚱，“我”要把蚂蚱还给“你”，于是“我”抓住了它，可路途遥远，山路蜿蜒，就像“我”的思绪一样越走越长。路上蚂蚱不断挣扎，吃掉了自己的一条后腿，又吃掉了自己另一条后腿……</p>
+                <p>不过现在他已经关站了。</p>
+                <p>那篇短文的结尾是：“我害了你养的蚂蚱，我该如何面对你？我还能见到你吗……😭”</p>
+            </div>
+        </article>
+        <div id="tcomment"></div>
+        <script src="https://registry.npmmirror.com/twikoo/1.6.41/files/dist/twikoo.min.js"></script>
+        <script>
+            twikoo.init({
+                envId: 'https://comment.jame.work',
+                el: '#tcomment',
+                lang: 'zh-CN'
+            });
+        </script>
+    </main>
+</div>
 </body>
 
 </html>
