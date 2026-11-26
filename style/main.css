@@ -477,6 +477,7 @@ hr {
 }
 
 .link-group li {
+    position: relative;
     display: flex;
     flex-direction: column;
     gap: 0.1rem;
@@ -513,9 +514,37 @@ hr {
 }
 
 .link-group .desc {
+    position: absolute;
+    left: 0;
+    top: calc(100% - 0.15rem);
+    max-width: 20rem;
+    padding: 0.4rem 0.6rem;
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-radius: var(--radius);
     color: var(--ink-3);
     font-family: var(--sans);
     font-size: 0.82rem;
+    line-height: 1.6;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.18s ease;
+    z-index: 30;
+}
+
+.link-group li:hover .desc {
+    opacity: 1;
+    visibility: visible;
+}
+
+.link-group li.show-desc .desc {
+    position: static;
+    max-width: none;
+    padding: 0;
+    background: none;
+    border: 0;
+    opacity: 1;
+    visibility: visible;
 }
 
 
